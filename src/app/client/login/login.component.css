@@ -1,0 +1,34 @@
+
+.error
+{
+    color:red;
+}
+input{
+    background-color: #fff;
+    line-height: 6vh;
+    opacity: 0.8;
+
+}
+.btn1
+	{
+		color: white;
+		background-color:#F07C49;
+        border-radius:20vh;
+        line-height: 0vw;   
+    }
+
+    .btn2{
+        color: white;
+        background-color:#A1A1A1;
+        border-radius:20vh;
+        line-height: 0vw;
+    }    
+    @media screen and(max-width:768){
+        .btn1
+	{
+		color: white;
+		background-color:#F07C49;
+        border-radius:20vh;
+    }
+    
+    }
