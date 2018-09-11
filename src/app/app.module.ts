@@ -33,6 +33,8 @@ import { LoginComponent } from './client/login/login.component';
 
 import { AuthService } from './shared/auth.service';
 import { AuthGuardService } from './shared/auth-guard.service';
+import { RegisterComponent } from './client/register/register.component';
+import { ForgetComponent } from './client/forget/forget.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -55,7 +57,9 @@ import { AuthGuardService } from './shared/auth-guard.service';
     AdmindashboardComponent,
     AgentdashboardComponent,
     AgentloginComponent,
-    LoginComponent
+    LoginComponent,
+    RegisterComponent,
+    ForgetComponent
   ],
   imports: [
     BrowserModule,
