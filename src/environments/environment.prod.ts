@@ -7,5 +7,5 @@ export const environment = {
     projectId: "agent-sync-sonderworks",
     storageBucket: "agent-sync-sonderworks.appspot.com",
     messagingSenderId: "765871914423"
-  },
+  }, 
 };
