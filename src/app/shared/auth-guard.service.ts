@@ -4,7 +4,10 @@ import { Router, CanActivate, ActivatedRouteSnapshot,
 import { AuthService } from './auth.service';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { auth } from 'firebase';
-import { take, map, tap, } from 'rxjs/operators'
+import { take } from 'rxjs/operator/take';
+import { map } from 'rxjs/operators/map';
+import { tap } from 'rxjs/operators/tap';
+import { Observable} from 'rxjs';
 
 
 

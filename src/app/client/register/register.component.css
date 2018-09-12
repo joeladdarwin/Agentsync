@@ -1,0 +1,34 @@
+input.ng-invalid.ng-dirty
+{
+    border: 1px solid red;
+}
+
+h4
+{ 
+	color: #434343;   
+ 
+}
+.btd
+{
+    color: #F07C49;
+}
+
+.btninput
+	{
+		color: white;
+		background-color:#F07C49;
+        border-radius:30vh;
+       
+    }
+.fa{
+        
+        font-size: 1.5rem;
+      
+    }
+.numinput{
+    border: 2px solid #434343;
+}
+@media screen and (max-width: 780px) {
+    
+     
+    }
