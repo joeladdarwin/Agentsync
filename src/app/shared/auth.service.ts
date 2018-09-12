@@ -16,15 +16,19 @@ export class AuthService {
 
   constructor(private afAuth : AngularFireAuth, private afs : AngularFirestore, private router : Router
   ) {
-    this.users$ = this.afAuth.authState.switchMap(
-      user=>{
-        if (user){
-          return this.afs.doc<User>('users/${user.uid}').valueChanges()
-        }else {
-          return false
-        }
-      }
-    )
+    this.users$ = this.afAuth.authState.pipe(
+      switchMap(
+        user => {
+                    if (user){
+                      return this.afs.doc<User>('users/${user.uid}').valueChanges()
+                    }
+                    else
+                    {
+                      return null
+                    }
+                 }
+           )
+           )
   }
   
   private register(user)
