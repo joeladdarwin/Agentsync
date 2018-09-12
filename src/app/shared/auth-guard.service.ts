@@ -4,8 +4,10 @@ import { Router, CanActivate, ActivatedRouteSnapshot,
 import { AuthService } from './auth.service';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { auth } from 'firebase';
-import { take, map, tap, } from 'rxjs/operators'
-
+import { take } from 'rxjs/operators';
+import {  map } from 'rxjs/operators';
+import {  tap } from 'rxjs/operators';
+import{ Observable }from 'rxjs';
 
 
 
@@ -24,8 +26,7 @@ export class AuthGuardService implements CanActivate {
         this.router.navigate(['/login'])
       }
 
-    })}
+  })}
 
   }
      
-}
