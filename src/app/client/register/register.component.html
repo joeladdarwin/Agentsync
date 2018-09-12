@@ -1,3 +1,40 @@
-<p>
-  register works!
-</p>
+
+<div class="row">
+  <div class="col-12 mt-5" >
+    <a routerLink="/login"><i class="fa fa-arrow-left float-left text-dark"></i></a>
+      <h2 class="text-center">Please let us know <br> who to register.</h2>
+   </div>   
+          <form class=" col-12 text-center mt-3" #registerform="ngForm" (ngSubmit)="onSubmit(registerForm)">
+              <div class="row">
+                  <div class="offset-2 col-8 my-2">
+                  <input type="text" name="name" placeholder="Full Name" class="form-control p-3 numinput text-center" #name="ngModel" [(ngModel)]="clientservice.name" validators.required minlength="5" maxlength="30">
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="offset-2 col-8 my-2">
+                      <input type="text" name="brokerage" placeholder="Brokerage" class="form-control p-3 numinput text-center" #brokerage= "ngModel" [(ngModel)]="clientservice.brokerage" validators.required>
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="offset-2 col-8 my-2">
+                      <input type="email" name="email" placeholder="Email Address" class=" form-control p-3 numinput text-center" #email="ngModel" [(ngModel)]="clientservice.email"
+                      validators.required pattern="[^@]*@[^@]*">
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="offset-2 col-8 my-2">
+                      <input type="tel" name="phone" placeholder="Phonenumber" class=" form-control p-3 numinput text-center" #phone="ngModel" [(ngModel)]="clientservice.phone"
+                      validators.required pattern="^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$" maxlength="10">
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="offset-2 col-8 my-2">
+                      <button type="submit" class="btn btninput btn-block mx-auto p-3" >REGISTER ME </button>
+                  </div>
+              </div>
+              <p>Already have an account?
+                          <a routerLink="/login" class="btd">Sign In</a>
+                      </p>
+
+          </form>
+		  </div>

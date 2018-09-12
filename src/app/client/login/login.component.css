@@ -1,34 +1,34 @@
-
-.error
+input.ng-invalid.ng-dirty
 {
-    color:red;
+    border: 1px solid red;
 }
-input{
-    background-color: #fff;
-    line-height: 6vh;
-    opacity: 0.8;
 
+h4
+{ 
+  color: #434343;   
+ 
 }
-.btn1
-	{
-		color: white;
-		background-color:#F07C49;
-        border-radius:20vh;
-        line-height: 0vw;   
-    }
+.btd
+{
+    color: #F07C49;
+}
 
-    .btn2{
-        color: white;
-        background-color:#A1A1A1;
-        border-radius:20vh;
-        line-height: 0vw;
-    }    
-    @media screen and(max-width:768){
-        .btn1
-	{
-		color: white;
-		background-color:#F07C49;
-        border-radius:20vh;
+.btninput
+  {
+    color: white;
+    background-color:#F07C49;
+        border-radius:30vh;
+       
     }
+.fa{
+        
+        font-size: 1.5rem;
+      
+    }
+.numinput{
+    border: 2px solid #434343;
+}
+@media screen and (max-width: 780px) {
     
+     
     }

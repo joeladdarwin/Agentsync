@@ -1,4 +1,102 @@
+
+
+html,body
+{
+  font-family: 'Lato', sans-serif;
+  font-style: normal;
+  
+}
+
+h1, h2, h3, h4, h5, h6, p{
+    font-family: inherit
+}
+
+#headerback{
+    background-image: url('/assets/image/background/Desktop/background.jpg');
+    background-repeat: no-repeat;
+    background-size: cover; 
+    min-height: 100vh;   
+}
+.btn-link {
+    font-family: Arial, Helvetica, sans-serif;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    background-color: transparent !important;
+    padding: 0rem !important;  
+}
+.otopic
+{
+color: #F1875B
+}
+.btn.btn-link{
+    color:#fff !important;
+}
+
+
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: 'Roboto', sans-serif; }
+.fa{
+    font-size: 2rem;
+    
+}
+.greyed
+{
+    background-color:#636363;
+}
+ .pcolor{
+        color:#F07C49;
+    }
+    .btn1
+	{
+		color: white;
+        background-color:#F07C49;
+        
+    }
+    .btn-selected
+{
+    background-color:#D5D5D5 !important;
+    color:#000 !important;
+     font-size: 1.25rem;
+} 
+.btn1:hover
+{
+    background-color: #D5D5D5;
+      color:#000 !important;
+} 
+
+.invisible {
+  visibility: hidden;
+}
+.sminput
+{
+  width: 2px !important;
+} 
+@media screen and (max-width: 780px) {
+     #headerback{
+
+        background-image: url('/assets/image/background/mobile/mobilebacklogin.png');
+        background-repeat: no-repeat;
+        background-size: cover;     
+    }
+    .fa,.btn1,.btn-selected{
+    font-size: 1rem;  
+
+    }
+    .btn4
+	{
+		color: white;
+        background-color:#F07C49;
+        border-radius:20px;
+        width: 21rem;
+       
+        
+    }
+    
+.btn1:hover
+{
+    background-color: #D5D5D5;
+}  
+   
+    }
+
+

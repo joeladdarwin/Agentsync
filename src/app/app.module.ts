@@ -3,7 +3,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
 import { platformBrowserDynamic } from "@angular/platform-browser-dynamic";
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { Observable } from 'rxjs';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 
 import { AppComponent } from './app.component';
@@ -31,10 +33,12 @@ import { LoginComponent } from './client/login/login.component';
 
 
 
+
 import { AuthService } from './shared/auth.service';
 import { AuthGuardService } from './shared/auth-guard.service';
 import { RegisterComponent } from './client/register/register.component';
 import { ForgetComponent } from './client/forget/forget.component';
+import { ClientService } from './shared/client.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -59,15 +63,20 @@ import { ForgetComponent } from './client/forget/forget.component';
     AgentloginComponent,
     LoginComponent,
     RegisterComponent,
+    
     ForgetComponent
   ],
   imports: [
     BrowserModule,
     CommonModule,
     AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
+ 
+
    
   ],
-  providers: [AuthGuardService],
+  providers: [AuthGuardService,ClientService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
