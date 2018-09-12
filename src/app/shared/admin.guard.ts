@@ -4,16 +4,14 @@ import { Observable } from 'rxjs';
 import { AuthService } from './auth.service';
 import { tap, map, take } from 'rxjs/operators';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class AdminGuard implements CanActivate {
-  constructor(private auth:AuthService, private route : Router){
+  constructor(private auth:AuthService){
 
   }
   canActivate(
     next: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
+    state: RouterStateSnapshot): Observable<boolean>  {
     return this.auth.users$.pipe(
         take(1),
         map(user => user && user.roles.admin ? true : false ),

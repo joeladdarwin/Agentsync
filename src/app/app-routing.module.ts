@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes, CanActivate, Router  } from '@angular/router';
-import { AuthService } from './shared/auth.service';
 import { AdminGuard } from './shared/admin.guard';
 import { AuthGuardService } from './shared/auth-guard.service';
 
@@ -46,8 +45,8 @@ const routes: Routes = [
   { path: 'myorder', component: MyorderComponent },
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuardService]},
   { path: 'editprofile', component: EditprofileComponent },
-  { path: 'adlogin', component: AdminloginComponent },
-  { path: 'addashboard', component: AdmindashboardComponent },
+  { path: 'adlogin', component: AdminloginComponent, canActivate: [AdminGuard] },
+  { path: 'addashboard', component: AdmindashboardComponent, canActivate: [AdminGuard] },
   { path: 'agdashboard', component: AgentdashboardComponent },
   { path: 'aglogin', component: AgentloginComponent },
 ];

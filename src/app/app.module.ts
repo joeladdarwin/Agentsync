@@ -3,9 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
 import { platformBrowserDynamic } from "@angular/platform-browser-dynamic";
 import { NgModule } from '@angular/core';
-import { FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { Observable } from 'rxjs';
-import { AngularFirestore } from '@angular/fire/firestore';
 
 
 import { AppComponent } from './app.component';
@@ -70,8 +67,8 @@ import { ClientService } from './shared/client.service';
     BrowserModule,
     CommonModule,
     AppRoutingModule,
-    FormsModule,
-    ReactiveFormsModule
+ 
+    
  
 
    
