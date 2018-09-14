@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { ClientService } from '../../shared/client.service';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegisterComponent implements OnInit {
 
-  constructor() { }
+  constructor(private cli: ClientService) { }
 
   ngOnInit() {
   }
