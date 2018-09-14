@@ -1,9 +1,15 @@
 
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
 import { platformBrowserDynamic } from "@angular/platform-browser-dynamic";
 import { NgModule } from '@angular/core';
-
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FormsModule }   from '@angular/forms';
+import { environment } from "../environments/environment";
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireAuthModule } from "angularfire2/auth";
+import { AngularFirestoreModule } from 'angularfire2/firestore';
 
 
 import { AppComponent } from './app.component';
@@ -28,13 +34,11 @@ import { AgentdashboardComponent } from './agent/agentdashboard/agentdashboard.c
 import { AgentloginComponent } from './agent/agentlogin/agentlogin.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { LoginComponent } from './client/login/login.component';
-
-
-
-import { AuthService } from './shared/auth.service';
 import { AuthGuardService } from './shared/auth-guard.service';
 import { RegisterComponent } from './client/register/register.component';
 import { ForgetComponent } from './client/forget/forget.component';
+import { ThanksComponent } from './client/thanks/thanks.component';
+import { AuthService } from './shared/auth.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -59,15 +63,20 @@ import { ForgetComponent } from './client/forget/forget.component';
     AgentloginComponent,
     LoginComponent,
     RegisterComponent,
-    ForgetComponent
+    ForgetComponent,
+    ThanksComponent
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     CommonModule,
     AppRoutingModule,
-   
+    NgbModule.forRoot(),
+    FormsModule,
+    AngularFireAuthModule, AngularFirestoreModule, 
+    AngularFireModule.initializeApp(environment.firebase),
   ],
-  providers: [AuthGuardService],
+  providers: [AuthGuardService, AuthService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

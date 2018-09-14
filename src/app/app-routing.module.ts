@@ -5,7 +5,7 @@ import { AdminGuard } from './shared/admin.guard';
 import { AuthGuardService } from './shared/auth-guard.service';
 
 
-import { NavbarComponent } from './client/navbar/navbar.component';
+
 import { DashboardComponent } from './client/dashboard/dashboard.component';
 import { PlaceorderComponent } from './client/placeorder/placeorder.component';
 import { AddressComponent } from './client/address/address.component';
@@ -25,11 +25,14 @@ import { AdmindashboardComponent } from './admin/admindashboard/admindashboard.c
 import { AgentdashboardComponent } from './agent/agentdashboard/agentdashboard.component';
 import { AgentloginComponent } from './agent/agentlogin/agentlogin.component';
 import { LoginComponent } from './client/login/login.component';
-
+import { RegisterComponent } from './client/register/register.component';
+import { ForgetComponent } from './client/forget/forget.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: "", redirectTo: 'login', pathMatch: 'full' },
+  { path: 'register', component: RegisterComponent },
+  { path: 'forget', component: ForgetComponent },
   { path: 'main', component: DashboardComponent },
   { path: 'placeorder', component: PlaceorderComponent },
   { path: 'address', component: AddressComponent },
