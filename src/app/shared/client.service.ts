@@ -1,15 +1,18 @@
 import { Injectable } from '@angular/core';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ClientService {
 
-  constructor() { }
+  constructor(private auth:AuthService) { }
 
   // Common
   // End of Common
+ 
   // Signup
+  
   // End of Signup
   // Forget
   // End of Forget

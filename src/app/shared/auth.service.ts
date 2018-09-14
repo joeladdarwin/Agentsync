@@ -3,17 +3,17 @@ import { Router } from '@angular/router';
 import * as firebase from 'firebase/app';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFirestore, AngularFirestoreDocument } from 'angularfire2/firestore'
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 import { User } from './user';
-
+ 
 
 
 
 @Injectable()
 export class AuthService {
   users$ : Observable<User>;
-
+ 
   constructor(private afAuth : AngularFireAuth, private afs : AngularFirestore, private router : Router
   ) {
     this.users$ = this.afAuth.authState.pipe(
@@ -24,35 +24,40 @@ export class AuthService {
                     }
                     else
                     {
-                      return null
+                      return of(null)
                     }
                  }
            )
            )
+
+        
   }
   
-  private register(user)
+  register(user)
   {
     try{
-      return this.afAuth.auth.createUserWithEmailAndPassword(user.email,user.phonenumber).then((credential)=>{
-        this.updateuserdata(credential.user)
-      })
+   
+      return this.afAuth.auth.createUserWithEmailAndPassword(user.email,user.phone).then((credential)=>{
+       const uid = this.afAuth.auth.currentUser.uid;
+       this.updateuserdata(user, uid)
+      }).then(this.router.navigateByUrl['/login'])
     }
     catch(e)
     {
       console.log(e)
     }
   }
-
-  private updateuserdata(user)
+  
+  private updateuserdata(user,uid)
   {
-    const userRef$ :AngularFirestoreDocument<any> = this.afs.doc<User>('users/${user.uid}');
+    console.log(user)
+    const userRef$: AngularFirestoreDocument<any> = this.afs.doc<User>('users/'+uid);
     const userdata : User = {
-      uid:user.uid,
-      fullname:user.fullname,
+      uid:uid;
+      displayName: user.name,
       brokerage:user.brokerage,
       email:user.email,
-      phonenumber:user.phonenumber,
+      phonenumber:user.phone,
       roles:{
         user:true
       }
@@ -60,7 +65,7 @@ export class AuthService {
       return userRef$.set(userdata,{merge:true})
   }
     // determines the user has matching role
-    private checkAuthorization(user:User,allowedRoles: string[]):boolean{
+    private checkAuthorization(user:User, allowedRoles: string[]):boolean{
       if (!user) return false
       for(const role of allowedRoles){
         if(user.roles[role])

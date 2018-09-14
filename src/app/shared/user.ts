@@ -4,11 +4,12 @@ export interface Roles{
     admin?:boolean;
 }
 export interface User {
-    uid:string;
-    fullname:string;
-    brokerage?:string;
+    uid?:string;
+    displayName:string;
+    brokerage:string;
     email:string;
     phonenumber:string;
     account?:string;
+    photoURL?:string;
     roles:Roles;
 }

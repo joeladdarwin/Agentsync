@@ -38,6 +38,9 @@ import { LoginComponent } from './client/login/login.component';
 
 import { AuthService } from './shared/auth.service';
 import { AuthGuardService } from './shared/auth-guard.service';
+import { ClientService } from './shared/client.service';
+import { AdminService } from './shared/admin.service';
+import { AgentService } from './shared/agent.service';
 import { RegisterComponent } from './client/register/register.component';
 import { ForgetComponent } from './client/forget/forget.component';
 @NgModule({
@@ -77,7 +80,7 @@ import { ForgetComponent } from './client/forget/forget.component';
     AngularFireAuthModule, AngularFirestoreModule,
     AngularFireModule.initializeApp(environment.firebase),
   ],
-  providers: [AuthGuardService],
+  providers: [AuthGuardService, AuthService, ClientService, AdminService, AgentService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
