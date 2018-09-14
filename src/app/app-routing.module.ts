@@ -30,6 +30,7 @@ import { ForgetComponent } from './client/forget/forget.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
   { path: "", redirectTo: 'login', pathMatch: 'full' },
   { path: 'register', component: RegisterComponent },
   { path: 'forget', component: ForgetComponent },

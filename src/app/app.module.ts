@@ -11,7 +11,6 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from "angularfire2/auth";
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 
-
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './client/navbar/navbar.component';
 import { DashboardComponent } from './client/dashboard/dashboard.component';
@@ -34,11 +33,23 @@ import { AgentdashboardComponent } from './agent/agentdashboard/agentdashboard.c
 import { AgentloginComponent } from './agent/agentlogin/agentlogin.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { LoginComponent } from './client/login/login.component';
+<<<<<<< HEAD
 import { AuthGuardService } from './shared/auth-guard.service';
 import { RegisterComponent } from './client/register/register.component';
 import { ForgetComponent } from './client/forget/forget.component';
 import { ThanksComponent } from './client/thanks/thanks.component';
 import { AuthService } from './shared/auth.service';
+=======
+
+
+
+
+import { AuthService } from './shared/auth.service';
+import { AuthGuardService } from './shared/auth-guard.service';
+import { RegisterComponent } from './client/register/register.component';
+import { ForgetComponent } from './client/forget/forget.component';
+import { ClientService } from './shared/client.service';
+>>>>>>> 1c2f236e67ed34725fe050560ca4fdb31a8193a9
 @NgModule({
   declarations: [
     AppComponent,
@@ -63,20 +74,35 @@ import { AuthService } from './shared/auth.service';
     AgentloginComponent,
     LoginComponent,
     RegisterComponent,
+<<<<<<< HEAD
     ForgetComponent,
     ThanksComponent
+=======
+    
+    ForgetComponent
+>>>>>>> 1c2f236e67ed34725fe050560ca4fdb31a8193a9
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     CommonModule,
     AppRoutingModule,
+<<<<<<< HEAD
     NgbModule.forRoot(),
     FormsModule,
     AngularFireAuthModule, AngularFirestoreModule, 
     AngularFireModule.initializeApp(environment.firebase),
   ],
   providers: [AuthGuardService, AuthService ],
+=======
+ 
+    
+ 
+
+   
+  ],
+  providers: [AuthGuardService,ClientService],
+>>>>>>> 1c2f236e67ed34725fe050560ca4fdb31a8193a9
   bootstrap: [AppComponent]
 })
 export class AppModule { }

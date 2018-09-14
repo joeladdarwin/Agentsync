@@ -1,3 +1,38 @@
+
+
+html,body
+{
+  font-family: 'Lato', sans-serif;
+  font-style: normal;
+  
+}
+
+h1, h2, h3, h4, h5, h6, p{
+    font-family: inherit
+}
+
+#headerback{
+    background-image: url('/assets/image/background/Desktop/background.jpg');
+    background-repeat: no-repeat;
+    background-size: cover; 
+    min-height: 100vh;   
+}
+.btn-link {
+    font-family: Arial, Helvetica, sans-serif;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    background-color: transparent !important;
+    padding: 0rem !important;  
+}
+.otopic
+{
+color: #F1875B
+}
+.btn.btn-link{
+    color:#fff !important;
+}
+
+
 /* You can add global styles to this file, and also import other style files */
 
 body {  font-family: 'Lato'; }
