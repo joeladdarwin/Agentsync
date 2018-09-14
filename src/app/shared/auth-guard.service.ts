@@ -12,6 +12,7 @@ import { tap, map, take } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
+
 export class AuthGuardService implements CanActivate {
 
   constructor( private router: Router, private afAuth:AngularFireAuth) { }
@@ -30,6 +31,12 @@ export class AuthGuardService implements CanActivate {
   
    
 
+<<<<<<< HEAD
   }
      
 }
+=======
+    
+  // }    
+}
+>>>>>>> master

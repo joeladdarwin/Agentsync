@@ -6,7 +6,7 @@ export interface Roles{
 export interface User {
     uid:string;
     fullname:string;
-    brokerage:string;
+    brokerage?:string;
     email:string;
     phonenumber:string;
     account?:string;

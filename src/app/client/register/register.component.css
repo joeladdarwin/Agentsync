@@ -1,9 +1,12 @@
+<<<<<<< HEAD
 .bgrd{
     background-image: url('/assets/image/background/desktop/background.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     min-height: 100vh;
 }
+=======
+>>>>>>> master
 input.ng-invalid.ng-dirty
 {
     border: 1px solid red;
@@ -11,7 +14,11 @@ input.ng-invalid.ng-dirty
 
 h4
 { 
+<<<<<<< HEAD
 	color: #434343;   
+=======
+  color: #434343;   
+>>>>>>> master
  
 }
 .btd
@@ -20,9 +27,15 @@ h4
 }
 
 .btninput
+<<<<<<< HEAD
 	{
 		color: white;
 		background-color:#F07C49;
+=======
+  {
+    color: white;
+    background-color:#F07C49;
+>>>>>>> master
         border-radius:30vh;
        
     }
@@ -35,9 +48,18 @@ h4
     border: 2px solid #434343;
 }
 @media screen and (max-width: 780px) {
+<<<<<<< HEAD
     bgrd{
         background-image: url('/assets/image/background/mobile/mobileback.png');
     }
+=======
+<<<<<<< HEAD
+    bgrd{
+        background-image: url('/assets/image/background/mobile/mobileback.png');
+    }
+=======
+>>>>>>> 1c2f236e67ed34725fe050560ca4fdb31a8193a9
+>>>>>>> master
     
      
     }
