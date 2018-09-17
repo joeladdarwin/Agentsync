@@ -1,34 +1,44 @@
-input.ng-invalid.ng-dirty
+.headerimg{
+    background-image: url('/assets/image/background/desktop/background.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100vh;
+}
+.rounded-circle {
+    border-radius: 50%!important;
+    height: 35vh;
+}
+.error
 {
-    border: 1px solid red;
+    color:red;
 }
+input{
+    background-color: #fff;
+    line-height: 6vh;
+    opacity: 0.8;
 
-h4
-{ 
-  color: #434343;   
- 
 }
-.btd
-{
-    color: #F07C49;
-}
-
-.btninput
+.btn1
   {
     color: white;
     background-color:#F07C49;
-        border-radius:30vh;
-       
+        border-radius:20vh;
+        line-height: 0vw;   
     }
-.fa{
-        
-        font-size: 1.5rem;
-      
+
+    .btn2{
+        color: white;
+        background-color:#A1A1A1;
+        border-radius:20vh;
+        line-height: 2vw;
+        width: 23vw;
+    }    
+    @media screen and(max-width:768){
+        .btn1
+  {
+    color: white;
+    background-color:#F07C49;
+        border-radius:20vh;
     }
-.numinput{
-    border: 2px solid #434343;
-}
-@media screen and (max-width: 780px) {
     
-     
     }
