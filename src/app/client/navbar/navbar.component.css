@@ -1,9 +1,9 @@
-.navbar{
+.navbar {
   background-color: #636363;
-    color:#fff;
+  color:#fff;
 
 }
-a{
+.navbar-dark .navbar-nav .nav-link{
   color: #fff;
 }
 .cart{
