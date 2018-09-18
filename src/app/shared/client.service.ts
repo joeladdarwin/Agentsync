@@ -8,6 +8,7 @@ export class ClientService {
 
   constructor(private auth:AuthService) { }
 
+
   // Common
   // End of Common
  
@@ -20,4 +21,11 @@ export class ClientService {
   // Login End
   // Dashboard
   // End of Dashboard
+  //Address
+  address(street){
+    return street.password;
+    
+  
+  }
+  //End Address
 }
