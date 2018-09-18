@@ -4,6 +4,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
 import { platformBrowserDynamic } from "@angular/platform-browser-dynamic";
 import { NgModule } from '@angular/core';
+import {MatBadgeModule} from '@angular/material/badge';
 
 import { FormsModule } from '@angular/forms';
 import { environment } from "../environments/environment";
@@ -33,6 +34,7 @@ import { AgentdashboardComponent } from './agent/agentdashboard/agentdashboard.c
 import { AgentloginComponent } from './agent/agentlogin/agentlogin.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { LoginComponent } from './client/login/login.component';
+
 
 
 
@@ -74,6 +76,7 @@ import { ForgetComponent } from './client/forget/forget.component';
     BrowserAnimationsModule,
     CommonModule,
     AppRoutingModule,
+    MatBadgeModule,
 
   
     FormsModule,
