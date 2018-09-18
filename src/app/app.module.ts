@@ -4,6 +4,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
 import { platformBrowserDynamic } from "@angular/platform-browser-dynamic";
 import { NgModule } from '@angular/core';
+import {MatBadgeModule} from '@angular/material/badge';
+
+
 import { environment } from "../environments/environment";
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from "angularfire2/auth";
@@ -33,6 +36,7 @@ import { AgentloginComponent } from './agent/agentlogin/agentlogin.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { LoginComponent } from './client/login/login.component';
 import { FormGroup, FormControl, Validators, FormBuilder }  from '@angular/forms'
+
 
 
 import { AuthService } from './shared/auth.service';
@@ -73,6 +77,7 @@ import { ForgetComponent } from './client/forget/forget.component';
     BrowserAnimationsModule,
     CommonModule,
     AppRoutingModule,
+    MatBadgeModule,
 
   
   

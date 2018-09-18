@@ -1,4 +1,13 @@
-
+.headerimg{
+    background-image: url('/assets/image/background/desktop/background.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100vh;
+}
+.rounded-circle {
+    border-radius: 50%!important;
+    height: 35vh;
+}
 .error
 {
     color:red;
@@ -9,10 +18,11 @@ input{
     opacity: 0.8;
 
 }
+
 .btn1
-	{
-		color: white;
-		background-color:#F07C49;
+  {
+    color: white;
+    background-color:#F07C49;
         border-radius:20vh;
         line-height: 0vw;   
     }
@@ -21,14 +31,22 @@ input{
         color: white;
         background-color:#A1A1A1;
         border-radius:20vh;
-        line-height: 0vw;
+        line-height: 2vw;
+        width: 18vw;
     }    
-    @media screen and(max-width:768){
+    @media screen and(max-width:750){
         .btn1
-	{
-		color: white;
-		background-color:#F07C49;
+  {
+    color: white;
+    background-color:#F07C49;
         border-radius:20vh;
     }
+    .btn2{
+        color: white;
+        background-color:#A1A1A1;
+        border-radius:20vh;
+        line-height: 4vw;
+        width: 28vw;
+    }    
     
     }
