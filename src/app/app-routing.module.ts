@@ -26,10 +26,13 @@ import { AgentdashboardComponent } from './agent/agentdashboard/agentdashboard.c
 import { AgentloginComponent } from './agent/agentlogin/agentlogin.component';
 import { LoginComponent } from './client/login/login.component';
 import { RegisterComponent } from './client/register/register.component';
+import { ForgetComponent } from './client/forget/forget.component';
+
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
+  { path: 'forget', component: ForgetComponent },
   { path: "", redirectTo: 'login', pathMatch: 'full' },
   { path: 'main', component: DashboardComponent },
   { path: 'navbar', component: NavbarComponent },

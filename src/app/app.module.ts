@@ -12,7 +12,7 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from "angularfire2/auth";
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { FormsModule,   ReactiveFormsModule,  }   from '@angular/forms';
-
+import { AngularFireStorageModule } from 'angularfire2/storage';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './client/navbar/navbar.component';
 import { DashboardComponent } from './client/dashboard/dashboard.component';
@@ -46,6 +46,7 @@ import { AdminService } from './shared/admin.service';
 import { AgentService } from './shared/agent.service';
 import { RegisterComponent } from './client/register/register.component';
 import { ForgetComponent } from './client/forget/forget.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -85,7 +86,7 @@ import { ForgetComponent } from './client/forget/forget.component';
     ReactiveFormsModule, 
   
   
-    AngularFireAuthModule, AngularFirestoreModule,
+    AngularFireAuthModule, AngularFirestoreModule,AngularFireStorageModule , 
     AngularFireModule.initializeApp(environment.firebase),
   ],
   providers: [AuthGuardService, AuthService, ClientService, AdminService, AgentService],
