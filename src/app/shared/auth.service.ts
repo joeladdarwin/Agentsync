@@ -13,7 +13,8 @@ import { User } from './user';
 @Injectable()
 export class AuthService {
   users$ : Observable<User>;
- 
+  authState: any = null;
+  error: any = null;;
   constructor(private afAuth : AngularFireAuth, private afs : AngularFirestore, private router : Router
   ) {
     this.users$ = this.afAuth.authState.pipe(
@@ -39,19 +40,54 @@ export class AuthService {
    
       return this.afAuth.auth.createUserWithEmailAndPassword(user.email,user.phone).then((credential)=>{
        const uid = this.afAuth.auth.currentUser.uid;
-       this.updateuserdata(user, uid)
-      }).then(this.router.navigateByUrl['/login'])
+       
+        this.updateuserdata(user, uid)
+        this.afAuth.auth.currentUser.updateProfile({ displayName: user.displayName, photoURL:"https://agent-sync-sonder.firebaseapp.com/assets/image/icons/logo1.jpg"})
+        this.afAuth.auth.sendPasswordResetEmail(user.email)
+        this.router.navigate(['/login'])
+       
+      })
     }
     catch(e)
     {
       console.log(e)
     }
   }
-  
+  login(email:string,pass:string)
+  {
+    return this.afAuth.auth.signInWithEmailAndPassword(email,pass).then(
+      (user)=>{
+        this.authState = user
+        this.getinfo()
+        this.router.navigate(['/main'])
+        var a = this.afAuth.auth.currentUser.email;
+        var b = this.afAuth.auth.currentUser.uid;
+        var c = this.afAuth.auth.currentUser.phoneNumber;
+        var d = this.afAuth.auth.currentUser.displayName;
+        console.log("apple" + a+b+c+d);
+      }
+     ).catch((error)=> error)
+  }
+ getinfo() {
+    return this.afAuth.auth.onAuthStateChanged(function (user) {
+      if (user) {
+
+        var displayName = user.displayName;
+        var email = user.email;
+        var emailVerified = user.emailVerified;
+        var photoURL = user.photoURL;
+        var isAnonymous = user.isAnonymous;
+        var uid = user.uid;
+        var providerData = user.providerData;
+        var phone = user.phoneNumber;
+        var uid = user.uid;
+      }
+    });
+  }
   private updateuserdata(user,uid)
   {
     console.log(user)
-    const userRef$: AngularFirestoreDocument<any> = this.afs.doc<User>('users/'+uid);
+    const userRef$: AngularFirestoreDocument<any> = this.afs.doc<User>('users/${user.uid}');
     const userdata : User = {
       uid:uid,
       displayName: user.name,
