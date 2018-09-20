@@ -4,7 +4,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
 import { platformBrowserDynamic } from "@angular/platform-browser-dynamic";
 import { NgModule } from '@angular/core';
-
+import {MatBadgeModule} from '@angular/material/badge';
 import { FormsModule } from '@angular/forms';
 import { environment } from "../environments/environment";
 import { AngularFireModule } from 'angularfire2';
@@ -74,8 +74,8 @@ import { ForgetComponent } from './client/forget/forget.component';
     BrowserAnimationsModule,
     CommonModule,
     AppRoutingModule,
-
-  
+    MatBadgeModule,
+    
     FormsModule,
     AngularFireAuthModule, AngularFirestoreModule,
     AngularFireModule.initializeApp(environment.firebase),

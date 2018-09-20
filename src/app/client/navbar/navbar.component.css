@@ -1,11 +1,11 @@
-.navbar{
-  background-color: #636363;
-    color:#fff;
+.poab{
+  position: absolute;
+  top:0;
+  right: 0;
+}
+@media screen and (max-width: 420px) {
+  .pt-3{
+    padding-top: 0.45!important;
 
-}
-a{
-  color: #fff;
-}
-.cart{
-    width:60px;
+  }
 }
