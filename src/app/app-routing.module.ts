@@ -28,14 +28,17 @@ import { LoginComponent } from './client/login/login.component';
 import { ForgetComponent } from './client/forget/forget.component';
 import { ThanksComponent } from './client/thanks/thanks.component';
 import { RegisterComponent } from './client/register/register.component';
+
 import { AdminheaderComponent } from './admin/adminheader/adminheader.component';
 import { AdminsidenavComponent } from './admin/adminsidenav/adminsidenav.component';
+import { AgentregisterComponent } from './agent/agentregister/agentregister.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'forget', component: ForgetComponent },
   { path: 'thanks', component: ThanksComponent },
   { path: 'register', component: RegisterComponent },
+  { path: 'forget', component: ForgetComponent },
   { path: "", redirectTo: 'login', pathMatch: 'full' },
   { path: 'main', component: DashboardComponent },
   { path: 'navbar', component: NavbarComponent },
@@ -56,6 +59,7 @@ const routes: Routes = [
   { path: 'addashboard', component: AdmindashboardComponent},
   { path: 'agdashboard', component: AgentdashboardComponent },
   { path: 'aglogin', component: AgentloginComponent },
+  { path: 'agregister', component: AgentregisterComponent },
   { path:'adheader', component: AdminheaderComponent},
   { path:'adsidenav', component: AdminsidenavComponent}
 ];

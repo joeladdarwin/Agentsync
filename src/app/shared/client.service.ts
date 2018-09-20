@@ -1,12 +1,14 @@
 import { Injectable } from '@angular/core';
 import { AuthService } from './auth.service';
 import { Router } from '@angular/router';
+import { AngularFireStorage } from 'angularfire2/storage';
+import { AngularFireAuth } from 'angularfire2/auth';
 @Injectable({
   providedIn: 'root'
 })
 export class ClientService {
-
-  constructor(private auth:AuthService, private router:Router) { }
+  displayName: string;
+  constructor(private auth:AuthService, private router:Router,private afAuth:AngularFireAuth) { }
 
 
   // CommonCommon
@@ -31,8 +33,14 @@ export class ClientService {
   // Dashboard
   getuser(){
     console.log("jil");
-    return this.auth.getinfo()
-  }
+    return
+  } 
+  getUsername()
+  {
+    return this.afAuth.auth.currentUser.displayName;
+  }  
+
+  g
   // End of Dashboard
   //Address
   address(street){

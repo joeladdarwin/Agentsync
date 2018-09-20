@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router } from '@angular/router'; 
 import * as firebase from 'firebase/app';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFirestore, AngularFirestoreDocument } from 'angularfire2/firestore'
@@ -81,6 +81,7 @@ export class AuthService {
         var providerData = user.providerData;
         var phone = user.phoneNumber;
         var uid = user.uid;
+        return displayName;
       }
     });
   }
