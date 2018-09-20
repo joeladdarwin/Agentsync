@@ -35,6 +35,7 @@ import { AgentdashboardComponent } from './agent/agentdashboard/agentdashboard.c
 import { AgentloginComponent } from './agent/agentlogin/agentlogin.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { LoginComponent } from './client/login/login.component';
+import { ThanksComponent } from './client/thanks/thanks.component';
 import { AdminheaderComponent } from './admin/adminheader/adminheader.component';
 import { AdminsidenavComponent } from './admin/adminsidenav/adminsidenav.component';
 
@@ -71,6 +72,7 @@ import { FooterComponent } from './client/footer/footer.component';
     AgentdashboardComponent,
     AgentloginComponent,
     LoginComponent,
+    ThanksComponent,
     RegisterComponent,
     ForgetComponent,
     AdminheaderComponent,

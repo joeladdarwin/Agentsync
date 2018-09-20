@@ -26,6 +26,7 @@ import { AgentdashboardComponent } from './agent/agentdashboard/agentdashboard.c
 import { AgentloginComponent } from './agent/agentlogin/agentlogin.component';
 import { LoginComponent } from './client/login/login.component';
 import { ForgetComponent } from './client/forget/forget.component';
+import { ThanksComponent } from './client/thanks/thanks.component';
 import { RegisterComponent } from './client/register/register.component';
 import { AdminheaderComponent } from './admin/adminheader/adminheader.component';
 import { AdminsidenavComponent } from './admin/adminsidenav/adminsidenav.component';
@@ -33,6 +34,7 @@ import { AdminsidenavComponent } from './admin/adminsidenav/adminsidenav.compone
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'forget', component: ForgetComponent },
+  { path: 'thanks', component: ThanksComponent },
   { path: 'register', component: RegisterComponent },
   { path: "", redirectTo: 'login', pathMatch: 'full' },
   { path: 'main', component: DashboardComponent },
