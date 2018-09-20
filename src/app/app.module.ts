@@ -74,7 +74,9 @@ import { FooterComponent } from './client/footer/footer.component';
     RegisterComponent,
     ForgetComponent,
     AdminheaderComponent,
-    AdminsidenavComponent
+    AdminsidenavComponent,
+    FooterComponent
+    
   ],
   imports: [
     BrowserModule,
