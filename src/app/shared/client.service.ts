@@ -8,6 +8,7 @@ export class ClientService {
 
   constructor(private auth:AuthService, private router:Router) { }
 
+
   // Common
   // End of Common
  
@@ -33,4 +34,11 @@ export class ClientService {
     return this.auth.getinfo()
   }
   // End of Dashboard
+  //Address
+  address(street){
+    return street.password;
+    
+  
+  }
+  //End Address
 }

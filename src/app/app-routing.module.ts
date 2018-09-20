@@ -34,6 +34,7 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: "", redirectTo: 'login', pathMatch: 'full' },
   { path: 'main', component: DashboardComponent },
+  { path: 'navbar', component: NavbarComponent },
   { path: 'placeorder', component: PlaceorderComponent },
   { path: 'address', component: AddressComponent },
   { path: 'addons', component: AddonsComponent },
@@ -63,4 +64,6 @@ const routes: Routes = [
   declarations: []
 })
 
-export class AppRoutingModule { }
+export class AppRoutingModule { 
+  
+}
