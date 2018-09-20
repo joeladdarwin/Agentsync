@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes, CanActivate, Router  } from '@angular/router';
 import { AdminGuard } from './shared/admin.guard';
@@ -26,6 +26,8 @@ import { AgentdashboardComponent } from './agent/agentdashboard/agentdashboard.c
 import { AgentloginComponent } from './agent/agentlogin/agentlogin.component';
 import { LoginComponent } from './client/login/login.component';
 import { RegisterComponent } from './client/register/register.component';
+import { AdminheaderComponent } from './admin/adminheader/adminheader.component';
+import { AdminsidenavComponent } from './admin/adminsidenav/adminsidenav.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -50,6 +52,8 @@ const routes: Routes = [
   { path: 'addashboard', component: AdmindashboardComponent, canActivate: [AdminGuard] },
   { path: 'agdashboard', component: AgentdashboardComponent },
   { path: 'aglogin', component: AgentloginComponent },
+  { path:'adheader', component: AdminheaderComponent},
+  { path:'adsidenav', component: AdminsidenavComponent}
 ];
 
 @NgModule({
@@ -60,4 +64,6 @@ const routes: Routes = [
   declarations: []
 })
 
-export class AppRoutingModule { }
+export class AppRoutingModule { 
+  
+}

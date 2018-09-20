@@ -1,4 +1,4 @@
-bad{
+.bad{
     border-radius: 50%;
    background-color: #F07C49;
    font-size: 1rem;
@@ -24,4 +24,10 @@ bad{
    }
    #delivery:hover {
    content: url('/assets/image/icons/p8.jpg');
+   }
+   .badge .mat-badge-content{
+       width: 35px;
+       height: 35px;
+       font-size:20px;
+    
    }

@@ -1,11 +1,5 @@
-.navbar {
-  background-color: #636363;
-  color:#fff;
-
-}
-.navbar-dark .navbar-nav .nav-link{
-  color: #fff;
-}
-.cart{
-    width:60px;
+.poab{
+  position: absolute;
+  top:0;
+  right: 0;
 }
