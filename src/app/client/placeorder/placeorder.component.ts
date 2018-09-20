@@ -13,7 +13,7 @@ names:any;
 orderdate = Date.now();
   constructor(private client:ClientService,private router:Router) { 
     this.names=this.client.getUsername();
-  }
+  } 
 
   ngOnInit() {
   }

@@ -1,51 +1,52 @@
 import { Injectable } from '@angular/core';
-import { AngularFireAuth } from 'angularfire2/auth';
 import { AuthService } from './auth.service';
-import * as firebase from 'firebase/app';
-import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument, fromDocRef  } from 'angularfire2/firestore';
-import { AngularFireStorage, AngularFireStorageReference, AngularFireUploadTask } from 'angularfire2/storage';
 import { Router } from '@angular/router';
-
-import { Order } from './order';
-
+import { AngularFireStorage } from 'angularfire2/storage';
+import { AngularFireAuth } from 'angularfire2/auth';
 @Injectable({
   providedIn: 'root'
 })
 export class ClientService {
-  buildingCollection : AngularFirestoreCollection<Order>;
+  displayName: string;
+  constructor(private auth:AuthService, private router:Router,private afAuth:AngularFireAuth) { }
 
-  constructor(public afs:AngularFirestore,private afstorage:AngularFireStorage,private afAuth:AngularFireAuth,private router:Router) { }
 
-
-  // Common
-  // End of Common
+  // CommonCommon
+  // End of 
  
   // Signup
-  
+  register(registerForm){
+    this.auth.register(registerForm).then(this.router.navigate['/thanks'])
+  }
   // End of Signup
   // Forget
+  forget(){
+
+  }
   // End of Forget
   //Login
+  clientlogin(email,pass)
+  {
+    return this.auth.login(email, pass)   
+  }
   // Login End
   // Dashboard
-  // End of Dashboard
-  //placeorder
-
-  //End placeordder
-  //getusername
-  getUsername(){
+  getuser(){
+    console.log("jil");
+    return
+  } 
+  getUsername()
+  {
     return this.afAuth.auth.currentUser.displayName;
-  }
-  getEmail(){
-    return this.afAuth.auth.currentUser.email;
-  }
-  //endgetusername
+  }  
+
+  g
+  // End of Dashboard
   //Address
-  address(street){    
+  address(street){
     return street.password;
     
   
   }
-
   //End Address
 }

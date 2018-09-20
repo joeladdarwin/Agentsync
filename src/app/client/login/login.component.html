@@ -1,42 +1,52 @@
+
 <div class="row headerimg">
-        <div class="offset-2 col-8 offset-md-4 col-md-3 mx-auto">
-            <img src="/assets/image/icons/logo1.jpg" class="rounded-circle img-fluid">
-            <img src="/assets/image/icons/agentsynclogo.png" class="img-fluid " alt="Agent-sync">
-          </div> 
-          <form class="col-12 text-center mb-5" #loginform="ngForm" (ngSubmit)="login(email.value, password.value)"> 
-                <div class="form-group col-12">
-                <div class="row">
-                        <div class="offset-md-3 col-md-6 col-xs-12">
-                        <input type="email" required  class="form-control-lg col-12 text-center" placeholder="Email" name="email" required pattern="[^@]*@[^@]*" [(ngModel)]="cli.email" #email="ngModel">
-                    <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger offset-md-3 col-md-6 col-xs-12 my-2">
-                    
-                            <div *ngIf="email.errors.required">
-                                    Email required.
-                            </div>
-                            <div *ngIf="email.errors?.pattern">
-                                    Please enter proper email
-                            </div>
-                    </div>
-                        <input type="password" required class="form-control-lg col-12 text-center" placeholder="Password" name="password" required [(ngModel)]="cli.phone"
-                    #password="ngModel">
-                </div>  
-                        </div>    
+    <div class="offset-lg-4 col-lg-4 col-md-12 col-xs-12 col-sm-12">
+            <div class="offset-3 col-6 col-xs-12 col-sm-12 text-center mx-auto pt-5">
+        <img src="/assets/image/icons/logo1.jpg" class="rounded-circle img-fluid my-2 w-50 h-50">
+        <img src="/assets/image/icons/agentsynclogo.png" class="img-fluid mt-2" alt="Agent-sync">
+          </div>
+      </div> 
+<form class="offset-lg-2 col-lg-8 col-md-12 col-xs-12 col-sm-12" #loginform="ngForm" (ngSubmit)="login(email.value, password.value)"> 
+            <div class="form-group row">
+            <div class="col-12">
+                        <p class="error text-center">{{ (error | async)?.message }}</p>
+                    <div class="row">
+                    <input type="email" required  class="form-control-lg col-12 text-center" placeholder="Email" name="email" required pattern="[^@]*@[^@]*" [(ngModel)]="cli.email" #email="ngModel">
+                <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-warning offset-md-3 col-md-6 col-xs-12 my-2">
+                
+                        <div *ngIf="email.errors.required">
+                                Email required.
+                        </div>
+                        <div *ngIf="email.errors?.pattern">
+                                Please enter proper email
+                        </div>
                 </div>
-                <div class="form-group col-12">
-                        <div class="row">
-                             <div class="offset-md-3 col-md-6 col-xs-12 my-2">
-                              <button type="submit" class="btn btn1 btn-block mx-auto btn-lg p-4" [disabled]="!loginform.valid">SIGN IN</button>
-                             </div>
+                    <input type="password" required class="form-control-lg col-12 text-center" placeholder="Password" name="password" required [(ngModel)]="cli.phone"
+                #password="ngModel">
+            </div>  
+                    </div>    
+            </div>
+            <div class="form-group row">
+                    <div class="col-12 my-2">
+                         
+                          <button type="submit" class="btn btn1 btn-block mx-auto py-4" [disabled]="!loginform.valid">SIGN IN</button>
+                         
+                    </div>
+                  
+                        <div class="col-6 text-center">
+                                <button type="button" class="btn btn2 btn-block py-3">REGISTER ME</button>
+                
+                               
                         </div>
-                      </div>
-                      <div class="row">
-                        <div class="col-md-12 text-center">
-                        <button type="button" class="btn btn2 mr-2" routerLink="/register">REGISTER ME</button>
-                        
-                        <button type="button" class="btn btn2 ml-2">FORGOT INFO</button>
+                        <div class="col-6 text-center">
+                              
+                
+                                <button type="button" class="btn btn2 btn-block py-3">FORGOT INFO</button>
                         </div>
+                  
                         
-                        
-                        </div>
-                      
-                    </form>
+                  </div>
+                 
+                  
+                </form>
+</div>  
