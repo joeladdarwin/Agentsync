@@ -33,6 +33,8 @@ import { AgentdashboardComponent } from './agent/agentdashboard/agentdashboard.c
 import { AgentloginComponent } from './agent/agentlogin/agentlogin.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { LoginComponent } from './client/login/login.component';
+import { AdminheaderComponent } from './admin/adminheader/adminheader.component';
+import { AdminsidenavComponent } from './admin/adminsidenav/adminsidenav.component';
 
 
 
@@ -43,6 +45,7 @@ import { AdminService } from './shared/admin.service';
 import { AgentService } from './shared/agent.service';
 import { RegisterComponent } from './client/register/register.component';
 import { ForgetComponent } from './client/forget/forget.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -67,7 +70,9 @@ import { ForgetComponent } from './client/forget/forget.component';
     AgentloginComponent,
     LoginComponent,
     RegisterComponent,
-    ForgetComponent
+    ForgetComponent,
+    AdminheaderComponent,
+    AdminsidenavComponent
   ],
   imports: [
     BrowserModule,
