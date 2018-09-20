@@ -10,12 +10,12 @@ import { NgForm } from '@angular/forms';
   providers:[ClientService, AuthService]
 })
 export class RegisterComponent implements OnInit {
-
+  error: any = null;
   constructor(private cli: ClientService, private aut: AuthService) { }
   register(registerForm:User)
   {
-   
-    this.aut.register(registerForm)
+   this.cli.register(registerForm)
+    this.error = this.cli.register(registerForm)
   }
   ngOnInit() {
   }
