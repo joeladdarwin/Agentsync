@@ -32,7 +32,11 @@ input{
         background-color:#A1A1A1;
         border-radius:20vh;
         line-height: 2vw;
+<<<<<<< HEAD
         width: 18vw;
+=======
+      
+>>>>>>> master
     }    
     @media screen and(max-width:750){
         .btn1
@@ -46,7 +50,11 @@ input{
         background-color:#A1A1A1;
         border-radius:20vh;
         line-height: 4vw;
+<<<<<<< HEAD
         width: 28vw;
+=======
+       
+>>>>>>> master
     }    
     
     }
