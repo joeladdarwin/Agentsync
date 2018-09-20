@@ -10,6 +10,7 @@ import { environment } from "../environments/environment";
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from "angularfire2/auth";
 import { AngularFirestoreModule } from 'angularfire2/firestore';
+import { MatBadgeModule } from '@angular/material/badge';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './client/navbar/navbar.component';
@@ -43,6 +44,7 @@ import { AdminService } from './shared/admin.service';
 import { AgentService } from './shared/agent.service';
 import { RegisterComponent } from './client/register/register.component';
 import { ForgetComponent } from './client/forget/forget.component';
+import { FooterComponent } from './client/footer/footer.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -67,15 +69,15 @@ import { ForgetComponent } from './client/forget/forget.component';
     AgentloginComponent,
     LoginComponent,
     RegisterComponent,
-    ForgetComponent
+    ForgetComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     CommonModule,
     AppRoutingModule,
-
-  
+    MatBadgeModule,  
     FormsModule,
     AngularFireAuthModule, AngularFirestoreModule,
     AngularFireModule.initializeApp(environment.firebase),

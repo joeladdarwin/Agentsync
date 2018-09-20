@@ -6,6 +6,7 @@
   <form class=" col-12 text-center mt-3 mb-5" (ngSubmit)="register(registerForm.value)" #registerForm="ngForm">
     <div class="row">
       <div class="offset-md-3 col-md-6 col-xs-12 my-2">
+        <p class="error text-center">{{ (error | async)?.message }}</p>
         <input type="text" name="name" placeholder="Full Name" class="form-control p-4 numinput text-center" required
           minlength="4" [(ngModel)]="cli.name" #name="ngModel">
       </div>
