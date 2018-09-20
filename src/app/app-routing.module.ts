@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes, CanActivate, Router  } from '@angular/router';
 import { AdminGuard } from './shared/admin.guard';
@@ -49,10 +49,11 @@ const routes: Routes = [
   { path: 'myorder', component: MyorderComponent },
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuardService]},
   { path: 'editprofile', component: EditprofileComponent },
-  { path: 'adlogin', component: AdminloginComponent, canActivate: [AdminGuard] },
-  { path: 'addashboard', component: AdmindashboardComponent, canActivate: [AdminGuard] },
+  { path: 'adlogin', component: AdminloginComponent },
+  { path: 'addashboard', component: AdmindashboardComponent},
   { path: 'agdashboard', component: AgentdashboardComponent },
   { path: 'aglogin', component: AgentloginComponent },
+
 ];
 
 @NgModule({

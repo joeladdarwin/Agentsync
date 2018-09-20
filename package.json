@@ -11,7 +11,7 @@
   },
   "private": true,
   "dependencies": {
-    "@angular/animations": "^6.1.6",
+    "@angular/animations": "^6.1.7",
     "@angular/cdk": "^6.4.7",
     "@angular/common": "^6.1.0",
     "@angular/compiler": "^6.1.0",
@@ -23,13 +23,19 @@
     "@angular/platform-browser-dynamic": "^6.1.0",
     "@angular/router": "^6.1.0",
     "@auth0/angular-jwt": "^2.0.0",
+<<<<<<< HEAD
     "@firebase/auth": "^0.7.5",
     "angular-firebase": "^1.1.4",
+=======
+    "angular-material-badge": "^1.2.9",
+>>>>>>> 24a40b8b4c37586ad01a611bc32354a28b1d6cb3
     "angularfire2": "^5.0.0-rc.12",
+    "autoprefixer": "^9.1.5",
     "bootstrap": "^4.1.3",
     "core-js": "^2.5.4",
     "firebase": "^5.4.2",
     "firebase-tools": "^4.2.1",
+    "font-awesome": "^4.7.0",
     "hammerjs": "^2.0.8",
     "popper.js": "^1.14.4",
     "rxjs": "^6.0.0",
@@ -46,7 +52,7 @@
     "codelyzer": "~4.2.1",
     "jasmine-core": "~2.99.1",
     "jasmine-spec-reporter": "~4.2.1",
-    "karma": "~1.7.1",
+    "karma": "^3.0.0",
     "karma-chrome-launcher": "~2.2.0",
     "karma-coverage-istanbul-reporter": "~2.0.0",
     "karma-jasmine": "~1.1.1",

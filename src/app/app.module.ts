@@ -35,7 +35,8 @@ import { AgentdashboardComponent } from './agent/agentdashboard/agentdashboard.c
 import { AgentloginComponent } from './agent/agentlogin/agentlogin.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { LoginComponent } from './client/login/login.component';
-import { FormGroup, FormControl, Validators, FormBuilder }  from '@angular/forms'
+import { AdminheaderComponent } from './admin/adminheader/adminheader.component';
+import { AdminsidenavComponent } from './admin/adminsidenav/adminsidenav.component';
 
 
 
@@ -72,7 +73,10 @@ import { FooterComponent } from './client/footer/footer.component';
     LoginComponent,
     RegisterComponent,
     ForgetComponent,
+    AdminheaderComponent,
+    AdminsidenavComponent,
     FooterComponent
+    
   ],
   imports: [
     BrowserModule,
