@@ -28,7 +28,7 @@ import { LoginComponent } from './client/login/login.component';
 import { RegisterComponent } from './client/register/register.component';
 import { AdminheaderComponent } from './admin/adminheader/adminheader.component';
 import { AdminsidenavComponent } from './admin/adminsidenav/adminsidenav.component';
-
+import { UserComponent } from './admin/user/user.component';
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
@@ -53,7 +53,8 @@ const routes: Routes = [
   { path: 'agdashboard', component: AgentdashboardComponent },
   { path: 'aglogin', component: AgentloginComponent },
   { path:'adheader', component: AdminheaderComponent},
-  { path:'adsidenav', component: AdminsidenavComponent}
+  { path:'adsidenav', component: AdminsidenavComponent},
+  { path:'aduser', component:UserComponent}
 ];
 
 @NgModule({
