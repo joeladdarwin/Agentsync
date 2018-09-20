@@ -9,8 +9,8 @@ export class ClientService {
   constructor(private auth:AuthService, private router:Router) { }
 
 
-  // Common
-  // End of Common
+  // CommonCommon
+  // End of 
  
   // Signup
   register(registerForm){
