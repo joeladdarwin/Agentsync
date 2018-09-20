@@ -28,6 +28,7 @@ import { LoginComponent } from './client/login/login.component';
 import { RegisterComponent } from './client/register/register.component';
 import { AdminheaderComponent } from './admin/adminheader/adminheader.component';
 import { AdminsidenavComponent } from './admin/adminsidenav/adminsidenav.component';
+import { AgentregisterComponent } from './agent/agentregister/agentregister.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -52,6 +53,7 @@ const routes: Routes = [
   { path: 'addashboard', component: AdmindashboardComponent},
   { path: 'agdashboard', component: AgentdashboardComponent },
   { path: 'aglogin', component: AgentloginComponent },
+  { path: 'agregister', component: AgentregisterComponent },
   { path:'adheader', component: AdminheaderComponent},
   { path:'adsidenav', component: AdminsidenavComponent}
 ];

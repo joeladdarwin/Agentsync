@@ -1,11 +1,48 @@
-
+import '../polyfills';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
 import { platformBrowserDynamic } from "@angular/platform-browser-dynamic";
 import { NgModule } from '@angular/core';
-import {MatBadgeModule} from '@angular/material/badge';
+import {  MatAutocompleteModule,
+  MatBadgeModule,
+  MatBottomSheetModule,
+  MatButtonModule,
+  MatButtonToggleModule,
+  MatCardModule,
+  MatCheckboxModule,
+  MatChipsModule,
+  MatDatepickerModule,
+  MatDialogModule,
+  MatDividerModule,
+  MatExpansionModule,
+  MatGridListModule,
+  MatIconModule,
+  MatInputModule,
+  MatListModule,
+  MatMenuModule,
+  MatNativeDateModule,
+  MatPaginatorModule,
+  MatProgressBarModule,
+  MatProgressSpinnerModule,
+  MatRadioModule,
+  MatRippleModule,
+  MatSelectModule,
+  MatSidenavModule,
+  MatSliderModule,
+  MatSlideToggleModule,
+  MatSnackBarModule,
+  MatSortModule,
+  MatStepperModule,
+  MatTableModule,
+  MatTabsModule,
+  MatToolbarModule,
+  MatTooltipModule,
+  MatTreeModule } from '@angular/material';
 
+import { CdkTableModule } from '@angular/cdk/table';
+import { CdkTreeModule } from '@angular/cdk/tree';
+import { HttpClientModule } from '@angular/common/http';
 
 import { environment } from "../environments/environment";
 import { AngularFireModule } from 'angularfire2';
@@ -48,6 +85,7 @@ import { AgentService } from './shared/agent.service';
 import { RegisterComponent } from './client/register/register.component';
 import { ForgetComponent } from './client/forget/forget.component';
 import { FooterComponent } from './client/footer/footer.component';
+import { AgentregisterComponent } from './agent/agentregister/agentregister.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -75,7 +113,8 @@ import { FooterComponent } from './client/footer/footer.component';
     ForgetComponent,
     AdminheaderComponent,
     AdminsidenavComponent,
-    FooterComponent
+    FooterComponent,
+    AgentregisterComponent
     
   ],
   imports: [
@@ -83,14 +122,46 @@ import { FooterComponent } from './client/footer/footer.component';
     BrowserAnimationsModule,
     CommonModule,
     AppRoutingModule,
+    CdkTableModule,
+    CdkTreeModule,
+    MatAutocompleteModule,
     MatBadgeModule,
-
-  
-  
+    MatBottomSheetModule,
+    MatButtonModule,
+    MatButtonToggleModule,
+    MatCardModule,
+    MatCheckboxModule,
+    MatChipsModule,
+    MatStepperModule,
+    MatDatepickerModule,
+    MatDialogModule,
+    MatDividerModule,
+    MatExpansionModule,
+    MatGridListModule,
+    MatIconModule,
+    MatInputModule,
+    MatListModule,
+    MatMenuModule,
+    MatNativeDateModule,
+    MatPaginatorModule,
+    MatProgressBarModule,
+    MatProgressSpinnerModule,
+    MatRadioModule,
+    MatRippleModule,
+    MatSelectModule,
+    MatSidenavModule,
+    MatSliderModule,
+    MatSlideToggleModule,
+    MatSnackBarModule,
+    MatSortModule,
+    MatTableModule,
+    MatTabsModule,
+    MatToolbarModule,
+    MatTooltipModule,
+    MatTreeModule,
+    HttpClientModule,  
     FormsModule,
-    ReactiveFormsModule, 
-  
-  
+    ReactiveFormsModule,   
     AngularFireAuthModule, AngularFirestoreModule,
     AngularFireModule.initializeApp(environment.firebase),
   ],
