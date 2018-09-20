@@ -3,6 +3,7 @@ import { ClientService } from '../../shared/client.service';
 import { AuthService } from '../../shared/auth.service';
 import { User } from '../../shared/user';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -11,7 +12,7 @@ import { NgForm } from '@angular/forms';
 })
 export class RegisterComponent implements OnInit {
 
-  constructor(private cli: ClientService, private aut: AuthService) { }
+  constructor(private cli: ClientService, private aut: AuthService, private router:Router) { }
   register(registerForm:User)
   {
    

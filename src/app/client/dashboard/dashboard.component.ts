@@ -11,11 +11,7 @@ import { AngularFireStorage } from 'angularfire2/storage';
 })
 export class DashboardComponent implements OnInit {
 
-name:any;
-number:any;
-constructor(private client:ClientService,private router:Router){
-   
-}
+
   ngOnInit() {
   }
 

@@ -5,10 +5,14 @@ import * as firebase from 'firebase/app';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument, fromDocRef  } from 'angularfire2/firestore';
 import { AngularFireStorage, AngularFireStorageReference, AngularFireUploadTask } from 'angularfire2/storage';
 import { Router } from '@angular/router';
+
+import { Order } from './order';
+
 @Injectable({
   providedIn: 'root'
 })
 export class ClientService {
+  buildingCollection : AngularFirestoreCollection<Order>;
 
   constructor(public afs:AngularFirestore,private afstorage:AngularFireStorage,private afAuth:AngularFireAuth,private router:Router) { }
 
@@ -25,6 +29,9 @@ export class ClientService {
   // Login End
   // Dashboard
   // End of Dashboard
+  //placeorder
+
+  //End placeordder
   //getusername
   getUsername(){
     return this.afAuth.auth.currentUser.displayName;
@@ -39,5 +46,6 @@ export class ClientService {
     
   
   }
+
   //End Address
 }

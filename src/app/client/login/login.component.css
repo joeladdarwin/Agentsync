@@ -34,7 +34,7 @@ input{
         line-height: 2vw;
         width: 18vw;
     }    
-    @media screen and(max-width:750){
+    @media screen and(min-width:750){
         .btn1
   {
     color: white;
@@ -47,6 +47,6 @@ input{
         border-radius:20vh;
         line-height: 4vw;
         width: 28vw;
-    }    
-    
+    }   
+
     }

@@ -1,53 +1,40 @@
- <div class="row">
-    <div class="offset-2 col-8 bg-light">
-            <h4 class="text-center p-3">Place New Order</h4>
-            <p class="text-center p-3">Orders are itemized by property,per unit. </p>
+ <div class="row mb-5">
+  <div class="bg-dark offset-lg-2 col-lg-8 col-md-12 col-xs-12 col-sm-12">
+    <div class="col-md-12 p-2 ">
+          <h4 class="text-center p-3">New Order > First Unit</h4>
+          <p class="text-center p-3">Property Address </p>
     </div>
-</div>
-<form novalidate
-[formGroup]="myform"
-(ngSubmit)="onSubmit()">
-
-<fieldset formGroupName="name">
-<div class="form-group">
-<label>Street</label>
-<input type="text"
-       class="form-control"
-       formControlName="firstName">
-</div>
-
-<div class="form-group">
-<label>State</label>
-<input type="text"
-       class="form-control"
-       formControlName="lastName">
-</div>
-</fieldset>
-
-
-
-
-<div class="form-group" [ngClass]="{
-'has-danger': password.invalid && (password.dirty || password.touched),
-'has-success': password.valid && (password.dirty || password.touched)
-}">
-<label>Zip code</label>
-<input type="password"
-     class="form-control"
-     formControlName="password">
-
-<div class="form-control-feedback"
-     *ngIf="password.errors && (password.dirty || password.touched)">
-  <p *ngIf="password.errors.required">Password is required</p>
-  <p *ngIf="password.errors.minlength">Password must be {{password.errors.minlength.requiredLength}} characters long, we need another {{password.errors.minlength.requiredLength - password.errors.minlength.actualLength}} characters </p>
-</div>
-
-<pre>{{ password.errors | json }}</pre>
-</div>
-
-
-
-<pre>{{myform.value | json}}</pre>
-
-<button type="submit" class="btn btn-primary" >Submit</button>
-</form>
+    <div class="row">
+      <div class="col-md-4 col-4 text-left">
+          <h4>BACK</h4>
+      </div>
+      <div class="col-md-4 col-4 text-center">
+        </div>
+      <div class="col-md-4 col-4 text-right">
+        <h4>NEXT</h4>
+      </div>
+    </div>
+    </div>
+    </div>
+    
+ <div class="row mb-3">
+    <div class="offset-md-3 col-md-6 col-xs-12 my-2">
+      <input type="text" name="Street Address" placeholder="Street Address" class="form-control p-4 numinput text-center">
+    </div>
+    </div>
+    <div class="row mb-3">
+      <div class="offset-md-3 col-md-6 col-xs-12 my-2">
+        <input type="text" name="city,state" placeholder="city,state" class="form-control p-4 numinput text-center">
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="offset-md-3 col-md-6 col-xs-12 my-2">
+          <input type="text" name="Zip code" placeholder="Zip Code" class="form-control p-4 numinput text-center">
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="offset-md-3 col-md-6 col-xs-12 my-2">
+            <input type="text" name="Unit Number" placeholder="Unit Number" class="form-control p-4 numinput text-center">
+          </div>
+          </div>
+                 

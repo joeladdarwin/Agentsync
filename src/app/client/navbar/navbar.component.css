@@ -1,19 +1,6 @@
-.navbar {
-  background-color: #636363;
-  color:#fff;
 
-}
-.navbar-dark .navbar-nav .nav-link{
-  color: #fff;
-}
-.cart{
-    width:3vw;
-}
-.phcart{
-  width:10vw;
-}
-@media only screen and (min-width: 700px){
-  .phcart{
-    width:5vw;
-  }
+.poab{
+  position: absolute;
+  top:0;
+  right: 0;
 }
