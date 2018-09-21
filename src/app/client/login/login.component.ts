@@ -13,7 +13,7 @@ export class LoginComponent implements OnInit {
   login(email,password)
   {
     this.cli.clientlogin(email, password)
-    this.error = this.cli.clientlogin(email, password)
+   
   }
   ngOnInit() {
   }

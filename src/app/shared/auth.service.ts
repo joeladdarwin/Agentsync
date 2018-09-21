@@ -17,11 +17,14 @@ export class AuthService {
   error: any = null;;
   constructor(private afAuth : AngularFireAuth, private afs : AngularFirestore, private router : Router
   ) {
+      this.afAuth.authState.subscribe((auth) => {
+          this.authState = auth
+      });
     this.users$ = this.afAuth.authState.pipe(
       switchMap(
         user => {
                     if (user){
-                      return this.afs.doc<User>('users/${user.uid}').valueChanges()
+                      return this.afs.doc<User>(`users/${user.uid}`).valueChanges()
                     }
                     else
                     {
@@ -39,35 +42,55 @@ export class AuthService {
     try{
    
       return this.afAuth.auth.createUserWithEmailAndPassword(user.email,user.phone).then((credential)=>{
-       const uid = this.afAuth.auth.currentUser.uid;
-       
-        this.updateuserdata(user, uid)
-        this.afAuth.auth.currentUser.updateProfile({ displayName: user.displayName, photoURL:"https://agent-sync-sonder.firebaseapp.com/assets/image/icons/logo1.jpg"})
+        this.authState = credential;
+        const uid = this.afAuth.auth.currentUser.uid;
+        this.updateuserdata(user, uid) 
         this.afAuth.auth.sendPasswordResetEmail(user.email)
-        this.router.navigate(['/login'])
        
       })
     }
     catch(e)
     {
+      
       console.log(e)
+        return e
     }
   }
   login(email:string,pass:string)
   {
     return this.afAuth.auth.signInWithEmailAndPassword(email,pass).then(
       (user)=>{
+          const uid = this.afAuth.auth.currentUser.uid;
         this.authState = user
         this.getinfo()
-        this.router.navigate(['/main'])
-        var a = this.afAuth.auth.currentUser.email;
-        var b = this.afAuth.auth.currentUser.uid;
-        var c = this.afAuth.auth.currentUser.phoneNumber;
-        var d = this.afAuth.auth.currentUser.displayName;
-        console.log("apple" + a+b+c+d);
+        
+          this.router.navigate(['/main'])
+         
       }
      ).catch((error)=> error)
   }
+    currentUserId(): string {
+        const uid = this.afAuth.auth.currentUser.uid;
+        
+        return (this.authState !== null) ? this.authState.uid : this.getuserdata(uid)
+    }
+    getuserdata(uid) {
+       
+        const userRef$ = this.afs.collection('users').doc(uid);
+        // this.afs.doc<User>(`users/${uid}`);
+        userRef$.ref.get().then(function(doc) {
+            if (doc.exists) {
+                console.log("Document data:", doc.data());
+                return doc.data()
+            } else {
+                // doc.data() will be undefined in this case
+                console.log("No such document!");
+            }
+        }).catch(function(error) {
+            console.log("Error getting document:", error);
+        });
+    }
+
  getinfo() {
     return this.afAuth.auth.onAuthStateChanged(function (user) {
       if (user) {
@@ -81,13 +104,15 @@ export class AuthService {
         var providerData = user.providerData;
         var phone = user.phoneNumber;
         var uid = user.uid;
+       console.log("uid"+uid);
+   
       }
     });
   }
   private updateuserdata(user,uid)
   {
-    console.log(user)
-    const userRef$: AngularFirestoreDocument<any> = this.afs.doc<User>('users/${user.uid}');
+    
+    const userRef$: AngularFirestoreDocument<any> = this.afs.doc<User>(`users/${uid}`);
     const userdata : User = {
       uid:uid,
       displayName: user.name,
@@ -98,6 +123,7 @@ export class AuthService {
         user:true
       }
     }
+   
       return userRef$.set(userdata,{merge:true})
   }
     // determines the user has matching role
