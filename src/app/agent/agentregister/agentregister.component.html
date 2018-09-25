@@ -1,6 +1,6 @@
-<button mat-raised-button (click)="isEditable = !isEditable">
-  {{!isEditable ? 'Enable edit mode' : 'Disable edit mode'}}
-</button>
+
+<div class="row">
+  <div class="offset-lg-2 col-lg-8 col-md-12 col-xs-12 col-sm-12">
 
 <mat-horizontal-stepper linear #stepper>
   <mat-step [stepControl]="firstFormGroup" [editable]="isEditable">
@@ -9,9 +9,7 @@
       <mat-form-field>
         <input matInput placeholder="Full Name" formControlName="firstCtrl" required>
       </mat-form-field>
-      <mat-form-field>
-        <input matInput placeholder="Full Name" formControlName="firstCtrl" required>
-      </mat-form-field>
+
       <div>
         <button mat-button matStepperNext>Next</button>
       </div>
@@ -38,3 +36,5 @@
     </div>
   </mat-step>
 </mat-horizontal-stepper>
+</div>
+</div>

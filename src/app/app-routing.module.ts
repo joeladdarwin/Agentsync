@@ -25,19 +25,24 @@ import { AdmindashboardComponent } from './admin/admindashboard/admindashboard.c
 import { AgentdashboardComponent } from './agent/agentdashboard/agentdashboard.component';
 import { AgentloginComponent } from './agent/agentlogin/agentlogin.component';
 import { LoginComponent } from './client/login/login.component';
-import { RegisterComponent } from './client/register/register.component';
+
 
 import { ForgetComponent } from './client/forget/forget.component';
+import { ThanksComponent } from './client/thanks/thanks.component';
+import { RegisterComponent } from './client/register/register.component';
+import { AccessComponent } from './client/access/access.component';
 
 import { AdminheaderComponent } from './admin/adminheader/adminheader.component';
 import { AdminsidenavComponent } from './admin/adminsidenav/adminsidenav.component';
 import { AgentregisterComponent } from './agent/agentregister/agentregister.component';
 
-import { ThanksComponent } from './client/thanks/thanks.component';
+
 
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
+  { path: 'forget', component: ForgetComponent },
+  { path: 'thanks', component: ThanksComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'forget', component: ForgetComponent },
   { path: "", redirectTo: 'login', pathMatch: 'full' },
@@ -47,6 +52,7 @@ const routes: Routes = [
   { path: 'placeorder', component: PlaceorderComponent },
   { path: 'address', component: AddressComponent },
   { path: 'addons', component: AddonsComponent },
+  { path: 'access', component: AccessComponent },
   { path: 'products', component: ProductsComponent },
   { path: 'meet', component: MeetComponent },
   { path: 'visitingdate', component: VisitingdateComponent },
