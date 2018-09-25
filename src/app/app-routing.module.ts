@@ -32,6 +32,7 @@ import { ForgetComponent } from './client/forget/forget.component';
 import { ThanksComponent } from './client/thanks/thanks.component';
 import { RegisterComponent } from './client/register/register.component';
 import { AccessComponent } from './client/access/access.component';
+import { UnitsComponent } from './client/units/units.component';
 
 import { AdminheaderComponent } from './admin/adminheader/adminheader.component';
 import { AdminsidenavComponent } from './admin/adminsidenav/adminsidenav.component';
@@ -55,6 +56,7 @@ const routes: Routes = [
   { path: 'address', component: AddressComponent },
   { path: 'addons', component: AddonsComponent },
   { path: 'access', component: AccessComponent },
+  { path: 'units', component: UnitsComponent },
   { path: 'products', component: ProductsComponent },
   { path: 'meet', component: MeetComponent },
   { path: 'visitingdate', component: VisitingdateComponent },

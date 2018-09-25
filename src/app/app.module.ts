@@ -86,7 +86,9 @@ import { AgentService } from './shared/agent.service';
 import { RegisterComponent } from './client/register/register.component';
 import { ForgetComponent } from './client/forget/forget.component';
 import { FooterComponent } from './client/footer/footer.component';
-import { VisitingtimeComponent } from './client/visitingtime/visitingtime.component';
+import { AgentregisterComponent } from './agent/agentregister/agentregister.component';
+import { AccessComponent } from './client/access/access.component';
+import { UnitsComponent } from './client/units/units.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -116,8 +118,10 @@ import { VisitingtimeComponent } from './client/visitingtime/visitingtime.compon
     AdminheaderComponent,
     AdminsidenavComponent,
     FooterComponent,
-    VisitingtimeComponent
-    
+    AgentregisterComponent,
+    AccessComponent,
+    UnitsComponent,
+      
   ],
   imports: [
     BrowserModule,
