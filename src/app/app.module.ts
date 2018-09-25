@@ -86,6 +86,8 @@ import { RegisterComponent } from './client/register/register.component';
 import { ForgetComponent } from './client/forget/forget.component';
 import { FooterComponent } from './client/footer/footer.component';
 import { AgentregisterComponent } from './agent/agentregister/agentregister.component';
+import { AgentorderComponent } from './agent/agentorder/agentorder.component';
+import { AngularFireDatabase } from 'angularfire2/database';
 @NgModule({
   declarations: [
     AppComponent,
@@ -114,7 +116,8 @@ import { AgentregisterComponent } from './agent/agentregister/agentregister.comp
     AdminheaderComponent,
     AdminsidenavComponent,
     FooterComponent,
-    AgentregisterComponent
+    AgentregisterComponent,
+    AgentorderComponent
     
   ],
   imports: [
@@ -167,7 +170,7 @@ import { AgentregisterComponent } from './agent/agentregister/agentregister.comp
     AngularFireAuthModule, AngularFirestoreModule,AngularFireStorageModule , 
     AngularFireModule.initializeApp(environment.firebase),
   ],
-  providers: [AuthGuardService, AuthService, ClientService, AdminService, AgentService],
+  providers: [AuthGuardService, AuthService, ClientService, AdminService, AgentService,AngularFireDatabase],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

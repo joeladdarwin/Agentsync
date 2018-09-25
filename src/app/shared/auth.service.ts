@@ -44,7 +44,7 @@ export class AuthService {
         this.updateuserdata(user, uid)
         this.afAuth.auth.currentUser.updateProfile({ displayName: user.displayName, photoURL:"https://agent-sync-sonder.firebaseapp.com/assets/image/icons/logo1.jpg"})
         this.afAuth.auth.sendPasswordResetEmail(user.email)
-        this.router.navigate(['/login'])
+        this.router.navigate(['/thanks'])
        
       })
     }

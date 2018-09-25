@@ -9,7 +9,7 @@ export interface User {
     brokerage:string;
     email:string;
     phonenumber:string;
-    account?:string;
+    account?:string;        
     photoURL?:string;
     roles:Roles;
 }

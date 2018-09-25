@@ -13,7 +13,7 @@ export class DashboardComponent implements OnInit {
 name:any;
 message:any;
   constructor(private cli:ClientService, private router:Router, private auth:AuthService) {
-    this.name=this.cli.getUsername();
+    
   
    }
 

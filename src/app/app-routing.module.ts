@@ -25,16 +25,12 @@ import { AdmindashboardComponent } from './admin/admindashboard/admindashboard.c
 import { AgentdashboardComponent } from './agent/agentdashboard/agentdashboard.component';
 import { AgentloginComponent } from './agent/agentlogin/agentlogin.component';
 import { LoginComponent } from './client/login/login.component';
-import { RegisterComponent } from './client/register/register.component';
-<<<<<<< HEAD
 import { ForgetComponent } from './client/forget/forget.component';
-
-=======
+import { RegisterComponent } from './client/register/register.component';
 import { AdminheaderComponent } from './admin/adminheader/adminheader.component';
 import { AdminsidenavComponent } from './admin/adminsidenav/adminsidenav.component';
 import { AgentregisterComponent } from './agent/agentregister/agentregister.component';
->>>>>>> master
-
+import { AgentorderComponent } from './agent/agentorder/agentorder.component';
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
@@ -61,7 +57,8 @@ const routes: Routes = [
   { path: 'aglogin', component: AgentloginComponent },
   { path: 'agregister', component: AgentregisterComponent },
   { path:'adheader', component: AdminheaderComponent},
-  { path:'adsidenav', component: AdminsidenavComponent}
+  { path:'adsidenav', component: AdminsidenavComponent},
+  { path:'agorder', component: AgentorderComponent}
 ];
 
 @NgModule({
