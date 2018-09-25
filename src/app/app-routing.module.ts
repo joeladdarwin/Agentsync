@@ -6,7 +6,6 @@ import { AuthGuardService } from './shared/auth-guard.service';
 
 
 import { NavbarComponent } from './client/navbar/navbar.component';
-import { ForgetComponent } from './client/forget/forget.component';
 import { VisitingtimeComponent } from './client/visitingtime/visitingtime.component';
 import { DashboardComponent } from './client/dashboard/dashboard.component';
 import { PlaceorderComponent } from './client/placeorder/placeorder.component';
