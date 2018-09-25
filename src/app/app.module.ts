@@ -88,6 +88,7 @@ import { ForgetComponent } from './client/forget/forget.component';
 import { FooterComponent } from './client/footer/footer.component';
 import { AgentregisterComponent } from './agent/agentregister/agentregister.component';
 import { AccessComponent } from './client/access/access.component';
+import { UnitsComponent } from './client/units/units.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -119,6 +120,7 @@ import { AccessComponent } from './client/access/access.component';
     FooterComponent,
     AgentregisterComponent,
     AccessComponent,
+    UnitsComponent,
       
   ],
   imports: [

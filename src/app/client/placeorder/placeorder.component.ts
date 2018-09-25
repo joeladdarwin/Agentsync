@@ -9,11 +9,11 @@ import { Route, Router } from '@angular/router';
   providers:[ClientService  ]
 })
 export class PlaceorderComponent implements OnInit {
-names:any;
-orderdate = Date.now();
-  constructor(private client:ClientService,private router:Router) { 
-    this.names=this.client.getUsername();
-  } 
+// names:any;
+// orderdate = Date.now();
+//   constructor(private client:ClientService,private router:Router) { 
+//     this.names=this.client.getUsername();
+//   } 
 
   ngOnInit() {
   }
