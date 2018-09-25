@@ -1,18 +1,55 @@
-
+import '../polyfills';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
 import { platformBrowserDynamic } from "@angular/platform-browser-dynamic";
 import { NgModule } from '@angular/core';
-import {MatBadgeModule} from '@angular/material/badge';
+import {  MatAutocompleteModule,
+  MatBadgeModule,
+  MatBottomSheetModule,
+  MatButtonModule,
+  MatButtonToggleModule,
+  MatCardModule,
+  MatCheckboxModule,
+  MatChipsModule,
+  MatDatepickerModule,
+  MatDialogModule,
+  MatDividerModule,
+  MatExpansionModule,
+  MatGridListModule,
+  MatIconModule,
+  MatInputModule,
+  MatListModule,
+  MatMenuModule,
+  MatNativeDateModule,
+  MatPaginatorModule,
+  MatProgressBarModule,
+  MatProgressSpinnerModule,
+  MatRadioModule,
+  MatRippleModule,
+  MatSelectModule,
+  MatSidenavModule,
+  MatSliderModule,
+  MatSlideToggleModule,
+  MatSnackBarModule,
+  MatSortModule,
+  MatStepperModule,
+  MatTableModule,
+  MatTabsModule,
+  MatToolbarModule,
+  MatTooltipModule,
+  MatTreeModule } from '@angular/material';
 
+import { CdkTableModule } from '@angular/cdk/table';
+import { CdkTreeModule } from '@angular/cdk/tree';
+import { HttpClientModule } from '@angular/common/http';
 
 import { environment } from "../environments/environment";
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from "angularfire2/auth";
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { FormsModule,   ReactiveFormsModule,  }   from '@angular/forms';
-
+import { AngularFireStorageModule } from 'angularfire2/storage';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './client/navbar/navbar.component';
 import { DashboardComponent } from './client/dashboard/dashboard.component';
@@ -35,6 +72,7 @@ import { AgentdashboardComponent } from './agent/agentdashboard/agentdashboard.c
 import { AgentloginComponent } from './agent/agentlogin/agentlogin.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { LoginComponent } from './client/login/login.component';
+import { ThanksComponent } from './client/thanks/thanks.component';
 import { AdminheaderComponent } from './admin/adminheader/adminheader.component';
 import { AdminsidenavComponent } from './admin/adminsidenav/adminsidenav.component';
 
@@ -72,6 +110,7 @@ import { VisitingtimeComponent } from './client/visitingtime/visitingtime.compon
     AgentdashboardComponent,
     AgentloginComponent,
     LoginComponent,
+    ThanksComponent,
     RegisterComponent,
     ForgetComponent,
     AdminheaderComponent,
@@ -85,15 +124,49 @@ import { VisitingtimeComponent } from './client/visitingtime/visitingtime.compon
     BrowserAnimationsModule,
     CommonModule,
     AppRoutingModule,
+    CdkTableModule,
+    CdkTreeModule,
+    MatAutocompleteModule,
     MatBadgeModule,
-
-  
-  
+    MatBottomSheetModule,
+    MatButtonModule,
+    MatButtonToggleModule,
+    MatCardModule,
+    MatCheckboxModule,
+    MatChipsModule,
+    MatStepperModule,
+    MatDatepickerModule,
+    MatDialogModule,
+    MatDividerModule,
+    MatExpansionModule,
+    MatGridListModule,
+    MatIconModule,
+    MatInputModule,
+    MatListModule,
+    MatMenuModule,
+    MatNativeDateModule,
+    MatPaginatorModule,
+    MatProgressBarModule,
+    MatProgressSpinnerModule,
+    MatRadioModule,
+    MatRippleModule,
+    MatSelectModule,
+    MatSidenavModule,
+    MatSliderModule,
+    MatSlideToggleModule,
+    MatSnackBarModule,
+    MatSortModule,
+    MatTableModule,
+    MatTabsModule,
+    MatToolbarModule,
+    MatTooltipModule,
+    MatTreeModule,
+    HttpClientModule,  
     FormsModule,
     ReactiveFormsModule, 
   
   
-    AngularFireAuthModule, AngularFirestoreModule,
+    AngularFireAuthModule, AngularFirestoreModule,AngularFireStorageModule , 
     AngularFireModule.initializeApp(environment.firebase),
   ],
   providers: [AuthGuardService, AuthService, ClientService, AdminService, AgentService],
