@@ -13,13 +13,15 @@ export class ClientService {
 usersCollection: AngularFirestoreCollection<User>;
 
   constructor(private auth: AuthService, private afAuth: AngularFireAuth, private router:Router, private afs:AngularFirestore) {
-  
+  this.uid$ = this.auth.currentUserId;
 
    }
 
  
   // Common
   getuserdata(uid) {
+    
+    console.log("uid is" + uid);
     const userRef$ = this.afs.collection('users').doc(uid);
     // this.afs.doc<User>(`users/${uid}`);
     userRef$.ref.get().then(function (doc) {
@@ -39,7 +41,7 @@ usersCollection: AngularFirestoreCollection<User>;
  
   // Signup
   register(registerForm){
-    return this.auth.register(registerForm)
+    return this.auth.registerclient(registerForm)
   }
   // End of Signup
   // Forget
@@ -52,7 +54,14 @@ usersCollection: AngularFirestoreCollection<User>;
   {
     // this.uid$ = this.afAuth.auth.currentUser.uid;
     // console.log(this.getuserdata(this.uid$)+"isis")
-    return this.auth.login(email, pass)   
+    return this.auth.login(email, pass).catch(error => {
+
+      throw error
+    })   
+  }
+  signout(){
+    this.auth.signOut()
+    this.router.navigate(['/login'])
   }
   // Login End
   // Dashboard
@@ -61,8 +70,6 @@ usersCollection: AngularFirestoreCollection<User>;
   //Address
   address(street){
     return street.password;
-    
-  
   }
   //End Address
 }

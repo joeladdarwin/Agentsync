@@ -8,15 +8,17 @@ import { AuthService } from '../../shared/auth.service';
   providers:[ClientService, AuthService]
 })
 export class DashboardComponent implements OnInit {
-data:any;
+datas:any;
 uid:string;
-  constructor(private cli:ClientService, private auth:AuthService) { }
-
+  object: Object = { foo: 'bar', baz: 'qux', nested: { xyz: 3, numbers: [1, 2, 3, 4, 5] } };
+  constructor(private cli:ClientService, private auth:AuthService) { 
+    
+   
+  }
+ 
   ngOnInit() {
-this.uid = this.auth.currentUserId();
-console.log("thisuid"+this.uid);
-this.data = this.auth.getuserdata(this.uid)
 
+this.datas = this.auth.getinfox();
   }
 
 }

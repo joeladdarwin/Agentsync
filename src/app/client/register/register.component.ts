@@ -11,15 +11,23 @@ import { Router } from '@angular/router';
   providers:[ClientService]
 })
 export class RegisterComponent implements OnInit {
-  error: any = null;
-  constructor(private cli: ClientService, private route:Router) { }
+  error: { name: string, message: string } = { name: '', message: '' };
+  constructor(private cli: ClientService, private router:Router) { }
   register(registerForm:User)
   {
-   this.cli.register(registerForm).then(this.route.navigate(['/thanks']))
-    this.error = this.cli.register(registerForm)
+    this.cli.register(registerForm).catch(_error=>{
+     this.error = _error;
+    
+      return this.error
+   })
+   
+  }
+  resetForm(registerForm?: NgForm) {
+    if (registerForm != null)
+      registerForm.reset();
   }
   ngOnInit() {
-    
+    this.resetForm();
   }
 
 }

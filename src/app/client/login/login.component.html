@@ -9,6 +9,7 @@
                 <div class="form-group row">
                         <div class="col-12">
                                 <div class="row">
+                                        <p class="error text-center">{{ error.message }}</p>
                                         <input type="email" required class="form-control-lg col-12 text-center"
                                                 placeholder="Email" name="email" required pattern="[^@]*@[^@]*"
                                                 [(ngModel)]="cli.email" #email="ngModel" autocomplete="email">
