@@ -22,4 +22,3 @@ export class AgentregisterComponent implements OnInit {
   }
   }
 
-

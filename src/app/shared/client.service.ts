@@ -7,11 +7,13 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { User } from '../shared/user';
 import { AngularFirestore,AngularFirestoreCollection } from 'angularfire2/firestore';
+import { Order } from './order';
 @Injectable({
   providedIn: 'root'
 })
 export class ClientService {
   usersCollection : AngularFirestoreCollection<User>;
+  ordersCollection: AngularFirestoreCollection<Order>;
   userData: any;
   displayName: string;
   user : Observable<User[]>;
@@ -57,10 +59,13 @@ export class ClientService {
   }
 
   uservalue(){
-   return this.db.collection<User>('users').valueChanges().subscribe(res=>{
-     console.log(res);
-     this.userData=res;
-   })
+// this.db.collection('users').get().then(function(querySnapshot) {
+//       querySnapshot.forEach(function(doc) {
+//           // doc.data() is never undefined for query doc snapshots
+//           console.log(doc.id, " => ", doc.data());
+//       });
+//   });
+   
   }
   //End Address
 }

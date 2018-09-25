@@ -72,9 +72,10 @@ import { AgentdashboardComponent } from './agent/agentdashboard/agentdashboard.c
 import { AgentloginComponent } from './agent/agentlogin/agentlogin.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { LoginComponent } from './client/login/login.component';
+import { ThanksComponent } from './client/thanks/thanks.component';
 import { AdminheaderComponent } from './admin/adminheader/adminheader.component';
 import { AdminsidenavComponent } from './admin/adminsidenav/adminsidenav.component';
-
+import { AgentorderComponent } from './agent/agentorder/agentorder.component';
 
 
 import { AuthService } from './shared/auth.service';
@@ -86,8 +87,7 @@ import { RegisterComponent } from './client/register/register.component';
 import { ForgetComponent } from './client/forget/forget.component';
 import { FooterComponent } from './client/footer/footer.component';
 import { AgentregisterComponent } from './agent/agentregister/agentregister.component';
-import { AgentorderComponent } from './agent/agentorder/agentorder.component';
-import { AngularFireDatabase } from 'angularfire2/database';
+import { AccessComponent } from './client/access/access.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -111,14 +111,16 @@ import { AngularFireDatabase } from 'angularfire2/database';
     AgentdashboardComponent,
     AgentloginComponent,
     LoginComponent,
+    ThanksComponent,
     RegisterComponent,
     ForgetComponent,
     AdminheaderComponent,
     AdminsidenavComponent,
     FooterComponent,
     AgentregisterComponent,
-    AgentorderComponent
-    
+    AccessComponent,
+    AgentorderComponent,
+      
   ],
   imports: [
     BrowserModule,
@@ -170,7 +172,7 @@ import { AngularFireDatabase } from 'angularfire2/database';
     AngularFireAuthModule, AngularFirestoreModule,AngularFireStorageModule , 
     AngularFireModule.initializeApp(environment.firebase),
   ],
-  providers: [AuthGuardService, AuthService, ClientService, AdminService, AgentService,AngularFireDatabase],
+  providers: [AuthGuardService, AuthService, ClientService, AdminService, AgentService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -15,7 +15,7 @@ import { User } from '../../shared/user';
 export class AgentorderComponent implements OnInit {
   userData: any;
   name:any;
-
+  userdata1:any;
   constructor(private db:AngularFirestore, private cli:ClientService){
 
   }
@@ -24,9 +24,9 @@ export class AgentorderComponent implements OnInit {
     
     // this.db.list('users').valueChanges().subscribe(res=>{
     //   console.log(res);this.userData=res});
-   this.cli.uservalue();
+   this.userdata1=this.cli.uservalue();
 
-   console.log(this.name);
+   console.log(this.userdata1);
   
    
   }

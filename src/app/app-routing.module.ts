@@ -26,13 +26,18 @@ import { AgentdashboardComponent } from './agent/agentdashboard/agentdashboard.c
 import { AgentloginComponent } from './agent/agentlogin/agentlogin.component';
 import { LoginComponent } from './client/login/login.component';
 import { ForgetComponent } from './client/forget/forget.component';
+import { ThanksComponent } from './client/thanks/thanks.component';
 import { RegisterComponent } from './client/register/register.component';
+import { AccessComponent } from './client/access/access.component';
+
 import { AdminheaderComponent } from './admin/adminheader/adminheader.component';
 import { AdminsidenavComponent } from './admin/adminsidenav/adminsidenav.component';
 import { AgentregisterComponent } from './agent/agentregister/agentregister.component';
 import { AgentorderComponent } from './agent/agentorder/agentorder.component';
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
+  { path: 'forget', component: ForgetComponent },
+  { path: 'thanks', component: ThanksComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'forget', component: ForgetComponent },
   { path: "", redirectTo: 'login', pathMatch: 'full' },
@@ -41,6 +46,7 @@ const routes: Routes = [
   { path: 'placeorder', component: PlaceorderComponent },
   { path: 'address', component: AddressComponent },
   { path: 'addons', component: AddonsComponent },
+  { path: 'access', component: AccessComponent },
   { path: 'products', component: ProductsComponent },
   { path: 'meet', component: MeetComponent },
   { path: 'visitingdate', component: VisitingdateComponent },
@@ -58,7 +64,8 @@ const routes: Routes = [
   { path: 'agregister', component: AgentregisterComponent },
   { path:'adheader', component: AdminheaderComponent},
   { path:'adsidenav', component: AdminsidenavComponent},
-  { path:'agorder', component: AgentorderComponent}
+  { path:'agorder', component: AgentorderComponent},
+
 ];
 
 @NgModule({
