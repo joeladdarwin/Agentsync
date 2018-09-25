@@ -130,7 +130,7 @@ export class AuthService {
       if (user) {
         user.updateProfile({
           displayName : userd.name,
-          photoURL : "http://google.com"
+          photoURL: "https://firebasestorage.googleapis.com/v0/b/agent-sync-sonderworks.appspot.com/o/userprofile%2Fuser.jpg?alt=media&token=d3b47a22-a861-4c7a-9104-bef874ea39bf"
         })
         var displayName = user.displayName;
         var email = user.email;
