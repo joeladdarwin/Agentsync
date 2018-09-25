@@ -6,7 +6,7 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="collapsibleNavbar">
-      <ul class="navbar-nav mx-auto my-2 nav-fill w-75">
+      <ul class="navbar-nav mx-auto my-2 nav-fill w-100 px-5">
           <li class="nav-item ">
               <a class="nav-link ">Main</a>
             </li>
@@ -17,21 +17,24 @@
               <a class="nav-link ">Place Order</a>
             </li>
             <li class="nav-item ">
-              <a class="nav-link ">My Orders</a>
+              <a class="nav-link ">Deliveries</a>
             </li>
             <li class="nav-item ">
-              <a class="nav-link ">Agent</a>
+              <a class="nav-link ">My Account</a>
             </li>
+          
             <li class="nav-item ">
-              <a class="nav-link ">Admin</a>
+              <a class="nav-link ">Profile</a>
             </li>
-            <li class="nav-item ">
-              <a class="nav-link  ">Profile </a>
-            </li>  
+              <li class="nav-item ">
+                <a class="nav-link " data-toggle="modal" data-target="#logoutModal">Logout</a>
+              </li>
+            
+             
             
       </ul>
     </div> 
-    <div class="poab pt-3 p-2 mx-5">
+    <div class="poab pt-3 p-2 mx-2">
         <span matBadge="4" matBadgeColor="warn">
             <img src="assets/image/icons/delivery2.png" alt="delivery" class="cart ml-auto">
         </span>
@@ -40,4 +43,27 @@
   
   </div>
   
+  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-md">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5>Hi, {{name | titlecase}} ! </h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+        </div>
+        <div class="modal-body">
+          <p>
+            <!-- <i class="fa fa-question-circle"></i> --> Are you sure you want to logout ? <br /></p>
+        </div>
+        <div class="modal-footer">
+          <div class="actionsBtns">
+            <form action="/logout" method="post">
   
+              <input type="submit" class="btn btn1" data-dismiss="modal" value="Yes" />
+              <button class="btn btn5" data-dismiss="modal">Cancel</button>
+  
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

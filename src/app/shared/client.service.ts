@@ -6,6 +6,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
 @Injectable({
   providedIn: 'root'
 })
+
 export class ClientService {
   displayName: string;
   constructor(private auth:AuthService, private router:Router,private afAuth:AngularFireAuth) { }
@@ -16,7 +17,7 @@ export class ClientService {
  
   // Signup
   register(registerForm){
-    this.auth.register(registerForm).then(this.router.navigate['/thanks'])
+    return this.auth.registerclient(registerForm)
   }
   // End of Signup
   // Forget
@@ -27,7 +28,16 @@ export class ClientService {
   //Login
   clientlogin(email,pass)
   {
-    return this.auth.login(email, pass)   
+    // this.uid$ = this.afAuth.auth.currentUser.uid;
+    // console.log(this.getuserdata(this.uid$)+"isis")
+    return this.auth.login(email, pass).catch(error => {
+
+      throw error
+    })   
+  }
+  signout(){
+    this.auth.signOut()
+    this.router.navigate(['/login'])
   }
   // Login End
   // Dashboard
@@ -45,8 +55,6 @@ export class ClientService {
   //Address
   address(street){
     return street.password;
-    
-  
   }
   //End Address
 }
