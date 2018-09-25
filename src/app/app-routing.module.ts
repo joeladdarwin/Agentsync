@@ -6,6 +6,8 @@ import { AuthGuardService } from './shared/auth-guard.service';
 
 
 import { NavbarComponent } from './client/navbar/navbar.component';
+import { ForgetComponent } from './client/forget/forget.component';
+import { VisitingtimeComponent } from './client/visitingtime/visitingtime.component';
 import { DashboardComponent } from './client/dashboard/dashboard.component';
 import { PlaceorderComponent } from './client/placeorder/placeorder.component';
 import { AddressComponent } from './client/address/address.component';
@@ -35,12 +37,14 @@ const routes: Routes = [
   { path: "", redirectTo: 'login', pathMatch: 'full' },
   { path: 'main', component: DashboardComponent },
   { path: 'navbar', component: NavbarComponent },
+  { path: 'forget', component: ForgetComponent },
   { path: 'placeorder', component: PlaceorderComponent },
   { path: 'address', component: AddressComponent },
   { path: 'addons', component: AddonsComponent },
   { path: 'products', component: ProductsComponent },
   { path: 'meet', component: MeetComponent },
   { path: 'visitingdate', component: VisitingdateComponent },
+  { path: 'visitingtime', component: VisitingtimeComponent },
   { path: 'squarefeet', component: SquarefeetComponent },
   { path: 'comments', component: CommentsComponent },
   { path: 'revieworder', component: RevieworderComponent },

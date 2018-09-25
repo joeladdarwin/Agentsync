@@ -1,0 +1,21 @@
+.numinput{
+    border: 2px solid;
+}
+
+
+h4{
+    color:#f1875b;
+    
+}
+h5{
+    color:#d5d5d5;
+}
+.btn1{
+    background-color: #f1875b;
+    color: #fff;
+}   
+
+.btn1:hover{
+    background-color: #D5D5D5;
+    color:#000;
+}
