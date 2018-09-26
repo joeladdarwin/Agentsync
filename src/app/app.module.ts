@@ -93,6 +93,10 @@ import { ScheduledComponent } from './admin/scheduled/scheduled.component';
 import { NewComponent } from './admin/new/new.component';
 import { PendingComponent } from './admin/pending/pending.component';
 import { CompleteComponent } from './admin/complete/complete.component';
+import { AccessComponent } from './client/access/access.component';
+import { UnitsComponent } from './client/units/units.component';
+import { VisitingtimeComponent } from './client/visitingtime/visitingtime.component';
+import { UserComponent } from './admin/user/user.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -127,6 +131,14 @@ import { CompleteComponent } from './admin/complete/complete.component';
     PendingComponent,
     CompleteComponent,
     AgentregisterComponent,
+    DashboardComponent,
+    NavbarComponent,
+    PlaceorderComponent,
+    AccessComponent,
+    UnitsComponent,
+    VisitingdateComponent,
+VisitingtimeComponent,
+UserComponent,
     ],
     imports: [
     BrowserModule,
