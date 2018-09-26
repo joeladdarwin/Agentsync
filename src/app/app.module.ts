@@ -59,6 +59,7 @@ import { AddonsComponent } from './client/addons/addons.component';
 import { ProductsComponent } from './client/products/products.component';
 import { MeetComponent } from './client/meet/meet.component';
 import { VisitingdateComponent } from './client/visitingdate/visitingdate.component';
+import { VisitingtimeComponent } from './client/visitingtime/visitingtime.component';
 import { SquarefeetComponent } from './client/squarefeet/squarefeet.component';
 import { CommentsComponent } from './client/comments/comments.component';
 import { RevieworderComponent } from './client/revieworder/revieworder.component';
@@ -105,6 +106,7 @@ import { UserComponent } from './admin/user/user.component';
     ProductsComponent,
     MeetComponent,
     VisitingdateComponent,
+    VisitingtimeComponent,
     SquarefeetComponent,
     CommentsComponent,
     RevieworderComponent,
