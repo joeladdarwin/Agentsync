@@ -5,7 +5,7 @@
 <mat-horizontal-stepper linear #stepper>
   <mat-step [stepControl]="firstFormGroup" [editable]="isEditable">
     <form [formGroup]="firstFormGroup">
-      <ng-template matStepLabel>Fill out your name</ng-template>
+      <ng-template matStepLabel>Step 1</ng-template>
       <mat-form-field>
         <input matInput placeholder="Full Name" formControlName="firstCtrl" required>
       </mat-form-field>
