@@ -75,14 +75,7 @@ const routes: Routes = [
   { path: 'agregister', component: AgentregisterComponent },
   { path:'adheader', component: AdminheaderComponent},
   { path:'adsidenav', component: AdminsidenavComponent},
-  { path:'aduser', component:UserComponent},
-  {path:'adorders',component:OrdersComponent},
-  {path:'adpayment',component:PaymentComponent},
-  {path:'adtable',component:TableComponent},
-  {path:'adscheduled',component:ScheduledComponent},
-  {path:'adnew',component:NewComponent},
-  {path:'adpending',component:PendingComponent},
-  {path:'adcomplete',component:CompleteComponent}
+  
 ];
 
 
