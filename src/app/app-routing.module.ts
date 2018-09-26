@@ -26,8 +26,8 @@ import { AdmindashboardComponent } from './admin/admindashboard/admindashboard.c
 import { AgentdashboardComponent } from './agent/agentdashboard/agentdashboard.component';
 import { AgentloginComponent } from './agent/agentlogin/agentlogin.component';
 import { LoginComponent } from './client/login/login.component';
-
-
+import { MyaccountComponent } from './client/myaccount/myaccount.component';
+import { DeliveriesComponent } from './client/deliveries/deliveries.component';
 import { ForgetComponent } from './client/forget/forget.component';
 import { ThanksComponent } from './client/thanks/thanks.component';
 import { RegisterComponent } from './client/register/register.component';
@@ -73,6 +73,8 @@ const routes: Routes = [
   { path: 'revieworder', component: RevieworderComponent },
   { path: 'updateorder', component: UpdateorderComponent },
   { path: 'myorder', component: MyorderComponent },
+  { path: 'myaccount', component: MyaccountComponent },
+  { path: 'deliveries', component: DeliveriesComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'editprofile', component: EditprofileComponent },
   { path: 'adlogin', component: AdminloginComponent },
@@ -83,7 +85,7 @@ const routes: Routes = [
   { path:'adheader', component: AdminheaderComponent},
   { path:'adsidenav', component: AdminsidenavComponent},
   { path:'aduser', component: AdminuserComponent},
-  { path:'adorder', component: AdminorderComponent},
+  { path:'adorders', component: AdminorderComponent},
   { path:'adorderhistory', component: AdminorderhistoryComponent},
   { path:'adpayment', component: AdminpaymentComponent},
   { path:'adtable', component: AdmintableComponent},
