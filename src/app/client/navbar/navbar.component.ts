@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {MatBadgeModule} from '@angular/material/badge';
+import { ClientService } from '../../shared/client.service';
 
 @Component({
   selector: 'app-navbar',
@@ -8,9 +8,12 @@ import {MatBadgeModule} from '@angular/material/badge';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  constructor(private cli: ClientService) { }
 
   ngOnInit() {
   }
-
+  signout()
+  {
+    this.cli.signout()
+  }
 }
