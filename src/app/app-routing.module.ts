@@ -35,8 +35,8 @@ import { UnitsComponent } from './client/units/units.component';
 
 import { AdminheaderComponent } from './admin/adminheader/adminheader.component';
 import { AdminsidenavComponent } from './admin/adminsidenav/adminsidenav.component';
-import { AgentregisterComponent } from './agent/agentregister/agentregister.component';
 
+import { AgentregisterComponent } from './agent/agentregister/agentregister.component';
 
 
 
