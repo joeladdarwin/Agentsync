@@ -36,15 +36,17 @@ import { UnitsComponent } from './client/units/units.component';
 
 import { AdminheaderComponent } from './admin/adminheader/adminheader.component';
 import { AdminsidenavComponent } from './admin/adminsidenav/adminsidenav.component';
-import { UserComponent } from './admin/user/user.component';
-import { OrdersComponent } from './admin/orders/orders.component';
-import { PaymentComponent } from './admin/payment/payment.component';
-import { TableComponent } from './admin/table/table.component';
-import { ScheduledComponent } from './admin/scheduled/scheduled.component';
-import { NewComponent } from './admin/new/new.component';
-import { PendingComponent } from './admin/pending/pending.component';
-import { CompleteComponent } from './admin/complete/complete.component';
 import { AgentregisterComponent } from './agent/agentregister/agentregister.component';
+import { AdmincompleteComponent } from './admin/admincomplete/admincomplete.component';
+import { AdminuserComponent } from './admin/adminuser/adminuser.component';
+import { AdminorderComponent } from './admin/adminorder/adminorder.component';
+import { AdminorderhistoryComponent } from './admin/adminorderhistory/adminorderhistory.component';
+import { AdminpaymentComponent } from './admin/adminpayment/adminpayment.component';
+import { AdmintableComponent } from './admin/admintable/admintable.component';
+import { AdminscheduledComponent } from './admin/adminscheduled/adminscheduled.component';
+import { AdminnewComponent } from './admin/adminnew/adminnew.component';
+import { AdminpendingComponent } from './admin/adminpending/adminpending.component';
+
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -80,14 +82,15 @@ const routes: Routes = [
   { path: 'agregister', component: AgentregisterComponent },
   { path:'adheader', component: AdminheaderComponent},
   { path:'adsidenav', component: AdminsidenavComponent},
-  { path:'aduser', component:UserComponent},
-  {path:'adorders',component:OrdersComponent},
-  {path:'adpayment',component:PaymentComponent},
-  {path:'adtable',component:TableComponent},
-  {path:'adscheduled',component:ScheduledComponent},
-  {path:'adnew',component:NewComponent},
-  {path:'adpending',component:PendingComponent},
-  {path:'adcomplete',component:CompleteComponent}
+  { path:'aduser', component: AdminuserComponent},
+  { path:'adorder', component: AdminorderComponent},
+  { path:'adorderhistory', component: AdminorderhistoryComponent},
+  { path:'adpayment', component: AdminpaymentComponent},
+  { path:'adtable', component: AdmintableComponent},
+  { path:'adscheduled', component: AdminscheduledComponent},
+  { path:'adnew', component: AdminnewComponent},
+  { path:'adpending', component: AdminpendingComponent},
+  { path:'adcomplete', component: AdmincompleteComponent},
 ];
 
 

@@ -59,6 +59,7 @@ import { AddonsComponent } from './client/addons/addons.component';
 import { ProductsComponent } from './client/products/products.component';
 import { MeetComponent } from './client/meet/meet.component';
 import { VisitingdateComponent } from './client/visitingdate/visitingdate.component';
+import { VisitingtimeComponent } from './client/visitingtime/visitingtime.component';
 import { SquarefeetComponent } from './client/squarefeet/squarefeet.component';
 import { CommentsComponent } from './client/comments/comments.component';
 import { RevieworderComponent } from './client/revieworder/revieworder.component';
@@ -95,8 +96,15 @@ import { PendingComponent } from './admin/pending/pending.component';
 import { CompleteComponent } from './admin/complete/complete.component';
 import { AccessComponent } from './client/access/access.component';
 import { UnitsComponent } from './client/units/units.component';
-import { VisitingtimeComponent } from './client/visitingtime/visitingtime.component';
-import { UserComponent } from './admin/user/user.component';
+import { AdmincompleteComponent } from './admin/admincomplete/admincomplete.component';
+import { AdminuserComponent } from './admin/adminuser/adminuser.component';
+import { AdminorderComponent } from './admin/adminorder/adminorder.component';
+import { AdminorderhistoryComponent } from './admin/adminorderhistory/adminorderhistory.component';
+import { AdminpaymentComponent } from './admin/adminpayment/adminpayment.component';
+import { AdmintableComponent } from './admin/admintable/admintable.component';
+import { AdminscheduledComponent } from './admin/adminscheduled/adminscheduled.component';
+import { AdminnewComponent } from './admin/adminnew/adminnew.component';
+import { AdminpendingComponent } from './admin/adminpending/adminpending.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -105,6 +113,7 @@ import { UserComponent } from './admin/user/user.component';
     ProductsComponent,
     MeetComponent,
     VisitingdateComponent,
+    VisitingtimeComponent,
     SquarefeetComponent,
     CommentsComponent,
     RevieworderComponent,
@@ -136,11 +145,18 @@ import { UserComponent } from './admin/user/user.component';
     PlaceorderComponent,
     AccessComponent,
     UnitsComponent,
-    VisitingdateComponent,
-VisitingtimeComponent,
-UserComponent,
-    ],
-    imports: [
+    AdmincompleteComponent,
+    AdminuserComponent,
+    AdminorderComponent,
+    AdminorderhistoryComponent,
+    AdminpaymentComponent,
+    AdmintableComponent,
+    AdminscheduledComponent,
+    AdminnewComponent,
+    AdminpendingComponent,
+      
+  ],
+  imports: [
     BrowserModule,
     BrowserAnimationsModule,
     CommonModule,
