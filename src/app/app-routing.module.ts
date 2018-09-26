@@ -6,6 +6,7 @@ import { AuthGuardService } from './shared/auth-guard.service';
 
 
 import { NavbarComponent } from './client/navbar/navbar.component';
+import { VisitingtimeComponent } from './client/visitingtime/visitingtime.component';
 import { DashboardComponent } from './client/dashboard/dashboard.component';
 import { PlaceorderComponent } from './client/placeorder/placeorder.component';
 import { AddressComponent } from './client/address/address.component';
@@ -50,6 +51,7 @@ const routes: Routes = [
   { path: 'main', component: DashboardComponent },
   
   { path: 'navbar', component: NavbarComponent },
+  { path: 'forget', component: ForgetComponent },
   { path: 'placeorder', component: PlaceorderComponent },
   { path: 'address', component: AddressComponent },
   { path: 'addons', component: AddonsComponent },
@@ -58,12 +60,13 @@ const routes: Routes = [
   { path: 'products', component: ProductsComponent },
   { path: 'meet', component: MeetComponent },
   { path: 'visitingdate', component: VisitingdateComponent },
+  { path: 'visitingtime', component: VisitingtimeComponent },
   { path: 'squarefeet', component: SquarefeetComponent },
   { path: 'comments', component: CommentsComponent },
   { path: 'revieworder', component: RevieworderComponent },
   { path: 'updateorder', component: UpdateorderComponent },
   { path: 'myorder', component: MyorderComponent },
-  { path: 'profile', component: ProfileComponent, canActivate: [AuthGuardService]},
+  { path: 'profile', component: ProfileComponent },
   { path: 'editprofile', component: EditprofileComponent },
   { path: 'adlogin', component: AdminloginComponent },
   { path: 'addashboard', component: AdmindashboardComponent},
@@ -71,8 +74,17 @@ const routes: Routes = [
   { path: 'aglogin', component: AgentloginComponent },
   { path: 'agregister', component: AgentregisterComponent },
   { path:'adheader', component: AdminheaderComponent},
-  { path:'adsidenav', component: AdminsidenavComponent}
+  { path:'adsidenav', component: AdminsidenavComponent},
+  { path:'aduser', component:UserComponent},
+  {path:'adorders',component:OrdersComponent},
+  {path:'adpayment',component:PaymentComponent},
+  {path:'adtable',component:TableComponent},
+  {path:'adscheduled',component:ScheduledComponent},
+  {path:'adnew',component:NewComponent},
+  {path:'adpending',component:PendingComponent},
+  {path:'adcomplete',component:CompleteComponent}
 ];
+
 
 @NgModule({
   imports: [

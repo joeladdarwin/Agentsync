@@ -77,7 +77,7 @@ import { AdminheaderComponent } from './admin/adminheader/adminheader.component'
 import { AdminsidenavComponent } from './admin/adminsidenav/adminsidenav.component';
 
 
-
+import { AgentregisterComponent } from './agent/agentregister/agentregister.component';
 import { AuthService } from './shared/auth.service';
 import { AuthGuardService } from './shared/auth-guard.service';
 import { ClientService } from './shared/client.service';
@@ -86,15 +86,20 @@ import { AgentService } from './shared/agent.service';
 import { RegisterComponent } from './client/register/register.component';
 import { ForgetComponent } from './client/forget/forget.component';
 import { FooterComponent } from './client/footer/footer.component';
-import { AgentregisterComponent } from './agent/agentregister/agentregister.component';
+import { OrdersComponent } from './admin/orders/orders.component';
+import { PaymentComponent } from './admin/payment/payment.component';
+import { TableComponent } from './admin/table/table.component';
+import { ScheduledComponent } from './admin/scheduled/scheduled.component';
+import { NewComponent } from './admin/new/new.component';
+import { PendingComponent } from './admin/pending/pending.component';
+import { CompleteComponent } from './admin/complete/complete.component';
 import { AccessComponent } from './client/access/access.component';
 import { UnitsComponent } from './client/units/units.component';
+import { VisitingtimeComponent } from './client/visitingtime/visitingtime.component';
+import { UserComponent } from './admin/user/user.component';
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent,
-    DashboardComponent,
-    PlaceorderComponent,
     AddressComponent,
     AddonsComponent,
     ProductsComponent,
@@ -118,12 +123,24 @@ import { UnitsComponent } from './client/units/units.component';
     AdminheaderComponent,
     AdminsidenavComponent,
     FooterComponent,
+    OrdersComponent,
+    PaymentComponent,
+    TableComponent,
+    ScheduledComponent,
+    NewComponent,
+    PendingComponent,
+    CompleteComponent,
     AgentregisterComponent,
+    DashboardComponent,
+    NavbarComponent,
+    PlaceorderComponent,
     AccessComponent,
     UnitsComponent,
-      
-  ],
-  imports: [
+    VisitingdateComponent,
+VisitingtimeComponent,
+UserComponent,
+    ],
+    imports: [
     BrowserModule,
     BrowserAnimationsModule,
     CommonModule,
@@ -168,9 +185,7 @@ import { UnitsComponent } from './client/units/units.component';
     HttpClientModule,  
     FormsModule,
     ReactiveFormsModule, 
-  
-  
-    AngularFireAuthModule, AngularFirestoreModule,AngularFireStorageModule , 
+    AngularFireAuthModule, AngularFirestoreModule,AngularFireStorageModule, 
     AngularFireModule.initializeApp(environment.firebase),
   ],
   providers: [AuthGuardService, AuthService, ClientService, AdminService, AgentService],
