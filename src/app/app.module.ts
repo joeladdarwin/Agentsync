@@ -87,13 +87,6 @@ import { AgentService } from './shared/agent.service';
 import { RegisterComponent } from './client/register/register.component';
 import { ForgetComponent } from './client/forget/forget.component';
 import { FooterComponent } from './client/footer/footer.component';
-import { OrdersComponent } from './admin/orders/orders.component';
-import { PaymentComponent } from './admin/payment/payment.component';
-import { TableComponent } from './admin/table/table.component';
-import { ScheduledComponent } from './admin/scheduled/scheduled.component';
-import { NewComponent } from './admin/new/new.component';
-import { PendingComponent } from './admin/pending/pending.component';
-import { CompleteComponent } from './admin/complete/complete.component';
 import { AccessComponent } from './client/access/access.component';
 import { UnitsComponent } from './client/units/units.component';
 import { AdmincompleteComponent } from './admin/admincomplete/admincomplete.component';
@@ -132,13 +125,6 @@ import { AdminpendingComponent } from './admin/adminpending/adminpending.compone
     AdminheaderComponent,
     AdminsidenavComponent,
     FooterComponent,
-    OrdersComponent,
-    PaymentComponent,
-    TableComponent,
-    ScheduledComponent,
-    NewComponent,
-    PendingComponent,
-    CompleteComponent,
     AgentregisterComponent,
     DashboardComponent,
     NavbarComponent,
