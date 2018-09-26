@@ -49,6 +49,13 @@ import { RegisterComponent } from './client/register/register.component';
 import { ForgetComponent } from './client/forget/forget.component';
 import { FooterComponent } from './client/footer/footer.component';
 import { UserComponent } from './admin/user/user.component';
+import { OrdersComponent } from './admin/orders/orders.component';
+import { PaymentComponent } from './admin/payment/payment.component';
+import { TableComponent } from './admin/table/table.component';
+import { ScheduledComponent } from './admin/scheduled/scheduled.component';
+import { NewComponent } from './admin/new/new.component';
+import { PendingComponent } from './admin/pending/pending.component';
+import { CompleteComponent } from './admin/complete/complete.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -77,7 +84,14 @@ import { UserComponent } from './admin/user/user.component';
     AdminheaderComponent,
     AdminsidenavComponent,
     FooterComponent,
-    UserComponent
+    UserComponent,
+    OrdersComponent,
+    PaymentComponent,
+    TableComponent,
+    ScheduledComponent,
+    NewComponent,
+    PendingComponent,
+    CompleteComponent
     
   ],
   imports: [

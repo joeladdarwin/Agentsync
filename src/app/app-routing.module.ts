@@ -29,6 +29,15 @@ import { RegisterComponent } from './client/register/register.component';
 import { AdminheaderComponent } from './admin/adminheader/adminheader.component';
 import { AdminsidenavComponent } from './admin/adminsidenav/adminsidenav.component';
 import { UserComponent } from './admin/user/user.component';
+import { OrdersComponent } from './admin/orders/orders.component';
+import { PaymentComponent } from './admin/payment/payment.component';
+import { TableComponent } from './admin/table/table.component';
+import { ScheduledComponent } from './admin/scheduled/scheduled.component';
+import { NewComponent } from './admin/new/new.component';
+import { PendingComponent } from './admin/pending/pending.component';
+import { CompleteComponent } from './admin/complete/complete.component';
+
+
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
@@ -46,7 +55,7 @@ const routes: Routes = [
   { path: 'revieworder', component: RevieworderComponent },
   { path: 'updateorder', component: UpdateorderComponent },
   { path: 'myorder', component: MyorderComponent },
-  { path: 'profile', component: ProfileComponent, canActivate: [AuthGuardService]},
+  { path: 'profile', component: ProfileComponent },
   { path: 'editprofile', component: EditprofileComponent },
   { path: 'adlogin', component: AdminloginComponent },
   { path: 'addashboard', component: AdmindashboardComponent},
@@ -54,7 +63,14 @@ const routes: Routes = [
   { path: 'aglogin', component: AgentloginComponent },
   { path:'adheader', component: AdminheaderComponent},
   { path:'adsidenav', component: AdminsidenavComponent},
-  { path:'aduser', component:UserComponent}
+  { path:'aduser', component:UserComponent},
+  {path:'adorders',component:OrdersComponent},
+  {path:'adpayment',component:PaymentComponent},
+  {path:'adtable',component:TableComponent},
+  {path:'adscheduled',component:ScheduledComponent},
+  {path:'adnew',component:NewComponent},
+  {path:'adpending',component:PendingComponent},
+  {path:'adcomplete',component:CompleteComponent}
 ];
 
 @NgModule({
