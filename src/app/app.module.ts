@@ -90,6 +90,15 @@ import { FooterComponent } from './client/footer/footer.component';
 import { AgentregisterComponent } from './agent/agentregister/agentregister.component';
 import { AccessComponent } from './client/access/access.component';
 import { UnitsComponent } from './client/units/units.component';
+import { AdmincompleteComponent } from './admin/admincomplete/admincomplete.component';
+import { AdminuserComponent } from './admin/adminuser/adminuser.component';
+import { AdminorderComponent } from './admin/adminorder/adminorder.component';
+import { AdminorderhistoryComponent } from './admin/adminorderhistory/adminorderhistory.component';
+import { AdminpaymentComponent } from './admin/adminpayment/adminpayment.component';
+import { AdmintableComponent } from './admin/admintable/admintable.component';
+import { AdminscheduledComponent } from './admin/adminscheduled/adminscheduled.component';
+import { AdminnewComponent } from './admin/adminnew/adminnew.component';
+import { AdminpendingComponent } from './admin/adminpending/adminpending.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -123,6 +132,15 @@ import { UnitsComponent } from './client/units/units.component';
     AgentregisterComponent,
     AccessComponent,
     UnitsComponent,
+    AdmincompleteComponent,
+    AdminuserComponent,
+    AdminorderComponent,
+    AdminorderhistoryComponent,
+    AdminpaymentComponent,
+    AdmintableComponent,
+    AdminscheduledComponent,
+    AdminnewComponent,
+    AdminpendingComponent,
       
   ],
   imports: [
