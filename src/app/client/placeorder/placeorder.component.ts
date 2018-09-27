@@ -14,7 +14,6 @@ export class PlaceorderComponent implements OnInit {
 //   constructor(private client:ClientService,private router:Router) { 
 //     this.names=this.client.getUsername();
 //   } 
-// onselectt
   ngOnInit() {
   } 
 

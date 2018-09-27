@@ -59,6 +59,7 @@ import { AddonsComponent } from './client/addons/addons.component';
 import { ProductsComponent } from './client/products/products.component';
 import { MeetComponent } from './client/meet/meet.component';
 import { VisitingdateComponent } from './client/visitingdate/visitingdate.component';
+import { VisitingtimeComponent } from './client/visitingtime/visitingtime.component';
 import { SquarefeetComponent } from './client/squarefeet/squarefeet.component';
 import { CommentsComponent } from './client/comments/comments.component';
 import { RevieworderComponent } from './client/revieworder/revieworder.component';
@@ -77,7 +78,7 @@ import { AdminheaderComponent } from './admin/adminheader/adminheader.component'
 import { AdminsidenavComponent } from './admin/adminsidenav/adminsidenav.component';
 import { AgentorderComponent } from './agent/agentorder/agentorder.component';
 
-
+import { AgentregisterComponent } from './agent/agentregister/agentregister.component';
 import { AuthService } from './shared/auth.service';
 import { AuthGuardService } from './shared/auth-guard.service';
 import { ClientService } from './shared/client.service';
@@ -86,19 +87,28 @@ import { AgentService } from './shared/agent.service';
 import { RegisterComponent } from './client/register/register.component';
 import { ForgetComponent } from './client/forget/forget.component';
 import { FooterComponent } from './client/footer/footer.component';
-import { AgentregisterComponent } from './agent/agentregister/agentregister.component';
 import { AccessComponent } from './client/access/access.component';
+import { UnitsComponent } from './client/units/units.component';
+import { AdmincompleteComponent } from './admin/admincomplete/admincomplete.component';
+import { AdminuserComponent } from './admin/adminuser/adminuser.component';
+import { AdminorderComponent } from './admin/adminorder/adminorder.component';
+import { AdminorderhistoryComponent } from './admin/adminorderhistory/adminorderhistory.component';
+import { AdminpaymentComponent } from './admin/adminpayment/adminpayment.component';
+import { AdmintableComponent } from './admin/admintable/admintable.component';
+import { AdminscheduledComponent } from './admin/adminscheduled/adminscheduled.component';
+import { AdminnewComponent } from './admin/adminnew/adminnew.component';
+import { AdminpendingComponent } from './admin/adminpending/adminpending.component';
+import { MyaccountComponent } from './client/myaccount/myaccount.component';
+import { DeliveriesComponent } from './client/deliveries/deliveries.component';
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent,
-    DashboardComponent,
-    PlaceorderComponent,
     AddressComponent,
     AddonsComponent,
     ProductsComponent,
     MeetComponent,
     VisitingdateComponent,
+    VisitingtimeComponent,
     SquarefeetComponent,
     CommentsComponent,
     RevieworderComponent,
@@ -118,10 +128,23 @@ import { AccessComponent } from './client/access/access.component';
     AdminsidenavComponent,
     FooterComponent,
     AgentregisterComponent,
-    ThanksComponent,
-    AgentorderComponent,
+    DashboardComponent,
+    NavbarComponent,
+    PlaceorderComponent,
     AccessComponent,
-    
+    UnitsComponent,
+    AdmincompleteComponent,
+    AdminuserComponent,
+    AdminorderComponent,
+    AdminorderhistoryComponent,
+    AdminpaymentComponent,
+    AdmintableComponent,
+    AdminscheduledComponent,
+    AdminnewComponent,
+    AdminpendingComponent,
+    MyaccountComponent,
+    DeliveriesComponent,
+    AgentorderComponent  
   ],
   imports: [
     BrowserModule,
@@ -168,9 +191,7 @@ import { AccessComponent } from './client/access/access.component';
     HttpClientModule,  
     FormsModule,
     ReactiveFormsModule, 
-  
-  
-    AngularFireAuthModule, AngularFirestoreModule,AngularFireStorageModule , 
+    AngularFireAuthModule, AngularFirestoreModule,AngularFireStorageModule, 
     AngularFireModule.initializeApp(environment.firebase),
   ],
   providers: [AuthGuardService, AuthService, ClientService, AdminService, AgentService],

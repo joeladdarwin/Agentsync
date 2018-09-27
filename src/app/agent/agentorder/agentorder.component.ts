@@ -14,6 +14,11 @@ import { async } from 'q';
 })
 
 export class AgentorderComponent implements OnInit {
+  
+datanew;
+constructor(private cli:ClientService){
+
+}
   // userData: any;
   // name:any;
   // users:any;
@@ -34,31 +39,31 @@ export class AgentorderComponent implements OnInit {
    
   // }
   // }
-dataSource=new MatTableDataSource();
-@ViewChild(MatPaginator)paginator:MatPaginator;
-@ViewChild(MatSort)sort:MatSort;
- constructor(private client:ClientService){
+// dataSource=new MatTableDataSource();
+// @ViewChild(MatPaginator)paginator:MatPaginator;
+// @ViewChild(MatSort)sort:MatSort;
+//  constructor(private client:ClientService){
 
- }
+//  }
 
-ngAfterViewInit(){
-  this.dataSource.paginator=this.paginator;
-  console.log("paginatip");
-  this.dataSource.sort=this.sort;
-}
+// ngAfterViewInit(){
+//   this.dataSource.paginator=this.paginator;
+//   console.log("paginatip");
+//   this.dataSource.sort=this.sort;
+// }
  
   ngOnInit(){
   
-this.client.getdoc().subscribe(res=>this.dataSource.data=res);
-console.log("htyy"+this.dataSource.data);
+// this.client.getdoc().subscribe(res=>this.dataSource.data=res);
+// console.log("htyy"+this.dataSource.data);
 
-  }
-  applyFilter(filtervalue:string){
-    filtervalue=filtervalue.trim();
-    filtervalue=filtervalue.toLowerCase();
-    console.log("dfdasfs")
-    this.dataSource.filter=filtervalue;
-
+//   }
+//   applyFilter(filtervalue:string){
+//     filtervalue=filtervalue.trim();
+//     filtervalue=filtervalue.toLowerCase();
+//     console.log("dfdasfs")
+//     this.dataSource.filter=filtervalue;
+this.datanew=this.cli.getdoc();
   }
 
 

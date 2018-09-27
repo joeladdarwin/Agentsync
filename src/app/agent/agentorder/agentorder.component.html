@@ -1,51 +1,29 @@
-<div class="example-header">
-  <mat-form-field>
-    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
-  </mat-form-field>
-  <ul>
-    <li *ngFor="let user of users | async">
-         {{ user.brokerage | json }}
-      </li>
-    </ul>
-</div>
-
-<div class="example-container mat-elevation-z8">
-
-  <mat-table [dataSource]="dataSource" matSort>
-
-    <!-- ID Column -->
-    <ng-container matColumnDef="id">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> ID </mat-header-cell>
-      <mat-cell *matCellDef="let users"> {{users.uid}} </mat-cell>
-    </ng-container>
-
-    <!-- Progress Column -->
-    <ng-container matColumnDef="progress">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> Progress </mat-header-cell>
-      <mat-cell *matCellDef="let users"> {{users.progress}}% </mat-cell>
-    </ng-container>
-
-    <!-- Name Column -->
-    <ng-container matColumnDef="name">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
-      <mat-cell *matCellDef="let users"> {{users.name}} </mat-cell>
-    </ng-container>
-
-    <!-- Color Column -->
-    <ng-container matColumnDef="color">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> Color </mat-header-cell>
-      <mat-cell *matCellDef="let users" [style.color]="row.color"> {{row.color}} </mat-cell>
-    </ng-container>
-
-    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: displayedColumns;">
-    </mat-row>
-  </mat-table>
-
-  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
-</div>
-
-
-<!-- Copyright 2018 Google Inc. All Rights Reserved.
-    Use of this source code is governed by an MIT-style license that
-    can be found in the LICENSE file at http://angular.io/license -->
+<table class="table table-striped">
+  <thead class="thead-dark">
+      <tr>
+          <th scope="col">No</th>
+          <th scope="col">Building</th>
+          <th scope="col">Address</th>
+          <th scope="col">Date/Time</th>
+          <th scope="col">Order value</th>
+          <th scope="col">Edit/Delete</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr *ngFor="let datas of datanew |async">
+        
+        <td>{{ datas.uid }}</td>
+        <td>{{ datas.displayName }}</td>
+        <td>{{ datas.brokerage }}</td>
+        <td>{{ datas.email }}</td>
+        <td>{{ datas.phonenumber }}</td>
+        <td>{{ datas.uid }}</td>
+      
+      </tr>    
+     
+          
+        
+              
+      
+  </tbody>
+</table>
