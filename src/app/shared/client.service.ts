@@ -11,13 +11,15 @@ import { Order } from './order';
 @Injectable({
   providedIn: 'root'
 })
+
 export class ClientService {
   usersCollection : AngularFirestoreCollection<User>;
   ordersCollection: AngularFirestoreCollection<Order>;
   userData: any;
+  
   displayName: string;
   user : Observable<User[]>;
-  constructor(private auth:AuthService, private router:Router,private afAuth:AngularFireAuth, private db:AngularFirestore,private afs:AngularFireStorage) { }
+  constructor(private auth:AuthService,private afss:AngularFirestore, private router:Router,private afAuth:AngularFireAuth, private db:AngularFirestore,private afs:AngularFireStorage) { }
 
 
   // CommonCommon
@@ -25,7 +27,7 @@ export class ClientService {
  
   // Signup
   register(registerForm){
-    this.auth.register(registerForm).then(this.router.navigate['/thanks'])
+    return this.auth.registerclient(registerForm)
   }
   // End of Signup
   // Forget
@@ -36,7 +38,16 @@ export class ClientService {
   //Login
   clientlogin(email,pass)
   {
-    return this.auth.login(email, pass)   
+    // this.uid$ = this.afAuth.auth.currentUser.uid;
+    // console.log(this.getuserdata(this.uid$)+"isis")
+    return this.auth.login(email, pass).catch(error => {
+
+      throw error
+    })   
+  }
+  signout(){
+    this.auth.signOut()
+    this.router.navigate(['/login'])
   }
   // Login End
   // Dashboard
@@ -54,18 +65,10 @@ export class ClientService {
   //Address
   address(street){
     return street.password;
-    
-  
   }
 
-  uservalue(){
-// this.db.collection('users').get().then(function(querySnapshot) {
-//       querySnapshot.forEach(function(doc) {
-//           // doc.data() is never undefined for query doc snapshots
-//           console.log(doc.id, " => ", doc.data());
-//       });
-//   });
-   
-  }
-  //End Address
+//  
+getdoc(){
+  return this.afss.collection('users').valueChanges();
+}
 }

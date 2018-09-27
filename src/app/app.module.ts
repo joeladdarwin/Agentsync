@@ -118,9 +118,10 @@ import { AccessComponent } from './client/access/access.component';
     AdminsidenavComponent,
     FooterComponent,
     AgentregisterComponent,
-    AccessComponent,
+    ThanksComponent,
     AgentorderComponent,
-      
+    AccessComponent,
+    
   ],
   imports: [
     BrowserModule,
