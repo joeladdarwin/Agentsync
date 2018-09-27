@@ -100,6 +100,7 @@ import { AdminnewComponent } from './admin/adminnew/adminnew.component';
 import { AdminpendingComponent } from './admin/adminpending/adminpending.component';
 import { MyaccountComponent } from './client/myaccount/myaccount.component';
 import { DeliveriesComponent } from './client/deliveries/deliveries.component';
+import { InvoiceComponent } from './client/invoice/invoice.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -144,6 +145,7 @@ import { DeliveriesComponent } from './client/deliveries/deliveries.component';
     AdminpendingComponent,
     MyaccountComponent,
     DeliveriesComponent,
+    InvoiceComponent,
       
   ],
   imports: [

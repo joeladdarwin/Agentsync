@@ -10,3 +10,11 @@ h4{
 h5{
     color:#d5d5d5;
 }
+.ordericon{
+    width: 3rem;
+    height:3rem;
+}
+.btn3{
+    background-color: transparent;
+    border: none;
+}
