@@ -16,6 +16,7 @@ message:any;
    }
 
   ngOnInit() {
+    this.name = this.auth.getinfox();
 
   }
 
