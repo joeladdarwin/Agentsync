@@ -48,6 +48,8 @@ import { AdminnewComponent } from './admin/adminnew/adminnew.component';
 import { AdminpendingComponent } from './admin/adminpending/adminpending.component';
 
 
+
+
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'forget', component: ForgetComponent },
