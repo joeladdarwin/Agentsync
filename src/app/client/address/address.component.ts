@@ -12,10 +12,11 @@ import { ClientService } from '../../shared/client.service';
 @Component({
   selector: 'app-address',
   templateUrl: './address.component.html',
-  styleUrls: ['./address.component.css']
+  styleUrls: ['./address.component.css'],
+  
 })
 export class AddressComponent implements OnInit {
- 
+ propertytype:string;
   myform: FormGroup;
   street1: FormControl;
   state: FormControl;
@@ -23,7 +24,7 @@ export class AddressComponent implements OnInit {
   password: FormControl;
  
   addressstore:any;
-constructor(private street : ClientService){
+constructor(private cli : ClientService){
 
 }
   createFormControls() {
@@ -49,8 +50,12 @@ constructor(private street : ClientService){
      
     });
   }
-
+  set(poo)
+  {
+    this.cli.setpropertytype(poo)
+  }
   ngOnInit() {
+    this.cli.bspropertytype.subscribe(propertytype => {this.propertytype = propertytype; console.log("insi"+propertytype)} );
     this.createFormControls();
     this.createForm();
   }
@@ -60,7 +65,7 @@ constructor(private street : ClientService){
     if (this.myform.valid) {
       console.log("Form Submitted!");
       console.log(this.myform.value);
-    this.addressstore = this.street.address(this.myform.value);
+    this.addressstore = this.cli.address(this.myform.value);
     console.log(this.addressstore);
       this.myform.reset();
       

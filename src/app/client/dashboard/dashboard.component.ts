@@ -8,15 +8,15 @@ import { AuthService } from '../../shared/auth.service';
   providers:[ClientService, AuthService]
 })
 export class DashboardComponent implements OnInit {
-// name:any;
-// message:any;
-//   constructor(private cli:ClientService,  private auth:AuthService) {
-//     this.name=this.cli.getUsername();
+name:any;
+message:any;
+  constructor(private cli:ClientService,  private auth:AuthService) {
+    // this.name=this.cli.getUsername();
   
-//    }
+   }
 
   ngOnInit() {
-    this.name = this.auth.getinfox();
+    // this.name = this.auth.getUsername()
 
   }
 
