@@ -42,6 +42,12 @@ export class ClientService {
   private vcommunityshots: any = null;
   private vtwlightshots: any = null;
   private vrushfee: any = null;
+<<<<<<< HEAD
+=======
+  private orderarray : Array<any> = [];
+  private paddonarray : Array<any> = [];
+  private vaddonarray : Array<any> = [];
+>>>>>>> cca16bf75e3515b765e6a232047fd59d445f4094
   private orderprice: any ;
   private paddonprice: any ;
   private vaddonprice:any ;
@@ -50,6 +56,11 @@ export class ClientService {
   downloadURL : Observable<string | null>;
   profilepicRef: any;
   uid:string;
+<<<<<<< HEAD
+=======
+  private visitingtime: Date;
+  private visitingdate: Date;
+>>>>>>> cca16bf75e3515b765e6a232047fd59d445f4094
   private totalunits : Array<string> = ['First', 'Second', 'Third', 'Fourth', 'Fifth', 'Sixth', 'Seventh', 'Eighth', 'Ninth', 'Tenth'];
   public bspropertytype : BehaviorSubject<string> = new BehaviorSubject<string>(this.propertytype);
   public bssquarefeet : BehaviorSubject<string> = new BehaviorSubject<string>(this.squarefeet);
@@ -82,6 +93,16 @@ export class ClientService {
   public bsvaddonprice: BehaviorSubject<any> = new BehaviorSubject<any>(this.vaddonprice);
   public bstotalprice: BehaviorSubject<any> = new BehaviorSubject<any>(this.totalprice);
   // CommonCommon
+<<<<<<< HEAD
+=======
+  public bsorderarray : BehaviorSubject<any[]> = new BehaviorSubject<any[]>(this.orderarray);
+  public bspaddonarray : BehaviorSubject<any[]> = new BehaviorSubject<any[]>(this.paddonarray);
+  public bsvaddonarray : BehaviorSubject<any[]> = new BehaviorSubject<any[]>(this.vaddonarray);
+  public bsvisitingtime: BehaviorSubject<any> = new BehaviorSubject<any>(this.visitingtime);
+  public bsvisitingdate: BehaviorSubject<any> = new BehaviorSubject<any>(this.visitingdate);
+  // CommonCommon
+
+>>>>>>> cca16bf75e3515b765e6a232047fd59d445f4094
   // End of 
  
   // Signup
@@ -147,6 +168,7 @@ export class ClientService {
   }
   // End of Appartment unit
   //Address
+<<<<<<< HEAD
   // updateaddress(address):void
   // {
 
@@ -191,6 +213,12 @@ export class ClientService {
   // }
   // updateaddress(address):void
   // {
+=======
+  
+  
+  updateaddress(address):void
+  {
+>>>>>>> cca16bf75e3515b765e6a232047fd59d445f4094
 
   //   this.setstreet(address.street);
   //   this.setcity(address.city);
@@ -333,7 +361,10 @@ export class ClientService {
     this.bspropertytype.next(this.squarefeet);
     this.router.navigate(['/products']);
   }
+<<<<<<< HEAD
   
+=======
+>>>>>>> cca16bf75e3515b765e6a232047fd59d445f4094
 
   // End of Squarefeet
   // products
@@ -427,6 +458,55 @@ export class ClientService {
     this.dsflyer100 = price;
     this.bsdsflyer100.next(this.dsflyer100);
   }
+<<<<<<< HEAD
+=======
+  setordersarray(order: any): void {
+    this.bsorderarray.next(this.bsorderarray.getValue().concat([order]));
+
+    this.checkpaddons(order)
+
+  }
+  checkpaddons(order: any): any {
+    try {
+      for (var i = 0; i < order.length; i++) {
+        if (order[i][0] == "Photography") throw "photography"
+
+      }
+      throw "no photo"
+    }
+    catch (err) {
+      if (err == "photography") {
+        console.log("photography thrown")
+        this.router.navigate(['/addons'])
+      }
+      if (err == "no photo") {
+        console.log(err)
+        try {
+          for (var i = 0; i < order.length; i++) {
+            if (order[i][0] == "Video Tour") throw "video"
+          }
+          throw "no video"
+        }
+        catch (errs) {
+          if (errs == "video") {
+            console.log("video thrown")
+            this.router.navigate(['/addonsv'])
+          }
+          if (errs == "no video") {
+
+            console.log("no videos")
+            this.router.navigate(['/access'])
+
+          }
+
+        }
+
+      }
+
+    }
+
+  }
+>>>>>>> cca16bf75e3515b765e6a232047fd59d445f4094
 
   // End of products
 
@@ -521,4 +601,9 @@ getdoc(){
 }
 //
  
+<<<<<<< HEAD
+=======
+  // End of products
+  // hhh
+>>>>>>> cca16bf75e3515b765e6a232047fd59d445f4094
 }

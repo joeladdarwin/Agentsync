@@ -104,6 +104,11 @@ import { MyaccountComponent } from './client/myaccount/myaccount.component';
 import { DeliveriesComponent } from './client/deliveries/deliveries.component';
 import { Agentregister1Component } from './agent/agentregister1/agentregister1.component';
 import { AddonvComponent } from './client/addonv/addonv.component';
+<<<<<<< HEAD
+=======
+
+import { AddonsvComponent } from './client/addonsv/addonsv.component';
+>>>>>>> cca16bf75e3515b765e6a232047fd59d445f4094
 @NgModule({
   declarations: [
     AppComponent,
@@ -151,7 +156,14 @@ import { AddonvComponent } from './client/addonv/addonv.component';
     DeliveriesComponent,
     AgentorderComponent,
     Agentregister1Component,
+<<<<<<< HEAD
     AddonvComponent  
+=======
+    AddonvComponent,  
+    
+    AddonsvComponent,
+      
+>>>>>>> cca16bf75e3515b765e6a232047fd59d445f4094
   ],
   imports: [
     BrowserModule,

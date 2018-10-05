@@ -65,6 +65,11 @@ const routes: Routes = [
   { path: 'placeorder', component: PlaceorderComponent },
   { path: 'address', component: AddressComponent },
   { path: 'addonsp', component: AddonsComponent },
+<<<<<<< HEAD
+=======
+  { path: 'addons', component: AddonsComponent },
+  { path: 'addonsv', component: AddonsvComponent },
+>>>>>>> cca16bf75e3515b765e6a232047fd59d445f4094
   { path: 'access', component: AccessComponent },
   { path: 'units', component: UnitsComponent },
   { path: 'products', component: ProductsComponent },

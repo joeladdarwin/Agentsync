@@ -3,6 +3,7 @@
 body {  font-family: 'Lato', sans-serif !important ;}
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6{
     font-size: inherit;
+<<<<<<< HEAD
 
 }
 .bgdark{
@@ -25,4 +26,17 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6{
        h5, .h5{
         font-size: .75rem !important;
     }
+=======
+}
+
+body {  font-family: 'Lato'; }
+.btn-selected{
+    color:#000;
+    background-color: #D5D5D5 !important;
+    font-size:1.5rem;
+}
+.bgdark{
+    color:#fff;
+    background-color: #636363;
+>>>>>>> cca16bf75e3515b765e6a232047fd59d445f4094
 }
