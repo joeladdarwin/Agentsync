@@ -1,34 +1,37 @@
 <app-navbar></app-navbar>
-<div class="row mb-5">
-  <div class="bg-dark offset-lg-2 col-lg-8 col-md-12 col-xs-12 col-sm-12">
+<div class="row">
+  <div class="bgdark offset-lg-2 col-lg-8 col-md-12 col-xs-12 col-sm-12">
     <div class="col-md-12">
           <h3 class="text-center text-white">New Order > First Unit</h3>
           <h4 class="text-center">Products </h4>
     </div>
-        <div class="row">
-          <div class="col-md-4 col-4 text-left">
-              <h5 class="text-white">BACK</h5>
-          </div>
-          <div class="col-md-4 col-4 text-center">
-            <h5>Subtotal:</h5>
-          </div>
-          <div class="col-md-4 col-4 text-right">
-            <h5 class="text-white">NEXT</h5>
-          </div>
-        </div>
   </div>
 </div>
-<div class="row text-center">
-    <div class="offset-md-3 col-md-6 col-xs-12">
-      <h3>How many units are we serving at this proper</h3>
+  <form class="row" #unitsform="ngForm"  (ngSubmit)="unitssubmit()">
+    <div class="bgdark offset-lg-2 col-lg-8 col-md-12 col-xs-12 col-sm-12">
+      <div class="col-md-12 ">
+        <button class="btn btn-link text-white" (click)="gotoplaceorder()">BACK</button>
+        <button type="submit"  class="btn btn-link float-right text-white ">NEXT</button>
+    
+      </div>
+    
     </div>
-  </div>
-<div class="row text-center">
-    <div class="offset-md-3 col-md-6 col-xs-12">
-        <i class="fa fa-sort-up up"></i>
-        <h2>5</h2>
-        <i class="fa fa-sort-down down"></i>
+    <div class="offset-lg-2 col-lg-8 col-md-12 col-xs-12 col-sm-12 text-center">
+     
+        <h3 class="text-center my-5">How many units are we serving at this property</h3>
+         <a (click)="inc()"><i class="fa fa-sort-up up"></i></a> 
+          <h2 class="text-center">{{unit}}</h2>
+          <a (click)="dec()"><i class="fa fa-sort-down down text-center"></i></a>
+    </div>
+    <div class="offset-lg-2 col-lg-8 col-md-12 col-xs-12 col-sm-12">
+    
+      
+    
+    
+    </div>
+  </form>
+      
+ 
 
-    </div>
-</div>
+
 <app-footer></app-footer>

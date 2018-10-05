@@ -1,43 +1,65 @@
  <app-navbar></app-navbar>
- <div class="row mb-5">
-  <div class="bg-dark offset-lg-2 col-lg-8 col-md-12 col-xs-12 col-sm-12">
-    <div class="col-md-12">
-          <h3 class="text-center text-white">New Order > First Unit</h3>
+ <div class="row" >
+  <div class="bgdark offset-lg-2 col-lg-8 col-md-12 col-xs-12 col-sm-12">
+    <div class=" col-md-12">
+          <h3 class="text-center text-white">New Order > {{totalunits}} Unit</h3>
           <h4 class="text-center">{{propertytype}} Address </h4>
     </div>
-    <div class="row">
-      <div class="col-md-4 col-4 text-left">
-          <h5 class="text-white">BACK</h5>
-      </div>
-      <div class="col-md-4 col-4 text-center">
-        </div>
-      <div class="col-md-4 col-4 text-right">
-        <h5 class="text-white">NEXT</h5>
-      </div>
-    </div>
-    </div>
-    </div>
+  </div> 
+ </div>
+ <form class="row" [formGroup]="addressformgroup" (ngSubmit)="Onaddresssubmit()">
+    <div class="bgdark offset-lg-2 col-lg-8 col-md-12 col-xs-12 col-sm-12">
+      <div class="col-md-12 ">
+        <button class="btn btn-link text-white" [routerLink]="['/placeorder']" routerLinkActive="router-link-active" >BACK</button>
+        <button type="submit" [disabled]="!addressformgroup.valid"  class="btn btn-link float-right text-white ">NEXT</button>
     
- <div class="row mb-3">
-  
-    <div class="offset-md-3 col-md-6 col-xs-12 my-2">
-      <input type="text" name="Street Address" placeholder="Street Address" class="form-control p-4 numinput text-center">
-    </div>
-    </div>
-    <div class="row mb-3">
-      <div class="offset-md-3 col-md-6 col-xs-12 my-2">
-        <input type="text" name="city,state" placeholder="city,state" class="form-control p-4 numinput text-center">
-        </div>
       </div>
-      <div class="row mb-3">
-        <div class="offset-md-3 col-md-6 col-xs-12 my-2">
-          <input type="text" name="Zip code" placeholder="Zip Code" class="form-control p-4 numinput text-center">
+      
+    </div>
+    <div class="mt-3 mb-5 offset-lg-2 col-lg-8 col-md-12 col-xs-12 col-sm-12">
+      <input type="text" placeholder="Street Address" class="form-control p-4 numinput text-center my-5"  formControlName="street" name="street" id="name" required >
+    <p>{{addressformgroup.get('street').value}}</p>
+       <!-- <div *ngIf="addressformgroup.controls['street'].haserror('required')">
+         Street is required
+       </div> -->
+       <!-- <div *ngIf="addressformgroup.get('street').haserror('required')">
+         ooos
+       </div> -->
+    <div *ngIf="af.street.invalid &&(af.street.dirty || af.street.touched)"   >
+      <div *ngIf="af.street.errors.required">
+        Street Address Required
+      </div>
+    </div>
+   
+      <input type="text" placeholder="City,State" class="form-control p-4 numinput text-center my-5" formControlName="city" name="city" id="city" required>
+        <div *ngIf="af.city.invalid &&(af.city.dirty || af.city.touched)">
+          <div *ngIf="af.city.errors.required">
+            city, state Required
           </div>
         </div>
-        <div class="row mb-3">
-          <div class="offset-md-3 col-md-6 col-xs-12 my-2">
-            <input type="text" name="Unit Number" placeholder="Unit Number" class="form-control p-4 numinput text-center">
+      <input type="text" placeholder="Zip Code" minlength="5" maxlength="5"  class="form-control p-4 numinput text-center my-5" formControlName="zipCode" name="zipcode" id="zipcode" required>
+        <div *ngIf="af.zipCode.invalid &&(af.zipCode.dirty || af.zipCode.touched)">
+          <div *ngIf="af.zipCode.errors.required">
+            zipcode Required
           </div>
+          <div *ngIf="af.zipCode.errors.pattern">
+                Please enter proper zipcode
           </div>
+          <div *ngIf="af.zipCode.errors.minlength">
+                      Please enter 5 digit zipcode of your area
+          </div>
+        </div>
+      
+       <div *ngIf="isAppartment">  
+        <input type="text" placeholder="Unit Number" class="form-control p-4 numinput text-center my-5" formControlName="unit" 
+          name="unit" id="unit" required>
+      </div> 
+      <p>ssss {{addressformgroup.value | json}}</p>
+    </div>
+   
+   <!-- <p>status {{addressformgroup.status}}</p>  -->
+    
+  
+ </form>      
           <app-footer></app-footer>
                  

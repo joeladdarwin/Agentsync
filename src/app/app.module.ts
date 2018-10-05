@@ -4,6 +4,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
 import { platformBrowserDynamic } from "@angular/platform-browser-dynamic";
 import { NgModule } from '@angular/core';
+
+
+
 import {  MatAutocompleteModule,
   MatBadgeModule,
   MatBottomSheetModule,
@@ -101,6 +104,7 @@ import { AdminpendingComponent } from './admin/adminpending/adminpending.compone
 import { MyaccountComponent } from './client/myaccount/myaccount.component';
 import { DeliveriesComponent } from './client/deliveries/deliveries.component';
 import { InvoiceComponent } from './client/invoice/invoice.component';
+import { AddonsvComponent } from './client/addonsv/addonsv.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -146,6 +150,7 @@ import { InvoiceComponent } from './client/invoice/invoice.component';
     MyaccountComponent,
     DeliveriesComponent,
     InvoiceComponent,
+    AddonsvComponent,
       
   ],
   imports: [
