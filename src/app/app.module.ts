@@ -4,6 +4,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
 import { platformBrowserDynamic } from "@angular/platform-browser-dynamic";
 import { NgModule } from '@angular/core';
+import{AngularFireDatabaseModule} from'angularfire2/database';
 import {  MatAutocompleteModule,
   MatBadgeModule,
   MatBottomSheetModule,
@@ -54,6 +55,7 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './client/navbar/navbar.component';
 import { DashboardComponent } from './client/dashboard/dashboard.component';
 import { PlaceorderComponent } from './client/placeorder/placeorder.component';
+import { InvoiceComponent } from './client/invoice/invoice.component';
 import { AddressComponent } from './client/address/address.component';
 import { AddonsComponent } from './client/addons/addons.component';
 import { ProductsComponent } from './client/products/products.component';
@@ -76,7 +78,7 @@ import { LoginComponent } from './client/login/login.component';
 import { ThanksComponent } from './client/thanks/thanks.component';
 import { AdminheaderComponent } from './admin/adminheader/adminheader.component';
 import { AdminsidenavComponent } from './admin/adminsidenav/adminsidenav.component';
-
+import { AgentorderComponent } from './agent/agentorder/agentorder.component';
 
 import { AgentregisterComponent } from './agent/agentregister/agentregister.component';
 import { AuthService } from './shared/auth.service';
@@ -100,7 +102,10 @@ import { AdminnewComponent } from './admin/adminnew/adminnew.component';
 import { AdminpendingComponent } from './admin/adminpending/adminpending.component';
 import { MyaccountComponent } from './client/myaccount/myaccount.component';
 import { DeliveriesComponent } from './client/deliveries/deliveries.component';
-import { InvoiceComponent } from './client/invoice/invoice.component';
+import { Agentregister1Component } from './agent/agentregister1/agentregister1.component';
+import { AddonvComponent } from './client/addonv/addonv.component';
+
+import { AddonsvComponent } from './client/addonsv/addonsv.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -115,6 +120,7 @@ import { InvoiceComponent } from './client/invoice/invoice.component';
     RevieworderComponent,
     UpdateorderComponent,
     MyorderComponent,
+    InvoiceComponent,
     ProfileComponent,
     EditprofileComponent,
     AdminloginComponent,
@@ -145,7 +151,11 @@ import { InvoiceComponent } from './client/invoice/invoice.component';
     AdminpendingComponent,
     MyaccountComponent,
     DeliveriesComponent,
-    InvoiceComponent,
+    AgentorderComponent,
+    Agentregister1Component,
+    AddonvComponent,  
+    
+    AddonsvComponent,
       
   ],
   imports: [
@@ -195,6 +205,7 @@ import { InvoiceComponent } from './client/invoice/invoice.component';
     ReactiveFormsModule, 
     AngularFireAuthModule, AngularFirestoreModule,AngularFireStorageModule, 
     AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule,
   ],
   providers: [AuthGuardService, AuthService, ClientService, AdminService, AgentService],
   bootstrap: [AppComponent]

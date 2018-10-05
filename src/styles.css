@@ -1,3 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Lato');
+body {  font-family: 'Lato', sans-serif !important ;}
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6{
+    font-size: inherit;
+}
 
 body {  font-family: 'Lato'; }
+.btn-selected{
+    color:#000;
+    background-color: #D5D5D5 !important;
+    font-size:1.5rem;
+}
+.bgdark{
+    color:#fff;
+    background-color: #636363;
+}

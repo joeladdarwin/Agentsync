@@ -14,14 +14,11 @@ export class PlaceorderComponent implements OnInit {
    
   } 
   upbuilding(build) {
-    
    
     if(build ==="Appartment")
     {
-
       this.router.navigate(["/units"])
       this.client.setpropertytype(build)
-      
     }
     else{
       this.router.navigate(['/address'])

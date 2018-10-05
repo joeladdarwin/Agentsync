@@ -5,15 +5,23 @@ h4{
 h5{
     color:#D5D5D5;
 }
-.btn{
+.btn1{
     background-color:#F1875B;
     color:#fff;
+    font-size: 1rem;
 }
-.btn:hover{
+.btn1:hover{
     background-color: #D5D5D5;
     color:#000;
 }
-.btn3{
-    background-color: transparent;
-    border: none;
+.btns
+{
+    background-color: #D5D5D5;
+    color:#000;
+    font-size: 1rem; 
+}
+.btns:hover
+{
+     background-color:#F1875B;
+    color:#fff;
 }

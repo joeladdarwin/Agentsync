@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, FormControl, NgForm } from '@angular/forms';
 import { WindowService } from '../../shared/window.service';
-import * as firebase from 'firebase';
+import { User } from '../../shared/user';
+import { Agent } from '../../shared/agent';
+import { ClientService } from '../../shared/client.service';
+import { AuthService } from '../../shared/auth.service';
+import { Router } from '@angular/router';
 export class PhoneNumber {
   country: string;
   area: string;
@@ -22,6 +26,7 @@ export class PhoneNumber {
   providers:[WindowService]
 })
 export class AgentregisterComponent implements OnInit {
+  error: { name: string, message: string } = { name: '', message: '' };
   windowRef: any;
 
   phoneNumber = new PhoneNumber()
@@ -34,7 +39,7 @@ export class AgentregisterComponent implements OnInit {
   isEditable = true;
   // skills = new FormControl();
   skillsList: string[] = ['Photography', 'Video Tour', '360 Tour', 'Single Property Website', 'Floor Plans(B&W)', 'Floor Plans(Color)', 'Floor Plans(Color+Furniture)', 'Double Sided Flyer', 'Brochure(8 Page)', 'Brochure(4 Page)'];
-  constructor(private _formBuilder: FormBuilder, private win: WindowService) { }
+  constructor(private _formBuilder: FormBuilder, private win: WindowService,private cli:ClientService,private auth:AuthService,private router:Router) { }
   // emailFormControl = new FormControl('', [
   //   Validators.required,
   //   Validators.email,
@@ -70,13 +75,50 @@ export class AgentregisterComponent implements OnInit {
   get pemail() {
     return this.firstFormGroup.get('pemail');
   } 
+//cdccdff
+  // agent(agentForm:Agent){
+  //   this.cli.agent(agentForm).catch(_error=>{
+  //    this.error=_error;
+  //    return this.error
+      
+  //   })
+  // }
+  // resetForm(agentForm?:NgForm){
+  //   if(agentForm!=null){
+  //     agentForm.reset();
+  //   }
+
+  // }
+
+  agent(agentForm:Agent)
+  {
+    console.log("wrwetwetwe");
+    this.cli.register(agentForm).catch(_error=>{
+     this.error = _error;
+    
+      return this.error
+   })
+   
+  }
+  resetForm(agentForm?: NgForm) {
+    if (agentForm != null)
+      agentForm.reset();
+  }
+ 
 
 
+
+
+
+  //asdasdasdsa
   ngOnInit() {
     // this.windowRef = this.win.windowRef
     // this.windowRef.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container')
 
     // this.windowRef.recaptchaVerifier.render()
+    // this.resetForm();
+
+    this.resetForm();
     this.firstFormGroup = this._formBuilder.group({
       fullName: ['', Validators.required],
       phcountry: ['', Validators.required],

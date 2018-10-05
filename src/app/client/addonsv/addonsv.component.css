@@ -1,4 +1,4 @@
-gith4{
+h4{
     color:#f1875b;
    
 }
@@ -13,7 +13,11 @@ h5{
     background-color: #D5D5D5;
     color:#000;
 }
-.btn3{
-    background-color: transparent;
-    border: none;
+.btns{
+    background-color: #D5D5D5;
+    color:#000;
+}
+.btns:hover{
+    background-color:#F1875B;
+    color:#fff;
 }

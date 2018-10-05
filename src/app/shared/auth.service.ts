@@ -6,6 +6,7 @@ import { AngularFirestore, AngularFirestoreDocument } from 'angularfire2/firesto
 import { Observable, of } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 import { User } from './user';
+import { Agent } from './agent';
  
 
 
@@ -76,7 +77,7 @@ export class AuthService {
     }
 
     registerclient(userd){
-      return this.afAuth.auth.createUserWithEmailAndPassword(userd.email, userd.phone)
+      return this.afAuth.auth.createUserWithEmailAndPassword(userd.email, userd.password)
       .then(
         (user)=>{
           this.authState = user 
@@ -109,6 +110,54 @@ export class AuthService {
 
         return userRef$.set(userdata, { merge: true })
     }
+
+
+
+    //AGENT
+    agentclient(agentd){
+      console.log("sindhuuu");
+      return this.afAuth.auth.createUserWithEmailAndPassword(agentd.email, agentd.password)
+      .then(
+        (agent)=>{
+          this.authState = agent 
+          this.getinfo(agentd)
+          this.updateagentdata(agentd, this.afAuth.auth.currentUser.uid ).then(()=>{console.log("updated")
+            this.afAuth.auth.sendPasswordResetEmail(this.afAuth.auth.currentUser.email).then(() => this.router.navigate(['/thanks'])).catch((e) => {
+              console.log(e.message);
+              return e
+            })}).catch((e)=>console.log("not updated"))
+            
+        }
+      ).catch(error => {
+        
+        throw error
+      })
+    }
+    private updateagentdata(agent, uid) {
+
+      const userRef$: AngularFirestoreDocument<any> = this.afs.doc<Agent>(`agent/${uid}`);
+      const agentdata: Agent = {
+          uid: agent.uid,
+          name:agent.name,
+          sex:agent.sex,
+          dob:agent.dob,
+          skills:agent.skills,
+          email: agent.email,
+          phonenumber: agent.phonenumber,
+          street:agent.street,
+          city:agent.city,
+          state:agent.state,
+          zipcode:agent.zipcode,
+        
+          
+          roles: {
+              user: true
+          }
+      }
+
+      return userRef$.set(agentdata, { merge: true })
+  }
+    //
   login(email: string, pass: string) {
     return this.afAuth.auth.signInWithEmailAndPassword(email, pass).then(
       (user) => {
