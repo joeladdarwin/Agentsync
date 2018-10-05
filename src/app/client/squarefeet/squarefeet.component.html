@@ -1,67 +1,55 @@
 <app-navbar></app-navbar>
 <div class="row">
-  <div class="bg-dark offset-lg-2 col-lg-8 col-md-12 col-xs-12 col-sm-12">
+  <div class="bgdark offset-lg-2 col-lg-8 col-md-12 col-xs-12 col-sm-12">
     <div class="col-md-12">
-          <h3 class="text-center text-white">{{title}}</h3>
-          <h4 class="text-center">{{(property | async)?.building}} Size </h4>
-        </div>
+          <h3 class="text-center text-white">New Order > First Unit</h3>
+          <h4 class="text-center">{{propertytype}} Size </h4>
+    </div>
         
     <div class="row">
        <div class="col-md-4 col-4 text-left">
-           <button type="button" class="btn3 text-white">BACK</button>
+           <button type="button" class="btn3 text-white" [routerLink]="['/address']" routerLinkActive="router-link-active" >BACK</button>
        </div>
        <div class="col-md-4 col-4 text-center">
-            <h5>Subtotal:</h5>
+         
        </div>
        <div class="col-md-4 col-4 text-right">
-            <button type="button" class="btn3 text-white">NEXT</button>
+            <button type="button" class="btn3 text-white" (click)="checksqft()">NEXT</button>
        </div>
     </div>
-    </div>
+   </div>
 </div>
-        <div class="row text-center mb-3">
-          <div class="offset-md-3 col-md-6 col-xs-12 my-2">
-              <p>{{obj}}</p>
-            <h3>How many square feet?</h3>
+<div class="row text-center"> 
+          <div class="offset-md-3 col-md-6 offset-sm-3 col-sm-6 col-xs-12">
+            <h3 class="my-3">How many square feet?</h3>
+            <p>{{street}}</p>
           </div>
+</div>
+<div class="row">
+        <div class="col-xs-12 my-2 py-md-2 offset-md-3 col-md-6 lg-offset-3 col-lg-6">
+          
+            <button type="button" class="btn btn1 btn-md py-sm-4 py-md-3 btn-block" (click)="updatesqft('0-750')">0-750 SF</button>
+            <button type="button" class="btn btn1 btn-md py-sm-4 py-md-3 btn-block" (click)="updatesqft('751-1500')">751-1500 SF</button>
+            <button type="button" class="btn btn1 btn-md py-sm-4 py-md-3 btn-block" (click)="updatesqft('1501-2250')">1501-2250 SF</button>
+            <button type="button" class="btn btn1 btn-md py-sm-4 py-md-3 btn-block" (click)="updatesqft('2251-3000')">2251-3000 SF</button>
+            <button type="button" class="btn btn1 btn-md py-sm-4 py-md-3 btn-block" (click)="updatesqft('3001-3750')">3001-3750 SF</button>
+            <button type="button" class="btn btn1 btn-md py-sm-4 py-md-3 btn-block" (click)="updatesqft('3751-4500')">3751-4500 SF</button>
+            <button type="button" class="btn btn1 btn-md py-sm-4 py-md-3 btn-block" (click)="updatesqft('4501-5250')">4501-5250 SF </button>
+            <button type="button" class="btn btn1 btn-md py-sm-4 py-md-3 btn-block mb-5" (click)="updatesqft('5251+')">5251+ SF</button>
         </div>
-    <div class="row">
-      <div class="offset-md-3 col-md-6 col-xs-12 my-2">
-          <button type="button" class="btn btn1 btn-sm btn-block" (click)="sqt('0-750')">0-750 SF</button>
-      </div>
-      </div>
-      <div class="row">
-          <div class="offset-md-3 col-md-6 col-xs-12 my-2">
-            <div *ngIf="(property|async)?.squarefeet==='0-750';else valid0to750">
-             <button type="button" class="btn btn1 btn-sm btn-block" (click)="sqt('751-1500')">751-1500 SF</button>
-             </div>
-          </div>
-      </div>
-          <div class="row">
-              <div class="offset-md-3 col-md-6 col-xs-12 my-2">
-          <button type="button" class="btn btn1 btn-sm btn-block" (click)="sqt('2251-3000')">2251-3000 SF</button>
-          </div>
-          </div>
-          <div class="row">
-              <div class="offset-md-3 col-md-6 col-xs-12 my-2">
-          <button type="button" class="btn btn1 btn-sm btn-block" (click)="sqt('3001-3750')">3001-3750 SF</button>
-          </div>
-          </div>
-          <div class="row">
-              <div class="offset-md-3 col-md-6 col-xs-12 my-2">
-          <button type="button" class="btn btn1  btn-sm btn-block" (click)="sqt('3751-4500')">3751-4500 SF</button>
-          </div>
-          </div>
-          <div class="row">
-              <div class="offset-md-3 col-md-6 col-xs-12 my-2">
-          <button type="button" class="btn btn1 btn-sm btn-block" (click)="sqt('4501-5250')">4501-5250 SF </button>
-          </div>
-          </div>
-          <div class="row">
-              <div class="offset-md-3 col-md-6 col-xs-12 my-2">
-          <button type="button" class="btn btn1 btn-sm btn-block" (click)="sqt('5251+')">5251+ SF</button>
-            </div>
-            </div>
+      
+    
+      <!-- <div class="offset-md-4 col-md-4 offset-sm-3 col-sm-6 col-xs-12 ">
+          <button type="button" class="btn btn1 btn-sm btn-block">0-750 SF</button>
+          <button type="button" class="btn btn1 btn-sm btn-block ">751-1500 SF</button>
+          <button type="button" class="btn btn1 btn-sm btn-block ">2251-3000 SF</button>
+          <button type="button" class="btn btn1 btn-sm btn-block">3001-3750 SF</button>
+          <button type="button" class="btn btn1 btn-sm btn-block">3751-4500 SF</button>
+          <button type="button" class="btn btn1 btn-sm btn-block">4501-5250 SF </button>
+          <button type="button" class="btn btn1 btn-sm btn-block">5251+ SF</button>
+      </div> -->
+</div>
+     
             <app-footer></app-footer>
      
     

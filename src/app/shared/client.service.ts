@@ -8,6 +8,7 @@ import { switchMap, finalize } from 'rxjs/operators';
 import { AngularFirestore, AngularFirestoreCollection,  } from 'angularfire2/firestore';
 
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -33,7 +34,6 @@ export class ClientService {
   private floorplanbw: any = null;
   private floorplanclr: any = null;
   private floorplansclrfre: any = null;
-
   private dsflyer50: any = null;
   private dsflyer100: any = null;
   private pcommunityshots : any = null;
@@ -147,51 +147,90 @@ export class ClientService {
   }
   // End of Appartment unit
   //Address
-  address(street){
-    return street.password;
-  }
-  updateaddress(address):void
-  {
+  // updateaddress(address):void
+  // {
 
-    this.setstreet(address.street);
-    this.setcity(address.city);
-    this.setzip(address.zipCode);
-    if(address.unit!=="")
-    {
-      this.setappartmentunitno(address.unit);
-    }
+  //   this.setstreet(address.street);
+  //   this.setcity(address.city);
+  //   this.setzip(address.zipCode);
+  //   if(address.unit!=="")
+  //   {
+  //     this.setappartmentunitno(address.unit);
+  //   }
     
-    this.router.navigate(['/squarefeet'])
-  }
-  getstreet():string{
-    return this.street
-  }
-  setstreet(unit):void {
-    console.log("strret"+unit)
-    this.street = unit;
-    this.bsstreet.next(this.street)
-  }
-  getcity():string{
-    return this.city
-  }
-  setcity(unit):void{
-    this.city = unit;
-    this.bscity.next(this.city)
-  }
-  getzip(unit):string{
-    return this.zip
-  }
-  setzip(unit):void{
-    this.zip = unit;
-    this.bszip.next(this.zip)
-  }
-  getappartmentunitno(unit):string{
-    return this.appartmentunitno
-  }
-  setappartmentunitno(unit):void{
-    this.appartmentunitno = unit;
-    this.bsappartmentunitno.next(this.appartmentunitno)
-  }
+  //   this.router.navigate(['/squarefeet'])
+  // }
+  // getstreet():string{
+  //   return this.street
+  // }
+  // setstreet(unit):void {
+  //   console.log("strret"+unit)
+  //   this.street = unit;
+  //   this.bsstreet.next(this.street)
+  // }
+  // getcity():string{
+  //   return this.city
+  // }
+  // setcity(unit):void{
+  //   this.city = unit;
+  //   this.bscity.next(this.city)
+  // }
+  // getzip(unit):string{
+  //   return this.zip
+  // }
+  // setzip(unit):void{
+  //   this.zip = unit;
+  //   this.bszip.next(this.zip)
+  // }
+  // getappartmentunitno(unit):string{
+  //   return this.appartmentunitno
+  // }
+  // setappartmentunitno(unit):void{
+  //   this.appartmentunitno = unit;
+  //   this.bsappartmentunitno.next(this.appartmentunitno)
+  // }
+  // updateaddress(address):void
+  // {
+
+  //   this.setstreet(address.street);
+  //   this.setcity(address.city);
+  //   this.setzip(address.zipCode);
+  //   if(address.unit!=="")
+  //   {
+  //     this.setappartmentunitno(address.unit);
+  //   }
+    
+  //   this.router.navigate(['/squarefeet'])
+  // }
+  // getstreet():string{
+  //   return this.street
+  // }
+  // setstreet(unit):void {
+  //   console.log("strret"+unit)
+  //   this.street = unit;
+  //   this.bsstreet.next(this.street)
+  // }
+  // getcity():string{
+  //   return this.city
+  // }
+  // setcity(unit):void{
+  //   this.city = unit;
+  //   this.bscity.next(this.city)
+  // }
+  // getzip(unit):string{
+  //   return this.zip
+  // }
+  // setzip(unit):void{
+  //   this.zip = unit;
+  //   this.bszip.next(this.zip)
+  // }
+  // getappartmentunitno(unit):string{
+  //   return this.appartmentunitno
+  // }
+  // setappartmentunitno(unit):void{
+  //   this.appartmentunitno = unit;
+  //   this.bsappartmentunitno.next(this.appartmentunitno)
+  // }
   //End Address
   // Squarefeet
   get squarefeets(): string {

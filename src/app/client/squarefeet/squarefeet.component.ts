@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ClientService } from '../../shared/client.service';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-squarefeet',
@@ -8,16 +7,27 @@ import { Router } from '@angular/router';
   styleUrls: ['./squarefeet.component.css']
 })
 export class SquarefeetComponent implements OnInit {
-  title = "New Order > First Unit";
-  property;
-  obj;
-  constructor(private cli:ClientService,private router:Router) {
-     
-
+  propertytype: string;
+  squarefeet : string;
+  street:string;
+  constructor(private cli: ClientService) { }
+  updatesqft(unit)
+  {
+    this.cli.setsquarefeet(unit)
+  }
+  checksqft()
+  {
+    if(this.squarefeet ==='Not updated')
+    {
+      alert("Please update squarefeet");
+    }
+    this.cli.gotoproducts();
+  }
+  ngOnInit() {
+    this.cli.bspropertytype.subscribe(propertytype => { this.propertytype = propertytype; });
+    this.cli.bssquarefeet.subscribe(squarefeet =>{ this.squarefeet = squarefeet});
+    this.cli.bsstreet.subscribe(street => {this.street = street});
   }
  
-  ngOnInit() {
-    
-
-}
+ 
 }
