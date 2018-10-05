@@ -33,6 +33,7 @@
     "firebase-tools": "^4.2.1",
     "font-awesome": "^4.7.0",
     "hammerjs": "^2.0.8",
+    "ng-cli": "^0.7.0",
     "popper.js": "^1.14.4",
     "rxjs": "^6.0.0",
     "zone.js": "~0.8.26"

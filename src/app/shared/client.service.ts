@@ -3,6 +3,9 @@ import { AuthService } from './auth.service';
 import { Router } from '@angular/router';
 import { AngularFireStorage } from 'angularfire2/storage';
 import { AngularFireAuth } from 'angularfire2/auth';
+import { BehaviorSubject, Observable} from 'rxjs';
+
+
 @Injectable({
   providedIn: 'root'
 })
@@ -10,9 +13,19 @@ import { AngularFireAuth } from 'angularfire2/auth';
 export class ClientService {
   displayName: string;
   constructor(private auth:AuthService, private router:Router,private afAuth:AngularFireAuth) { }
-
+  private propertytype : string = "Property";
+  public bspropertytype : BehaviorSubject<string> = new BehaviorSubject<string>(this.propertytype);
 
   // CommonCommon
+  getpropertytype():string{
+    return this.propertytype
+  }
+  setpropertytype(propertytype):void
+  {
+    console.log(propertytype);
+    this.propertytype = propertytype;
+    this.bspropertytype.next(this.propertytype);
+  }
   // End of 
  
   // Signup
@@ -50,7 +63,7 @@ export class ClientService {
     return this.afAuth.auth.currentUser.displayName;
   }  
 
-  g
+  
   // End of Dashboard
   //Address
   address(street){

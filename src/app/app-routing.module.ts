@@ -28,17 +28,27 @@ import { AdmindashboardComponent } from './admin/admindashboard/admindashboard.c
 import { AgentdashboardComponent } from './agent/agentdashboard/agentdashboard.component';
 import { AgentloginComponent } from './agent/agentlogin/agentlogin.component';
 import { LoginComponent } from './client/login/login.component';
-
-
+import { MyaccountComponent } from './client/myaccount/myaccount.component';
+import { DeliveriesComponent } from './client/deliveries/deliveries.component';
 import { ForgetComponent } from './client/forget/forget.component';
 import { ThanksComponent } from './client/thanks/thanks.component';
 import { RegisterComponent } from './client/register/register.component';
 import { AccessComponent } from './client/access/access.component';
 import { UnitsComponent } from './client/units/units.component';
+import { InvoiceComponent } from './client/invoice/invoice.component';
 
 import { AdminheaderComponent } from './admin/adminheader/adminheader.component';
 import { AdminsidenavComponent } from './admin/adminsidenav/adminsidenav.component';
 import { AgentregisterComponent } from './agent/agentregister/agentregister.component';
+import { AdmincompleteComponent } from './admin/admincomplete/admincomplete.component';
+import { AdminuserComponent } from './admin/adminuser/adminuser.component';
+import { AdminorderComponent } from './admin/adminorder/adminorder.component';
+import { AdminorderhistoryComponent } from './admin/adminorderhistory/adminorderhistory.component';
+import { AdminpaymentComponent } from './admin/adminpayment/adminpayment.component';
+import { AdmintableComponent } from './admin/admintable/admintable.component';
+import { AdminscheduledComponent } from './admin/adminscheduled/adminscheduled.component';
+import { AdminnewComponent } from './admin/adminnew/adminnew.component';
+import { AdminpendingComponent } from './admin/adminpending/adminpending.component';
 
 
 
@@ -70,7 +80,10 @@ const routes: Routes = [
   { path: 'completeorder', component: CompleteorderComponent },
   { path: 'delivery', component: DeliveryComponent },
   { path: 'myorder', component: MyorderComponent },
-  { path: 'profile', component: ProfileComponent, canActivate: [AuthGuardService]},
+  { path: 'myaccount', component: MyaccountComponent },
+  { path: 'deliveries', component: DeliveriesComponent },
+  { path: 'invoice', component: InvoiceComponent },
+  { path: 'profile', component: ProfileComponent },
   { path: 'editprofile', component: EditprofileComponent },
   { path: 'adlogin', component: AdminloginComponent },
   { path: 'addashboard', component: AdmindashboardComponent},
@@ -78,7 +91,16 @@ const routes: Routes = [
   { path: 'aglogin', component: AgentloginComponent },
   { path: 'agregister', component: AgentregisterComponent },
   { path:'adheader', component: AdminheaderComponent},
-  { path:'adsidenav', component: AdminsidenavComponent}
+  { path:'adsidenav', component: AdminsidenavComponent},
+  { path:'aduser', component: AdminuserComponent},
+  { path:'adorders', component: AdminorderComponent},
+  { path:'adorderhistory', component: AdminorderhistoryComponent},
+  { path:'adpayment', component: AdminpaymentComponent},
+  { path:'adtable', component: AdmintableComponent},
+  { path:'adscheduled', component: AdminscheduledComponent},
+  { path:'adnew', component: AdminnewComponent},
+  { path:'adpending', component: AdminpendingComponent},
+  { path:'adcomplete', component: AdmincompleteComponent},
 ];
 
 

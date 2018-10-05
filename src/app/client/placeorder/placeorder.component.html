@@ -1,34 +1,52 @@
 <app-navbar></app-navbar>
 <div class="row">
   <div class="bg-dark offset-lg-2 col-lg-8 col-md-12 col-xs-12 col-sm-12 p-2">
-    <div class="col-md-12 p-2 ">
+    <div class="col-md-12  ">
       <h3 class="text-center text-white">Place New Order</h3>
   
-      <p class="text-center text-white">Orders are itemized by property,per unit.</p>
+      <p class="text-center text-white">Orders are itemized by property, per unit.</p>
+      <br>
     </div>
   </div>
 </div>
 <div class="row">
-    <div class="offset-lg-2 col-lg-8 col-md-12 col-xs-12 col-sm-12">
+    <div class="offset-lg-2 col-lg-8 col-md-12 col-xs-12 col-sm-12 mt-4">
           <div class="row  m-lg-3 m-md-5 my-5">
             <div class="col-xd col-6 ">
-              <div class="mx-auto col-lg-8 col-12"><img src="/assets/image/icons/pic2.png"  class="img-circle img-fluid" alt="House" ></div>
+              <div class="mx-auto col-lg-8 col-12" routerLink="/address">
+                <a (click)="upbuilding('Home')">
+                  <img src="/assets/image/icons/pich.png" class="img-fluid" alt="House">
+                </a>
+               
+              </div>
           
             </div>
             <div class="col-xd col-6 ">
-                     <div class="mx-auto col-lg-8 col-12  "><img src="/assets/image/icons/pic3.png"  class="img-circle img-fluid" alt="Townhome" ></div>
+
+                     <div class="mx-auto col-lg-8 col-12" routerLink="/address">
+                      <a (click)="upbuilding('Townhome')">
+                      <img src="/assets/image/icons/pict.png" class="img-fluid" alt="Townhome">
+                      </a>
+                     </div>
           
             </div>
           </div>
-          <div class="row m-lg-3 m-md-5 my-5">
-            <div class=" col-xd col-6 ">
-              
-              <div class="mx-auto col-lg-8 col-12 "><img src="/assets/image/icons/pic4.png"  class="img-circle img-fluid" alt="Appartment" ></div>
+          <div class="row m-lg-3 m-md-5">
+            <div class=" col-xd col-6 ">   
+              <div class="mx-auto col-lg-8 col-12" routerLink="/units">
+                <a (click)="upbuilding('Appartment')">
+                <img src="/assets/image/icons/pica.png" class="img-fluid" alt="Appartment">
+                </a>
+               </div>
           
             </div>
             <div class="col-xd col-6 ">
         
-              <div class="mx-auto col-lg-8 col-12 "><img src="/assets/image/icons/pic2.png"  class="img-circle img-fluid" alt="Commercial" ></div>
+              <div class="mx-auto col-lg-8 col-12" routerLink="/address">
+                <a (click)="upbuilding('Commercial')">
+                <img src="/assets/image/icons/picc.png" class="img-fluid" alt="Commercial">
+                </a>
+               </div>
           
             </div>
     </div>  
