@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ClientService } from '../../shared/client.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-squarefeet',
@@ -6,10 +8,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./squarefeet.component.css']
 })
 export class SquarefeetComponent implements OnInit {
+  title = "New Order > First Unit";
+  property;
+  obj;
+  constructor(private cli:ClientService,private router:Router) {
+     
 
-  constructor() { }
-
-  ngOnInit() {
   }
+ 
+  ngOnInit() {
+    
 
+}
 }

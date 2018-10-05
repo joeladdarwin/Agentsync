@@ -47,8 +47,8 @@ import { AdminscheduledComponent } from './admin/adminscheduled/adminscheduled.c
 import { AdminnewComponent } from './admin/adminnew/adminnew.component';
 import { AdminpendingComponent } from './admin/adminpending/adminpending.component';
 import { AgentorderComponent } from './agent/agentorder/agentorder.component';
-
-
+import { Agentregister1Component } from './agent/agentregister1/agentregister1.component';
+import { AddonvComponent } from './client/addonv/addonv.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -63,7 +63,7 @@ const routes: Routes = [
   { path: 'forget', component: ForgetComponent },
   { path: 'placeorder', component: PlaceorderComponent },
   { path: 'address', component: AddressComponent },
-  { path: 'addons', component: AddonsComponent },
+  { path: 'addonsp', component: AddonsComponent },
   { path: 'access', component: AccessComponent },
   { path: 'units', component: UnitsComponent },
   { path: 'products', component: ProductsComponent },
@@ -85,6 +85,7 @@ const routes: Routes = [
   { path: 'agdashboard', component: AgentdashboardComponent },
   { path: 'aglogin', component: AgentloginComponent },
   { path: 'agregister', component: AgentregisterComponent },
+  { path: 'agregister1', component: Agentregister1Component },
   { path:'adheader', component: AdminheaderComponent},
   { path:'adsidenav', component: AdminsidenavComponent},
   { path:'aduser', component: AdminuserComponent},
@@ -96,6 +97,7 @@ const routes: Routes = [
   { path:'adnew', component: AdminnewComponent},
   { path:'adpending', component: AdminpendingComponent},
   { path:'adcomplete', component: AdmincompleteComponent},
+  { path: 'addonsv', component: AddonvComponent },
 ];
 
 

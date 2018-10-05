@@ -4,6 +4,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
 import { platformBrowserDynamic } from "@angular/platform-browser-dynamic";
 import { NgModule } from '@angular/core';
+import{AngularFireDatabaseModule} from'angularfire2/database';
 import {  MatAutocompleteModule,
   MatBadgeModule,
   MatBottomSheetModule,
@@ -100,6 +101,8 @@ import { AdminnewComponent } from './admin/adminnew/adminnew.component';
 import { AdminpendingComponent } from './admin/adminpending/adminpending.component';
 import { MyaccountComponent } from './client/myaccount/myaccount.component';
 import { DeliveriesComponent } from './client/deliveries/deliveries.component';
+import { Agentregister1Component } from './agent/agentregister1/agentregister1.component';
+import { AddonvComponent } from './client/addonv/addonv.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -144,7 +147,9 @@ import { DeliveriesComponent } from './client/deliveries/deliveries.component';
     AdminpendingComponent,
     MyaccountComponent,
     DeliveriesComponent,
-    AgentorderComponent  
+    AgentorderComponent,
+    Agentregister1Component,
+    AddonvComponent  
   ],
   imports: [
     BrowserModule,
@@ -193,6 +198,7 @@ import { DeliveriesComponent } from './client/deliveries/deliveries.component';
     ReactiveFormsModule, 
     AngularFireAuthModule, AngularFirestoreModule,AngularFireStorageModule, 
     AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule,
   ],
   providers: [AuthGuardService, AuthService, ClientService, AdminService, AgentService],
   bootstrap: [AppComponent]

@@ -1,3 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 
 body {  font-family: 'Lato'; }
+.btn-selected{
+    color:#000;
+    background-color: #D5D5D5 !important;
+    font-size:1.5rem;
+}
