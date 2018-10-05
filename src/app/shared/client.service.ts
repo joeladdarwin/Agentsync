@@ -415,7 +415,7 @@ export class ClientService {
     catch (err) {
       if (err == "photography") {
         console.log("photography thrown")
-        this.router.navigate(['/addons'])
+        this.router.navigate(['/addonsp'])
       }
       if (err == "no photo") {
         console.log(err)

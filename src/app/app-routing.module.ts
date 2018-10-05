@@ -65,7 +65,7 @@ const routes: Routes = [
   { path: 'placeorder', component: PlaceorderComponent },
   { path: 'address', component: AddressComponent },
   { path: 'addonsp', component: AddonsComponent },
-  { path: 'addons', component: AddonsComponent },
+ 
   { path: 'addonsv', component: AddonsvComponent },
   { path: 'access', component: AccessComponent },
   { path: 'units', component: UnitsComponent },
