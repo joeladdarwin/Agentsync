@@ -76,6 +76,7 @@ import { AgentloginComponent } from './agent/agentlogin/agentlogin.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { LoginComponent } from './client/login/login.component';
 import { ThanksComponent } from './client/thanks/thanks.component';
+import { CompleteorderComponent } from './client/completeorder/completeorder.component';
 import { AdminheaderComponent } from './admin/adminheader/adminheader.component';
 import { AdminsidenavComponent } from './admin/adminsidenav/adminsidenav.component';
 import { AgentorderComponent } from './agent/agentorder/agentorder.component';
@@ -102,6 +103,7 @@ import { AdminnewComponent } from './admin/adminnew/adminnew.component';
 import { AdminpendingComponent } from './admin/adminpending/adminpending.component';
 import { MyaccountComponent } from './client/myaccount/myaccount.component';
 import { DeliveriesComponent } from './client/deliveries/deliveries.component';
+import { DeliveryComponent } from './client/delivery/delivery.component';
 import { Agentregister1Component } from './agent/agentregister1/agentregister1.component';
 import { AddonvComponent } from './client/addonv/addonv.component';
 
@@ -153,7 +155,9 @@ import { AddonsvComponent } from './client/addonsv/addonsv.component';
     DeliveriesComponent,
     AgentorderComponent,
     Agentregister1Component,
-    AddonvComponent,  
+    AddonvComponent,
+    CompleteorderComponent,
+    DeliveryComponent,  
     
     AddonsvComponent,
       
