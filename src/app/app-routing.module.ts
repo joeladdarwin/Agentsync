@@ -16,8 +16,10 @@ import { MeetComponent } from './client/meet/meet.component';
 import { VisitingdateComponent } from './client/visitingdate/visitingdate.component';
 import { SquarefeetComponent } from './client/squarefeet/squarefeet.component';
 import { CommentsComponent } from './client/comments/comments.component';
+import { DeliveryComponent } from './client/delivery/delivery.component';
 import { RevieworderComponent } from './client/revieworder/revieworder.component';
 import { UpdateorderComponent } from './client/updateorder/updateorder.component';
+import { CompleteorderComponent } from './client/completeorder/completeorder.component';
 import { MyorderComponent } from './client/myorder/myorder.component';
 import { ProfileComponent } from './client/profile/profile.component';
 import { EditprofileComponent } from './client/editprofile/editprofile.component';
@@ -65,6 +67,8 @@ const routes: Routes = [
   { path: 'comments', component: CommentsComponent },
   { path: 'revieworder', component: RevieworderComponent },
   { path: 'updateorder', component: UpdateorderComponent },
+  { path: 'completeorder', component: CompleteorderComponent },
+  { path: 'delivery', component: DeliveryComponent },
   { path: 'myorder', component: MyorderComponent },
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuardService]},
   { path: 'editprofile', component: EditprofileComponent },

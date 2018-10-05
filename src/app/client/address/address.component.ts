@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {
-  ReactiveFormsModule,
-  FormsModule,
+ 
+  
   FormGroup,
   FormControl,
   Validators,
@@ -12,59 +12,53 @@ import { ClientService } from '../../shared/client.service';
 @Component({
   selector: 'app-address',
   templateUrl: './address.component.html',
-  styleUrls: ['./address.component.css']
+  styleUrls: ['./address.component.css'],
+  
 })
 export class AddressComponent implements OnInit {
- 
-  myform: FormGroup;
-  street1: FormControl;
-  state: FormControl;
- 
-  password: FormControl;
- 
-  addressstore:any;
-constructor(private street : ClientService){
+  propertyss:string;
+ propertytype:string;
+ address:Object;
+ street:string;
+ isAppartment:boolean;
+ addressformgroup: FormGroup;
+constructor(private cli : ClientService, private _formbuilder : FormBuilder){
+this.isAppartment = false;
+// this.propertytype = "Appartment"
 
 }
-  createFormControls() {
-    this.street1 = new FormControl("", Validators.required);
-    this.state = new FormControl("", Validators.required);
+  get af() { return this.addressformgroup.controls; }
+    
+    
+ 
   
-    this.password = new FormControl("", [
-      Validators.required,
-      Validators.minLength(8)
-    ]);
-    
-    
-  }
-
-  createForm() {
-    this.myform = new FormGroup({
-      name: new FormGroup({
-        firstName: this.street1,
-        lastName: this.state
-      }),
-    
-      password: this.password,
-     
-    });
-  }
-
   ngOnInit() {
-    this.createFormControls();
-    this.createForm();
-  }
-
-  onSubmit() {
-    console.log("engtr");
-    if (this.myform.valid) {
-      console.log("Form Submitted!");
-      console.log(this.myform.value);
-    this.addressstore = this.street.address(this.myform.value);
-    console.log(this.addressstore);
-      this.myform.reset();
+    this.addressformgroup  = this._formbuilder.group({
+      // 'street': new FormControl(this.street, Validators.required),
       
+      // city: [null, Validators.required],
+      // zipCode: [null, [Validators.required, Validators.minLength(5), Validators.maxLength(5), Validators.pattern('^[0-9]{5}$')]],
+      // unit: [null, [Validators.required, Validators.pattern('^[0-9]{5}$')]],
+
+      
+        street : ['', Validators.required],
+      
+        city: ['',Validators.required],
+
+        zipCode:['', Validators.compose([Validators.required, Validators.minLength(5), Validators.maxLength(5)])],
+
+        unit:['No units']
+        
+      
+    })
+    // this.cli.bspropertytype.subscribe(propertytype => {this.propertytype = propertytype;} );
+    
+    if(this.propertytype === "Appartment")
+    {
+      this.isAppartment = true;
+      this.addressformgroup.get('unit').setValue(this.propertytype);
     }
   }
+
+
 }
-      
