@@ -11,3 +11,7 @@ body {  font-family: 'Lato'; }
     background-color: #D5D5D5 !important;
     font-size:1.5rem;
 }
+.bgdark{
+    color:#fff;
+    background-color: #636363;
+}

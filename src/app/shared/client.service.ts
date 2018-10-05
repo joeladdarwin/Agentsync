@@ -404,6 +404,47 @@ export class ClientService {
     this.checkpaddons(order)
 
   }
+  checkpaddons(order: any): any {
+    try {
+      for (var i = 0; i < order.length; i++) {
+        if (order[i][0] == "Photography") throw "photography"
+
+      }
+      throw "no photo"
+    }
+    catch (err) {
+      if (err == "photography") {
+        console.log("photography thrown")
+        this.router.navigate(['/addons'])
+      }
+      if (err == "no photo") {
+        console.log(err)
+        try {
+          for (var i = 0; i < order.length; i++) {
+            if (order[i][0] == "Video Tour") throw "video"
+          }
+          throw "no video"
+        }
+        catch (errs) {
+          if (errs == "video") {
+            console.log("video thrown")
+            this.router.navigate(['/addonsv'])
+          }
+          if (errs == "no video") {
+
+            console.log("no videos")
+            this.router.navigate(['/access'])
+
+          }
+
+        }
+
+      }
+
+    }
+
+  }
+
   // End of products
 
   //addonsphotography
