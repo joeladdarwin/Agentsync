@@ -398,7 +398,12 @@ export class ClientService {
     this.dsflyer100 = price;
     this.bsdsflyer100.next(this.dsflyer100);
   }
+  setordersarray(order: any): void {
+    this.bsorderarray.next(this.bsorderarray.getValue().concat([order]));
 
+    this.checkpaddons(order)
+
+  }
   // End of products
 
   //addonsphotography
@@ -492,4 +497,6 @@ getdoc(){
 }
 //
  
+  // End of products
+  // hhh
 }
