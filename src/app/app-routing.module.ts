@@ -4,7 +4,7 @@ import { RouterModule, Routes, CanActivate, Router  } from '@angular/router';
 import { AdminGuard } from './shared/admin.guard';
 import { AuthGuardService } from './shared/auth-guard.service';
 
-
+import { AddonsvComponent } from './client/addonsv/addonsv.component';
 import { NavbarComponent } from './client/navbar/navbar.component';
 import { VisitingtimeComponent } from './client/visitingtime/visitingtime.component';
 import { DashboardComponent } from './client/dashboard/dashboard.component';
@@ -59,12 +59,14 @@ const routes: Routes = [
   { path: 'forget', component: ForgetComponent },
   { path: "", redirectTo: 'login', pathMatch: 'full' },
   { path: 'main', component: DashboardComponent },
-  
+    
   { path: 'navbar', component: NavbarComponent },
   { path: 'forget', component: ForgetComponent },
   { path: 'placeorder', component: PlaceorderComponent },
   { path: 'address', component: AddressComponent },
   { path: 'addonsp', component: AddonsComponent },
+  { path: 'addons', component: AddonsComponent },
+  { path: 'addonsv', component: AddonsvComponent },
   { path: 'access', component: AccessComponent },
   { path: 'units', component: UnitsComponent },
   { path: 'products', component: ProductsComponent },

@@ -8,6 +8,7 @@ import { switchMap, finalize } from 'rxjs/operators';
 import { AngularFirestore, AngularFirestoreCollection,  } from 'angularfire2/firestore';
 
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -33,7 +34,6 @@ export class ClientService {
   private floorplanbw: any = null;
   private floorplanclr: any = null;
   private floorplansclrfre: any = null;
-
   private dsflyer50: any = null;
   private dsflyer100: any = null;
   private pcommunityshots : any = null;
@@ -42,6 +42,9 @@ export class ClientService {
   private vcommunityshots: any = null;
   private vtwlightshots: any = null;
   private vrushfee: any = null;
+  private orderarray : Array<any> = [];
+  private paddonarray : Array<any> = [];
+  private vaddonarray : Array<any> = [];
   private orderprice: any ;
   private paddonprice: any ;
   private vaddonprice:any ;
@@ -50,6 +53,8 @@ export class ClientService {
   downloadURL : Observable<string | null>;
   profilepicRef: any;
   uid:string;
+  private visitingtime: Date;
+  private visitingdate: Date;
   private totalunits : Array<string> = ['First', 'Second', 'Third', 'Fourth', 'Fifth', 'Sixth', 'Seventh', 'Eighth', 'Ninth', 'Tenth'];
   public bspropertytype : BehaviorSubject<string> = new BehaviorSubject<string>(this.propertytype);
   public bssquarefeet : BehaviorSubject<string> = new BehaviorSubject<string>(this.squarefeet);
@@ -82,6 +87,13 @@ export class ClientService {
   public bsvaddonprice: BehaviorSubject<any> = new BehaviorSubject<any>(this.vaddonprice);
   public bstotalprice: BehaviorSubject<any> = new BehaviorSubject<any>(this.totalprice);
   // CommonCommon
+  public bsorderarray : BehaviorSubject<any[]> = new BehaviorSubject<any[]>(this.orderarray);
+  public bspaddonarray : BehaviorSubject<any[]> = new BehaviorSubject<any[]>(this.paddonarray);
+  public bsvaddonarray : BehaviorSubject<any[]> = new BehaviorSubject<any[]>(this.vaddonarray);
+  public bsvisitingtime: BehaviorSubject<any> = new BehaviorSubject<any>(this.visitingtime);
+  public bsvisitingdate: BehaviorSubject<any> = new BehaviorSubject<any>(this.visitingdate);
+  // CommonCommon
+
   // End of 
  
   // Signup
@@ -147,9 +159,8 @@ export class ClientService {
   }
   // End of Appartment unit
   //Address
-  address(street){
-    return street.password;
-  }
+  
+  
   updateaddress(address):void
   {
 
@@ -294,7 +305,6 @@ export class ClientService {
     this.bspropertytype.next(this.squarefeet);
     this.router.navigate(['/products']);
   }
-  
 
   // End of Squarefeet
   // products
