@@ -33,6 +33,7 @@ import { ThanksComponent } from './client/thanks/thanks.component';
 import { RegisterComponent } from './client/register/register.component';
 import { AccessComponent } from './client/access/access.component';
 import { UnitsComponent } from './client/units/units.component';
+import { InvoiceComponent } from './client/invoice/invoice.component';
 
 import { AdminheaderComponent } from './admin/adminheader/adminheader.component';
 import { AdminsidenavComponent } from './admin/adminsidenav/adminsidenav.component';
@@ -77,6 +78,7 @@ const routes: Routes = [
   { path: 'myorder', component: MyorderComponent },
   { path: 'myaccount', component: MyaccountComponent },
   { path: 'deliveries', component: DeliveriesComponent },
+  { path: 'invoice', component: InvoiceComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'editprofile', component: EditprofileComponent },
   { path: 'adlogin', component: AdminloginComponent },

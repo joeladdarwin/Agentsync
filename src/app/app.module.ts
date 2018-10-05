@@ -55,6 +55,7 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './client/navbar/navbar.component';
 import { DashboardComponent } from './client/dashboard/dashboard.component';
 import { PlaceorderComponent } from './client/placeorder/placeorder.component';
+import { InvoiceComponent } from './client/invoice/invoice.component';
 import { AddressComponent } from './client/address/address.component';
 import { AddonsComponent } from './client/addons/addons.component';
 import { ProductsComponent } from './client/products/products.component';
@@ -117,6 +118,7 @@ import { AddonvComponent } from './client/addonv/addonv.component';
     RevieworderComponent,
     UpdateorderComponent,
     MyorderComponent,
+    InvoiceComponent,
     ProfileComponent,
     EditprofileComponent,
     AdminloginComponent,

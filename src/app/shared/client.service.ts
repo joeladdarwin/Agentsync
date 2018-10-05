@@ -82,7 +82,6 @@ export class ClientService {
   public bsvaddonprice: BehaviorSubject<any> = new BehaviorSubject<any>(this.vaddonprice);
   public bstotalprice: BehaviorSubject<any> = new BehaviorSubject<any>(this.totalprice);
   // CommonCommon
-
   // End of 
  
   // Signup
