@@ -86,7 +86,6 @@ export class ClientService {
   public bspaddonprice: BehaviorSubject<any> = new BehaviorSubject<any>(this.paddonprice);
   public bsvaddonprice: BehaviorSubject<any> = new BehaviorSubject<any>(this.vaddonprice);
   public bstotalprice: BehaviorSubject<any> = new BehaviorSubject<any>(this.totalprice);
-  // CommonCommon
   public bsorderarray : BehaviorSubject<any[]> = new BehaviorSubject<any[]>(this.orderarray);
   public bspaddonarray : BehaviorSubject<any[]> = new BehaviorSubject<any[]>(this.paddonarray);
   public bsvaddonarray : BehaviorSubject<any[]> = new BehaviorSubject<any[]>(this.vaddonarray);
@@ -224,6 +223,9 @@ export class ClientService {
     this.setvcomshot(50)
     this.setvtwshot(50)
     this.setvruf(75)
+    this.setpcommunityshots(50)
+    this.setptwlightshots(50)
+    this.setprushfee(75)
     
     if (unit === '0-750') {
       this.setphotography(145)
@@ -297,9 +299,16 @@ export class ClientService {
       this.setdsflyer100('customprice');
       this.setbrouchure8p25('customprice');
       this.setbrouchure8p50('customprice');
-      this.setorderprice('Custom price');
+      this.setorderprice('customprice');
       this.setpaddonprice('customprice');
       this.setvaddonprice('customprice');
+      this.setpcommunityshots('customprice')
+      this.setprushfee('customprice');
+      this.setptwlightshots('customprice');
+      this.setvcomshot('customprice');
+      this.setvruf('customprice');
+      this.setvtwshot('customprice');
+
      
     }
     this.bspropertytype.next(this.squarefeet);
@@ -308,6 +317,9 @@ export class ClientService {
 
   // End of Squarefeet
   // products
+  get orderpriceget():any{
+      return this.orderprice
+  }
   setorderprice(price) {
     this.orderprice = price;
     this.bsorderprice.next(this.orderprice);
@@ -323,7 +335,7 @@ export class ClientService {
   }
   settotalprice(price) {
     this.totalprice = price;
-    this.totalprice.next(this.totalprice);
+    this.bstotalprice.next(this.totalprice);
   }
   gotoproducts()
   {
@@ -444,7 +456,35 @@ export class ClientService {
     }
 
   }
+  checkvaddons(order:any):any {
+    console.log(order);
+    console.log("this is passing");
+      try {
+        for (var i = 0; i < order.length; i++) {
+          if (order[i][0] == "Video Tour") throw "video"
+        }
+        throw "novideo"
+      }
+      catch (errs) {
+        if (errs == "video") {
+          console.log("video thrown")
+          this.router.navigate(['/addonsv'])
+        }
+        if (errs == "no video") {
 
+          console.log("no videos")
+          this.router.navigate(['/access'])
+
+        }
+
+      }
+  }
+  setpaddonsarray(paddonsarray:any,order):void
+  {
+   this.bspaddonarray.next(this.bspaddonarray.getValue().concat([paddonsarray]));
+  
+   this.checkvaddons(order)
+  }
   // End of products
 
   //addonsphotography
@@ -469,6 +509,7 @@ export class ClientService {
     this.prushfee = unit;
     this.bsprushfee.next(this.prushfee)
   }
+
 
   //
 

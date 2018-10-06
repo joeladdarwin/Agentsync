@@ -37,6 +37,7 @@ export class ProductsComponent implements OnInit {
    if(this.order.length >= 1)
    {
      this.cli.setordersarray(this.order);
+     this.cli.setorderprice(this.orderprice)
    }
    else{
      this.message = "Please select atleast one item";
