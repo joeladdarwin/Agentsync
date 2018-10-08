@@ -5,14 +5,14 @@
                         <img src="/assets/image/icons/agentsynclogo.png" class="img-fluid mt-2" alt="Agent-sync">
                 </div>
         </div>
-        <form class="offset-lg-2 col-lg-8 col-md-12 col-xs-12 col-sm-12" #loginform="ngForm" (ngSubmit)="login(email.value, password.value)">
+        <form class="offset-lg-2 col-lg-8 col-md-12 col-xs-12 col-sm-12" #loginform="ngForm" (ngSubmit)="login(loginform)">
                 <div class="form-group row">
                         <div class="col-12">
                                 <div class="row">
                                         <p class="error text-center">{{ error.message }}</p>
                                         <input type="email" required class="form-control-lg col-12 text-center"
                                                 placeholder="Email" name="email" required pattern="[^@]*@[^@]*"
-                                                [(ngModel)]="cli.email" #email="ngModel" autocomplete="email">
+                                             ngModel  #email="ngModel"  autocomplete="email">
                                         <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-warning offset-md-3 col-md-6 col-xs-12 my-2">
 
                                                 <div *ngIf="email.errors.required">
@@ -23,8 +23,8 @@
                                                 </div>
                                         </div>
                                         <input type="password" required class="form-control-lg col-12 text-center"
-                                                placeholder="Password" name="password" required [(ngModel)]="cli.phone"
-                                                #password="ngModel" autocomplete="current-password">
+                                                placeholder="Password" name="password" required ngModel #password=ngModel
+                                               autocomplete="current-password">
                                 </div>
                         </div>
                 </div>

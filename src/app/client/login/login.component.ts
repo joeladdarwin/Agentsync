@@ -10,9 +10,12 @@ import { ClientService } from '../../shared/client.service';
 })
 export class LoginComponent implements OnInit {
   error: { name: string, message: string } = { name: '', message: '' };
+  loginform:NgForm;
   constructor(private cli:ClientService) { }
-  login(email,password)
+  login(loginform)
   {
+    var email =loginform.controls['email'].value;
+    var password = loginform.controls['password'].value;
     this.cli.clientlogin(email, password).catch(_error => {
       this.error = _error;
       this.resetForm()
