@@ -42,25 +42,21 @@ export class ClientService {
   private vcommunityshots: any = null;
   private vtwlightshots: any = null;
   private vrushfee: any = null;
-<<<<<<< HEAD
-=======
   private orderarray : Array<any> = [];
   private paddonarray : Array<any> = [];
   private vaddonarray : Array<any> = [];
->>>>>>> cca16bf75e3515b765e6a232047fd59d445f4094
   private orderprice: any ;
   private paddonprice: any ;
   private vaddonprice:any ;
   private totalprice:any ;
+  private comment : string ="not Updated" ;
   uploadPercent: Observable<number>;
   downloadURL : Observable<string | null>;
   profilepicRef: any;
   uid:string;
-<<<<<<< HEAD
-=======
   private visitingtime: Date;
   private visitingdate: Date;
->>>>>>> cca16bf75e3515b765e6a232047fd59d445f4094
+  public bscomment: BehaviorSubject<string>= new BehaviorSubject<string>(this.comment);
   private totalunits : Array<string> = ['First', 'Second', 'Third', 'Fourth', 'Fifth', 'Sixth', 'Seventh', 'Eighth', 'Ninth', 'Tenth'];
   public bspropertytype : BehaviorSubject<string> = new BehaviorSubject<string>(this.propertytype);
   public bssquarefeet : BehaviorSubject<string> = new BehaviorSubject<string>(this.squarefeet);
@@ -93,8 +89,6 @@ export class ClientService {
   public bsvaddonprice: BehaviorSubject<any> = new BehaviorSubject<any>(this.vaddonprice);
   public bstotalprice: BehaviorSubject<any> = new BehaviorSubject<any>(this.totalprice);
   // CommonCommon
-<<<<<<< HEAD
-=======
   public bsorderarray : BehaviorSubject<any[]> = new BehaviorSubject<any[]>(this.orderarray);
   public bspaddonarray : BehaviorSubject<any[]> = new BehaviorSubject<any[]>(this.paddonarray);
   public bsvaddonarray : BehaviorSubject<any[]> = new BehaviorSubject<any[]>(this.vaddonarray);
@@ -102,7 +96,6 @@ export class ClientService {
   public bsvisitingdate: BehaviorSubject<any> = new BehaviorSubject<any>(this.visitingdate);
   // CommonCommon
 
->>>>>>> cca16bf75e3515b765e6a232047fd59d445f4094
   // End of 
  
   // Signup
@@ -168,97 +161,56 @@ export class ClientService {
   }
   // End of Appartment unit
   //Address
-<<<<<<< HEAD
-  // updateaddress(address):void
-  // {
-
-  //   this.setstreet(address.street);
-  //   this.setcity(address.city);
-  //   this.setzip(address.zipCode);
-  //   if(address.unit!=="")
-  //   {
-  //     this.setappartmentunitno(address.unit);
-  //   }
-    
-  //   this.router.navigate(['/squarefeet'])
-  // }
-  // getstreet():string{
-  //   return this.street
-  // }
-  // setstreet(unit):void {
-  //   console.log("strret"+unit)
-  //   this.street = unit;
-  //   this.bsstreet.next(this.street)
-  // }
-  // getcity():string{
-  //   return this.city
-  // }
-  // setcity(unit):void{
-  //   this.city = unit;
-  //   this.bscity.next(this.city)
-  // }
-  // getzip(unit):string{
-  //   return this.zip
-  // }
-  // setzip(unit):void{
-  //   this.zip = unit;
-  //   this.bszip.next(this.zip)
-  // }
-  // getappartmentunitno(unit):string{
-  //   return this.appartmentunitno
-  // }
-  // setappartmentunitno(unit):void{
-  //   this.appartmentunitno = unit;
-  //   this.bsappartmentunitno.next(this.appartmentunitno)
-  // }
-  // updateaddress(address):void
-  // {
-=======
   
   
   updateaddress(address):void
   {
->>>>>>> cca16bf75e3515b765e6a232047fd59d445f4094
 
-  //   this.setstreet(address.street);
-  //   this.setcity(address.city);
-  //   this.setzip(address.zipCode);
-  //   if(address.unit!=="")
-  //   {
-  //     this.setappartmentunitno(address.unit);
-  //   }
+    this.setstreet(address.street);
+    this.setcity(address.city);
+    this.setzip(address.zipCode);
+    if(address.unit!=="")
+    {
+      this.setappartmentunitno(address.unit);
+    }
     
-  //   this.router.navigate(['/squarefeet'])
-  // }
-  // getstreet():string{
-  //   return this.street
-  // }
-  // setstreet(unit):void {
-  //   console.log("strret"+unit)
-  //   this.street = unit;
-  //   this.bsstreet.next(this.street)
-  // }
-  // getcity():string{
-  //   return this.city
-  // }
-  // setcity(unit):void{
-  //   this.city = unit;
-  //   this.bscity.next(this.city)
-  // }
-  // getzip(unit):string{
-  //   return this.zip
-  // }
-  // setzip(unit):void{
-  //   this.zip = unit;
-  //   this.bszip.next(this.zip)
-  // }
-  // getappartmentunitno(unit):string{
-  //   return this.appartmentunitno
-  // }
-  // setappartmentunitno(unit):void{
-  //   this.appartmentunitno = unit;
-  //   this.bsappartmentunitno.next(this.appartmentunitno)
-  // }
+    this.router.navigate(['/squarefeet'])
+  }
+  updatecomment(comment){
+    console.log("enter commnet");
+    this.setcomment(comment);
+   
+
+  }
+  getstreet():string{
+    return this.street
+  }
+  setstreet(unit):void {
+    console.log("strret"+unit)
+    this.street = unit;
+    this.bsstreet.next(this.street)
+  }
+  getcity():string{
+    return this.city
+  }
+  setcity(unit):void{
+    this.city = unit;
+    this.bscity.next(this.city)
+  }
+  getzip(unit):string{
+    return this.zip
+  }
+  setzip(unit):void{
+    this.zip = unit;
+    this.bszip.next(this.zip)
+  }
+  getappartmentunitno(unit):string{
+    return this.appartmentunitno
+  }
+  setappartmentunitno(unit):void{
+    this.appartmentunitno = unit;
+    this.bsappartmentunitno.next(this.appartmentunitno)
+  }
   //End Address
   // Squarefeet
   get squarefeets(): string {
@@ -361,12 +313,25 @@ export class ClientService {
     this.bspropertytype.next(this.squarefeet);
     this.router.navigate(['/products']);
   }
-<<<<<<< HEAD
-  
-=======
->>>>>>> cca16bf75e3515b765e6a232047fd59d445f4094
 
   // End of Squarefeet
+
+//comments
+get comments():string{
+  return this.comment
+}
+setcomment(comment):void {
+ 
+  this.comment = comment;
+  console.log(this.comment);
+  this.bscomment.next(this.comment)
+  this.router.navigate(['/revieworder'])
+  console.log(this.comments+"is thye comment");
+
+}
+
+// End comments
+
   // products
   setorderprice(price) {
     this.orderprice = price;
@@ -458,8 +423,6 @@ export class ClientService {
     this.dsflyer100 = price;
     this.bsdsflyer100.next(this.dsflyer100);
   }
-<<<<<<< HEAD
-=======
   setordersarray(order: any): void {
     this.bsorderarray.next(this.bsorderarray.getValue().concat([order]));
 
@@ -477,7 +440,7 @@ export class ClientService {
     catch (err) {
       if (err == "photography") {
         console.log("photography thrown")
-        this.router.navigate(['/addons'])
+        this.router.navigate(['/addonsp'])
       }
       if (err == "no photo") {
         console.log(err)
@@ -506,9 +469,11 @@ export class ClientService {
     }
 
   }
->>>>>>> cca16bf75e3515b765e6a232047fd59d445f4094
 
   // End of products
+
+
+ 
 
   //addonsphotography
   get communityshots():any{
@@ -601,9 +566,6 @@ getdoc(){
 }
 //
  
-<<<<<<< HEAD
-=======
   // End of products
   // hhh
->>>>>>> cca16bf75e3515b765e6a232047fd59d445f4094
 }

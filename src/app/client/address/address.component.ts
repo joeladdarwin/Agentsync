@@ -33,7 +33,7 @@ this.isAppartment = false;
   Onaddresssubmit()
   {
    
-    // this.cli.updateaddress(this.addressformgroup.value)
+    this.cli.updateaddress(this.addressformgroup.value)
   }  
  
   
@@ -67,4 +67,3 @@ this.isAppartment = false;
 
 
 }
-      

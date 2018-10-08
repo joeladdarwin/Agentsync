@@ -3,30 +3,6 @@
 body {  font-family: 'Lato', sans-serif !important ;}
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6{
     font-size: inherit;
-<<<<<<< HEAD
-
-}
-.bgdark{
-    background-color: #636363 !important;
-  
-}
-@media only screen and (max-width: 320px) {
-    h2, .h2{
-        font-size: 1.25rem !important;
-    }
-    h3, .h3{
-        font-size: 1rem !important;
-        margin-bottom:.5rem;
-    
-    }
-     h4, .h4{
-        font-size: .85rem !important;
-    
-    }
-       h5, .h5{
-        font-size: .75rem !important;
-    }
-=======
 }
 
 body {  font-family: 'Lato'; }
@@ -38,5 +14,4 @@ body {  font-family: 'Lato'; }
 .bgdark{
     color:#fff;
     background-color: #636363;
->>>>>>> cca16bf75e3515b765e6a232047fd59d445f4094
 }

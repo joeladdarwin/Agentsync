@@ -4,6 +4,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
 import { platformBrowserDynamic } from "@angular/platform-browser-dynamic";
 import { NgModule } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import{AngularFireDatabaseModule} from'angularfire2/database';
 import {  MatAutocompleteModule,
   MatBadgeModule,
@@ -104,11 +105,8 @@ import { MyaccountComponent } from './client/myaccount/myaccount.component';
 import { DeliveriesComponent } from './client/deliveries/deliveries.component';
 import { Agentregister1Component } from './agent/agentregister1/agentregister1.component';
 import { AddonvComponent } from './client/addonv/addonv.component';
-<<<<<<< HEAD
-=======
 
 import { AddonsvComponent } from './client/addonsv/addonsv.component';
->>>>>>> cca16bf75e3515b765e6a232047fd59d445f4094
 @NgModule({
   declarations: [
     AppComponent,
@@ -156,17 +154,14 @@ import { AddonsvComponent } from './client/addonsv/addonsv.component';
     DeliveriesComponent,
     AgentorderComponent,
     Agentregister1Component,
-<<<<<<< HEAD
-    AddonvComponent  
-=======
     AddonvComponent,  
     
     AddonsvComponent,
       
->>>>>>> cca16bf75e3515b765e6a232047fd59d445f4094
   ],
   imports: [
     BrowserModule,
+
     BrowserAnimationsModule,
     CommonModule,
     AppRoutingModule,
