@@ -24,6 +24,7 @@ total;
     console.log(this.paddonarray);
     this.cli.setpaddonsarray(this.paddonarray, this.orderarray)
     this.cli.settotalprice(this.total)
+    this.cli.setorderprice(this.total)
   }
   pushpcs(e,a) {
     var classList = e.target.classList;

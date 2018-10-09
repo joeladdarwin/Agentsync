@@ -49,6 +49,8 @@ export class ClientService {
   private paddonprice: any ;
   private vaddonprice:any ;
   private totalprice:any ;
+  private accessproperty: any;
+  private accesspropertycode: any;
   uploadPercent: Observable<number>;
   downloadURL : Observable<string | null>;
   profilepicRef: any;
@@ -89,6 +91,8 @@ export class ClientService {
   public bsorderarray : BehaviorSubject<any[]> = new BehaviorSubject<any[]>(this.orderarray);
   public bspaddonarray : BehaviorSubject<any[]> = new BehaviorSubject<any[]>(this.paddonarray);
   public bsvaddonarray : BehaviorSubject<any[]> = new BehaviorSubject<any[]>(this.vaddonarray);
+  public bsaccessproperty: BehaviorSubject<any> = new BehaviorSubject<any>(this.accessproperty);
+  public bsaccesspropertycode: BehaviorSubject<any> = new BehaviorSubject<any>(this.accesspropertycode);
   public bsvisitingtime: BehaviorSubject<any> = new BehaviorSubject<any>(this.visitingtime);
   public bsvisitingdate: BehaviorSubject<any> = new BehaviorSubject<any>(this.visitingdate);
   // CommonCommon
@@ -414,7 +418,10 @@ export class ClientService {
     this.bsorderarray.next(this.bsorderarray.getValue().concat([order]));
 
     this.checkpaddons(order)
-
+  }
+  getordersarray():any
+  {
+    return this.orderarray;
   }
   checkpaddons(order: any): any {
     try {
@@ -456,34 +463,56 @@ export class ClientService {
     }
 
   }
-  checkvaddons(order:any):any {
+  checkvaddons(order: any): any {
+    console.log("order is" );
     console.log(order);
-    console.log("this is passing");
-      try {
-        for (var i = 0; i < order.length; i++) {
-          if (order[i][0] == "Video Tour") throw "video"
-        }
-        throw "novideo"
-      }
-      catch (errs) {
-        if (errs == "video") {
-          console.log("video thrown")
-          this.router.navigate(['/addonsv'])
-        }
-        if (errs == "no video") {
+ 
+        try {
+          for (var i = 0; i < order.length; i++) {
+            console.log("i loop"+order[i].length)
+            for(var j=0;j<order[i].length ;j++){
 
-          console.log("no videos")
-          this.router.navigate(['/access'])
+            
+                for(var k=0; k<order[i][j].length;k++)
+                    {
+                  console.log("j loop" + order[i][j][0]);
+                  if (order[i][j][0] == "Video Tour") throw "video"
+                    }
+            
+            }
+          
+          }
+          throw "no video"
+        }
+        catch (errs) {
+          if (errs == "video") {
+            console.log("video thrown")
+            this.router.navigate(['/addonsv'])
+          }
+          if (errs == "no video") {
+
+            console.log("no videos")
+            this.router.navigate(['/access'])
+
+          }
 
         }
 
-      }
-  }
-  setpaddonsarray(paddonsarray:any,order):void
+      
+
+    }
+
+  setpaddonsarray(paddonsarray:any,order:any):void
   {
    this.bspaddonarray.next(this.bspaddonarray.getValue().concat([paddonsarray]));
-  
+  console.log(this.orderarray)
+ 
    this.checkvaddons(order)
+  }
+  setvaddonsarray(vaddonsarray: any): void {
+    this.bsvaddonarray.next(this.bsvaddonarray.getValue().concat([vaddonsarray]));
+  this.router.navigate(['/access'])
+
   }
   // End of products
 
@@ -544,7 +573,44 @@ get addonvideo(): string {
 
 
 
-//
+//end of video
+//access 
+  getaccessproperty(): string {
+    return this.accessproperty
+  }
+  setaccessproperty(accessproperty): void {
+
+    this.accessproperty = accessproperty;
+    this.bsaccessproperty.next(this.accessproperty);
+  }
+  getaccesspropertycode(): string {
+    return this.accesspropertycode
+  }
+  setaccesspropertycode(accesspropertycode): void {
+
+    this.accesspropertycode = accesspropertycode;
+    this.bsaccesspropertycode.next(this.accesspropertycode);
+  }
+
+//end of access
+// visiting date
+updatevisitingdate(visitingdate)
+{
+  this.setvisitingdate(visitingdate)
+  this.router.navigate(['/visitingtime'])
+}
+updatevisitingtime(visitingtime)
+{
+  this.setvisitingdate(visitingtime)
+  this.router.navigate(['/comments'])
+}
+  setvisitingdate(visitingdate): void {
+    this.visitingdate = visitingdate;
+    this.bsvisitingdate.next(this.visitingdate);
+  
+  }
+
+// end of visiting date
 //profile pic change
 uploadprofileimage(event)
 {

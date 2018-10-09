@@ -7,12 +7,23 @@ import { ClientService } from '../../shared/client.service';
 })
 export class AddonsvComponent implements OnInit {
   vcommunityshots;
-  vtwlightshotsh;
+  vtwlightshots;
   vrushfee;
   vaddonarray: Array<any> = [];
-  vaddonprice = null;
+  orderarray: Array<any>;
+  vaddonprice:any;
+  orderprice;
+  total;
   constructor(private cli: ClientService) {
 
+  }
+
+  vaddonsupdated()
+  {
+    console.log(this.orderarray);
+    this.cli.setvaddonsarray(this.vaddonarray)
+    this.cli.settotalprice(this.total)
+    this.cli.setorderprice(this.total)
   }
   pushvcs(e, a) {
     var classList = e.target.classList;
@@ -24,6 +35,7 @@ export class AddonsvComponent implements OnInit {
       if (this.vcommunityshots !== "customprice") {
 
         this.vaddonprice = this.vaddonprice + this.vcommunityshots;
+        this.total = this.total + this.vaddonprice;
       }
 
       this.vaddonarray.push([a, this.vcommunityshots])
@@ -35,7 +47,7 @@ export class AddonsvComponent implements OnInit {
 
       if (this.vcommunityshots !== "customprice") {
         this.vaddonprice = this.vaddonprice - this.vcommunityshots;
-
+        this.total = this.total - this.vaddonprice;
       }
 
 
@@ -56,21 +68,22 @@ export class AddonsvComponent implements OnInit {
       classList.add('btns');
       classList.remove('btn1');
 
-      if (this.vtwlightshotsh !== "customprice") {
+      if (this.vtwlightshots !== "customprice") {
 
-        this.vaddonprice = this.vaddonprice + this.vtwlightshotsh;
+        this.vaddonprice = this.vaddonprice + this.vtwlightshots;
+        this.total = this.total + this.vaddonprice;
       }
 
-      this.vaddonarray.push([a, this.vtwlightshotsh])
+      this.vaddonarray.push([a, this.vtwlightshots])
       console.log(this.vaddonarray);
     }
     else if (classes.includes('btns')) {
       classList.add('btn1');
       classList.remove('btns');
 
-      if (this.vtwlightshotsh !== "customprice") {
-        this.vaddonprice = this.vaddonprice - this.vtwlightshotsh;
-
+      if (this.vtwlightshots !== "customprice") {
+        this.vaddonprice = this.vaddonprice - this.vtwlightshots;
+        this.total = this.total - this.vaddonprice;
       }
 
 
@@ -94,6 +107,7 @@ export class AddonsvComponent implements OnInit {
       if (this.vrushfee !== "customprice") {
 
         this.vaddonprice = this.vaddonprice + this.vrushfee;
+        this.total = this.total + this.vaddonprice;
       }
 
       this.vaddonarray.push([a, this.vrushfee])
@@ -105,7 +119,7 @@ export class AddonsvComponent implements OnInit {
 
       if (this.vrushfee !== "customprice") {
         this.vaddonprice = this.vaddonprice - this.vrushfee;
-
+        this.total = this.total - this.vaddonprice;
       }
 
 
@@ -117,13 +131,25 @@ export class AddonsvComponent implements OnInit {
       console.log(this.vaddonarray);
     }
 
-
   }
+
   ngOnInit() {
     this.cli.bsvcommunityshots.subscribe(vcommunityshots => { this.vcommunityshots = vcommunityshots });
     this.cli.bsvtwlightshots.subscribe(vtwlightshotsh => { this.vcommunityshots = vtwlightshotsh });
     this.cli.bsvrushfee.subscribe(vrushfee => { this.vrushfee = vrushfee });
+    this.cli.bsorderprice.subscribe(orderprice => { this.orderprice = orderprice });
+    this.cli.bsvaddonprice.subscribe(vaddonprice => { this.vaddonprice = vaddonprice });
+    this.cli.bsorderarray.subscribe(orderarray => { this.orderarray = orderarray });
+    console.log(this.orderprice);
+    console.log(this.vaddonprice + "is paddon");
+    if (this.orderprice != 'customprice') {
+      this.total = this.orderprice + this.vaddonprice;
+    } else {
+      this.total = this.orderprice;
+    }
 
+
+  
   }
 
 
