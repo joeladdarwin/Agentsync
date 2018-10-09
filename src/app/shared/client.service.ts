@@ -57,6 +57,7 @@ export class ClientService {
   uid:string;
   private visitingtime: Date;
   private visitingdate: Date;
+  private comment: any;
   private totalunits : Array<string> = ['First', 'Second', 'Third', 'Fourth', 'Fifth', 'Sixth', 'Seventh', 'Eighth', 'Ninth', 'Tenth'];
   public bspropertytype : BehaviorSubject<string> = new BehaviorSubject<string>(this.propertytype);
   public bssquarefeet : BehaviorSubject<string> = new BehaviorSubject<string>(this.squarefeet);
@@ -95,6 +96,7 @@ export class ClientService {
   public bsaccesspropertycode: BehaviorSubject<any> = new BehaviorSubject<any>(this.accesspropertycode);
   public bsvisitingtime: BehaviorSubject<any> = new BehaviorSubject<any>(this.visitingtime);
   public bsvisitingdate: BehaviorSubject<any> = new BehaviorSubject<any>(this.visitingdate);
+  public bscomment: BehaviorSubject<any> = new BehaviorSubject<any>(this.comment);
   // CommonCommon
 
   // End of 
@@ -591,6 +593,11 @@ get addonvideo(): string {
     this.accesspropertycode = accesspropertycode;
     this.bsaccesspropertycode.next(this.accesspropertycode);
   }
+  gotovisitingdate()
+  {
+    this.router.navigate(['/visitingdate']);
+    console.log("visiting date");
+  }
 
 //end of access
 // visiting date
@@ -604,13 +611,27 @@ updatevisitingtime(visitingtime)
   this.setvisitingdate(visitingtime)
   this.router.navigate(['/comments'])
 }
-  setvisitingdate(visitingdate): void {
+setvisitingdate(visitingdate): void {
     this.visitingdate = visitingdate;
     this.bsvisitingdate.next(this.visitingdate);
   
   }
 
 // end of visiting date
+// Comment
+  getcomment(): string {
+    return this.comment
+  }
+  setcomment(comment): void {
+
+    this.comment = comment;
+    console.log(this.comment);
+    this.bscomment.next(this.comment)
+    this.router.navigate(['/revieworder'])
+   
+
+  }
+// end of comment
 //profile pic change
 uploadprofileimage(event)
 {

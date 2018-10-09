@@ -42,4 +42,7 @@ body {  font-family: 'Lato'; }
 {
  color:#f1875b;
 }
+.numinput{
+    border: 2px solid #000;
+}
 
