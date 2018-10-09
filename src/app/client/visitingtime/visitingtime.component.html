@@ -20,33 +20,18 @@
         </div>
         <div class="row text-center mb-3">
           <div class="offset-md-3 col-md-6 col-xs-12 my-2">
-            <h3>Great!Now please Pick a time slot that we have available</h3>
+            <h3>Great! Now please Pick a time slot that we have available on {{visitingdatenow}}</h3>
           </div>
         </div>
     <div class="row">
       <div class="offset-md-3 col-md-6 col-xs-12 my-2">
-          <button type="button" class="btn btn1 btn-lg btn-block">10:00 AM</button>
+          <button type="button" class="btn btn1 btn-md py-sm-4 py-md-3 btn-block" (click)="updatetime(10)">10:00 AM</button>
+         <button type="button" class="btn btn1 btn-md py-sm-4 py-md-3 btn-block " (click)="updatetime(11)">11:00 AM</button>
+        <button type="button" class="btn btn1 btn-md py-sm-4 py-md-3 btn-block " (click)="updatetime(12)">12:00 PM</button>
+        <button type="button" class="btn btn1 btn-md py-sm-4 py-md-3 btn-block" (click)="updatetime(13)">1:00 PM</button>
+        <button type="button" class="btn btn1 btn-md py-sm-4 py-md-3 btn-block mb-5" (click)="updatetime(14)">2:00 PM</button>
       </div>
       </div>
-      <div class="row">
-          <div class="offset-md-3 col-md-6 col-xs-12 my-2">
-          <button type="button" class="btn btn1 btn-lg btn-block ">11:00 AM</button>
-          </div>
-      </div>
-      <div class="row">
-          <div class="offset-md-3 col-md-6 col-xs-12 my-2">
-            <button type="button" class="btn btn1 btn-lg btn-block ">12:00 PM</button>
-          </div>
-      </div>
-       <div class="row">
-         <div class="offset-md-3 col-md-6 col-xs-12 my-2">
-             <button type="button" class="btn btn1 btn-lg btn-block">1:00 PM</button>
-          </div>
-        </div>
-          <div class="row">
-              <div class="offset-md-3 col-md-6 col-xs-12 my-2">
-          <button type="button" class="btn btn1 btn-lg btn-block">2:00 PM</button>
-          </div>
-          </div>
+    
       <app-footer></app-footer>
      

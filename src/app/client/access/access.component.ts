@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { ClientService } from '../../shared/client.service';
 @Component({
   selector: 'app-access',
   templateUrl: './access.component.html',
@@ -7,9 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AccessComponent implements OnInit {
 
-  constructor() { }
+  constructor(private cli:ClientService) { }
+  checkbackaccess()
+  {
 
+  }
   ngOnInit() {
+
   }
 
 }

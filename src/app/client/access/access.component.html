@@ -7,13 +7,13 @@
     </div>
     <div class="row">
         <div class="col-md-4 col-4 text-left">
-            <button type="button" class="btn3 text-white">BACK</button>
+            <button type="button" (click)="checkbackaccess()" class="btn btn-link text-white">NEXT</button>
         </div>
         <div class="col-md-4 col-4 text-center">
-            <h5>Subtotal:</h5>
+            <h5>Subtotal:<span class="sp">{{total}}</span></h5>
           </div>
         <div class="col-md-4 col-4 text-right">
-            <button type="button" class="btn3 text-white">NEXT</button>
+        <button type="button" (click)="accessupdated()" class="btn btn-link text-white">NEXT</button>
         </div>
    </div>
   </div>
@@ -29,7 +29,7 @@
           <button type="button" class="btn btn1 btn-lg btn-block ">Lockbox</button>
           <button type="button" class="btn btn1 btn-lg btn-block ">Access Code</button>
           <button type="button" class="btn btn1 btn-lg btn-block ">Other</button>
-          <button type="button" class="btn btn-lg btn-block btn4 my-5">Code?</button>
+          <input type="text" class="form-control p-4 numinput text-center my-5" name="code"  required>
       </div>
   </div>
   <app-footer></app-footer>
