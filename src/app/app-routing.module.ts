@@ -52,7 +52,8 @@ import { AdminpendingComponent } from './admin/adminpending/adminpending.compone
 import { AgentorderComponent } from './agent/agentorder/agentorder.component';
 import { Agentregister1Component } from './agent/agentregister1/agentregister1.component';
 import { AddonvComponent } from './client/addonv/addonv.component';
-
+import { PriceComponent } from './client/price/price.component';
+import { FooterComponent } from './client/footer/footer.component';
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'forget', component: ForgetComponent },
@@ -62,8 +63,10 @@ const routes: Routes = [
   { path: "", redirectTo: 'login', pathMatch: 'full' },
   { path: 'main', component: DashboardComponent },
     
+  { path: 'footer', component: FooterComponent },
   { path: 'navbar', component: NavbarComponent },
   { path: 'forget', component: ForgetComponent },
+  { path: 'price', component: PriceComponent },
   { path: 'placeorder', component: PlaceorderComponent },
   { path: 'address', component: AddressComponent },
   { path: 'addonsp', component: AddonsComponent },

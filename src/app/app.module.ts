@@ -109,6 +109,7 @@ import { Agentregister1Component } from './agent/agentregister1/agentregister1.c
 import { AddonvComponent } from './client/addonv/addonv.component';
 
 import { AddonsvComponent } from './client/addonsv/addonsv.component';
+import { PriceComponent } from './client/price/price.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -160,7 +161,7 @@ import { AddonsvComponent } from './client/addonsv/addonsv.component';
     CompleteorderComponent,
     DeliveryComponent,  
     
-    AddonsvComponent,
+    AddonsvComponent, PriceComponent,
       
   ],
   imports: [
