@@ -13,3 +13,7 @@ h5{
     background-color: #D5D5D5;
     color:#000;
 }
+.btn:active{
+    background-color:blue;
+    color:#fff;
+}

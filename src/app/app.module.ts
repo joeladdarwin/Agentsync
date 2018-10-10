@@ -43,6 +43,7 @@ import {  MatAutocompleteModule,
 import { CdkTableModule } from '@angular/cdk/table';
 import { CdkTreeModule } from '@angular/cdk/tree';
 import { HttpClientModule } from '@angular/common/http';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { environment } from "../environments/environment";
 import { AngularFireModule } from 'angularfire2';
@@ -191,6 +192,7 @@ import { InvoiceComponent } from './client/invoice/invoice.component';
     MatTooltipModule,
     MatTreeModule,
     HttpClientModule,  
+    NgbModule.forRoot(),
     FormsModule,
     ReactiveFormsModule, 
     AngularFireAuthModule, AngularFirestoreModule,AngularFireStorageModule, 

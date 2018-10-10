@@ -1,3 +1,33 @@
-<p>
-  visitingdate works!
-</p>
+<app-navbar></app-navbar>
+<div class="row">
+    <div class="bg-dark offset-lg-2 col-lg-8 col-md-12 col-xs-12 col-sm-12">
+      <div class="col-md-12">
+            <h3 class="text-center text-white">New Order > First Unit</h3>
+            <h4 class="text-center">Pick a Time </h4>
+          </div>
+          <div class="row">
+            <div class="col-md-4 col-4 text-left">
+                <h5 class="text-white">BACK</h5>
+            </div>
+            <div class="col-md-4 col-4 text-center">
+                <h5>Subtotal:</h5>
+              </div>
+            <div class="col-md-4 col-4 text-right">
+              <h5 class="text-white">NEXT</h5>
+            </div>
+          </div>
+          </div>
+          </div>
+          <div class="row text-center py-5 ">
+            <div class="offset-md-3 col-md-6 col-xs-12 my-2">
+<mat-form-field class="example-full-width">
+    <input matInput [matDatepicker]="picker" placeholder="Choose a date" [(ngModel)]="mydate">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker touchUi #picker (selectedChanged)="formatDate($event)"></mat-datepicker>
+  </mat-form-field>
+  
+  </div>
+ 
+  </div>
+ <button class="btn btn-primary" (click)="add()">submit</button>
+<app-footer></app-footer>
