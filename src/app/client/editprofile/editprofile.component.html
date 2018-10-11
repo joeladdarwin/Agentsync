@@ -1,3 +1,105 @@
-<p>
-  editprofile works!
-</p>
+<!-- <!-- <app-navbar>
+
+</app-navbar>
+ -->
+ <div class="row">
+    <nav class="navbar fixed-top col-12 navbar-expand-lg navbar-dark navback">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01"
+        aria-expanded="false" aria-label="Toggle navigation">
+    </button>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+        <a class="navbar-brand" href="#">Agent-sync</a>
+        <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+            <li class="nav-item active">
+                <a class="nav-link waves-light" routerLink="/dashboard" mdbWavesEffect>Main
+                    <span class="sr-only">(current)</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link waves-light" routerLink="/price" mdbWavesEffect>Price Menu</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link waves-light" routerLink="/placeorder" mdbWavesEffect>Place Order</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link waves-light" routerLink="/myorder" mdbWavesEffect>My Orders</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link waves-light" routerLink="/myaccount" mdbWavesEffect>My Account</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link waves-light" routerLink="/deliveries" mdbWavesEffect>Deliveries</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link waves-light" routerLink="/profile" mdbWavesEffect>Profile</a>
+            </li>
+      
+        </ul>
+        
+      </div>
+    </nav>
+    </div>
+    
+
+<div class="container-fluid">
+<div class="row text-center">
+  <div class="col-md-6 col-6 mx-auto">
+  
+    <img [src]="url |async" alt="no" class="img-thumbnail">
+   <!-- <input type="file" (change)="upload($event)" accept=".png,.jpg"/> -->
+    <a [href]="url |async">{{url | async}}</a> 
+<div class="image-upload">
+    <label for="file-input">
+       <i class="fa fa-edit custom-edit"></i>
+    </label>
+  
+    <input id="file-input" type="file" (change)="upload($event)"  name="file-input" accept=".png,.jpg">
+    
+  
+</div>
+<div *ngIf="downloadURL | async; let downloadsrc" class="alert alert-info" role="alert">
+    File uploaded: <a [href]="downloadSrc">{{downloadSrc}}</a>
+</div>
+
+ 
+    <p>LINDA GREEN</p><hr>    
+    </div>
+    <div class="col-md-12"> 
+          <div class="form-group row">
+                  <label for="example-text-input" class="col-5 col-form-label">Name</label>
+                  <div class="col-7">
+                          <label for="example-text-input" >Linda Green</label>
+                  </div>
+                </div><hr>
+                <div class="form-group row">
+                  <label for="example-search-input" class="col-5 col-form-label">Email</label>
+                  <div class="col-7">
+                          <label for="example-text-input" >yourname@domain.com </label>
+                  </div>
+                </div><hr>
+                <div class="form-group row">
+                  <label for="example-email-input" class="col-5 col-form-label">Brokerage</label>
+                  <div class="col-7">
+                          <label for="example-text-input" >Your Real Estate Company</label>
+                  </div>
+                </div><hr>
+                <div class="form-group row">
+                  <label for="example-url-input" class="col-5 col-form-label">My phone number:</label>
+                  <div class="col-7">
+                          <label for="example-text-input" >(-) --- - -- </label>
+                  </div>
+                </div><hr>
+                <div class="form-group row">
+                      <label  class="col-5 col-form-label">Payment Info: <span>Not set up yet</span></label>
+                      <div class="col-7">
+                             <button type="button" class="btn btn1">Set Up</button>
+                      </div>
+                    </div><hr>
+                
+    
+  </div>
+</div>
+</div>

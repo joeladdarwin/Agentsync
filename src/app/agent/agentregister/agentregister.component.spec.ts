@@ -1,6 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AgentregisterComponent } from './agentregister.component';
+import { ClientService } from '../../shared/client.service';
+import { AuthService } from '../../shared/auth.service';
+
 
 describe('AgentregisterComponent', () => {
   let component: AgentregisterComponent;

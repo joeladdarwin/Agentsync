@@ -2,3 +2,8 @@
     background-color: transparent;
     border: none;
 }
+.btn{
+    background-color:#F1875B;
+    color:#fff;
+    border-radius: 20px;
+}

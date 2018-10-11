@@ -1,34 +1,26 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from 'angularfire2/firestore';
-
-export interface Post {
-  title:string;
-  content:string;
-   firstname:string;
-  lastname:string;
-}
-
+import { ClientService } from '../../shared/client.service';
 @Component({
   selector: 'app-visitingtime',
   templateUrl: './visitingtime.component.html',
   styleUrls: ['./visitingtime.component.css']
 })
-export class VisitingtimeComponent{
-visit:Date;
-date:"";
-book:AngularFirestoreCollection<Post>;
-  constructor(private route: ActivatedRoute,private afs: AngularFirestore) { 
-    this.route.queryParams.subscribe(params => {
-      console.log(params);
-  });
+export class VisitingtimeComponent implements OnInit {
+visitingdatenow;
+  constructor(private cli: ClientService) { }
+  updatetime(a){
+    var datenew = new Date(this.visitingdatenow);
+    datenew.setHours(a);
+    datenew.setMinutes(0);
+    console.log(datenew);
+    this.cli.updatevisitingtime(datenew)
   }
   ngOnInit() {
+    this.cli.bsvisitingdate.subscribe(visitingdate => { this.visitingdatenow = visitingdate });
   }
   add(){
     console.log();
-    //console.log(this.visit);
-    //this.afs.collection('orders').add(this.route.queryParams);
+    
   }
 
 }
