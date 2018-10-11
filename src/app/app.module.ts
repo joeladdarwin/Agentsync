@@ -5,6 +5,8 @@ import { CommonModule } from '@angular/common';
 import { platformBrowserDynamic } from "@angular/platform-browser-dynamic";
 import { NgModule } from '@angular/core';
 import{AngularFireDatabaseModule} from'angularfire2/database';
+import { AsyncPipe } from '../../node_modules/@angular/common';
+import { MessagingService } from './shared/messaging.service';
 import {  MatAutocompleteModule,
   MatBadgeModule,
   MatBottomSheetModule,
@@ -211,7 +213,7 @@ import { AddonsvComponent } from './client/addonsv/addonsv.component';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
   ],
-  providers: [AuthGuardService, AuthService, ClientService, AdminService, AgentService],
+  providers: [AuthGuardService, AuthService, ClientService, AdminService, AgentService,MessagingService, AsyncPipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
