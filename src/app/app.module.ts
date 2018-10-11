@@ -107,7 +107,9 @@ import { DeliveryComponent } from './client/delivery/delivery.component';
 import { Agentregister1Component } from './agent/agentregister1/agentregister1.component';
 import { AddonvComponent } from './client/addonv/addonv.component';
 
+
 import { AddonsvComponent } from './client/addonsv/addonsv.component';
+import { PricemenuComponent } from './client/pricemenu/pricemenu.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -157,9 +159,10 @@ import { AddonsvComponent } from './client/addonsv/addonsv.component';
     Agentregister1Component,
     AddonvComponent,
     CompleteorderComponent,
-    DeliveryComponent,  
+    DeliveryComponent,
+    PricemenuComponent,  
     
-    AddonsvComponent,
+    AddonsvComponent, PricemenuComponent,
       
   ],
   imports: [

@@ -7,13 +7,18 @@ import { ClientService } from '../../shared/client.service';
   styleUrls: ['./squarefeet.component.css']
 })
 export class SquarefeetComponent implements OnInit {
+  btncolor:boolean;
   propertytype: string;
   squarefeet : string;
   street:string;
-  constructor(private cli: ClientService) { }
-  updatesqft(unit)
+  constructor(private cli: ClientService) { } 
+  updatesqft(e,unit)
   {
-    this.cli.setsquarefeet(unit)
+   
+    this.btncolor=true;
+    var classList = e.target.classList;
+    var classes = e.target.className;
+    classList.add('btncolor');
   }
   checksqft()
   {

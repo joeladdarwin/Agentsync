@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./access.component.css']
 })
 export class AccessComponent implements OnInit {
-
+  
   constructor() { }
 
   ngOnInit() {

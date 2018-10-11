@@ -1,0 +1,25 @@
+.background{
+    background-image: url('/assets/image/background/desktop/desktop1.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100vh;
+  }
+td {
+    border-bottom: 1px solid #000;
+    text-align: center;
+}
+.circletop{
+    background-color: #fff;
+    border:1px solid #fff;
+    width: 67vw;
+    height: 15vh;
+    margin-left: -2rem;
+}
+.half-circle {
+    width: 200px;
+    height: 100px; /* as the half of the width */
+    background-color: #fff;
+    border-top-left-radius: 110px;  /* 100px of height + 10px of border */
+    border-top-right-radius: 110px; /* 100px of height + 10px of border */
+    border-bottom: 0;
+}
