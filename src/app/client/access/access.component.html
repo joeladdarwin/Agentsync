@@ -1,35 +1,49 @@
 <app-navbar></app-navbar>
-<div class="row mb-5">
-  <div class="bg-dark offset-lg-2 col-lg-8 col-md-12 col-xs-12 col-sm-12">
-    <div class="col-md-12">
-          <h3 class="text-center text-white">New Order > First Unit</h3>
-          <h4 class="text-center">Products </h4>
-    </div>
-    <div class="row">
-        <div class="col-md-4 col-4 text-left">
-            <button type="button" (click)="checkbackaccess()" class="btn btn-link text-white">NEXT</button>
-        </div>
-        <div class="col-md-4 col-4 text-center">
-            <h5>Subtotal:<span class="sp">{{total}}</span></h5>
-          </div>
-        <div class="col-md-4 col-4 text-right">
-        <button type="button" (click)="accessupdated()" class="btn btn-link text-white">NEXT</button>
-        </div>
-   </div>
-  </div>
-</div>
 <div class="row">
-    <div class="offset-md-3 col-md-6 col-xs-12">
-      <h3 class="text-center">How will you access the property?</h3>
+  <div class="bgdark offset-lg-2 col-lg-8 col-md-12 col-xs-12 col-sm-12">
+   
+          <h3 class="text-center text-white">New Order > First Unit</h3>
+          <h4 class="text-center sp">Products </h4>
+
+   </div> 
+</div> 
+<form class="row"  #accessForm="ngForm" (ngSubmit)="accesssubmit(accessForm)">
+    
+
+<div class="bgdark offset-lg-2 col-lg-8 col-md-12 col-xs-12 col-sm-12">
+    <div class="row">
+        <div class="col-4 text-left">
+            <button type="button" (click)="checkbackaccess()" class="btn btn-link text-white">BACK</button>
+        </div>
+        <div class="col-4 text-center">
+            <h5>Subtotal:<span class="sp">{{total}}</span></h5>
+        </div>
+        <div class="col-4 text-right">
+            <button type="button" (click)="accessupdated(accessForm)" class="btn btn-link text-white">NEXT</button>
+        </div>
+    </div>
+        
+</div>
+
+<div class="offset-lg-2 col-lg-8 col-md-12 col-xs-12 col-sm-12">
+   
+      <h3 class="text-center my-5">How will you access the property?</h3>
+        <p class="text-center text-danger">{{message}}</p>
+    <div class="row">
+        <div class="offset-2 col-8 mb-5">
+            <button type="button" class="btn btn1 btn-lg py-sm-4 py-md-3 btn-block " (click)="meet('Meet agent on site')">Meet agent on site</button>
+            <button type="button" class="btn btn1 btn-lg py-sm-4 py-md-3 btn-block " (click)="codeshow = !codeshow;meet('Lockbox')">Lockbox</button>
+            <button type="button" class="btn btn1 btn-lg py-sm-4 py-md-3 btn-block " (click)="codeshow = !codeshow;meet('Access code')">Access Code</button>
+            <button type="button" class="btn btn1 btn-lg py-sm-4 py-md-3 btn-block " (click)="meet('Others')">Other</button>
+            <div *ngIf="codeshow">
+                <input type="text" placeholder="Code?" class="form-control p-4 numinput text-center my-5" name="code" id="code" [(ngModel)]="code" required>
+            </div>
+            
+        </div>
+       
+            
+      
     </div>
 </div>
-  <div class="row">
-      <div class="offset-md-3 col-md-6 col-xs-12 my-3">
-          <button type="button" class="btn btn1 btn-lg btn-block ">Meet agent on site</button>
-          <button type="button" class="btn btn1 btn-lg btn-block ">Lockbox</button>
-          <button type="button" class="btn btn1 btn-lg btn-block ">Access Code</button>
-          <button type="button" class="btn btn1 btn-lg btn-block ">Other</button>
-          <input type="text" class="form-control p-4 numinput text-center my-5" name="code"  required>
-      </div>
-  </div>
+  
   <app-footer></app-footer>

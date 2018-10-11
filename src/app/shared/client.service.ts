@@ -1,3 +1,4 @@
+
 import { Injectable } from '@angular/core';
 import { AuthService } from './auth.service';
 import { Router } from '@angular/router';
@@ -50,7 +51,6 @@ export class ClientService {
   private vaddonprice:any ;
   private totalprice:any ;
   private accessproperty: any;
-  private comment:any;
   private accesspropertycode: any;
   uploadPercent: Observable<number>;
   downloadURL : Observable<string | null>;
@@ -58,7 +58,7 @@ export class ClientService {
   uid:string;
   private visitingtime: Date;
   private visitingdate: Date;
-  public bscomment: BehaviorSubject<string>= new BehaviorSubject<string>(this.comment);
+  private comment: any;
   private totalunits : Array<string> = ['First', 'Second', 'Third', 'Fourth', 'Fifth', 'Sixth', 'Seventh', 'Eighth', 'Ninth', 'Tenth'];
   public bspropertytype : BehaviorSubject<string> = new BehaviorSubject<string>(this.propertytype);
   public bssquarefeet : BehaviorSubject<string> = new BehaviorSubject<string>(this.squarefeet);
@@ -79,7 +79,9 @@ export class ClientService {
   public bsfloorplanclr: BehaviorSubject<any> = new BehaviorSubject<any>(this.floorplanclr);
   public bsfloorplansclrfre: BehaviorSubject<any> = new BehaviorSubject<any>(this.floorplansclrfre);
   public bsdsflyer50: BehaviorSubject<any> = new BehaviorSubject<any>(this.dsflyer50);
-  public bsdsflyer100: BehaviorSubject<any> = new BehaviorSubject<any>(this.dsflyer100);
+
+
+public bsdsflyer100: BehaviorSubject<any> = new BehaviorSubject<any>(this.dsflyer100);
   public bspcommunityshots: BehaviorSubject<any> = new BehaviorSubject<any>(this.pcommunityshots);
   public bsptwlightshots: BehaviorSubject<any> = new BehaviorSubject<any>(this.ptwlightshots);
   public bsprushfee: BehaviorSubject<any> = new BehaviorSubject<any>(this.prushfee);
@@ -97,6 +99,7 @@ export class ClientService {
   public bsaccesspropertycode: BehaviorSubject<any> = new BehaviorSubject<any>(this.accesspropertycode);
   public bsvisitingtime: BehaviorSubject<any> = new BehaviorSubject<any>(this.visitingtime);
   public bsvisitingdate: BehaviorSubject<any> = new BehaviorSubject<any>(this.visitingdate);
+  public bscomment: BehaviorSubject<any> = new BehaviorSubject<any>(this.comment);
   // CommonCommon
 
   // End of 
@@ -169,7 +172,7 @@ export class ClientService {
   updateaddress(address):void
   {
 
-    this.setstreet(address.street);
+this.setstreet(address.street);
     this.setcity(address.city);
     this.setzip(address.zipCode);
     if(address.unit!=="")
@@ -178,12 +181,6 @@ export class ClientService {
     }
     
     this.router.navigate(['/squarefeet'])
-  }
-  updatecomment(comment){
-    console.log("enter commnet");
-    this.setcomment(comment);
-   
-
   }
   getstreet():string{
     return this.street
@@ -321,30 +318,12 @@ export class ClientService {
       this.setvruf('customprice');
       this.setvtwshot('customprice');
 
-     
-    }
-    this.bspropertytype.next(this.squarefeet);
+}
+    this.bssquarefeet.next(this.squarefeet);
     this.router.navigate(['/products']);
   }
 
   // End of Squarefeet
-
-//comments
-get comments():string{
-  return this.comment
-}
-setcomment(comment):void {
- 
-  this.comment = comment;
-  console.log(this.comment);
-  this.bscomment.next(this.comment)
-  this.router.navigate(['/revieworder'])
-  console.log(this.comments+"is thye comment");
-
-}
-
-// End comments
-
   // products
   get orderpriceget():any{
       return this.orderprice
@@ -487,7 +466,8 @@ setcomment(comment):void {
 
     }
 
-  }
+
+}
   checkvaddons(order: any): any {
     console.log("order is" );
     console.log(order);
@@ -540,9 +520,6 @@ setcomment(comment):void {
 
   }
   // End of products
-
-
- 
 
   //addonsphotography
   get communityshots():any{
@@ -619,6 +596,11 @@ get addonvideo(): string {
     this.accesspropertycode = accesspropertycode;
     this.bsaccesspropertycode.next(this.accesspropertycode);
   }
+  gotovisitingdate()
+  {
+    this.router.navigate(['/visitingdate']);
+    console.log("visiting date");
+  }
 
 //end of access
 // visiting date
@@ -632,13 +614,27 @@ updatevisitingtime(visitingtime)
   this.setvisitingdate(visitingtime)
   this.router.navigate(['/comments'])
 }
-  setvisitingdate(visitingdate): void {
+setvisitingdate(visitingdate): void {
     this.visitingdate = visitingdate;
     this.bsvisitingdate.next(this.visitingdate);
   
   }
 
 // end of visiting date
+// Comment
+  getcomment(): string {
+    return this.comment
+  }
+  setcomment(comment): void {
+
+    this.comment = comment;
+    console.log(this.comment);
+    this.bscomment.next(this.comment)
+    this.router.navigate(['/revieworder'])
+   
+
+  }
+// end of comment
 //profile pic change
 uploadprofileimage(event)
 {
@@ -648,8 +644,7 @@ uploadprofileimage(event)
   const fileRef = this.afStorage.ref(filePath);
   const task = this.afStorage.upload(filePath, file);
 
-
-  this.uploadPercent = task.percentageChanges();
+this.uploadPercent = task.percentageChanges();
   //  download URL 
   task.snapshotChanges().pipe(
     finalize(() => this.downloadURL = fileRef.getDownloadURL())
