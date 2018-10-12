@@ -8,20 +8,21 @@ import { NgForm } from '@angular/forms';
  
 })
 export class CommentsComponent implements OnInit {
-comment:any;
-commentForm:NgForm;
+  comment: any;
+  commentForm: NgForm;
 
-  constructor(private cli:ClientService) { }
+  constructor(private cli: ClientService) { }
+
 
   ngOnInit() {
- 
-    this.cli.bscomment.subscribe(comment=>{this.comment=comment});
+
+    this.cli.bscomment.subscribe(comment => { this.comment = comment });
   }
-  updateComments(commentForm:NgForm)
-  {
-   
+  updateComments(commentForm: NgForm) {
+
     var comment = commentForm.controls['comment'].value;
     this.cli.setcomment(comment);
-   
+
   }
 }
+

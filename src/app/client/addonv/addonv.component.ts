@@ -121,7 +121,7 @@ vaddonprice=null;
   }
   ngOnInit() {
     this.cli.bsvcommunityshots.subscribe(vcommunityshots=>{this.vcommunityshots = vcommunityshots});
-    this.cli.bsvtwlightshots.subscribe(vtwlightshotsh=>{this.vcommunityshots = vtwlightshotsh});
+    this.cli.bsvtwlightshots.subscribe(vtwlightshots => { this.vcommunityshots = vtwlightshots});
     this.cli.bsvrushfee.subscribe(vrushfee=>{this.vrushfee = vrushfee});
 
   }

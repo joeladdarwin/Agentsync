@@ -1,104 +1,78 @@
 <app-navbar></app-navbar>
 <div class="row">
-  <div class="bg-dark offset-lg-2 col-lg-8 col-md-12 col-xs-12 col-sm-12">
+  <div class="bgdark offset-lg-2 col-lg-8 col-md-12 col-xs-12 col-sm-12">
     <div class="col-md-12">
           <h3 class="text-center text-white">New Order > First Unit</h3>
           <h4 class="text-center">Property Size </h4>
     </div>
         <div class="row">
             <div class="col-md-4 col-4 text-left">
-                <button type="button" class="btn3 text-white">BACK</button>
+                <button type="button" class="btn btn-link text-white" [routerLink]="['/comments']" routerLinkActive="router-link-active" >BACK</button>
             </div>
             <div class="col-md-4 col-4 text-center">
-                <h5>Subtotal:</h5>
+                <h5>Subtotal:{{orderprice}}</h5>
               </div>
             <div class="col-md-4 col-4 text-right">
-                <button type="button" class="btn3 text-white">NEXT</button>
+                <button type="button" class="btn btn-link text-white">NEXT</button>
             </div>
        </div>
 </div>
 </div>
         <div class="row text-center mb-3">
           <div class="offset-md-3 col-md-6 col-xs-12 my-2">
-            <h3>All set?Please review your order below</h3>
-           
+            <h3>All set? Please review your order below</h3>
           </div>
         </div>
+     
+       
+     
         <div class="row">
           <div class="col-md-6 mx-auto">
-              <p><img class="ordericon" src="/assets/image/icons/style.png">{{cli.street 
-              }}</p>
+            
+               <ul>
+                    
+                   <li><a [routerLink]="['/placeorder']" routerLinkActive="router-link-active" >{{propertytype}}</a></li>
+                   <li><a [routerLink]="['/squarefeet']" routerLinkActive="router-link-active" >{{squarefeet}}</a></li>
+                   <li><a [routerLink]="['/address']" routerLinkActive="router-link-active" ><span class="ml-2 pl-1">{{street}}</span><br><span class="ml-5">{{city}}</span><br><span class="ml-5">{{zip}}<br></span><span *ngIf="appartmentunitno !='no unit'">{{appartmentunitno}}</span></a></li>  
+                   <li><a [routerLink]="['/products']" routerLinkActive="router-link-active" ><span><b>Products</b></span><ng-container *ngFor="let hero of orderarray;let i=index;">
+                    <p class="ml-4 pl-2">{{hero}}</p>
+                    <ng-container *ngFor="let heroine of hero;let j=index;">
+                     
+                    </ng-container>
+                   </ng-container></a>
+                  </li>
+                
+                  <li *ngIf="ispaddonarray"><a [routerLink]="['/addons']" routerLinkActive="router-link-active"><span><b>Photography Addons</b></span>
+                      <ng-container *ngFor="let hero of paddonarray;let i=index;">
+                        <p class="ml-4 pl-2">{{hero}}</p>
+                        <ng-container *ngFor="let heroine of hero;let j=index;">
+                  
+                        </ng-container>
+                      </ng-container>
+                    </a>
+                  </li>
+                  <li *ngIf="isvaddonarray"><a [routerLink]="['/addonsv']" routerLinkActive="router-link-active"><span><b>Video Addons</b></span>
+                      <ng-container *ngFor="let hero of vaddonarray;let i=index;">
+                        <p class="ml-4 pl-2">{{hero}}</p>
+                        <ng-container *ngFor="let heroine of hero;let j=index;">
+                  
+                        </ng-container>
+                      </ng-container>
+                    </a>
+                  </li>
+                   <li><a [routerLink]="['/access']" routerLinkActive="router-link-active" >{{accessproperty}}</a></li>
+                   <li *ngIf="accesspropertycode!='No Code'"><a [routerLink]="['/access']" routerLinkActive="router-link-active" >{{accesspropertycode}}</a></li>
+                   <li><a [routerLink]="['/visitingdate']" routerLinkActive="router-link-active">{{visitingdatenow | date: 'medium' }}</a></li>
+                   <li *ngIf="comment != ''"><a [routerLink]="['/comment']" routerLinkActive="router-link-active" >{{comment}}</a></li>
+               </ul>
           </div>
         </div>
-        <div class="row">
-            <div class="col-md-6 mx-auto">
-                <p><img class="ordericon" src="/assets/image/icons/style.png"> {{cli.city}}</p>
-            </div>
-          </div>
-          <div class="row">
-              <div class="col-md-6 mx-auto">
-                  <p><img class="ordericon" src="/assets/image/icons/style.png">{{cli.zipcode}}</p>
-              </div>
-          </div>
+
+       
+        
           
-          <div class="row">
-              <div class="col-md-6 mx-auto">
-                  <p><img class="ordericon" src="/assets/image/icons/style.png">{{cli.squarefeet}}</p>
-              </div>
-            </div>
+         
           
-            <div class="row">
-                <div class="col-md-6 mx-auto">
-                    <p><img class="ordericon" src="/assets/image/icons/style.png">{{product}}</p>
-                </div>
-              </div>
+           
             
-              <div class="row">
-                  <div class="col-md-6 mx-auto">
-                      <p><img class="ordericon" src="/assets/image/icons/style.png">{{addons}}</p>
-                  </div>
-                </div>
-              
-                <div class="row">
-                    <div class="col-md-6 mx-auto">
-                        <p><img class="ordericon" src="/assets/image/icons/style.png">{{visitingdate}}</p>
-                    </div>
-                  </div>
-                
-            <div class="row">
-                <div class="col-md-6 mx-auto">
-                  <ul style="list-style-type:none">
-                      <li style="list-style-type:none"><p><img class="ordericon" src="/assets/image/icons/style.png">{{visitingtime}}</p></li>
-                  </ul>
-                </div>
-              </div>
-              <div class="row">
-                  <div class="col-md-6 mx-auto">
-                      <p><img class="ordericon" src="/assets/image/icons/style.png">{{cli.comments}}</p>
-                  </div>
-                </div>
-              
-                <div class="row">
-                    <div class="col-md-6 mx-auto">
-                        <p><img class="ordericon" src="/assets/image/icons/style.png"></p>
-                    </div>
-                  </div>
-                
-                  <div class="row">
-                      <div class="col-md-6 mx-auto">
-                          <p><img class="ordericon" src="/assets/image/icons/style.png"></p>
-                      </div>
-                    </div>
-                  
-                    <div class="row">
-                        <div class="col-md-6 mx-auto">
-                            <p><img class="ordericon" src="/assets/image/icons/style.png"></p>
-                        </div>
-                      </div>
-                    
-                      <div class="row">
-                          <div class="col-md-6 mx-auto">
-                              <p><img class="ordericon" src="/assets/image/icons/style.png"></p>
-                          </div>
-                        </div>
-                      
+       

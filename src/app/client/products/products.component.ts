@@ -504,6 +504,7 @@ export class ProductsComponent implements OnInit {
     this.cli.bsdsflyer50.subscribe(dsflyer50 => {this.dsflyer50 = dsflyer50});
     this.cli.bsdsflyer100.subscribe(dsflyer100 =>{this.dsflyer100 = dsflyer100});
     this.cli.bsorderprice.subscribe(orderprice => {this.orderprice = orderprice});
+    this.cli.bsorderarray.subscribe(orderarray=>{this.order = orderarray});
   }
   }
 

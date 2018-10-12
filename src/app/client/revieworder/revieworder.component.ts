@@ -14,27 +14,40 @@ export class RevieworderComponent implements OnInit {
   city;
   zip;
   appartmentunitno;
-  photography;
-  message:string;
+  orderprice;
+  visitingdatenow;
   comment;
-
+  accessproperty;
+  accesspropertycode;
+  orderarray;
+  paddonarray;
+  vaddonarray;
+  ispaddonarray:boolean;
+  isvaddonarray:boolean;
   constructor(private cli:ClientService) { }
 
   ngOnInit() {
-    this.message = "*Please Select all that apply.";
-    this.cli.bscomment.subscribe(comment=>{this.comment = comment});
-   
-    this.cli.bsstreet.subscribe(street=>{this.street=street;console.log("street"+this.street)});
-    this.cli.bscity.subscribe(city=>{this.city=city});
-    this.cli.bszip.subscribe(zip=>{this.zip=zip});
-    this.cli.bssquarefeet.subscribe(squarefeet=>{this.squarefeet=squarefeet});
-    this.cli.bsorderarray.subscribe(squarefeet=>{this.squarefeet=squarefeet});
-    this.cli.bssquarefeet.subscribe(squarefeet=>{this.squarefeet=squarefeet});
-    this.cli.bssquarefeet.subscribe(squarefeet=>{this.squarefeet=squarefeet});
-    this.cli.bssquarefeet.subscribe(squarefeet=>{this.squarefeet=squarefeet});
-    console.log("thrhj"+this.comment);
- 
-   
+    this.cli.bsstreet.subscribe(street => { this.street = street;});
+    this.cli.bscity.subscribe(city => { this.city = city });
+    this.cli.bszip.subscribe(zip => { this.zip = zip });
+    this.cli.bsappartmentunitno.subscribe(appartmentunitno=>{this.appartmentunitno = appartmentunitno});
+    this.cli.bsaccessproperty.subscribe(accessproperty=>{this.accessproperty = accessproperty});
+    this.cli.bsaccesspropertycode.subscribe(accesspropertycode=>{this.accesspropertycode = accesspropertycode});
+    this.cli.bsorderarray.subscribe(orderarray => { this.orderarray = orderarray });
+    this.cli.bspaddonarray.subscribe(paddonarray => { this.paddonarray = paddonarray });
+    this.cli.bsvaddonarray.subscribe(vaddonarray => { this.vaddonarray =  vaddonarray });
+    this.cli.bsorderprice.subscribe(orderprice => { this.orderprice = orderprice });
+    this.cli.bsvisitingdate.subscribe(visitingdate => { this.visitingdatenow = visitingdate });
+    this.cli.bscomment.subscribe(comment => { this.comment = comment });
+    this.cli.bssquarefeet.subscribe(squarefeet => { this.squarefeet = squarefeet });
+    this.cli.bspropertytype.subscribe(propertytype=>{this.propertytype = propertytype;});
+    if(this.paddonarray.length>0)
+    {
+      this.ispaddonarray = true;
+    }
+    if (this.vaddonarray.length > 0) {
+      this.isvaddonarray = true;
+    }
   }
 
 }

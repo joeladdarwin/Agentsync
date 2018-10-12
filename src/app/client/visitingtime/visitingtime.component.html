@@ -1,16 +1,16 @@
 <app-navbar></app-navbar>
 <div class="row">
-  <div class="bg-dark offset-lg-2 col-lg-8 col-md-12 col-xs-12 col-sm-12">
+  <div class="bgdark offset-lg-2 col-lg-8 col-md-12 col-xs-12 col-sm-12">
     <div class="col-md-12">
           <h3 class="text-center text-white">New Order > First Unit</h3>
-          <h4 class="text-center">Pick a Time </h4>
+          <h4 class="text-center sp">Pick a Time </h4>
     </div>
     <div class="row">
           <div class="col-md-4 col-4 text-left">
-              <button type="button" class="btn3 text-white">BACK</button>
+              <button type="button" class="btn3 text-white" [routerLink]="['/access']" routerLinkActive="router-link-active" >BACK</button>
           </div>
           <div class="col-md-4 col-4 text-center">
-              <h5>Subtotal:</h5>
+              <h5>Subtotal:<span class="sp">{{total}}</span></h5>
             </div>
           <div class="col-md-4 col-4 text-right">
               <button type="button" class="btn3 text-white">NEXT</button>
@@ -19,8 +19,8 @@
         </div>
         </div>
         <div class="row text-center mb-3">
-          <div class="offset-md-3 col-md-6 col-xs-12 my-2">
-            <h3>Great! Now please Pick a time slot that we have available on {{visitingdatenow}}</h3>
+          <div class="offset-md-2 col-md-8 col-xs-12 my-2">
+            <h3>Great! Now please Pick a time slot that we have available on {{visitingdatenow | date:'MMM d, y'}}</h3>
           </div>
         </div>
     <div class="row">
