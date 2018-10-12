@@ -49,12 +49,15 @@ export class ClientService {
   private paddonprice: any ;
   private vaddonprice:any ;
   private totalprice:any ;
+  private accessproperty: any;
+  private accesspropertycode: any;
   uploadPercent: Observable<number>;
   downloadURL : Observable<string | null>;
   profilepicRef: any;
   uid:string;
   private visitingtime: Date;
   private visitingdate: Date;
+  private comment: any;
   private totalunits : Array<string> = ['First', 'Second', 'Third', 'Fourth', 'Fifth', 'Sixth', 'Seventh', 'Eighth', 'Ninth', 'Tenth'];
   public bspropertytype : BehaviorSubject<string> = new BehaviorSubject<string>(this.propertytype);
   public bssquarefeet : BehaviorSubject<string> = new BehaviorSubject<string>(this.squarefeet);
@@ -86,12 +89,14 @@ export class ClientService {
   public bspaddonprice: BehaviorSubject<any> = new BehaviorSubject<any>(this.paddonprice);
   public bsvaddonprice: BehaviorSubject<any> = new BehaviorSubject<any>(this.vaddonprice);
   public bstotalprice: BehaviorSubject<any> = new BehaviorSubject<any>(this.totalprice);
-  // CommonCommon
   public bsorderarray : BehaviorSubject<any[]> = new BehaviorSubject<any[]>(this.orderarray);
   public bspaddonarray : BehaviorSubject<any[]> = new BehaviorSubject<any[]>(this.paddonarray);
   public bsvaddonarray : BehaviorSubject<any[]> = new BehaviorSubject<any[]>(this.vaddonarray);
+  public bsaccessproperty: BehaviorSubject<any> = new BehaviorSubject<any>(this.accessproperty);
+  public bsaccesspropertycode: BehaviorSubject<any> = new BehaviorSubject<any>(this.accesspropertycode);
   public bsvisitingtime: BehaviorSubject<any> = new BehaviorSubject<any>(this.visitingtime);
   public bsvisitingdate: BehaviorSubject<any> = new BehaviorSubject<any>(this.visitingdate);
+  public bscomment: BehaviorSubject<any> = new BehaviorSubject<any>(this.comment);
   // CommonCommon
 
   // End of 
@@ -224,6 +229,9 @@ export class ClientService {
     this.setvcomshot(50)
     this.setvtwshot(50)
     this.setvruf(75)
+    this.setpcommunityshots(50)
+    this.setptwlightshots(50)
+    this.setprushfee(75)
     
     if (unit === '0-750') {
       this.setphotography(145)
@@ -297,17 +305,27 @@ export class ClientService {
       this.setdsflyer100('customprice');
       this.setbrouchure8p25('customprice');
       this.setbrouchure8p50('customprice');
-      this.setorderprice('Custom price');
+      this.setorderprice('customprice');
       this.setpaddonprice('customprice');
       this.setvaddonprice('customprice');
+      this.setpcommunityshots('customprice')
+      this.setprushfee('customprice');
+      this.setptwlightshots('customprice');
+      this.setvcomshot('customprice');
+      this.setvruf('customprice');
+      this.setvtwshot('customprice');
+
      
     }
-    this.bspropertytype.next(this.squarefeet);
+    this.bssquarefeet.next(this.squarefeet);
     this.router.navigate(['/products']);
   }
 
   // End of Squarefeet
   // products
+  get orderpriceget():any{
+      return this.orderprice
+  }
   setorderprice(price) {
     this.orderprice = price;
     this.bsorderprice.next(this.orderprice);
@@ -323,7 +341,7 @@ export class ClientService {
   }
   settotalprice(price) {
     this.totalprice = price;
-    this.totalprice.next(this.totalprice);
+    this.bstotalprice.next(this.totalprice);
   }
   gotoproducts()
   {
@@ -402,7 +420,10 @@ export class ClientService {
     this.bsorderarray.next(this.bsorderarray.getValue().concat([order]));
 
     this.checkpaddons(order)
-
+  }
+  getordersarray():any
+  {
+    return this.orderarray;
   }
   checkpaddons(order: any): any {
     try {
@@ -444,7 +465,57 @@ export class ClientService {
     }
 
   }
+  checkvaddons(order: any): any {
+    console.log("order is" );
+    console.log(order);
+ 
+        try {
+          for (var i = 0; i < order.length; i++) {
+            console.log("i loop"+order[i].length)
+            for(var j=0;j<order[i].length ;j++){
 
+            
+                for(var k=0; k<order[i][j].length;k++)
+                    {
+                  console.log("j loop" + order[i][j][0]);
+                  if (order[i][j][0] == "Video Tour") throw "video"
+                    }
+            
+            }
+          
+          }
+          throw "no video"
+        }
+        catch (errs) {
+          if (errs == "video") {
+            console.log("video thrown")
+            this.router.navigate(['/addonsv'])
+          }
+          if (errs == "no video") {
+
+            console.log("no videos")
+            this.router.navigate(['/access'])
+
+          }
+
+        }
+
+      
+
+    }
+
+  setpaddonsarray(paddonsarray:any,order:any):void
+  {
+   this.bspaddonarray.next(this.bspaddonarray.getValue().concat([paddonsarray]));
+  console.log(this.orderarray)
+ 
+   this.checkvaddons(order)
+  }
+  setvaddonsarray(vaddonsarray: any): void {
+    this.bsvaddonarray.next(this.bsvaddonarray.getValue().concat([vaddonsarray]));
+  this.router.navigate(['/access'])
+
+  }
   // End of products
 
   //addonsphotography
@@ -469,6 +540,7 @@ export class ClientService {
     this.prushfee = unit;
     this.bsprushfee.next(this.prushfee)
   }
+
 
   //
 
@@ -503,7 +575,63 @@ get addonvideo(): string {
 
 
 
-//
+//end of video
+//access 
+  getaccessproperty(): string {
+    return this.accessproperty
+  }
+  setaccessproperty(accessproperty): void {
+
+    this.accessproperty = accessproperty;
+    this.bsaccessproperty.next(this.accessproperty);
+  }
+  getaccesspropertycode(): string {
+    return this.accesspropertycode
+  }
+  setaccesspropertycode(accesspropertycode): void {
+
+    this.accesspropertycode = accesspropertycode;
+    this.bsaccesspropertycode.next(this.accesspropertycode);
+  }
+  gotovisitingdate()
+  {
+    this.router.navigate(['/visitingdate']);
+    console.log("visiting date");
+  }
+
+//end of access
+// visiting date
+updatevisitingdate(visitingdate)
+{
+  this.setvisitingdate(visitingdate)
+  this.router.navigate(['/visitingtime'])
+}
+updatevisitingtime(visitingtime)
+{
+  this.setvisitingdate(visitingtime)
+  this.router.navigate(['/comments'])
+}
+setvisitingdate(visitingdate): void {
+    this.visitingdate = visitingdate;
+    this.bsvisitingdate.next(this.visitingdate);
+  
+  }
+
+// end of visiting date
+// Comment
+  getcomment(): string {
+    return this.comment
+  }
+  setcomment(comment): void {
+
+    this.comment = comment;
+    console.log(this.comment);
+    this.bscomment.next(this.comment)
+    this.router.navigate(['/revieworder'])
+   
+
+  }
+// end of comment
 //profile pic change
 uploadprofileimage(event)
 {

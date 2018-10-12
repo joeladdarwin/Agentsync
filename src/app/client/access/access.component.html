@@ -31,10 +31,10 @@
         <p class="text-center text-danger">{{message}}</p>
     <div class="row">
         <div class="offset-2 col-8 mb-5">
-            <button type="button" class="btn btn1 btn-lg py-sm-4 py-md-3 btn-block " (click)="meet('Meet agent on site')">Meet agent on site</button>
-            <button type="button" class="btn btn1 btn-lg py-sm-4 py-md-3 btn-block " (click)="codeshow = !codeshow;meet('Lockbox')">Lockbox</button>
-            <button type="button" class="btn btn1 btn-lg py-sm-4 py-md-3 btn-block " (click)="codeshow = !codeshow;meet('Access code')">Access Code</button>
-            <button type="button" class="btn btn1 btn-lg py-sm-4 py-md-3 btn-block " (click)="meet('Others')">Other</button>
+            <button type="button" class="btn btn1 btn-lg py-sm-4 py-md-3 btn-block " (click)="meet('Meet agent on site')" [ngClass]="{btn4:ismeet}">Meet agent on site</button>
+            <button type="button" class="btn btn1 btn-lg py-sm-4 py-md-3 btn-block " (click)="codeshow = !codeshow;meet('Lockbox')" [ngClass]="{btn4:islockbox}">Lockbox</button>
+            <button type="button" class="btn btn1 btn-lg py-sm-4 py-md-3 btn-block " (click)="codeshow = !codeshow;meet('Access code')" [ngClass]="{btn4:isaccesscode}">Access Code</button>
+            <button type="button" class="btn btn1 btn-lg py-sm-4 py-md-3 btn-block " (click)="meet('Others')" [ngClass]="{btn4:isother}">Other</button>
             <div *ngIf="codeshow">
                 <input type="text" placeholder="Code?" class="form-control p-4 numinput text-center my-5" name="code" id="code" [(ngModel)]="code" required>
             </div>

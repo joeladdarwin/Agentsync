@@ -67,4 +67,3 @@ this.isAppartment = false;
 
 
 }
-

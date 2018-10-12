@@ -15,3 +15,35 @@ body {  font-family: 'Lato'; }
     color:#fff;
     background-color: #636363;
 }
+.bgdark > h5{
+    color:#D5D5D5;
+}
+.btn1{
+    background-color:#F1875B;
+    color:#fff;
+    font-size: 1rem;
+}
+.btn1:hover{
+    background-color: #D5D5D5;
+    color:#000;
+}
+.btns
+{
+    background-color: #D5D5D5;
+    color:#000;
+    font-size: 1rem; 
+}
+.btns:hover
+{
+     background-color:#F1875B;
+    color:#fff;
+}
+.sp
+{
+ color:#f1875b;
+}
+
+.btn4{
+background-color: #D5D5D5 !important;
+color: #000 !important;
+}

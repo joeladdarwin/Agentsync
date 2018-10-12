@@ -4,6 +4,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
 import { platformBrowserDynamic } from "@angular/platform-browser-dynamic";
 import { NgModule } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import{AngularFireDatabaseModule} from'angularfire2/database';
 import {  MatAutocompleteModule,
   MatBadgeModule,
@@ -109,7 +110,7 @@ import { AddonvComponent } from './client/addonv/addonv.component';
 
 
 import { AddonsvComponent } from './client/addonsv/addonsv.component';
-import { PricemenuComponent } from './client/pricemenu/pricemenu.component';
+import { PriceComponent } from './client/price/price.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -160,13 +161,14 @@ import { PricemenuComponent } from './client/pricemenu/pricemenu.component';
     AddonvComponent,
     CompleteorderComponent,
     DeliveryComponent,
-    PricemenuComponent,  
+     
     
-    AddonsvComponent, PricemenuComponent,
+    AddonsvComponent, PriceComponent,
       
   ],
   imports: [
     BrowserModule,
+
     BrowserAnimationsModule,
     CommonModule,
     AppRoutingModule,

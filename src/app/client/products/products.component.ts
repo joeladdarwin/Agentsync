@@ -1,11 +1,130 @@
 import { Component, OnInit } from '@angular/core';
 import { ClientService } from '../../shared/client.service';
-
+import { trigger, transition, style, animate , state, keyframes,group} from '@angular/animations';
 
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
-  styleUrls: ['./products.component.css']
+  styleUrls: ['./products.component.css'],
+  animations:[
+    trigger('photography',[
+      transition('void => *',[
+        animate(1000,keyframes([
+        style({opacity: 0,transform: 'translateX(-200%)', offset: 0}),
+        style({opacity: 1,transform: 'translateX(-200%)', offset: 0.3}),
+        style({opacity: 1,transform: 'translateX(0)', offset: 1.0})
+        ])),
+      ]),
+    ]),
+    trigger('360tour',[
+      transition('void => *',[
+        animate(1500,keyframes([
+        style({opacity: 0,transform: 'translateX(-200%)', offset: 0}),
+        style({opacity: 1,transform: 'translateX(-200%)', offset: 0.3}),
+        style({opacity: 1,transform: 'translateX(0)', offset: 1.0})
+        ])),
+      ]),
+    ]),
+    trigger('videotour',[
+      transition('void => *',[
+        animate(2000,keyframes([
+        style({opacity: 0,transform: 'translateX(-200%)', offset: 0}),
+        style({opacity: 1,transform: 'translateX(-200%)', offset: 0.3}),
+        style({opacity: 1,transform: 'translateX(0)', offset: 1.0})
+        ])),
+      ]),
+    ]),
+    trigger('singleproperty',[
+      transition('void => *',[
+        animate(2500,keyframes([
+        style({opacity: 0,transform: 'translateX(-200%)', offset: 0}),
+        style({opacity: 1,transform: 'translateX(-200%)', offset: 0.3}),
+        style({opacity: 1,transform: 'translateX(0)', offset: 1.0})
+        ])),
+      ]),
+    ]),
+    trigger('brochure(4page)25',[
+      transition('void => *',[
+        animate(3000,keyframes([
+        style({opacity: 0,transform: 'translateX(-200%)', offset: 0}),
+        style({opacity: 1,transform: 'translateX(-200%)', offset: 0.3}),
+        style({opacity: 1,transform: 'translateX(0)', offset: 1.0})
+        ])),
+      ]),
+    ]),
+    trigger('brochure(4page)50',[
+      transition('void => *',[
+        animate(3500,keyframes([
+        style({opacity: 0,transform: 'translateX(-200%)', offset: 0}),
+        style({opacity: 1,transform: 'translateX(-200%)', offset: 0.3}),
+        style({opacity: 1,transform: 'translateX(0)', offset: 1.0})
+        ])),
+      ]),
+    ]),
+    trigger('brochure(8page)25',[
+      transition('void => *',[
+        animate(4000,keyframes([
+        style({opacity: 0,transform: 'translateX(-200%)', offset: 0}),
+        style({opacity: 1,transform: 'translateX(-200%)', offset: 0.3}),
+        style({opacity: 1,transform: 'translateX(0)', offset: 1.0})
+        ])),
+      ]),
+    ]),
+    trigger('brochure(8page)50',[
+      transition('void => *',[
+        animate(4500,keyframes([
+        style({opacity: 0,transform: 'translateX(-200%)', offset: 0}),
+        style({opacity: 1,transform: 'translateX(-200%)', offset: 0.3}),
+        style({opacity: 1,transform: 'translateX(0)', offset: 1.0})
+        ])),
+      ]),
+    ]),
+    trigger('floorplans(b&w)',[
+      transition('void => *',[
+        animate(5000,keyframes([
+        style({opacity: 0,transform: 'translateX(-200%)', offset: 0}),
+        style({opacity: 1,transform: 'translateX(-200%)', offset: 0.3}),
+        style({opacity: 1,transform: 'translateX(0)', offset: 1.0})
+        ])),
+      ]),
+    ]),
+    trigger('floorplans(color)',[
+      transition('void => *',[
+        animate(5500,keyframes([
+        style({opacity: 0,transform: 'translateX(-200%)', offset: 0}),
+        style({opacity: 1,transform: 'translateX(-200%)', offset: 0.3}),
+        style({opacity: 1,transform: 'translateX(0)', offset: 1.0})
+        ])),
+      ]),
+    ]),
+    trigger('floorplans(c&f)',[
+      transition('void => *',[
+        animate(6000,keyframes([
+        style({opacity: 0,transform: 'translateX(-200%)', offset: 0}),
+        style({opacity: 1,transform: 'translateX(-200%)', offset: 0.3}),
+        style({opacity: 1,transform: 'translateX(0)', offset: 1.0})
+        ])),
+      ]),
+    ]),
+    trigger('doublesidedflyer50',[
+      transition('void => *',[
+        animate(6500,keyframes([
+        style({opacity: 0,transform: 'translateX(-200%)', offset: 0}),
+        style({opacity: 1,transform: 'translateX(-200%)', offset: 0.3}),
+        style({opacity: 1,transform: 'translateX(0)', offset: 1.0})
+        ])),
+      ]),
+    ]),
+    trigger('doublesidedflyer100',[
+      transition('void => *',[
+        animate(7000,keyframes([
+        style({opacity: 0,transform: 'translateX(-200%)', offset: 0}),
+        style({opacity: 1,transform: 'translateX(-200%)', offset: 0.3}),
+        style({opacity: 1,transform: 'translateX(0)', offset: 1.0})
+        ])),
+      ]),
+    ]),
+  ]
 })
 export class ProductsComponent implements OnInit {
   squarefeet;
@@ -37,6 +156,7 @@ export class ProductsComponent implements OnInit {
    if(this.order.length >= 1)
    {
      this.cli.setordersarray(this.order);
+     this.cli.setorderprice(this.orderprice)
    }
    else{
      this.message = "Please select atleast one item";

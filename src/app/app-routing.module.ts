@@ -36,7 +36,7 @@ import { RegisterComponent } from './client/register/register.component';
 import { AccessComponent } from './client/access/access.component';
 import { UnitsComponent } from './client/units/units.component';
 import { InvoiceComponent } from './client/invoice/invoice.component';
-import { PricemenuComponent } from './client/pricemenu/pricemenu.component';
+
 
 import { AdminheaderComponent } from './admin/adminheader/adminheader.component';
 import { AdminsidenavComponent } from './admin/adminsidenav/adminsidenav.component';
@@ -53,7 +53,8 @@ import { AdminpendingComponent } from './admin/adminpending/adminpending.compone
 import { AgentorderComponent } from './agent/agentorder/agentorder.component';
 import { Agentregister1Component } from './agent/agentregister1/agentregister1.component';
 import { AddonvComponent } from './client/addonv/addonv.component';
-
+import { PriceComponent } from './client/price/price.component';
+import { FooterComponent } from './client/footer/footer.component';
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'forget', component: ForgetComponent },
@@ -63,13 +64,19 @@ const routes: Routes = [
   { path: "", redirectTo: 'login', pathMatch: 'full' },
   { path: 'main', component: DashboardComponent },
     
+  { path: 'footer', component: FooterComponent },
   { path: 'navbar', component: NavbarComponent },
   { path: 'forget', component: ForgetComponent },
+  { path: 'price', component: PriceComponent },
   { path: 'placeorder', component: PlaceorderComponent },
   { path: 'address', component: AddressComponent },
   { path: 'addonsp', component: AddonsComponent },
+
+  { path: 'addons', component: AddonsComponent },
+
  
   { path: 'addonsv', component: AddonsvComponent },
+
   { path: 'access', component: AccessComponent },
   { path: 'units', component: UnitsComponent },
   { path: 'products', component: ProductsComponent },
@@ -83,7 +90,7 @@ const routes: Routes = [
   { path: 'completeorder', component: CompleteorderComponent },
   { path: 'delivery', component: DeliveryComponent },
   { path: 'myorder', component: MyorderComponent },
-  { path: 'pricemenu', component:PricemenuComponent  },
+  
   { path: 'myaccount', component: MyaccountComponent },
   { path: 'deliveries', component: DeliveriesComponent },
   { path: 'invoice', component: InvoiceComponent },
