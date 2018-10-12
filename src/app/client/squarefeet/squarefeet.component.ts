@@ -74,9 +74,7 @@ export class SquarefeetComponent implements OnInit {
     this.cli.bscity.subscribe(city => { this.city = city });
     this.cli.bszip.subscribe(zip=>{this.zip = zip});
     console.log(this.squarefeet +"issgft");
-    if (this.squarefeet == '0-750') {
-      this.is0750sel = true;
-    }
+    
     if (this.squarefeet == '751-1500') {
       this.is751sel = true;
     }

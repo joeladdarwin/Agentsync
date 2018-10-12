@@ -419,7 +419,10 @@ export class ClientService {
     this.bsdsflyer100.next(this.dsflyer100);
   }
   setordersarray(order: any): void {
-    this.bsorderarray.next(this.bsorderarray.getValue().concat([order]));
+    console.log(order);
+    this.orderarray = order;
+    console.log(this.orderarray);
+    this.bsorderarray.next(this.bsorderarray.getValue().concat(this.orderarray));
 
     this.checkpaddons(order)
   }
@@ -471,34 +474,23 @@ export class ClientService {
     console.log("order is" );
     console.log(order);
  
-        try {
-          for (var i = 0; i < order.length; i++) {
-            console.log("i loop"+order[i].length)
-            for(var j=0;j<order[i].length ;j++){
+    try {
+      for (var i = 0; i < order.length; i++) {
+        if (order[i][0] == "Video Tour") throw "video"
+      }
+      throw "no video"
+    }
+    catch (errs) {
+      if (errs == "video") {
+        console.log("video thrown")
+        this.router.navigate(['/addonsv'])
+      }
+      if (errs == "no video") {
 
-            
-                for(var k=0; k<order[i][j].length;k++)
-                    {
-                  console.log("j loop" + order[i][j][0]);
-                  if (order[i][j][0] == "Video Tour") throw "video"
-                    }
-            
-            }
-          
-          }
-          throw "no video"
-        }
-        catch (errs) {
-          if (errs == "video") {
-            console.log("video thrown")
-            this.router.navigate(['/addonsv'])
-          }
-          if (errs == "no video") {
+        console.log("no videos")
+        this.router.navigate(['/access'])
 
-            console.log("no videos")
-            this.router.navigate(['/access'])
-
-          }
+      }
 
         }
 
@@ -511,7 +503,7 @@ export class ClientService {
    this.bspaddonarray.next(this.bspaddonarray.getValue().concat([paddonsarray]));
   console.log(this.orderarray)
  
-   this.checkvaddons(order)
+   this.checkvaddons(this.orderarray)
   }
   setvaddonsarray(vaddonsarray: any): void {
     this.bsvaddonarray.next(this.bsvaddonarray.getValue().concat([vaddonsarray]));

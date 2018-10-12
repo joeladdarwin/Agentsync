@@ -21,6 +21,9 @@ ul li:before{
     background-repeat: no-repeat;
 
 }
+ul li{
+    margin-bottom:1rem;
+}
 ul li a{
     vertical-align: top;
    color:#000;

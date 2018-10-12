@@ -19,7 +19,10 @@ export class RevieworderComponent implements OnInit {
   accessproperty;
   accesspropertycode;
   orderarray;
-
+  paddonarray;
+  vaddonarray;
+  ispaddonarray:boolean;
+  isvaddonarray:boolean;
   constructor(private cli:ClientService) { }
 
   ngOnInit() {
@@ -30,12 +33,20 @@ export class RevieworderComponent implements OnInit {
     this.cli.bsaccessproperty.subscribe(accessproperty=>{this.accessproperty = accessproperty});
     this.cli.bsaccesspropertycode.subscribe(accesspropertycode=>{this.accesspropertycode = accesspropertycode});
     this.cli.bsorderarray.subscribe(orderarray => { this.orderarray = orderarray });
+    this.cli.bspaddonarray.subscribe(paddonarray => { this.paddonarray = paddonarray });
+    this.cli.bsvaddonarray.subscribe(vaddonarray => { this.vaddonarray =  vaddonarray });
     this.cli.bsorderprice.subscribe(orderprice => { this.orderprice = orderprice });
     this.cli.bsvisitingdate.subscribe(visitingdate => { this.visitingdatenow = visitingdate });
     this.cli.bscomment.subscribe(comment => { this.comment = comment });
     this.cli.bssquarefeet.subscribe(squarefeet => { this.squarefeet = squarefeet });
     this.cli.bspropertytype.subscribe(propertytype=>{this.propertytype = propertytype;});
-    
+    if(this.paddonarray.length>0)
+    {
+      this.ispaddonarray = true;
+    }
+    if (this.vaddonarray.length > 0) {
+      this.isvaddonarray = true;
+    }
   }
 
 }
