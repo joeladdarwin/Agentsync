@@ -18,5 +18,9 @@ visitingdatenow;
   ngOnInit() {
     this.cli.bsvisitingdate.subscribe(visitingdate => { this.visitingdatenow = visitingdate });
   }
+  add(){
+    console.log();
+    
+  }
 
 }

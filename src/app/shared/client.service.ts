@@ -322,8 +322,8 @@ this.setstreet(address.street);
 
      
     }
-   
-   
+    this.bssquarefeet.next(this.squarefeet);
+    this.router.navigate(['/products']);
   }
 
   // End of Squarefeet
