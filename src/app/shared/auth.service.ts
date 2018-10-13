@@ -113,8 +113,9 @@ export class AuthService {
     }
 
   // Create a order document
-  clientcreateorder(orderid,uid,order) {
+  clientcreateorder(orderid,order) {
     console.log("pass")
+    var uid = this.currentUserId;
     const userorderRef$: AngularFirestoreDocument<any> = this.afs.doc<Order>(`users/${uid}/orders/${orderid}`);
     const orderRef$: AngularFirestoreDocument<any> = this.afs.doc<Order>(`orders/${orderid}`);
     const orderdata: Order =
@@ -132,7 +133,9 @@ export class AuthService {
       status:'new'
 
     }
+
     return [userorderRef$.set(orderdata, { merge: true }), orderRef$.set(orderdata, { merge: true })]
+    
   }
 
 

@@ -664,11 +664,12 @@ getdoc(){
   // revieworder
   setorder(order:any)
   {
-    var a = this.auth.currentUserId;
+   
     var d= new Date();
     var c = (d.getDate()).toString() + (d.getMonth() + 1).toString() + (d.getFullYear()).toString().substr(-2) + (d.getHours()).toString() + (d.getMinutes()).toString();  
-    this.auth.clientcreateorder(c,a,order)
+    this.auth.clientcreateorder(c,order)
     console.log("worke")
+    this.router.navigate(['/completeorder'])
   }
   // end of revieworder
 }
