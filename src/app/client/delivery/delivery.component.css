@@ -1,0 +1,16 @@
+.icon{
+    width: 14vw;
+    height: 25vh;
+
+}
+.checksize{
+    height: 4vh;
+    width: 4vw;
+}
+.btn1
+  {
+    color: #fff;
+    background-color:#F07C49;
+    border-radius:30vw !important;
+    font-size: 1.25rem;
+    }

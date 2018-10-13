@@ -4,6 +4,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
 import { platformBrowserDynamic } from "@angular/platform-browser-dynamic";
 import { NgModule } from '@angular/core';
+import{AngularFireDatabaseModule} from'angularfire2/database';
+import { AsyncPipe } from '../../node_modules/@angular/common';
+
 import {  MatAutocompleteModule,
   MatBadgeModule,
   MatBottomSheetModule,
@@ -44,6 +47,7 @@ import { CdkTableModule } from '@angular/cdk/table';
 import { CdkTreeModule } from '@angular/cdk/tree';
 import { HttpClientModule } from '@angular/common/http';
 
+
 import { environment } from "../environments/environment";
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from "angularfire2/auth";
@@ -54,6 +58,7 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './client/navbar/navbar.component';
 import { DashboardComponent } from './client/dashboard/dashboard.component';
 import { PlaceorderComponent } from './client/placeorder/placeorder.component';
+import { InvoiceComponent } from './client/invoice/invoice.component';
 import { AddressComponent } from './client/address/address.component';
 import { AddonsComponent } from './client/addons/addons.component';
 import { ProductsComponent } from './client/products/products.component';
@@ -74,9 +79,10 @@ import { AgentloginComponent } from './agent/agentlogin/agentlogin.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { LoginComponent } from './client/login/login.component';
 import { ThanksComponent } from './client/thanks/thanks.component';
+import { CompleteorderComponent } from './client/completeorder/completeorder.component';
 import { AdminheaderComponent } from './admin/adminheader/adminheader.component';
 import { AdminsidenavComponent } from './admin/adminsidenav/adminsidenav.component';
-
+import { AgentorderComponent } from './agent/agentorder/agentorder.component';
 
 import { AgentregisterComponent } from './agent/agentregister/agentregister.component';
 import { AuthService } from './shared/auth.service';
@@ -99,9 +105,13 @@ import { AdminnewComponent } from './admin/adminnew/adminnew.component';
 import { AdminpendingComponent } from './admin/adminpending/adminpending.component';
 import { MyaccountComponent } from './client/myaccount/myaccount.component';
 import { DeliveriesComponent } from './client/deliveries/deliveries.component';
-import { InvoiceComponent } from './client/invoice/invoice.component';
-import { AdmintableComponent } from './admin/admintable/admintable.component';
+import { DeliveryComponent } from './client/delivery/delivery.component';
+import { Agentregister1Component } from './agent/agentregister1/agentregister1.component';
+import { AddonvComponent } from './client/addonv/addonv.component';
+import { PriceComponent } from './client/price/price.component';
 
+import { AddonsvComponent } from './client/addonsv/addonsv.component';
+import { AdmintableComponent } from './admin/admintable/admintable.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -116,6 +126,7 @@ import { AdmintableComponent } from './admin/admintable/admintable.component';
     RevieworderComponent,
     UpdateorderComponent,
     MyorderComponent,
+    InvoiceComponent,
     ProfileComponent,
     EditprofileComponent,
     AdminloginComponent,
@@ -145,9 +156,14 @@ import { AdmintableComponent } from './admin/admintable/admintable.component';
     AdminpendingComponent,
     MyaccountComponent,
     DeliveriesComponent,
-    InvoiceComponent,
+    AgentorderComponent,
+    Agentregister1Component,
+    AddonvComponent,
+    CompleteorderComponent,
+    DeliveryComponent,
+    PriceComponent,  
     AdmintableComponent,
-    
+    AddonsvComponent,
       
   ],
   imports: [
@@ -193,12 +209,14 @@ import { AdmintableComponent } from './admin/admintable/admintable.component';
     MatTooltipModule,
     MatTreeModule,
     HttpClientModule,  
+  
     FormsModule,
     ReactiveFormsModule, 
     AngularFireAuthModule, AngularFirestoreModule,AngularFireStorageModule, 
     AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule,
   ],
-  providers: [AuthGuardService, AuthService, ClientService, AdminService, AgentService],
+  providers: [AuthGuardService, AuthService, ClientService, AdminService, AgentService,],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,68 +1,49 @@
 <app-navbar></app-navbar>
 <div class="row mb-5">
-  <div class="bg-dark offset-lg-2 col-lg-8 col-md-12 col-xs-12 col-sm-12">
+  <div class="bgdark offset-lg-2 col-lg-8 col-md-12 col-xs-12 col-sm-12">
     <div class="col-md-12">
-          <h3 class="text-center text-white">New Order > First Unit</h3>
-          <h4 class="text-center">Products </h4>
+      <h3 class="text-center text-white">New Order > First Unit</h3>
+      <h4 class="text-center">Products </h4>
     </div>
     <div class="row">
       <div class="col-md-4 col-4 text-left">
-          <button type="button" class="btn3 text-white">BACK</button>
+        <button type="button" class="btn btn-link text-white" [routerLink]="['/squarefeet']" routerLinkActive="router-link-active" >BACK</button>
       </div>
       <div class="col-md-4 col-4 text-center">
-          <h5>Subtotal:</h5>
-        </div>
-      <div class="col-md-4 col-4 text-right">
-          <button type="button" class="btn3 text-white">NEXT</button>
+        <h5>Subtotal:{{orderprice}}</h5>
       </div>
- </div>
+      <div class="col-md-4 col-4 text-right">
+        <button type="button" class="btn btn-link text-white" (click)="updateorder()">NEXT</button>
+      </div>
+    </div>
   </div>
 </div>
-        <div class="row text-center">
-          <div class="offset-md-3 col-md-6 col-xs-12">
-            <h3>What Products are needed at this unit?</h3>
-            <p>*Please Select all that apply.<p>
-          </div>
-        </div>
-        <div class="row offset-md-3">
-            <div class="col-md-4 col-xs-12 my-2 py-md-2">
-               <button type="button" class="btn btn btn-lg btn-block ">Photography</button>
-            </div>
-            <div class="col-md-4 col-xs-12 my-2 py-md-2">
-              <button type="button" class="btn btn btn-lg btn-block "> Video Tour</button>
-            </div>
-        </div>
-        <div class="row offset-md-3">
-              <div class="col-md-4 col-xs-12 my-2 py-md-2">
-                <button type="button" class="btn btn btn-lg btn-block ">360 Tour</button>
-              </div>
-              <div class="col-md-4 col-xs-12 my-2 py-md-2">
-                <button type="button" class="btn btn btn-lg btn-block">Single Property Website</button>
-              </div>
-        </div>
-        <div class="row offset-md-3">
-              <div class="col-md-4 col-xs-12 my-2 py-md-2">
-                <button type="button" class="btn btn btn-lg btn-block">Floor Plans(B&W)</button>
-              </div>
-              <div class="col-md-4 col-xs-12 my-2 py-md-2">
-                <button type="button" class="btn btn btn-lg btn-block">Floor Plans(Color) </button>
-              </div>
-        </div>
-          <div class="row offset-md-3">
-              <div class="col-md-4 col-xs-12 my-2 py-md-2">
-          <button type="button" class="btn btn btn-lg btn-block">Floor Plans(Color+Furniture)</button>
-              </div>
-          <div class="col-md-4 col-xs-12 my-2 py-md-2">
-            <button type="button" class="btn btn btn-lg btn-block">Double-Sided Flyer</button>
-              </div>
-          </div>
-          <div class="row offset-md-3">
-              <div class="col-md-4 col-xs-12 my-2 py-md-2">
-                  <button type="button" class="btn btn btn-lg btn-block">Brochure(8 Page)</button>
-              </div>
-              <div class="col-md-4 col-xs-12 my-2 py-md-2">
-                  <button type="button" class="btn btn btn-lg btn-block">Brochure(4 Page)</button>
-              </div>
-          </div>
-          
-  <app-footer></app-footer>
+<div class="row text-center">
+  <div class="offset-md-2 col-md-8 col-xs-12">
+    <h3>What Products are needed at this unit?</h3>
+    <p>{{message}} </p>
+  </div>
+</div>
+<div class="row ">
+  <div class="col-xs-12 my-2 py-md-2 offset-md-3 col-md-6 lg-offset-3 col-lg-6">
+    <button type="button" class="btn btn1 btn-lg py-sm-4 py-md-3 btn-block " (click)="pushpgy($event, 'Photography')">Photography</button>
+    <button type="button" class="btn btn1 btn-lg py-sm-4 py-md-3 btn-block " (click)="pusht360($event, 'Tour 360')">360 Tour</button>
+    <button type="button" class="btn btn1 btn-lg py-sm-4 py-md-3 btn-block " (click)="pushvt($event, 'Video Tour')"> Video Tour</button>
+    <button type="button" class="btn btn1 btn-lg py-sm-4 py-md-3 btn-block" (click)="pushspw($event, 'Single Page Website')">Single Property Website</button>
+    <button type="button" class="btn btn1 btn-lg py-sm-4 py-md-3 btn-block" (click)="pushb425($event, 'Brochure 4 Page 25 Copies')">Brochure(4 Page)25</button>
+    <button type="button" class="btn btn1 btn-lg py-sm-4 py-md-3 btn-block" (click)="pushb450($event, 'Brochure 4 Page 50 Copies')">Brochure(4 Page)50</button>
+    <button type="button" class="btn btn1 btn-lg py-sm-4 py-md-3 btn-block" (click)="pushb825($event, 'Brochure 8 Page 25 Copies')">Brochure(8 Page)25</button>
+    <button type="button" class="btn btn1 btn-lg py-sm-4 py-md-3 btn-block" (click)="pushb850($event, 'Brochure 8 Page 50 Copies')">Brochure(8 Page)50</button>
+    <button type="button" class="btn btn1 btn-lg py-sm-4 py-md-3 btn-block" (click)="pushfpbw($event, 'Floor Plans (B&W)')">Floor Plans(B&W)</button>
+    <button type="button" class="btn btn1 btn-lg py-sm-4 py-md-3 btn-block" (click)="pushfpc($event, 'Floor Plans (Color)')">Floor Plans(Color) </button>
+    <button type="button" class="btn btn1 btn-lg py-sm-4 py-md-3 btn-block" (click)="pushfpcf($event, 'Floor Plans(Color+Furniture)')">Floor Plans(Color+Furniture)</button>
+    <button type="button" class="btn btn1 btn-lg py-sm-4 py-md-3 btn-block" (click)="pushd50($event, 'Double-Sided Flyer 50')">Double-Sided Flyer 50</button>
+    <button type="button" class="btn btn1 btn-lg py-sm-4 py-md-3 btn-block mb-5" (click)="pushd100($event, 'Double-Sided Flyer 100')">Double-Sided Flyer 100</button>
+  </div>
+  
+</div>
+
+
+
+
+<app-footer></app-footer>

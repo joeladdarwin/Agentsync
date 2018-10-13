@@ -1,34 +1,34 @@
 <app-navbar></app-navbar>
 <div class="row mb-5">
-  <div class="bg-dark offset-lg-2 col-lg-8 col-md-12 col-xs-12 col-sm-12">
+  <div class="bgdark offset-lg-2 col-lg-8 col-md-12 col-xs-12 col-sm-12">
     <div class="col-md-12">
           <h3 class="text-center text-white">New Order > First Unit</h3>
-          <h4 class="text-center">Products </h4>
+          <h4 class="text-center sp">Products </h4>
     </div>
     <div class="row">
       <div class="col-md-4 col-4 text-left">
-          <button type="button" class="btn3 text-white">BACK</button>
+          <button type="button" class="btn btn-link text-white" [routerLink]="['/products']" routerLinkActive="router-link-active" >BACK</button>
       </div>
       <div class="col-md-4 col-4 text-center">
-          <h5>Subtotal:</h5>
+          <h5>Subtotal:<span class="sp">{{total}}</span></h5>
         </div>
       <div class="col-md-4 col-4 text-right">
-          <button type="button" class="btn3 text-white">NEXT</button>
+          <button type="button" (click)="paddonsupdated()" class="btn btn-link text-white">NEXT</button>
       </div>
  </div>
   </div>
 </div>
 <div class="row text-center">
     <div class="offset-md-3 col-md-6 col-xs-12">
-      <h3>Are there any add-ons you need to apply to this product?</h3>
+      <h3>Are there any add-ons you need to apply to this Photography?</h3>
       <p>*Please Select all that apply.<p>
     </div>
   </div>
   <div class="row">
       <div class="offset-md-3 col-md-6 col-xs-12 my-2">
-          <button type="button" class="btn btn1 btn-lg btn-block my-3">Community Shots(+$50)</button>
-          <button type="button" class="btn btn1 btn-lg btn-block my-3">Twlight Shots(+$50)</button>
-          <button type="button" class="btn btn1 btn-lg btn-block my-3">Rush Fee(+$75)</button>
+          <button type="button" (click)="pushpcs($event,'Community shot')" class="btn btn1 btn-lg py-sm-4 py-md-3 btn-block">Community Shots(+$50)</button>
+          <button type="button" (click)="pushpts($event,'Twlight Shot')" class="btn btn1 btn-lg py-sm-4 py-md-3 btn-block">Twlight Shots(+$50)</button>
+          <button type="button" (click)="pushvrf($event,'Rush Fee')" class="btn btn1 btn-lg py-sm-4 py-md-3 btn-block mb-5">Rush Fee(+$75)</button>
       </div>
   </div>
   <app-footer></app-footer>

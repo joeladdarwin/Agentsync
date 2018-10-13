@@ -1,4 +1,5 @@
-import { Component, AfterViewInit, ViewChild } from '@angular/core';import { MatTableDataSource, MatSort, MatDialog, MatPaginator, MAT_SORT_HEADER_INTL_PROVIDER } from '@angular/material';
+import { Component, AfterViewInit, ViewChild } from '@angular/core';
+import { MatTableDataSource, MatSort, MatDialog, MatPaginator, MAT_SORT_HEADER_INTL_PROVIDER } from '@angular/material';
 import { AngularFirestore } from 'angularfire2/firestore';
 export interface Order {
   Productname:string;

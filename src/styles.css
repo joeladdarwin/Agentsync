@@ -1,3 +1,68 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import url('https://fonts.googleapis.com/css?family=Lato');
+body {  font-family: 'Lato', sans-serif !important ;}
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6{
+    font-size: inherit;
+}
+
 body {  font-family: 'Lato'; }
+.btn-selected{
+    color:#000;
+    background-color: #D5D5D5 !important;
+    font-size:1.5rem;
+}
+.bgdark{
+    color:#fff;
+    background-color: #636363;
+}
+.bgdark > h5{
+    color:#D5D5D5;
+}
+.btn1{
+    background-color:#F1875B;
+    color:#fff;
+    font-size: 1rem;
+}
+.btn1:hover{
+    background-color: #D5D5D5;
+    color:#000;
+}
+.btns
+{
+    background-color: #D5D5D5;
+    color:#000;
+    font-size: 1rem; 
+}
+.btns:hover
+{
+     background-color:#F1875B;
+    color:#fff;
+
+}
+.sp
+{
+ color:#f1875b;
+}
+.numinput{
+    border: 2px solid #000 !important;
+}
+.btn1
+  {
+    color: white;
+    background-color:#F07C49;
+        border-radius:20vh !important;
+        line-height: 0vw;   
+    }
+
+    .btn2{
+        color: white;
+        background-color:#A1A1A1;
+        border-radius:20vh;
+        line-height: 2vw;
+      
+    } 
+.btn4{
+  background-color: #D5D5D5 !important;
+     color:#000 !important;
+}

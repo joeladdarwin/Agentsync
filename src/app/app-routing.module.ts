@@ -4,7 +4,7 @@ import { RouterModule, Routes, CanActivate, Router  } from '@angular/router';
 import { AdminGuard } from './shared/admin.guard';
 import { AuthGuardService } from './shared/auth-guard.service';
 
-
+import { AddonsvComponent } from './client/addonsv/addonsv.component';
 import { NavbarComponent } from './client/navbar/navbar.component';
 import { VisitingtimeComponent } from './client/visitingtime/visitingtime.component';
 import { DashboardComponent } from './client/dashboard/dashboard.component';
@@ -16,8 +16,10 @@ import { MeetComponent } from './client/meet/meet.component';
 import { VisitingdateComponent } from './client/visitingdate/visitingdate.component';
 import { SquarefeetComponent } from './client/squarefeet/squarefeet.component';
 import { CommentsComponent } from './client/comments/comments.component';
+import { DeliveryComponent } from './client/delivery/delivery.component';
 import { RevieworderComponent } from './client/revieworder/revieworder.component';
 import { UpdateorderComponent } from './client/updateorder/updateorder.component';
+import { CompleteorderComponent } from './client/completeorder/completeorder.component';
 import { MyorderComponent } from './client/myorder/myorder.component';
 import { ProfileComponent } from './client/profile/profile.component';
 import { EditprofileComponent } from './client/editprofile/editprofile.component';
@@ -47,10 +49,11 @@ import { AdmintableComponent } from './admin/admintable/admintable.component';
 import { AdminscheduledComponent } from './admin/adminscheduled/adminscheduled.component';
 import { AdminnewComponent } from './admin/adminnew/adminnew.component';
 import { AdminpendingComponent } from './admin/adminpending/adminpending.component';
-
-
-
-
+import { AgentorderComponent } from './agent/agentorder/agentorder.component';
+import { Agentregister1Component } from './agent/agentregister1/agentregister1.component';
+import { AddonvComponent } from './client/addonv/addonv.component';
+import { PriceComponent } from './client/price/price.component';
+import { FooterComponent } from './client/footer/footer.component';
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'forget', component: ForgetComponent },
@@ -59,12 +62,20 @@ const routes: Routes = [
   { path: 'forget', component: ForgetComponent },
   { path: "", redirectTo: 'login', pathMatch: 'full' },
   { path: 'main', component: DashboardComponent },
-  
+    
+  { path: 'footer', component: FooterComponent },
   { path: 'navbar', component: NavbarComponent },
   { path: 'forget', component: ForgetComponent },
+  { path: 'price', component: PriceComponent },
   { path: 'placeorder', component: PlaceorderComponent },
   { path: 'address', component: AddressComponent },
+  { path: 'addonsp', component: AddonsComponent },
+
   { path: 'addons', component: AddonsComponent },
+
+ 
+  { path: 'addonsv', component: AddonsvComponent },
+
   { path: 'access', component: AccessComponent },
   { path: 'units', component: UnitsComponent },
   { path: 'products', component: ProductsComponent },
@@ -75,6 +86,8 @@ const routes: Routes = [
   { path: 'comments', component: CommentsComponent },
   { path: 'revieworder', component: RevieworderComponent },
   { path: 'updateorder', component: UpdateorderComponent },
+  { path: 'completeorder', component: CompleteorderComponent },
+  { path: 'delivery', component: DeliveryComponent },
   { path: 'myorder', component: MyorderComponent },
   { path: 'myaccount', component: MyaccountComponent },
   { path: 'deliveries', component: DeliveriesComponent },
@@ -83,13 +96,15 @@ const routes: Routes = [
   { path: 'editprofile', component: EditprofileComponent },
   { path: 'adlogin', component: AdminloginComponent },
   { path: 'addashboard', component: AdmindashboardComponent},
+  { path: 'adorders', component: AdminorderComponent},
   { path: 'agdashboard', component: AgentdashboardComponent },
   { path: 'aglogin', component: AgentloginComponent },
   { path: 'agregister', component: AgentregisterComponent },
+  { path: 'agregister1', component: Agentregister1Component },
   { path:'adheader', component: AdminheaderComponent},
   { path:'adsidenav', component: AdminsidenavComponent},
   { path:'aduser', component: AdminuserComponent},
-  { path:'adorders', component: AdminorderComponent},
+  { path:'agorders', component: AgentorderComponent},
   { path:'adorderhistory', component: AdminorderhistoryComponent},
   { path:'adpayment', component: AdminpaymentComponent},
   { path:'adtable', component: AdmintableComponent},
@@ -97,6 +112,7 @@ const routes: Routes = [
   { path:'adnew', component: AdminnewComponent},
   { path:'adpending', component: AdminpendingComponent},
   { path:'adcomplete', component: AdmincompleteComponent},
+  { path: 'addonsv', component: AddonvComponent },
 ];
 
 

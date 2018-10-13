@@ -19,21 +19,7 @@ input{
 
 }
 
-.btn1
-  {
-    color: white;
-    background-color:#F07C49;
-        border-radius:20vh;
-        line-height: 0vw;   
-    }
-
-    .btn2{
-        color: white;
-        background-color:#A1A1A1;
-        border-radius:20vh;
-        line-height: 2vw;
-      
-    }    
+   
     @media screen and(max-width:750){
         .btn1
   {

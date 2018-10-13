@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {
-  ReactiveFormsModule,
-  FormsModule,
+ 
+  
   FormGroup,
   FormControl,
   Validators,
@@ -16,57 +16,73 @@ import { ClientService } from '../../shared/client.service';
   
 })
 export class AddressComponent implements OnInit {
+  propertyss:string;
  propertytype:string;
-  myform: FormGroup;
-  street1: FormControl;
-  state: FormControl;
- 
-  password: FormControl;
- 
-  addressstore:any;
-constructor(private cli : ClientService){
-
+ address:Object;
+ street:string;
+ city:string;
+ zip:string;
+ appartmentunitno:string;
+ totalunits:string;
+ isAppartment:boolean;
+ addressformgroup: FormGroup;
+constructor(private cli : ClientService, private _formbuilder : FormBuilder){
+this.isAppartment = false;
+// this.propertytype = "Appartment"
+  if (this.street != '' || this.street != null) {
+   
+  }
 }
-  createFormControls() {
-    this.street1 = new FormControl("", Validators.required);
-    this.state = new FormControl("", Validators.required);
-  
-    this.password = new FormControl("", [
-      Validators.required,
-      Validators.minLength(8)
-    ]);
-    
-    
-  }
 
-  createForm() {
-    this.myform = new FormGroup({
-      name: new FormGroup({
-        firstName: this.street1,
-        lastName: this.state
-      }),
+  get af() { return this.addressformgroup.controls; }
     
-      password: this.password,
-     
-    });
+  Onaddresssubmit()
+  {
+    console.log(this.addressformgroup.value);
+    this.cli.updateaddress(this.addressformgroup.value)
   }
+ 
   
   ngOnInit() {
-    this.cli.bspropertytype.subscribe(propertytype => {this.propertytype = propertytype; console.log("insi"+propertytype)} );
-    this.createFormControls();
-    this.createForm();
-  }
-
-  onSubmit() {
-    console.log("engtr");
-    if (this.myform.valid) {
-      console.log("Form Submitted!");
-      console.log(this.myform.value);
-    this.addressstore = this.cli.address(this.myform.value);
-    console.log(this.addressstore);
-      this.myform.reset();
+      this.addressformgroup  = this._formbuilder.group({
+     
+        street : ['', Validators.required],
       
+        city: ['',Validators.required],
+
+      zipCode: ['', Validators.compose([Validators.required, Validators.minLength(5), Validators.maxLength(5), Validators.pattern('^[0-9]{5}$')])],
+
+        unit:['']
+        
+      
+    })
+    this.cli.bspropertytype.subscribe(propertytype => {this.propertytype = propertytype;} );
+    this.cli.bsstreet.subscribe(street => { this.street = street });
+    this.cli.bscity.subscribe(city=>{this.city=city});
+    this.cli.bszip.subscribe(zip=>{this.zip = zip});
+    this.cli.bsappartmentunitno.subscribe(appartmentunitno=>{this.appartmentunitno = appartmentunitno});
+    if(this.street != '' || this.street != null)
+    {
+      this.addressformgroup.controls['street'].setValue(this.street)
+    }
+    if(this.city != '' || this.city != null)
+    {
+      this.addressformgroup.controls['city'].setValue(this.city)
+    }
+    if (this.zip != '' || this.zip != null) {
+      this.addressformgroup.controls['zipCode'].setValue(this.zip)
+    }
+  
+    if(this.propertytype === "Appartment")
+    {
+      this.isAppartment = true;
+      if (this.appartmentunitno != '' || this.appartmentunitno != null) {
+        this.addressformgroup.controls['unit'].setValue(this.appartmentunitno)
+      }
     }
   }
+  
+  
+
+
 }
-      

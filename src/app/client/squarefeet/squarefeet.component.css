@@ -13,13 +13,10 @@ h5{
 .btn1{
     background-color: #f1875b;
     color: #fff;
+   
 }   
 
 .btn1:hover{
     background-color: #D5D5D5;
     color:#000;
-}
-.btn3{
-    background-color: transparent;
-    border: none;
 }
