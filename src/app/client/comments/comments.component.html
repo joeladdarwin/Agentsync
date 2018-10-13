@@ -11,7 +11,7 @@
           <button type="button" class="btn3 text-white" [routerLink]="['/visitingtime']" routerLinkActive="router-link-active" >BACK</button>
         </div>
         <div class="col-md-4 col-4 text-center">
-          <h5>Subtotal:<span class="sp">{{total}}</span></h5>
+          <h5>Subtotal:<span class="sp">${{total}}</span></h5>
         </div>
         <div class="col-md-4 col-4 text-right">
           <button type="submit" class="btn3 text-white">NEXT</button>
@@ -19,9 +19,9 @@
       </div>
     </div>
   </div>
-  <div class="row text-center">
+  <div class="row">
     <div class="offset-md-3 col-md-6 col-xs-12">
-      <h3>Please add any additional notes on this order</h3>
+      <h3 class="text-center mt-3">Please add any additional notes on this order</h3>
     </div>
   </div>
   <div class="row text-center">
@@ -32,3 +32,4 @@
     </div>
   </div>
 </form>
+<app-footer></app-footer>
