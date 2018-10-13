@@ -46,6 +46,21 @@ body {  font-family: 'Lato'; }
 .numinput{
     border: 2px solid #000 !important;
 }
+.btn1
+  {
+    color: white;
+    background-color:#F07C49;
+        border-radius:20vh !important;
+        line-height: 0vw;   
+    }
+
+    .btn2{
+        color: white;
+        background-color:#A1A1A1;
+        border-radius:20vh;
+        line-height: 2vw;
+      
+    } 
 .btn4{
   background-color: #D5D5D5 !important;
      color:#000 !important;

@@ -64,7 +64,8 @@
                    <li *ngIf="accesspropertycode!='No Code'"><a [routerLink]="['/access']" routerLinkActive="router-link-active" >{{accesspropertycode}}</a></li>
                    <li><a [routerLink]="['/visitingdate']" routerLinkActive="router-link-active">{{visitingdatenow | date: 'medium' }}</a></li>
                    <li *ngIf="comment != ''"><a [routerLink]="['/comment']" routerLinkActive="router-link-active" >{{comment}}</a></li>
-               </ul>
+               </ul>sdsdsdsd
+                <button class="btn btn1 btn-block mx-auto py-4" (click)="submitorder()" >ADD TO CART</button>
           </div>
         </div>
 
