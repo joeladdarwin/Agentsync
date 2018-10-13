@@ -94,13 +94,14 @@ import { AdminuserComponent } from './admin/adminuser/adminuser.component';
 import { AdminorderComponent } from './admin/adminorder/adminorder.component';
 import { AdminorderhistoryComponent } from './admin/adminorderhistory/adminorderhistory.component';
 import { AdminpaymentComponent } from './admin/adminpayment/adminpayment.component';
-import { AdmintableComponent } from './admin/admintable/admintable.component';
 import { AdminscheduledComponent } from './admin/adminscheduled/adminscheduled.component';
 import { AdminnewComponent } from './admin/adminnew/adminnew.component';
 import { AdminpendingComponent } from './admin/adminpending/adminpending.component';
 import { MyaccountComponent } from './client/myaccount/myaccount.component';
 import { DeliveriesComponent } from './client/deliveries/deliveries.component';
 import { InvoiceComponent } from './client/invoice/invoice.component';
+import { AdmintableComponent } from './admin/admintable/admintable.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -139,13 +140,14 @@ import { InvoiceComponent } from './client/invoice/invoice.component';
     AdminorderComponent,
     AdminorderhistoryComponent,
     AdminpaymentComponent,
-    AdmintableComponent,
     AdminscheduledComponent,
     AdminnewComponent,
     AdminpendingComponent,
     MyaccountComponent,
     DeliveriesComponent,
     InvoiceComponent,
+    AdmintableComponent,
+    
       
   ],
   imports: [
