@@ -7,6 +7,8 @@ import { Observable, of } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 import { User } from './user';
 import { Agent } from './agent';
+import { first, map } from 'rxjs/operators';
+
  
 
 
@@ -17,6 +19,7 @@ export class AuthService {
   authState: any = null;
   error: any = null;
   uid$;
+  data: Observable<any[]>;
   constructor(private afAuth : AngularFireAuth, private afs : AngularFirestore, private router : Router
   ) {
 
@@ -252,7 +255,22 @@ export class AuthService {
     this.afAuth.auth.signOut().then(() => this.router.navigate(['/']))
       
     }
+//order query
 
+clientqueryorderlen(){
+
+  const uid = this.currentUserId;
+  var length;
+
+
+this.data=this.afs.collection(`users/${uid}/orders/`, ref => ref.where('status', '==', 'new')).valueChanges();
+return this.data;
+ 
+
+
+
+}
+//
 
 
 
