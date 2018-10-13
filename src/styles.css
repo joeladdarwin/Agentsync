@@ -11,6 +11,12 @@ body {  font-family: 'Lato'; }
     background-color: #D5D5D5 !important;
     font-size:1.5rem;
 }
+h5{
+    color: #d5d5d5;
+}
+h4{
+    color: #f1875b;
+}
 .bgdark{
     color:#fff;
     background-color: #636363;
@@ -22,6 +28,7 @@ body {  font-family: 'Lato'; }
     background-color:#F1875B;
     color:#fff;
     font-size: 1rem;
+    border-radius: 0px !important;
 }
 .btn1:hover{
     background-color: #D5D5D5;
@@ -44,6 +51,9 @@ body {  font-family: 'Lato'; }
  color:#f1875b;
 }
 .numinput{
-    border: 2px solid #000 !important;
+    border: 1px solid #000 !important;
 }
-
+.btn4{
+  background-color: #D5D5D5 !important;
+     color:#000 !important;
+}

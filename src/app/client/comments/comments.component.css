@@ -4,14 +4,12 @@
     height:55vh;
     margin: 6px;
   }
-  h4{
-    color:#f1875b;
-   
-}
-h5{
-    color:#D5D5D5;
-}
+
 .btn3{
     background-color: transparent;
     border: none;
+}
+h4{
+    color:#f1875b;
+   
 }

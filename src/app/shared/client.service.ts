@@ -216,6 +216,8 @@ export class ClientService {
   setsquarefeet(unit): void {
     console.log("sqft is"+unit);
     this.squarefeet = unit;
+    this.bssquarefeet.next(this.squarefeet);
+    console.log(this.squarefeets);
     this.setsinglepagewebsite(85); 
     this.setbrouchure4p25(125);
     this.setbrouchure4p50(155);
@@ -317,8 +319,8 @@ export class ClientService {
 
      
     }
-    this.bspropertytype.next(this.squarefeet);
-    this.router.navigate(['/products']);
+   
+   
   }
 
   // End of Squarefeet

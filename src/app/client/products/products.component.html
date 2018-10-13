@@ -1,5 +1,5 @@
 <app-navbar></app-navbar>
-<div class="row mb-5">
+<div class="row mb-4">
   <div class="bgdark offset-lg-2 col-lg-8 col-md-12 col-xs-12 col-sm-12">
     <div class="col-md-12">
       <h3 class="text-center text-white">New Order > First Unit</h3>
@@ -10,7 +10,7 @@
         <button type="button" class="btn btn-link text-white" [routerLink]="['/squarefeet']" routerLinkActive="router-link-active" >BACK</button>
       </div>
       <div class="col-md-4 col-4 text-center">
-        <h5>Subtotal:{{orderprice}}</h5>
+        <h5>Subtotal:<span class="sp">${{orderprice}}</span></h5>
       </div>
       <div class="col-md-4 col-4 text-right">
         <button type="button" class="btn btn-link text-white" (click)="updateorder()">NEXT</button>
@@ -20,7 +20,7 @@
 </div>
 <div class="row text-center">
   <div class="offset-md-2 col-md-8 col-xs-12">
-    <h3>What Products are needed at this unit?</h3>
+    <h3>What products are needed at this unit?</h3>
     <p>{{message}} </p>
   </div>
 </div>

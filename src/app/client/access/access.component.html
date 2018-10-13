@@ -1,12 +1,12 @@
 <app-navbar></app-navbar>
 <div class="row">
   <div class="bgdark offset-lg-2 col-lg-8 col-md-12 col-xs-12 col-sm-12">
-   
+    
           <h3 class="text-center text-white">New Order > First Unit</h3>
-          <h4 class="text-center sp">Products </h4>
+          <h4 class="text-center sp">Property Access </h4>
 
    </div> 
-</div> 
+ </div>
 <form class="row"  #accessForm="ngForm" (ngSubmit)="accesssubmit(accessForm)">
     
 
@@ -16,7 +16,7 @@
             <button type="button" (click)="checkbackaccess()" class="btn btn-link text-white">BACK</button>
         </div>
         <div class="col-4 text-center">
-            <h5>Subtotal:<span class="sp">{{total}}</span></h5>
+            <h5>Subtotal:<span class="sp">${{total}}</span></h5>
         </div>
         <div class="col-4 text-right">
             <button type="button" (click)="accessupdated(accessForm)" class="btn btn-link text-white">NEXT</button>
@@ -27,14 +27,14 @@
 
 <div class="offset-lg-2 col-lg-8 col-md-12 col-xs-12 col-sm-12">
    
-      <h3 class="text-center my-5">How will you access the property?</h3>
+      <h3 class="text-center my-3">How will you access the property?</h3>
         <p class="text-center text-danger">{{message}}</p>
     <div class="row">
-        <div class="offset-2 col-8 mb-5">
-            <button type="button" class="btn btn1 btn-lg py-sm-4 py-md-3 btn-block " (click)="meet('Meet agent on site')">Meet agent on site</button>
-            <button type="button" class="btn btn1 btn-lg py-sm-4 py-md-3 btn-block " (click)="codeshow = !codeshow;meet('Lockbox')">Lockbox</button>
-            <button type="button" class="btn btn1 btn-lg py-sm-4 py-md-3 btn-block " (click)="codeshow = !codeshow;meet('Access code')">Access Code</button>
-            <button type="button" class="btn btn1 btn-lg py-sm-4 py-md-3 btn-block " (click)="meet('Others')">Other</button>
+        <div class="col-xs-12 my-2 py-md-2 offset-md-3 col-md-6 lg-offset-3 col-lg-6">
+            <button type="button" class="btn btn1 btn-md py-sm-4 py-md-3 btn-block " (click)="meet('Meet agent on site')">Meet agent on site</button>
+            <button type="button" class="btn btn1 btn-md py-sm-4 py-md-3 btn-block " (click)="codeshow = !codeshow;meet('Lockbox')">Lockbox</button>
+            <button type="button" class="btn btn1 btn-md py-sm-4 py-md-3 btn-block " (click)="codeshow = !codeshow;meet('Access code')">Access Code</button>
+            <button type="button" class="btn btn1 btn-md py-sm-4 py-md-3 btn-block " (click)="meet('Others')">Other</button>
             <div *ngIf="codeshow">
                 <input type="text" placeholder="Code?" class="form-control p-4 numinput text-center my-5" name="code" id="code" [(ngModel)]="code" required>
             </div>
