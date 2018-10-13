@@ -36,9 +36,10 @@
                    <li><a [routerLink]="['/address']" routerLinkActive="router-link-active" ><span class="ml-2 pl-1">{{street}}</span><br><span class="ml-5">{{city}}</span><br><span class="ml-5">{{zip}}<br></span><span *ngIf="appartmentunitno !='no unit'">{{appartmentunitno}}</span></a></li>  
                    <li><a [routerLink]="['/products']" routerLinkActive="router-link-active" ></a></li>
                    <li><a [routerLink]="['/access']" routerLinkActive="router-link-active" >{{accessproperty}}</a></li>
-                   <li><a [routerLink]="['/access']" routerLinkActive="router-link-active" >{{accesspropertycode}}</a></li>
-                   <li><a [routerLink]="['/visitingdate']" routerLinkActive="router-link-active">{{visitingdatenow}}</a></li>
-                   <li><a [routerLink]="['/comment']" routerLinkActive="router-link-active" >{{comment}}</a></li>
-               </ul>
+                   <li *ngIf="accesspropertycode!='No Code'"><a [routerLink]="['/access']" routerLinkActive="router-link-active" >{{accesspropertycode}}</a></li>
+                   <li><a [routerLink]="['/visitingdate']" routerLinkActive="router-link-active">{{visitingdatenow | date: 'medium' }}</a></li>
+                   <li *ngIf="comment != ''"><a [routerLink]="['/comment']" routerLinkActive="router-link-active" >{{comment}}</a></li>
+               </ul>sdsdsdsd
+                <button class="btn btn1 btn-block mx-auto py-4" (click)="submitorder()" >ADD TO CART</button>
           </div>
         </div>

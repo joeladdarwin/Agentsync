@@ -17,11 +17,36 @@ export class RevieworderComponent implements OnInit {
   visitingdatenow;
   comment;
   accessproperty;
-  accesspropertycode;
+  accesspropertycode='';
   orderarray;
-
+  paddonarray;
+  vaddonarray;
+  ispaddonarray:boolean;
+  isvaddonarray:boolean;
+  orderdata:any;
   constructor(private cli:ClientService) { }
-
+ 
+  submitorder()
+  {
+ this.orderdata = {
+      propertytype: this.propertytype,
+      squarefeet: this.squarefeet,
+      address:{
+        street:this.street,
+        city:this.city,
+        zip:this.zip,
+        unit:this.appartmentunitno,
+      },
+  
+      orderprice:this.orderprice,
+      meetingtype:this.accessproperty,
+      accesscode:this.accesspropertycode,
+      visitingdate:this.visitingdatenow,
+      ordereddate:Date.now()
+    }
+    console.log(this.orderdata);
+    this.cli.setorder(this.orderdata)
+  }
   ngOnInit() {
     this.cli.bsstreet.subscribe(street => { this.street = street;});
     this.cli.bscity.subscribe(city => { this.city = city });
@@ -35,7 +60,14 @@ export class RevieworderComponent implements OnInit {
     this.cli.bscomment.subscribe(comment => { this.comment = comment });
     this.cli.bssquarefeet.subscribe(squarefeet => { this.squarefeet = squarefeet });
     this.cli.bspropertytype.subscribe(propertytype=>{this.propertytype = propertytype;});
-    
+    if(this.paddonarray.length>0)
+    {
+      this.ispaddonarray = true;
+    }
+    if (this.vaddonarray.length > 0) {
+      this.isvaddonarray = true;
+    }
+    console.log(this.orderdata+"is this");
   }
 
 }

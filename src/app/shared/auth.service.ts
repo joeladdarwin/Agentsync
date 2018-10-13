@@ -6,6 +6,7 @@ import { AngularFirestore, AngularFirestoreDocument } from 'angularfire2/firesto
 import { Observable, of } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 import { User } from './user';
+import { Order} from './order';
 import { Agent } from './agent';
 import { first, map } from 'rxjs/operators';
 
@@ -114,6 +115,31 @@ export class AuthService {
         return userRef$.set(userdata, { merge: true })
     }
 
+  // Create a order document
+  clientcreateorder(orderid,uid,order) {
+    console.log("pass")
+    const userorderRef$: AngularFirestoreDocument<any> = this.afs.doc<Order>(`users/${uid}/orders/${orderid}`);
+    const orderRef$: AngularFirestoreDocument<any> = this.afs.doc<Order>(`orders/${orderid}`);
+    const orderdata: Order =
+    {
+      orderid: orderid,
+      uid : uid,
+      propertytype: order.propertytype,
+      address:order.address,
+      
+      squarefeet: order.squarefeet,
+      orderprice:order.orderprice,
+      meetingtype:order.meetingtype,
+      accesscode:order.accesscode,
+      visitingdate:order.visitingdate,
+      status:'new'
+
+    }
+    return [userorderRef$.set(orderdata, { merge: true }), orderRef$.set(orderdata, { merge: true })]
+  }
+
+
+  // end of order creation document
 
 
     //AGENT
@@ -160,6 +186,8 @@ export class AuthService {
 
       return userRef$.set(agentdata, { merge: true })
   }
+  
+
     //
   login(email: string, pass: string) {
     return this.afAuth.auth.signInWithEmailAndPassword(email, pass).then(
