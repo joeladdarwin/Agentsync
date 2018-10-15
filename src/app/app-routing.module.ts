@@ -104,6 +104,7 @@ const routes: Routes = [
   { path:'adheader', component: AdminheaderComponent},
   { path:'adsidenav', component: AdminsidenavComponent},
   { path:'aduser', component: AdminuserComponent},
+  { path:'agorders', component: AgentorderComponent},
   { path:'adorders', component: AgentorderComponent},
   { path:'adorderhistory', component: AdminorderhistoryComponent},
   { path:'adpayment', component: AdminpaymentComponent},
