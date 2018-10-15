@@ -53,22 +53,13 @@ h4{
 .numinput{
     border: 1px solid #000 !important;
 }
-.btn1
-  {
-    color: white;
-    background-color:#F07C49;
-        border-radius:20vh !important;
-        line-height: 0vw;   
-    }
-
-    .btn2{
-        color: white;
-        background-color:#A1A1A1;
-        border-radius:20vh;
-        line-height: 2vw;
-      
-    } 
-.btn4{
-  background-color: #D5D5D5 !important;
-     color:#000 !important;
+.btn2{
+    border-radius: 25px !important;
+    background-color: #f1875b;
+    color:#fff;
+}
+.btn3{
+    background-color: #77C16C;
+    color:#fff;
+    border-radius: 25px !important;
 }

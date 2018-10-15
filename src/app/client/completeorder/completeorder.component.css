@@ -2,10 +2,12 @@
 h2{
    color: #77C16C; 
 }
+.text{
+    color: #f1875b;
+}
 
 
-
-.btn2{
+.btn3{
     background-color: #77C16C;
     color:#fff;
     border-radius: 25px;

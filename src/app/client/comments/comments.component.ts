@@ -9,13 +9,14 @@ import { NgForm } from '@angular/forms';
 export class CommentsComponent implements OnInit {
   comment: any;
   commentForm: NgForm;
-
+  orderprice;
   constructor(private cli: ClientService) { }
 
 
   ngOnInit() {
 
     this.cli.bscomment.subscribe(comment => { this.comment = comment });
+    this.cli.bsorderprice.subscribe(orderprice => { this.orderprice = orderprice });
   }
   updateComments(commentForm: NgForm) {
 
