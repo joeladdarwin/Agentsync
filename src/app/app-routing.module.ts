@@ -1,3 +1,4 @@
+
 import { NgModule, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes, CanActivate, Router  } from '@angular/router';
@@ -36,6 +37,7 @@ import { RegisterComponent } from './client/register/register.component';
 import { AccessComponent } from './client/access/access.component';
 import { UnitsComponent } from './client/units/units.component';
 import { InvoiceComponent } from './client/invoice/invoice.component';
+
 
 import { AdminheaderComponent } from './admin/adminheader/adminheader.component';
 import { AdminsidenavComponent } from './admin/adminsidenav/adminsidenav.component';
@@ -76,7 +78,8 @@ const routes: Routes = [
  
   { path: 'addonsv', component: AddonsvComponent },
 
-  { path: 'access', component: AccessComponent },
+
+{ path: 'access', component: AccessComponent },
   { path: 'units', component: UnitsComponent },
   { path: 'products', component: ProductsComponent },
   { path: 'meet', component: MeetComponent },
@@ -96,7 +99,7 @@ const routes: Routes = [
   { path: 'editprofile', component: EditprofileComponent },
   { path: 'adlogin', component: AdminloginComponent },
   { path: 'addashboard', component: AdmindashboardComponent},
-  { path: 'agorder', component: AdmindashboardComponent},
+  { path: 'adorders', component: AdminorderComponent},
   { path: 'agdashboard', component: AgentdashboardComponent },
   { path: 'aglogin', component: AgentloginComponent },
   { path: 'agregister', component: AgentregisterComponent },
@@ -105,7 +108,6 @@ const routes: Routes = [
   { path:'adsidenav', component: AdminsidenavComponent},
   { path:'aduser', component: AdminuserComponent},
   { path:'agorders', component: AgentorderComponent},
-  { path:'adorders', component: AgentorderComponent},
   { path:'adorderhistory', component: AdminorderhistoryComponent},
   { path:'adpayment', component: AdminpaymentComponent},
   { path:'adtable', component: AdmintableComponent},

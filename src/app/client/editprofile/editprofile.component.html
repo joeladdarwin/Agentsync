@@ -50,7 +50,7 @@
   
     <img [src]="url |async" alt="no" class="img-thumbnail">
    <!-- <input type="file" (change)="upload($event)" accept=".png,.jpg"/> -->
-    <a [href]="url |async">{{url | async}}</a> 
+ 
 <div class="image-upload">
     <label for="file-input">
        <i class="fa fa-edit custom-edit"></i>
@@ -71,13 +71,13 @@
           <div class="form-group row">
                   <label for="example-text-input" class="col-5 col-form-label">Name</label>
                   <div class="col-7">
-                          <label for="example-text-input" >Linda Green</label>
+                          <label for="example-text-input" >{{auth.displayName}}</label>
                   </div>
                 </div><hr>
                 <div class="form-group row">
                   <label for="example-search-input" class="col-5 col-form-label">Email</label>
                   <div class="col-7">
-                          <label for="example-text-input" >yourname@domain.com </label>
+                          <label for="example-text-input" >{{auth.email}} </label>
                   </div>
                 </div><hr>
                 <div class="form-group row">
