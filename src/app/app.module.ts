@@ -5,6 +5,8 @@ import { CommonModule } from '@angular/common';
 import { platformBrowserDynamic } from "@angular/platform-browser-dynamic";
 import { NgModule } from '@angular/core';
 import{AngularFireDatabaseModule} from'angularfire2/database';
+import { AsyncPipe } from '../../node_modules/@angular/common';
+
 import {  MatAutocompleteModule,
   MatBadgeModule,
   MatBottomSheetModule,
@@ -44,6 +46,7 @@ import {  MatAutocompleteModule,
 import { CdkTableModule } from '@angular/cdk/table';
 import { CdkTreeModule } from '@angular/cdk/tree';
 import { HttpClientModule } from '@angular/common/http';
+
 
 import { environment } from "../environments/environment";
 import { AngularFireModule } from 'angularfire2';
@@ -97,7 +100,6 @@ import { AdminuserComponent } from './admin/adminuser/adminuser.component';
 import { AdminorderComponent } from './admin/adminorder/adminorder.component';
 import { AdminorderhistoryComponent } from './admin/adminorderhistory/adminorderhistory.component';
 import { AdminpaymentComponent } from './admin/adminpayment/adminpayment.component';
-import { AdmintableComponent } from './admin/admintable/admintable.component';
 import { AdminscheduledComponent } from './admin/adminscheduled/adminscheduled.component';
 import { AdminnewComponent } from './admin/adminnew/adminnew.component';
 import { AdminpendingComponent } from './admin/adminpending/adminpending.component';
@@ -106,8 +108,10 @@ import { DeliveriesComponent } from './client/deliveries/deliveries.component';
 import { DeliveryComponent } from './client/delivery/delivery.component';
 import { Agentregister1Component } from './agent/agentregister1/agentregister1.component';
 import { AddonvComponent } from './client/addonv/addonv.component';
+import { PriceComponent } from './client/price/price.component';
 
 import { AddonsvComponent } from './client/addonsv/addonsv.component';
+import { AdmintableComponent } from './admin/admintable/admintable.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -147,7 +151,6 @@ import { AddonsvComponent } from './client/addonsv/addonsv.component';
     AdminorderComponent,
     AdminorderhistoryComponent,
     AdminpaymentComponent,
-    AdmintableComponent,
     AdminscheduledComponent,
     AdminnewComponent,
     AdminpendingComponent,
@@ -157,8 +160,9 @@ import { AddonsvComponent } from './client/addonsv/addonsv.component';
     Agentregister1Component,
     AddonvComponent,
     CompleteorderComponent,
-    DeliveryComponent,  
-    
+    DeliveryComponent,
+    PriceComponent,  
+    AdmintableComponent,
     AddonsvComponent,
       
   ],
@@ -205,13 +209,14 @@ import { AddonsvComponent } from './client/addonsv/addonsv.component';
     MatTooltipModule,
     MatTreeModule,
     HttpClientModule,  
+  
     FormsModule,
     ReactiveFormsModule, 
     AngularFireAuthModule, AngularFirestoreModule,AngularFireStorageModule, 
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
   ],
-  providers: [AuthGuardService, AuthService, ClientService, AdminService, AgentService],
+  providers: [AuthGuardService, AuthService, ClientService, AdminService, AgentService,],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

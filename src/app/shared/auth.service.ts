@@ -8,9 +8,11 @@ import { switchMap } from 'rxjs/operators';
 import { User } from './user';
 import { Order} from './order';
 import { Agent } from './agent';
+import { first, map } from 'rxjs/operators';
+
  
 
-
+  
 
 @Injectable()
 export class AuthService {
@@ -19,19 +21,23 @@ export class AuthService {
   error: any = null;
   uid$;
   user;
+  phonenumber1:number;
+  
+  data: Observable<any[]>;
   constructor(private afAuth : AngularFireAuth, private afs : AngularFirestore, private router : Router
   ) {
-
+    console.log("retgert"+this.uid$);
       this.afAuth.authState.subscribe((auth) => {
         if (auth) {
           console.log('logged in');
           this.authState = auth
+      
           
           const uida = this.afAuth.auth.currentUser.uid;
           if (uida != null || uida != undefined)
           {
              console.log(uida +"is htns");
-           this.getuserdata()
+           this.getuserdata(  )
           }
          
          
@@ -58,7 +64,13 @@ export class AuthService {
         
   }
   
-  
+  //
+
+
+  get profile():any{
+    return(this.authState);
+  }
+  //
     get currentUserId(): string {
         return (this.authState !== null) ? this.authState.uid : 'no'
     }
@@ -74,6 +86,7 @@ export class AuthService {
       return (this.authState !== null) ? this.authState['emailVerified'] : ""
     }
 
+   
     get isUserEmailLoggedIn(): boolean {
         if (this.authState !== null)  {
             return true
@@ -273,6 +286,8 @@ export class AuthService {
                       }
    })}
  }
+
+ //
   getuserdata() {
     const uid = this.afAuth.auth.currentUser.uid;
    
@@ -296,7 +311,22 @@ export class AuthService {
     this.afAuth.auth.signOut().then(() => this.router.navigate(['/']))
       
     }
+//order query
 
+clientqueryorderlen(){
+
+  const uid = this.currentUserId;
+  var length;
+
+
+this.data=this.afs.collection(`users/${uid}/orders/`, ref => ref.where('status', '==', 'new')).valueChanges();
+return this.data;
+ 
+
+
+
+}
+//
 
 
 

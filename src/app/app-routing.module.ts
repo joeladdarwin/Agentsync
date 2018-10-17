@@ -1,3 +1,4 @@
+
 import { NgModule, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes, CanActivate, Router  } from '@angular/router';
@@ -37,6 +38,7 @@ import { AccessComponent } from './client/access/access.component';
 import { UnitsComponent } from './client/units/units.component';
 import { InvoiceComponent } from './client/invoice/invoice.component';
 
+
 import { AdminheaderComponent } from './admin/adminheader/adminheader.component';
 import { AdminsidenavComponent } from './admin/adminsidenav/adminsidenav.component';
 import { AgentregisterComponent } from './agent/agentregister/agentregister.component';
@@ -52,7 +54,8 @@ import { AdminpendingComponent } from './admin/adminpending/adminpending.compone
 import { AgentorderComponent } from './agent/agentorder/agentorder.component';
 import { Agentregister1Component } from './agent/agentregister1/agentregister1.component';
 import { AddonvComponent } from './client/addonv/addonv.component';
-
+import { PriceComponent } from './client/price/price.component';
+import { FooterComponent } from './client/footer/footer.component';
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'forget', component: ForgetComponent },
@@ -62,14 +65,21 @@ const routes: Routes = [
   { path: "", redirectTo: 'login', pathMatch: 'full' },
   { path: 'main', component: DashboardComponent },
     
+  { path: 'footer', component: FooterComponent },
   { path: 'navbar', component: NavbarComponent },
   { path: 'forget', component: ForgetComponent },
+  { path: 'price', component: PriceComponent },
   { path: 'placeorder', component: PlaceorderComponent },
   { path: 'address', component: AddressComponent },
   { path: 'addonsp', component: AddonsComponent },
+
+  { path: 'addons', component: AddonsComponent },
+
  
   { path: 'addonsv', component: AddonsvComponent },
-  { path: 'access', component: AccessComponent },
+
+
+{ path: 'access', component: AccessComponent },
   { path: 'units', component: UnitsComponent },
   { path: 'products', component: ProductsComponent },
   { path: 'meet', component: MeetComponent },
@@ -89,7 +99,7 @@ const routes: Routes = [
   { path: 'editprofile', component: EditprofileComponent },
   { path: 'adlogin', component: AdminloginComponent },
   { path: 'addashboard', component: AdmindashboardComponent},
-  { path: 'agorder', component: AdmindashboardComponent},
+  { path: 'adorders', component: AdminorderComponent},
   { path: 'agdashboard', component: AgentdashboardComponent },
   { path: 'aglogin', component: AgentloginComponent },
   { path: 'agregister', component: AgentregisterComponent },
@@ -97,7 +107,7 @@ const routes: Routes = [
   { path:'adheader', component: AdminheaderComponent},
   { path:'adsidenav', component: AdminsidenavComponent},
   { path:'aduser', component: AdminuserComponent},
-  { path:'adorders', component: AgentorderComponent},
+  { path:'agorders', component: AgentorderComponent},
   { path:'adorderhistory', component: AdminorderhistoryComponent},
   { path:'adpayment', component: AdminpaymentComponent},
   { path:'adtable', component: AdmintableComponent},

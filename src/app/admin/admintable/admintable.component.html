@@ -1,53 +1,211 @@
-<!-- <div id="TODAY" class="container tab-pane active"> -->
-    <h3 class="text-center">TODAY</h3>
-    <div class="table-responsive">
-        <table class="table table-striped">
-            <thead class="thead-dark">
-                <tr>
-                    <th scope="col">No</th>
-                    <th scope="col">Building</th>
-                    <th scope="col">Address</th>
-                    <th scope="col">Date/Time</th>
-                    <th scope="col">Order value</th>
-                    <th scope="col">Edit/Delete</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                  <th scope="row">1</th>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td>
-                      <button class="btn btn-primary btn-sm" (click)="query(orderid.value)" data-toggle="modal" data-target=".bd-example-modal-lg">
-                          <i class="fa fa-edit" aria-hidden="true"></i>
-                      </button>
-                      <br>
-                      <button class="btn btn-danger btn-sm my-2" (click)="delete(orderid.value)"data-toggle="modal" data-target=".bd-example-modal-lg">
-                          <i class="fa fa-trash" aria-hidden="true"></i>
-                      </button> 
-                  </td>
-                  
-                </tr>
-                <tr>
-                  <th scope="row">2</th>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                      
-                  
-              </tr>
-                <tr>
-                  <th scope="row">3</th>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                </tr>
-              </tbody>
-            </table>
+
+<h3 class="text-center">TABLE</h3>
+<div class="example-container mat-elevation-z8">
+  <div class="example-header">
+    <mat-form-field>
+      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+    </mat-form-field>
+  </div>
+
+  <table mat-table [dataSource]="dataSource" matSort>
+
+    <!-- No Column -->
+    <ng-container matColumnDef="no">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> No </th>
+      <td mat-cell *matCellDef="let orders">{{orders.orderid}} </td>
+    </ng-container>
+
+    <!-- Building Column -->
+    <ng-container matColumnDef="building">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Building </th>
+      <td mat-cell *matCellDef="let orders">{{orders.propertytype}}<br>{{orders.squarefeet}}  </td>
+    </ng-container>
+
+    <!-- Address Column -->
+    <ng-container matColumnDef="address">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Address </th>
+      <td mat-cell *matCellDef="let orders">{{orders.address.street}},{{orders.address.city}},{{orders.address.zip}}  </td>
+    </ng-container>
+
+    <!-- Date/Time Column -->
+    <ng-container matColumnDef="date/time">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Date/Time </th>
+      <td mat-cell *matCellDef="let orders">{{orders.visitingdate.toDate()| date :'short'}}  </td>
+    </ng-container>
+    <!-- OrderValue-->
+    
+    <ng-container  matColumnDef="ordervalue" >
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Ordervalue </th>
+      <td mat-cell *matCellDef="let order" >{{order.orderprice}}  </td>
+    </ng-container>
+    <!--Edit/delete-->
+    <ng-container matColumnDef="edit/delete">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Edit/Delete </th>
+      <td mat-cell *matCellDef="let order">
+        <button class="btn btn-primary btn-sm  my-2 mx-auto"data-toggle="modal" data-target="#tableModel" (click)="query(order.orderid)">  
+          <i class="fa fa-edit" aria-hidden="true"></i>
+      </button>
+      
+      <br>
+      <button class="btn btn-danger btn-sm my-2 mx-auto"
+       data-toggle="modal" data-target="#tablepModel">
+          <i class="fa fa-trash" aria-hidden="true"></i>
+      </button> 
+      </td>
+      
+    </ng-container>
+
+
+<tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;">
+    </tr>
+  </table>
+  <!--model box-->
+  <div id="tableModel" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+          <div class="row p-2">
+              <div class="col-4">
+                  <p>
+                      <strong>Order ID:</strong> {{(property |async)?.orderid}} 
+                     
+                        
+                  </p>
+              </div>
+              <div class="col-4">
+                  <p class="text-center">
+                      <strong>Ordered by:</strong>
+                  </p>
+              
+              </div>
+              <div class="col-4">
+                   <p class="text-right">
+                      <strong>Phone:</strong>
+                  </p>
+              </div>
+          </div>
+          <form class="p-2" (ngSubmit)="scheduleorder(orderform.value)" #orderform="ngForm">
+            <div class="form-inline">
+                    <div class="form-group space">
+                            <label for="Building">Building</label>
+                            <div class="input-group">
+                                <input type="text" class="space form-control" [ngModel]='(property |async)?.propertytype' name="building">
+                            </div>
+                    <div class="form-group space">
+                        <label for="SquareFeet">SquareFeet</label>
+                        <input type="text" class="space form-control" [ngModel]='(property |async)?.squarefeet' name="squarefeet">
+                    </div>
+                  </div>
+                    <div class="form-group space">
+                        <label for="Total">Total</label>
+                        <input type="text" class="space form-control" [ngModel]='(property |async)?.orderprice' name="orderprice">
+                    </div>
             </div>
+            <div class="form-row mt-2">
+                <div class="col">
+                    <label>Street</label>
+                    <input type="text" class="form-control" [ngModel]='(property |async)?.address.street' name="street">
+                </div>
+
+                <div class="col">
+                    <div class="row">
+                        <div class="col-6">
+                            <label>City</label>
+                            <input type="text" class="form-control" [ngModel]='(property |async)?.address.city' name="city"> 
+                        </div>
+                        <div class="col-6">
+                            <label>Zip</label>
+                            <input type="text" class="form-control" [ngModel]='(property |async)?.address.zip' name="zip">
+                        </div>
+                        <div class="col-4">
+                            
+                            <div *ngIf="(property | async)?.unit===undefined; else unitshow">
+
+                            </div>
+                            <ng-template #unitshow>
+                                <label>Unit</label>
+                                <input type="text" class="form-control" [ngModel]='(property |async)?.unit' name="unit">
+
+</ng-template>
+                            
+                        </div>
+                    </div>
+
+
+</div>
+            </div>
+              <div class="form-row mt-2">
+                <div class="col-4">
+                        <label for="orders">Orders:</label>
+                      <ul *ngFor="let prop of (property|async)?.orders; let i = index " class="">
+                        <li><input type="text" class="form-control" [ngModel]='prop' name="prop-{{i}}">
+                        </li>
+                    </ul>
+                    </div>
+                    <div class="col-2 float-right">
+                    <label for="ordersprice">Price:</label>
+                    <ul *ngFor="let propy of (property|async)?.ordersprice; let i = index " class="">
+                         <li><input type="text" class="form-control" [ngModel]='propy' name="propy-{{i}}"></li>
+                     
+                    </ul>
+                     
+                </div>
+                <div class="col-6">
+                        <label for="addons">Addons:</label>
+                        <textarea class="form-control" rows="4" id="comment" name="text"></textarea>
+                     
+                </div>
+             </div>   
+
+                  
+              <div class="form-row mt-2">
+                  <div class="col">
+                      <label>Visiting Date </label>
+                      <div *ngIf ="(property | async)?.visitingdate!==undefined;">
+                          <input type="text" class="form-control" [ngModel]='(property |async)?.visitingdate.toDate()|date' name="visitingdate" >
+                      </div>
+                      
+                      
+                  </div>
+                  <div class="col">
+                      <label>Visiting Time</label>
+                      <input type="text" class="form-control" [ngModel]='(property |async)?.visitingdate.toDate()| date:"shortTime" ' name="visitingtime">
+                     
+                  </div>
+                  <div class="col">
+                      <label>Meeting Type</label>
+                      <input type="text" class="form-control" [ngModel]='(property |async)?.meetingtype' name="meetingtype">
+                  </div>
+                  <div class="col">
+                      <label>Code</label>
+                      <input type="text" class="form-control" [ngModel]='(property |async)?.accesscode' name="accesscode" >
+                  </div>
+              </div>
+              <div class="form-row mt-2">
+                  <div class="col-4">
+                      <label>Comments</label>
+                      <input type="text" class="form-control" >
+                  </div>
+
+
+    
+                      </div>
+                      <div class="form-row mt-2">
+                        <div class="col">
+                            <button class="btn btn-primary" type="submit">Confirm</button>
+                            <button class="btn btn-danger mx-3">Delete</button>
+                      </div>
+                      </div>
+                
+                      </form>
+                      </div>
+                      </div>
+                      </div>
+                      
+                      
+                       
+                  
+
+  
+  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+</div>

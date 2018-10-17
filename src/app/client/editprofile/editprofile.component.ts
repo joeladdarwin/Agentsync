@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ClientService } from '../../shared/client.service';
+import { AuthService } from '../../shared/auth.service';
 import{ AngularFireStorage, AngularFireStorageReference, AngularFireUploadTask} from 'angularfire2/storage';
 @Component({
   selector: 'app-editprofile',
@@ -12,7 +13,10 @@ export class EditprofileComponent implements OnInit {
   ref: AngularFireStorageReference;
   task: AngularFireUploadTask;
   url;
-  constructor (private afStorage: AngularFireStorage, private cli: ClientService) {}
+  name:any;
+  email:any;
+
+  constructor (private afStorage: AngularFireStorage, private cli: ClientService, private auth:AuthService) {}
    
     upload(event) {
     
@@ -22,6 +26,8 @@ export class EditprofileComponent implements OnInit {
     }
   ngOnInit() {
     this.url = this.cli.geturl();
+    this.name=this.auth.displayName;
+    this.email=this.auth.email;
   }
 
 }

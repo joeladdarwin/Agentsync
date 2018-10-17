@@ -73,8 +73,6 @@ export class RevieworderComponent implements OnInit {
     this.cli.bsaccessproperty.subscribe(accessproperty=>{this.accessproperty = accessproperty});
     this.cli.bsaccesspropertycode.subscribe(accesspropertycode=>{this.accesspropertycode = accesspropertycode});
     this.cli.bsorderarray.subscribe(orderarray => { this.orderarray = orderarray });
-    this.cli.bspaddonarray.subscribe(paddonarray => { this.paddonarray = paddonarray });
-    this.cli.bsvaddonarray.subscribe(vaddonarray => { this.vaddonarray =  vaddonarray });
     this.cli.bsorderprice.subscribe(orderprice => { this.orderprice = orderprice });
     this.cli.bsvisitingdate.subscribe(visitingdate => { this.visitingdatenow = visitingdate });
     this.cli.bscomment.subscribe(comment => { this.comment = comment });
