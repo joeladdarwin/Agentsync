@@ -23,6 +23,9 @@ export class ProductsComponent implements OnInit {
   dsflyer50;
   dsflyer100;
   order:Array<any>=[];
+  orders: Array<any> = [];
+  ordersprice:Array<any> = [];
+  
   orderprice:any;
   message:string;
   constructor(private cli:ClientService) {
@@ -34,10 +37,15 @@ export class ProductsComponent implements OnInit {
   }
  updateorder()
  {
+   console.log(this.orders);
+   console.log(this.ordersprice)
    if(this.order.length >= 1)
    {
      this.cli.setordersarray(this.order);
      this.cli.setorderprice(this.orderprice)
+     this.cli.setorderssarray(this.orders);
+     this.cli.setorderspricearray(this.ordersprice);
+
    }
    else{
      this.message = "Please select atleast one item";
@@ -55,8 +63,11 @@ export class ProductsComponent implements OnInit {
         this.orderprice = this.orderprice + this.photography;
 
       }
+      this.orders.push(a);
+      this.ordersprice.push(this.photography);
+
       this.order.push([a, this.photography])
-      console.log(this.order);
+    console.log(this.order); console.log(this.orders); console.log(this.ordersprice);
     }
    else if(classes.includes('btns'))
    {
@@ -74,7 +85,13 @@ export class ProductsComponent implements OnInit {
           this.order.splice(i, 1);
         }
       }
-     console.log(this.order);
+      for (var i = 0; i < this.orders.length; i++) {
+        if (this.orders[i] == a) {
+          this.orders.splice(i, 1);
+          this.ordersprice.splice(i,1);
+        }
+      }
+   console.log(this.order); console.log(this.orders); console.log(this.ordersprice);
    }
     
    }
@@ -89,8 +106,13 @@ export class ProductsComponent implements OnInit {
 
         this.orderprice = this.orderprice + this.tour360;
       }
+      this.orders.push(a);
+      this.ordersprice.push(this.tour360);
+
       this.order.push([a, this.tour360])
-      console.log(this.order);
+    console.log(this.order); console.log(this.orders); console.log(this.ordersprice);
+      
+      
     }
     else if (classes.includes('btns')) {
       classList.add('btn1');
@@ -107,7 +129,13 @@ export class ProductsComponent implements OnInit {
           this.order.splice(i, 1);
         }
       }
-      console.log(this.order);
+      for (var i = 0; i < this.orders.length; i++) {
+        if (this.orders[i] == a) {
+          this.orders.splice(i, 1);
+          this.ordersprice.splice(i, 1);
+        }
+      }
+    console.log(this.order); console.log(this.orders); console.log(this.ordersprice);
     }
     
     
@@ -123,8 +151,11 @@ export class ProductsComponent implements OnInit {
 
         this.orderprice = this.orderprice + this.videotour;
       }
+      this.orders.push(a)
+      this.ordersprice.push(this.videotour);
+
       this.order.push([a, this.videotour])
-      console.log(this.order);
+    console.log(this.order); console.log(this.orders); console.log(this.ordersprice);
     }
     else if (classes.includes('btns')) {
       classList.add('btn1');
@@ -141,7 +172,13 @@ export class ProductsComponent implements OnInit {
           this.order.splice(i, 1);
         }
       }
-      console.log(this.order);
+      for (var i = 0; i < this.orders.length; i++) {
+        if (this.orders[i] == a) {
+          this.orders.splice(i, 1);
+          this.ordersprice.splice(i, 1);
+        }
+      }
+    console.log(this.order); console.log(this.orders); console.log(this.ordersprice);
     }
 
 
@@ -158,7 +195,10 @@ export class ProductsComponent implements OnInit {
         this.orderprice = this.orderprice + this.singlepagewebsite;
       }
       this.order.push([a, this.singlepagewebsite])
-      console.log(this.order);
+      this.ordersprice.push(this.singlepagewebsite);
+
+      this.orders.push(a)
+    console.log(this.order); console.log(this.orders); console.log(this.ordersprice);
     }
     else if (classes.includes('btns')) {
       classList.add('btn1');
@@ -175,7 +215,13 @@ export class ProductsComponent implements OnInit {
           this.order.splice(i, 1);
         }
       }
-      console.log(this.order);
+      for (var i = 0; i < this.orders.length; i++) {
+        if (this.orders[i] == a) {
+          this.orders.splice(i, 1);
+          this.ordersprice.splice(i, 1);
+        }
+      }
+    console.log(this.order); console.log(this.orders); console.log(this.ordersprice);
     }
 
 
@@ -192,7 +238,10 @@ export class ProductsComponent implements OnInit {
         this.orderprice = this.orderprice + this.brouchure4p25;
       }
       this.order.push([a, this.brouchure4p25])
-      console.log(this.order);
+      this.ordersprice.push(this.brouchure4p25);
+
+      this.orders.push(a)
+    console.log(this.order); console.log(this.orders); console.log(this.ordersprice);
     }
     else if (classes.includes('btns')) {
       classList.add('btn1');
@@ -209,7 +258,13 @@ export class ProductsComponent implements OnInit {
           this.order.splice(i, 1);
         }
       }
-      console.log(this.order);
+      for (var i = 0; i < this.orders.length; i++) {
+        if (this.orders[i] == a) {
+          this.orders.splice(i, 1);
+          this.ordersprice.splice(i, 1);
+        }
+      }
+    console.log(this.order); console.log(this.orders); console.log(this.ordersprice);
     }
 
 
@@ -226,7 +281,10 @@ export class ProductsComponent implements OnInit {
         this.orderprice = this.orderprice + this.brouchure4p50;
       }
       this.order.push([a, this.brouchure4p50])
-      console.log(this.order);
+      this.ordersprice.push(this.brouchure4p50);
+
+      this.orders.push(a)
+    console.log(this.order); console.log(this.orders); console.log(this.ordersprice);
     }
     else if (classes.includes('btns')) {
       classList.add('btn1');
@@ -243,7 +301,13 @@ export class ProductsComponent implements OnInit {
           this.order.splice(i, 1);
         }
       }
-      console.log(this.order);
+      for (var i = 0; i < this.orders.length; i++) {
+        if (this.orders[i] == a) {
+          this.orders.splice(i, 1);
+          this.ordersprice.splice(i, 1);
+        }
+      }
+    console.log(this.order); console.log(this.orders); console.log(this.ordersprice);
     }
 
 
@@ -260,7 +324,10 @@ export class ProductsComponent implements OnInit {
         this.orderprice = this.orderprice + this.brouchure8p25;
       }
       this.order.push([a, this.brouchure8p25])
-      console.log(this.order);
+      this.ordersprice.push(this.brouchure8p25);
+
+      this.orders.push(a)
+    console.log(this.order); console.log(this.orders); console.log(this.ordersprice);
     }
     else if (classes.includes('btns')) {
       classList.add('btn1');
@@ -277,7 +344,13 @@ export class ProductsComponent implements OnInit {
           this.order.splice(i, 1);
         }
       }
-      console.log(this.order);
+      for (var i = 0; i < this.orders.length; i++) {
+        if (this.orders[i] == a) {
+          this.orders.splice(i, 1);
+          this.ordersprice.splice(i, 1);
+        }
+      }
+    console.log(this.order); console.log(this.orders); console.log(this.ordersprice);
     }
 
 
@@ -294,7 +367,10 @@ export class ProductsComponent implements OnInit {
         this.orderprice = this.orderprice + this.brouchure8p50;
       }
       this.order.push([a, this.brouchure8p50])
-      console.log(this.order);
+      this.ordersprice.push(this.brouchure8p50);
+
+      this.orders.push(a)
+    console.log(this.order); console.log(this.orders); console.log(this.ordersprice);
     }
     else if (classes.includes('btns')) {
       classList.add('btn1');
@@ -311,7 +387,13 @@ export class ProductsComponent implements OnInit {
           this.order.splice(i, 1);
         }
       }
-      console.log(this.order);
+      for (var i = 0; i < this.orders.length; i++) {
+        if (this.orders[i] == a) {
+          this.orders.splice(i, 1);
+          this.ordersprice.splice(i, 1);
+        }
+      }
+    console.log(this.order); console.log(this.orders); console.log(this.ordersprice);
     }
 
 
@@ -328,7 +410,10 @@ export class ProductsComponent implements OnInit {
         this.orderprice = this.orderprice + this.floorplanbw;
       }
       this.order.push([a, this.floorplanbw])
-      console.log(this.order);
+      this.ordersprice.push(this.floorplanbw);
+
+      this.orders.push(a)
+    console.log(this.order); console.log(this.orders); console.log(this.ordersprice);
     }
     else if (classes.includes('btns')) {
       classList.add('btn1');
@@ -345,7 +430,13 @@ export class ProductsComponent implements OnInit {
           this.order.splice(i, 1);
         }
       }
-      console.log(this.order);
+      for (var i = 0; i < this.orders.length; i++) {
+        if (this.orders[i] == a) {
+          this.orders.splice(i, 1);
+          this.ordersprice.splice(i, 1);
+        }
+      }
+    console.log(this.order); console.log(this.orders); console.log(this.ordersprice);
     }
 
 
@@ -362,7 +453,10 @@ export class ProductsComponent implements OnInit {
         this.orderprice = this.orderprice + this.floorplanclr;
       }
       this.order.push([a, this.floorplanclr])
-      console.log(this.order);
+      this.ordersprice.push(this.floorplanclr);
+
+      this.orders.push(a)
+    console.log(this.order); console.log(this.orders); console.log(this.ordersprice);
     }
     else if (classes.includes('btns')) {
       classList.add('btn1');
@@ -379,7 +473,13 @@ export class ProductsComponent implements OnInit {
           this.order.splice(i, 1);
         }
       }
-      console.log(this.order);
+      for (var i = 0; i < this.orders.length; i++) {
+        if (this.orders[i] == a) {
+          this.orders.splice(i, 1);
+          this.ordersprice.splice(i, 1);
+        }
+      }
+    console.log(this.order); console.log(this.orders); console.log(this.ordersprice);
     }
 
 
@@ -396,7 +496,10 @@ export class ProductsComponent implements OnInit {
         this.orderprice = this.orderprice + this.floorplansclrfre;
       }
       this.order.push([a, this.floorplansclrfre])
-      console.log(this.order);
+      this.ordersprice.push(this.floorplansclrfre);
+
+      this.orders.push(a)
+    console.log(this.order); console.log(this.orders); console.log(this.ordersprice);
     }
     else if (classes.includes('btns')) {
       classList.add('btn1');
@@ -413,7 +516,13 @@ export class ProductsComponent implements OnInit {
           this.order.splice(i, 1);
         }
       }
-      console.log(this.order);
+      for (var i = 0; i < this.orders.length; i++) {
+        if (this.orders[i] == a) {
+          this.orders.splice(i, 1);
+          this.ordersprice.splice(i, 1);
+        }
+      }
+    console.log(this.order); console.log(this.orders); console.log(this.ordersprice);
     }
 
 
@@ -430,7 +539,10 @@ export class ProductsComponent implements OnInit {
         this.orderprice = this.orderprice + this.dsflyer50;
       }
       this.order.push([a, this.dsflyer50])
-      console.log(this.order);
+      this.ordersprice.push(this.dsflyer50);
+
+      this.orders.push(a)
+    console.log(this.order); console.log(this.orders); console.log(this.ordersprice);
     }
     else if (classes.includes('btns')) {
       classList.add('btn1');
@@ -447,7 +559,13 @@ export class ProductsComponent implements OnInit {
           this.order.splice(i, 1);
         }
       }
-      console.log(this.order);
+      for (var i = 0; i < this.orders.length; i++) {
+        if (this.orders[i] == a) {
+          this.orders.splice(i, 1);
+          this.ordersprice.splice(i, 1);
+        }
+      }
+    console.log(this.order); console.log(this.orders); console.log(this.ordersprice);
     }
 
 
@@ -464,7 +582,10 @@ export class ProductsComponent implements OnInit {
         this.orderprice = this.orderprice + this.dsflyer100;
       }
       this.order.push([a, this.dsflyer100])
-      console.log(this.order);
+      this.ordersprice.push(this.dsflyer100);
+
+      this.orders.push(a)
+    console.log(this.order); console.log(this.orders); console.log(this.ordersprice);
     }
     else if (classes.includes('btns')) {
       classList.add('btn1');
@@ -481,7 +602,13 @@ export class ProductsComponent implements OnInit {
           this.order.splice(i, 1);
         }
       }
-      console.log(this.order);
+      for (var i = 0; i < this.orders.length; i++) {
+        if (this.orders[i] == a) {
+          this.orders.splice(i, 1);
+          this.ordersprice.splice(i, 1);
+        }
+      }
+    console.log(this.order); console.log(this.orders); console.log(this.ordersprice);
     }
 
 
@@ -505,6 +632,8 @@ export class ProductsComponent implements OnInit {
     this.cli.bsdsflyer100.subscribe(dsflyer100 =>{this.dsflyer100 = dsflyer100});
     this.cli.bsorderprice.subscribe(orderprice => {this.orderprice = orderprice});
     this.cli.bsorderarray.subscribe(orderarray=>{this.order = orderarray});
+    this.cli.bsordersarray.subscribe(ordersarray => { this.orders = ordersarray });
+    this.cli.bsorderspricearray.subscribe(orderspricearray => { this.ordersprice = orderspricearray });
   }
   }
 

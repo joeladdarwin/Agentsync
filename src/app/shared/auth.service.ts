@@ -18,6 +18,7 @@ export class AuthService {
   authState: any = null;
   error: any = null;
   uid$;
+  user;
   constructor(private afAuth : AngularFireAuth, private afs : AngularFirestore, private router : Router
   ) {
 
@@ -67,6 +68,10 @@ export class AuthService {
     }
     get displayName():string{
       return (this.authState !== null) ? this.authState['displayName'] : ""
+    }
+
+    get email():string{
+      return (this.authState !== null) ? this.authState['emailVerified'] : ""
     }
 
     get isUserEmailLoggedIn(): boolean {
@@ -121,16 +126,24 @@ export class AuthService {
     const orderdata: Order =
     {
       orderid: orderid,
+      orderby: this.displayName,
       uid : uid,
       propertytype: order.propertytype,
       address:order.address,
-      
+      orders:order.orders,
+      ordersprice: order.orderspricearray,
+      comments:order.comments,
+   
       squarefeet: order.squarefeet,
       orderprice:order.orderprice,
       meetingtype:order.meetingtype,
       accesscode:order.accesscode,
       visitingdate:order.visitingdate,
-      status:'new'
+      status:'new',
+      Photographyaddons: order.Photographyaddons,
+      Photographyaddonsprice: order.Photographyaddonsprice,
+      Videoaddons: order.Videoaddons,
+      VideoaddonsPrice: order.VideoaddonsPrice,
 
     }
 

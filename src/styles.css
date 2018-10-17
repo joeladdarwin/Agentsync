@@ -72,3 +72,7 @@ h4{
   background-color: #D5D5D5 !important;
      color:#000 !important;
 }
+.nav-link{
+    font-size: .75rem;
+    font-weight: bolder;
+}
