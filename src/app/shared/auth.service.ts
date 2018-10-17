@@ -317,14 +317,10 @@ clientqueryorderlen(){
 
   const uid = this.currentUserId;
   var length;
-
-
-this.data=this.afs.collection(`users/${uid}/orders/`, ref => ref.where('status', '==', 'new')).valueChanges();
-return this.data;
+  this.data=this.afs.collection(`users/${uid}/orders/`, ref => ref.where('status', '==', 'new')).valueChanges();
+  console.log(this.data);
+  return this.data;
  
-
-
-
 }
 //
 

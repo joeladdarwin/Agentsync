@@ -1,47 +1,28 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFirestore, AngularFirestoreCollection } from 'angularfire2/firestore';
-import { BehaviorSubject, Observable} from 'rxjs';
-export interface Order {
-  orderid:number;
- propertytype:string;
- street:string;
- unit:any;
- accesscode:any;
- city:string;
- zip:string;
-orders:any;
-property:any;
-squarefeet:string;
-ordersprice:number
-  visitingdate:Date;
-  orderprice:number;
-
-}
+import { ClientService } from '../../shared/client.service';
+import { AuthService } from '../../shared/auth.service';
 @Component({
   selector: 'app-myorder',
   templateUrl: './myorder.component.html',
   styleUrls: ['./myorder.component.css']
 })
 export class MyorderComponent implements OnInit {
-  userscol: AngularFirestoreCollection<Order>;
-  users: Observable<Order[]>;  
-
-
+ 
+  today: Date;
+  orders;
+  datacom;
 
  
 
-  constructor(private afs: AngularFirestore) {
+  constructor(private auth:AuthService) {
     
   }
   ngOnInit() {
-    this.userscol = this.afs.collection('orders');
-    this.users = this.userscol.valueChanges();
+   this.orders = this.auth.clientqueryorderlen();
+    this.datacom = this.auth.clientqueryorderlen();
+    this.today = new Date(Date.now());
+    console.log(this.orders);
   }
 
-  // ngAfterViewInit() 
-  // {
-  //   this.afs.collection<Order>('orders').valueChanges();
-  // }
-  
 
 }

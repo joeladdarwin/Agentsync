@@ -59,6 +59,6 @@
                    <li><a [routerLink]="['/visitingdate']" routerLinkActive="router-link-active" skipLocationChange>{{visitingdatenow | date: 'medium' }}</a></li>
                    <li *ngIf="comment != ''"><a [routerLink]="['/comment']" routerLinkActive="router-link-active" skipLocationChange>{{comment}}</a></li>
                </ul>
-                <button class="btn btn2 btn-block mx-auto mb-5 p-2" (click)="submitorder()" >ADD TO CART</button>
+                <button class="btn btn2 btn-block mx-auto mb-5 py-3" (click)="submitorder()" >ADD TO CART</button>
           </div>
         </div>
