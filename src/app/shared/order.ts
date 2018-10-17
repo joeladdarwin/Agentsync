@@ -5,15 +5,25 @@ export interface Order {
     squarefeet:string;
     address?:Address[];
     orders?:Products[];
-    addons?:Addons[];
-    meetingtype?:string;
+    orderby:string,
+    ordersprice?: Productsprice[];
+    photographyaddons?:PhotographyAddons[];
+    videoaddons?:VideoAddons[];
+    photographyaddonsprice?:PhotographyAddonsprice[];
+    videoaddonsprice?: VideoAddonsprice[];
+    meetingtype:string;
     accesscode?:string;
-    visitingdate?:Date;
+    visitingdate:Date;
     visitingtime?:Date;
     comments?:string;
     ordereddate?:Date;
     status?:string;
-    orderprice?:any;
+    orderprice:any;
+    addons?:any;
+    Photographyaddons?: any;
+    Photographyaddonsprice?: any;
+    Videoaddons?: any;
+    VideoaddonsPrice?: any;
 }
 export interface Address{
     street:string;
@@ -36,8 +46,38 @@ export interface Products{
     brouchre425?:boolean;
     brouchre450?: boolean;
 }
-export interface Addons{
+export interface Productsprice {
+    photography?: any;
+    video?: any;
+    tour360?: any;
+    website?: any;
+    floorplansBW?: any;
+    floorplansC?: any;
+    floorplanCF?: any;
+    dsf50?: any;
+    dsf100?: any;
+    brouchre825?: any;
+    brouchre850?: any;
+    brouchre425?: any;
+    brouchre450?: any;
+}
+export interface PhotographyAddons{
     rushfee?:boolean;
     twlightshot?:boolean;
     communityshot?:boolean;
+}
+export interface VideoAddons {
+    rushfee?: boolean;
+    twlightshot?: boolean;
+    communityshot?: boolean;
+}
+export interface PhotographyAddonsprice {
+    rushfee?: any;
+    twlightshot?: any;
+    communityshot?: any;
+}
+export interface VideoAddonsprice {
+    rushfee?: any;
+    twlightshot?: any;
+    communityshot?: any;
 }

@@ -58,8 +58,7 @@ h4{
     background-color: #f1875b;
     color:#fff;
 }
-.btn3{
-    background-color: #77C16C;
-    color:#fff;
-    border-radius: 25px !important;
+.nav-link{
+    font-size: .75rem;
+    font-weight: bolder;
 }

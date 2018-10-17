@@ -18,6 +18,7 @@ export class AuthService {
   authState: any = null;
   error: any = null;
   uid$;
+  user;
   constructor(private afAuth : AngularFireAuth, private afs : AngularFirestore, private router : Router
   ) {
 
@@ -69,6 +70,10 @@ export class AuthService {
       return (this.authState !== null) ? this.authState['displayName'] : ""
     }
 
+    get email():string{
+      return (this.authState !== null) ? this.authState['emailVerified'] : ""
+    }
+
     get isUserEmailLoggedIn(): boolean {
         if (this.authState !== null)  {
             return true
@@ -113,26 +118,37 @@ export class AuthService {
     }
 
   // Create a order document
-  clientcreateorder(orderid,uid,order) {
+  clientcreateorder(orderid,order) {
     console.log("pass")
+    var uid = this.currentUserId;
     const userorderRef$: AngularFirestoreDocument<any> = this.afs.doc<Order>(`users/${uid}/orders/${orderid}`);
     const orderRef$: AngularFirestoreDocument<any> = this.afs.doc<Order>(`orders/${orderid}`);
     const orderdata: Order =
     {
       orderid: orderid,
+      orderby: this.displayName,
       uid : uid,
       propertytype: order.propertytype,
       address:order.address,
-      
+      orders:order.orders,
+      ordersprice: order.orderspricearray,
+      comments:order.comments,
+   
       squarefeet: order.squarefeet,
       orderprice:order.orderprice,
       meetingtype:order.meetingtype,
       accesscode:order.accesscode,
       visitingdate:order.visitingdate,
-      status:'new'
+      status:'new',
+      Photographyaddons: order.Photographyaddons,
+      Photographyaddonsprice: order.Photographyaddonsprice,
+      Videoaddons: order.Videoaddons,
+      VideoaddonsPrice: order.VideoaddonsPrice,
 
     }
+
     return [userorderRef$.set(orderdata, { merge: true }), orderRef$.set(orderdata, { merge: true })]
+    
   }
 
 

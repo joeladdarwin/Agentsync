@@ -19,12 +19,22 @@ export class RevieworderComponent implements OnInit {
   accessproperty;
   accesspropertycode='';
   orderarray;
-  paddonarray;
-  vaddonarray;
+  ordersarray;
+  ordersuarray;
+  orderspricearray;
+  ordersupricearray;
+  paddonarray = [];
+  paddonsarray = [];
+  paddonspricearray = [];
+  vaddonarray = [];
+  vaddonsarray = [];
+  vaddonspricearray = [];
   ispaddonarray:boolean;
   isvaddonarray:boolean;
   orderdata:any;
-  constructor(private cli:ClientService) { }
+  constructor(private cli:ClientService) { 
+    
+  }
  
   submitorder()
   {
@@ -37,12 +47,20 @@ export class RevieworderComponent implements OnInit {
         zip:this.zip,
         unit:this.appartmentunitno,
       },
-  
+      orders:this.ordersuarray,
+      orderspricearray: this.ordersupricearray,
       orderprice:this.orderprice,
       meetingtype:this.accessproperty,
       accesscode:this.accesspropertycode,
       visitingdate:this.visitingdatenow,
-      ordereddate:Date.now()
+      comments: this.comment,
+      ordereddate:Date.now(),
+      Photographyaddons: this.paddonsarray,
+      Photographyaddonsprice: this.paddonspricearray,
+       Videoaddons: this.vaddonsarray,
+     VideoaddonsPrice: this.vaddonspricearray,
+    
+   
     }
     console.log(this.orderdata);
     this.cli.setorder(this.orderdata)
@@ -62,14 +80,32 @@ export class RevieworderComponent implements OnInit {
     this.cli.bscomment.subscribe(comment => { this.comment = comment });
     this.cli.bssquarefeet.subscribe(squarefeet => { this.squarefeet = squarefeet });
     this.cli.bspropertytype.subscribe(propertytype=>{this.propertytype = propertytype;});
+    this.cli.bsordersarray.subscribe(ordersarray=>{this.ordersarray = ordersarray});
+    this.cli.bsorderspricearray.subscribe(orderspricearray=>{this.orderspricearray = orderspricearray});
     if(this.paddonarray.length>0)
     {
       this.ispaddonarray = true;
+      this.paddonsarray = this.cli.paddarray;
+      this.paddonspricearray = this.cli.paddpricearray;
+      console.log(this.paddonsarray)
+      console.log(this.paddonspricearray)
     }
     if (this.vaddonarray.length > 0) {
       this.isvaddonarray = true;
+      this.vaddonsarray = this.cli.vaddarray;
+      this.vaddonspricearray = this.cli.vaddpricearray;
+      console.log(this.vaddonsarray)
+      console.log(this.vaddonspricearray)
     }
     console.log(this.orderdata+"is this");
+    console.log("order" );
+    console.log(this.ordersarray);
+    console.log("price"+this.orderspricearray);
+   
+    this.ordersuarray = this.cli.oarray;
+    this.ordersupricearray = this.cli.opricearray;
+   
+  
   }
 
 }

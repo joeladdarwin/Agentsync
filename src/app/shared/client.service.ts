@@ -43,8 +43,14 @@ export class ClientService {
   private vtwlightshots: any = null;
   private vrushfee: any = null;
   private orderarray : Array<any> = [];
+  private ordersarray: Array<any> = [];
+  private orderspricearray: Array<any> = [];
   private paddonarray : Array<any> = [];
   private vaddonarray : Array<any> = [];
+  private paddonsearray: Array<any> = [];
+  private vaddonsearray: Array<any> = [];
+  private paddonspricearray: Array<any> = [];
+  private vaddonspricearray: Array<any> = [];
   private orderprice: any ;
   private paddonprice: any ;
   private vaddonprice:any ;
@@ -90,8 +96,14 @@ export class ClientService {
   public bsvaddonprice: BehaviorSubject<any> = new BehaviorSubject<any>(this.vaddonprice);
   public bstotalprice: BehaviorSubject<any> = new BehaviorSubject<any>(this.totalprice);
   public bsorderarray : BehaviorSubject<any[]> = new BehaviorSubject<any[]>(this.orderarray);
+  public bsordersarray: BehaviorSubject<any[]> = new BehaviorSubject<any[]>(this.ordersarray);
+  public bsorderspricearray: BehaviorSubject<any[]> = new BehaviorSubject<any[]>(this.orderspricearray);
   public bspaddonarray : BehaviorSubject<any[]> = new BehaviorSubject<any[]>(this.paddonarray);
   public bsvaddonarray : BehaviorSubject<any[]> = new BehaviorSubject<any[]>(this.vaddonarray);
+  public bspaddonsearray: BehaviorSubject<any[]> = new BehaviorSubject<any[]>(this.paddonsearray);
+  public bsvaddonsearray: BehaviorSubject<any[]> = new BehaviorSubject<any[]>(this.vaddonsearray);
+  public bspaddonspricearray: BehaviorSubject<any[]> = new BehaviorSubject<any[]>(this.paddonspricearray);
+  public bsvaddonspricearray: BehaviorSubject<any[]> = new BehaviorSubject<any[]>(this.vaddonspricearray);
   public bsaccessproperty: BehaviorSubject<any> = new BehaviorSubject<any>(this.accessproperty);
   public bsaccesspropertycode: BehaviorSubject<any> = new BehaviorSubject<any>(this.accesspropertycode);
   public bsvisitingtime: BehaviorSubject<any> = new BehaviorSubject<any>(this.visitingtime);
@@ -424,16 +436,86 @@ export class ClientService {
     console.log(this.orderarray);
     this.bsorderarray.next(this.bsorderarray.getValue().concat(this.orderarray));
 
-    this.checkpaddons(order)
+   
   }
+  get oarray():any
+  {
+    return this.ordersarray
+  }
+  get opricearray():any
+  {
+    return this.orderspricearray
+  }
+  get paddarray():any
+  {
+    return this.paddonsearray
+  }
+  get vaddarray(): any {
+    return this.vaddonsearray
+  }
+  get paddpricearray(): any {
+    return this.paddonspricearray
+  }
+  get vaddpricearray(): any {
+    return this.vaddonspricearray
+  }
+  setorderssarray(order: any): void {
+    console.log(order);
+    console.log(this.ordersarray);
+    this.ordersarray = order;
+    console.log(this.ordersarray);
+    this.bsordersarray.next(this.bsordersarray.getValue().concat(this.ordersarray));
+    this.checkpaddons(this.oarray)
+    
+  }
+
+  setorderspricearray(order: any): void {
+    console.log(order);
+    this.orderspricearray = order;
+    console.log(this.orderspricearray);
+    this.bsorderspricearray.next(this.bsorderspricearray.getValue().concat(this.orderspricearray));
+
+  
+  }
+ 
+  setvordersarray(order: any): void {
+    console.log(order);
+
+    this.vaddonsearray = order;
+    console.log(this.vaddonsearray);
+    this.bsvaddonsearray.next(this.bsvaddonsearray.getValue().concat(this.vaddonsearray))
+  }
+  setpordersarray(order: any): void {
+    console.log(order);
+
+    this.paddonsearray = order;
+    console.log(this.paddonsearray);
+    this.bspaddonsearray.next(this.bspaddonsearray.getValue().concat(this.paddonsearray))
+  }
+  setvorderspricearray(order: any): void {
+    console.log(order);
+    this.vaddonspricearray =order;
+  
+    console.log(this.vaddonspricearray);
+    this.bsvaddonspricearray.next(this.bsvaddonspricearray.getValue().concat(this.vaddonspricearray))
+  }
+  setporderspricearray(order: any): void {
+    console.log(order);
+
+    this.paddonspricearray = order;
+    console.log(this.paddonspricearray);
+    this.bspaddonspricearray.next(this.bspaddonspricearray.getValue().concat(this.paddonspricearray))
+  }
+
   getordersarray():any
   {
     return this.orderarray;
   }
   checkpaddons(order: any): any {
+    console.log(order);
     try {
       for (var i = 0; i < order.length; i++) {
-        if (order[i][0] == "Photography") throw "photography"
+        if (order[i] == "Photography") throw "photography"
 
       }
       throw "no photo"
@@ -447,7 +529,7 @@ export class ClientService {
         console.log(err)
         try {
           for (var i = 0; i < order.length; i++) {
-            if (order[i][0] == "Video Tour") throw "video"
+            if (order[i] == "Video Tour") throw "video"
           }
           throw "no video"
         }
@@ -476,7 +558,7 @@ export class ClientService {
  
     try {
       for (var i = 0; i < order.length; i++) {
-        if (order[i][0] == "Video Tour") throw "video"
+        if (order[i] == "Video Tour") throw "video"
       }
       throw "no video"
     }
@@ -501,9 +583,9 @@ export class ClientService {
   setpaddonsarray(paddonsarray:any,order:any):void
   {
    this.bspaddonarray.next(this.bspaddonarray.getValue().concat([paddonsarray]));
-  console.log(this.orderarray)
+  console.log(this.ordersarray)
  
-   this.checkvaddons(this.orderarray)
+   this.checkvaddons(this.ordersarray)
   }
   setvaddonsarray(vaddonsarray: any): void {
     this.bsvaddonarray.next(this.bsvaddonarray.getValue().concat([vaddonsarray]));
@@ -664,11 +746,12 @@ getdoc(){
   // revieworder
   setorder(order:any)
   {
-    var a = this.auth.currentUserId;
+   
     var d= new Date();
     var c = (d.getDate()).toString() + (d.getMonth() + 1).toString() + (d.getFullYear()).toString().substr(-2) + (d.getHours()).toString() + (d.getMinutes()).toString();  
-    this.auth.clientcreateorder(c,a,order)
+    this.auth.clientcreateorder(c,order)
     console.log("worke")
+    this.router.navigate(['/completeorder'])
   }
   // end of revieworder
 }
