@@ -1,31 +1,26 @@
-<div class="row">
-  <nav class="navbar navbar-expand-md offset-lg-2 col-lg-8 col-md-12 col-xs-12 col-sm-12">
-  
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="collapsibleNavbar">
-        <ul class="navbar-nav mx-auto my-2 nav-fill w-75">
-            <li class="nav-item ">
-                <a class="nav-link" routerLink="/main" skipLocationChange>Main</a>
-              </li>
-              <li class="nav-item ">
-                <a class="nav-link" routerLink="/" skipLocationChange>Price Menu</a>
-              </li>
-              <li class="nav-item ">
-                <a class="nav-link" routerLink="/placeorder" skipLocationChange>Place Order</a>
-              </li>
-              <li class="nav-item ">
-                <a class="nav-link ">My Orders</a>
-              </li>
-              <li class="nav-item ">
-                <a class="nav-link ">Agent</a>
-              </li>
-              <li class="nav-item ">
-                <a class="nav-link ">Admin</a>
-              </li>
-              <li class="nav-item ">
-                <a class="nav-link  ">Profile </a>
-              </li>  
-              
-        </ul>
+<app-navbar [title]="title">
+</app-navbar>
+<!--/.Navbar-->
+
+
+<div class="row text-center">
+  <div class="col-md-12">
+    <img src='/assets/image/icons/profile.png' class="img-thumbnail">
+    <p>{{auth.displayName | titlecase }} </p>
+  </div>
+  <div class="col-md-12">
+    <p>{{auth.email}}</p>
+    <hr>
+    <p>{{auth.profile.displayName}} fgfggh</p>
+    <hr>
+    <p> {{auth.displayName}}</p>
+    <hr>
+    <p> {{auth.brokerage}}</p>
+
+
+
+    <p>Payment Info: <span>Not set up yet</span></p>
+    <hr>
+    <button type="button" class="btn btn1" routerLink="/editprofile">Edit Profile</button>
+  </div>
+</div>

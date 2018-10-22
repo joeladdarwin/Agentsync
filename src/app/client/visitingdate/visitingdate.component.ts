@@ -4,7 +4,7 @@ import { ClientService } from '../../shared/client.service';
 @Component({
   selector: 'app-visitingdate',
   templateUrl: './visitingdate.component.html',
-  styleUrls: ['./visitingdate.component.css']
+  styleUrls: ['./visitingdate.component.css'],
 })
 export class VisitingdateComponent implements OnInit {
   visitingdatefg:NgForm;
@@ -31,5 +31,4 @@ export class VisitingdateComponent implements OnInit {
     this.cli.bsorderprice.subscribe(orderprice => { this.orderprice = orderprice });
     this.cli.bsvisitingdate.subscribe(visitingdate =>{this.visitingdatenow = visitingdate});
   }
-
 }

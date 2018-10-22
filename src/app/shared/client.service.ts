@@ -1,3 +1,4 @@
+
 import { Injectable } from '@angular/core';
 import { AuthService } from './auth.service';
 import { Router } from '@angular/router';
@@ -57,6 +58,7 @@ export class ClientService {
   private totalprice:any ;
   private accessproperty: any;
   private accesspropertycode: any;
+  private orderquerynum:number;
   uploadPercent: Observable<number>;
   downloadURL : Observable<string | null>;
   profilepicRef: any;
@@ -84,7 +86,9 @@ export class ClientService {
   public bsfloorplanclr: BehaviorSubject<any> = new BehaviorSubject<any>(this.floorplanclr);
   public bsfloorplansclrfre: BehaviorSubject<any> = new BehaviorSubject<any>(this.floorplansclrfre);
   public bsdsflyer50: BehaviorSubject<any> = new BehaviorSubject<any>(this.dsflyer50);
-  public bsdsflyer100: BehaviorSubject<any> = new BehaviorSubject<any>(this.dsflyer100);
+  public bsorderquerynum: BehaviorSubject<number>= new BehaviorSubject<number>(this.orderquerynum);
+
+public bsdsflyer100: BehaviorSubject<any> = new BehaviorSubject<any>(this.dsflyer100);
   public bspcommunityshots: BehaviorSubject<any> = new BehaviorSubject<any>(this.pcommunityshots);
   public bsptwlightshots: BehaviorSubject<any> = new BehaviorSubject<any>(this.ptwlightshots);
   public bsprushfee: BehaviorSubject<any> = new BehaviorSubject<any>(this.prushfee);
@@ -138,6 +142,16 @@ export class ClientService {
     this.router.navigate(['/login'])
   }
   // Login End
+  //navbar 
+
+   getorderquerynums():any{
+
+return this.auth.clientqueryorderlen()
+
+
+     
+   }
+  // End navbar
   // Dashboard
   getuser(){
     console.log("jil");
@@ -147,6 +161,7 @@ export class ClientService {
   {
     return this.afAuth.auth.currentUser.displayName;
   }  
+  
 
   
   // End of Dashboard
@@ -160,6 +175,7 @@ export class ClientService {
     this.bspropertytype.next(this.propertytype);
   }
   // End of Property
+
   // Appartmentunit
   getappartmentunit():any{
     return this.appartmentunit
@@ -181,7 +197,7 @@ export class ClientService {
   updateaddress(address):void
   {
 
-    this.setstreet(address.street);
+this.setstreet(address.street);
     this.setcity(address.city);
     this.setzip(address.zipCode);
     if(address.unit!=="")
@@ -331,8 +347,8 @@ export class ClientService {
 
      
     }
-   
-   
+    this.bssquarefeet.next(this.squarefeet);
+    this.router.navigate(['/products']);
   }
 
   // End of Squarefeet
@@ -551,7 +567,8 @@ export class ClientService {
 
     }
 
-  }
+
+}
   checkvaddons(order: any): any {
     console.log("order is" );
     console.log(order);
@@ -717,8 +734,7 @@ uploadprofileimage(event)
   const fileRef = this.afStorage.ref(filePath);
   const task = this.afStorage.upload(filePath, file);
 
-
-  this.uploadPercent = task.percentageChanges();
+this.uploadPercent = task.percentageChanges();
   //  download URL 
   task.snapshotChanges().pipe(
     finalize(() => this.downloadURL = fileRef.getDownloadURL())

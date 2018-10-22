@@ -17,8 +17,13 @@ orderprice;
     this.cli.updatevisitingtime(datenew)
   }
   ngOnInit() {
+    this.cli.bsorderprice.subscribe(orderprice => { this.orderprice = orderprice });
     this.cli.bsvisitingdate.subscribe(visitingdate => { this.visitingdatenow = visitingdate });
     this.cli.bsorderprice.subscribe(orderprice => { this.orderprice = orderprice });
+  }
+  add(){
+    console.log();
+    
   }
 
 }
