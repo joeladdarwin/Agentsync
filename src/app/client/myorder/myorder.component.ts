@@ -1,11 +1,18 @@
-import { Component, OnInit } from '@angular/core';
-import { AngularFirestore, AngularFirestoreCollection } from 'angularfire2/firestore';
-import { BehaviorSubject, Observable} from 'rxjs';
+import { Component } from '@angular/core';
+import { MatTableDataSource, MatSort, MatDialog,  } from '@angular/material';
+import { AngularFirestore } from 'angularfire2/firestore';
+
 export interface Order {
   orderid:number;
  propertytype:string;
  street:string;
  unit:any;
+ comments:any;
+ Photographyaddons:string;
+ Photographyaddonsprice:any;
+ Videoaddons:string;
+ VideoaddonsPrice:any;
+ orderby:any;
  accesscode:any;
  city:string;
  zip:string;
@@ -22,26 +29,21 @@ ordersprice:number
   templateUrl: './myorder.component.html',
   styleUrls: ['./myorder.component.css']
 })
-export class MyorderComponent implements OnInit {
-  userscol: AngularFirestoreCollection<Order>;
-  users: Observable<Order[]>;  
+export class MyorderComponent  {
 
+  displayedColumns = ['date/time','address','icon'];
+  dataSource: MatTableDataSource<Order>; 
 
-
- 
-
-  constructor(private afs: AngularFirestore) {
+  constructor(private afs: AngularFirestore, public dialog: MatDialog) {
     
   }
-  ngOnInit() {
-    this.userscol = this.afs.collection('orders');
-    this.users = this.userscol.valueChanges();
+  ngOnInit(){
+   
+    this.afs.collection<Order>('orders').valueChanges().subscribe(data => {
+      this.dataSource = new MatTableDataSource(data); 
+    })
   }
 
-  // ngAfterViewInit() 
-  // {
-  //   this.afs.collection<Order>('orders').valueChanges();
-  // }
   
 
 }
