@@ -3,7 +3,7 @@
   <div class="bgdark offset-lg-2 col-lg-8 col-md-12 col-xs-12 col-sm-12">
     <div class="col-md-12">
           <h3 class="text-center text-white">New Order > First Unit</h3>
-          <h4 class="text-center">Property Size </h4>
+          <h4 class="text-center sp">Property Size </h4>
     </div>
         <div class="row">
             <div class="col-md-4 col-4 text-left">
@@ -29,7 +29,7 @@
         <div class="row">
           <div class="col-md-6 mx-auto">
             
-               <ul >
+               <ul>
                  
                    <li><a [routerLink]="['/placeorder']" routerLinkActive="router-link-active" >{{propertytype}}</a></li>
                    <li><a [routerLink]="['/squarefeet']" routerLinkActive="router-link-active" >{{squarefeet}}</a></li>
@@ -40,33 +40,5 @@
                    <li><a [routerLink]="['/visitingdate']" routerLinkActive="router-link-active">{{visitingdatenow}}</a></li>
                    <li><a [routerLink]="['/comment']" routerLinkActive="router-link-active" >{{comment}}</a></li>
                </ul>
-  
-               <table id="content" style="display: none;">
-                    <thead>
-                      <tr>
-                        <th>propertytype</th>
-                        <th>squarefeet</th>
-                        <th>street</th>
-                        <th>appartmentunitno</th>
-                        <th>accessproperty</th>
-                        <th>accesspropertycode</th>
-                        <th>visitingdatenow</th>
-                        <th>comments</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                            <td>{{propertytype}}</td>
-                            <td>{{squarefeet}}</td>
-                            <td>{{street}}</td>
-                            <td>{{appartmentunitno}}</td>
-                            <td>{{accessproperty}}</td>
-                            <td>{{accesspropertycode}}</td>
-                            <td>{{visitingdatenow}}</td>
-                            <td>{{comment}}</td>
-                      </tr>
-                    </tbody>
-                  </table>
-               <button type="submit" class="btn btn1 btn-block mx-auto py-4" (click)='generatepdf()'>Download PDF</button>
           </div>
         </div>

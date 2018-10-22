@@ -21,12 +21,12 @@
 <div class="row text-center">
   <div class="offset-md-2 col-md-8 col-xs-12">
     <h3>What Products are needed at this unit?</h3>
-    <p>{{message}} <p>
+    <p>{{message}}</p>
   </div>
 </div>
 <div class="row ">
-  <div class="col-xs-12 my-2 py-md-2 offset-md-3 col-md-6 lg-offset-3 col-lg-6">
-    <button type="button" class="btn btn1 btn-lg py-sm-4 py-md-3 btn-block " (click)="pushpgy($event, 'Photography')" [@photography]>Photography</button>
+  <div class="col-xs-10 my-2 py-md-2 offset-md-3 col-md-6 lg-offset-3 col-lg-6">
+    <button type="button" class="btn btn1 btn-lg py-sm-4 py-md-3 btn-block " (click)="pushpgy($event, 'Photography')"  [@photography] [ngClass]="{btn4:isPhotography}">Photography</button>
     <button type="button" class="btn btn1 btn-lg py-sm-4 py-md-3 btn-block " (click)="pusht360($event, 'Tour 360')" [@360tour]>360 Tour</button>
     <button type="button" class="btn btn1 btn-lg py-sm-4 py-md-3 btn-block " (click)="pushvt($event, 'Video Tour')" [@videotour]> Video Tour</button>
     <button type="button" class="btn btn1 btn-lg py-sm-4 py-md-3 btn-block" (click)="pushspw($event, 'Single Page Website')" [@singleproperty]>Single Property Website</button>

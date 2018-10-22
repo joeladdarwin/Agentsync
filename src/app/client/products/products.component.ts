@@ -144,6 +144,7 @@ export class ProductsComponent implements OnInit {
   order:Array<any>=[];
   orderprice:any;
   message:string;
+  isPhotography:boolean;
   constructor(private cli:ClientService) {
    
    }
@@ -162,6 +163,9 @@ export class ProductsComponent implements OnInit {
      this.message = "Please select atleast one item";
    }
  }
+ 
+
+
   pushpgy(e,a) {
     var classList = e.target.classList;
     var classes = e.target.className;
@@ -623,7 +627,22 @@ export class ProductsComponent implements OnInit {
     this.cli.bsdsflyer50.subscribe(dsflyer50 => {this.dsflyer50 = dsflyer50});
     this.cli.bsdsflyer100.subscribe(dsflyer100 =>{this.dsflyer100 = dsflyer100});
     this.cli.bsorderprice.subscribe(orderprice => {this.orderprice = orderprice});
-  }
-  }
+    this.cli.bsorderarray.subscribe(orderarray=>{this.order = orderarray});
 
 
+    try {
+      for (var i = 0; i < this.order.length; i++) {
+        if (this.order[i][0] == "Photography") throw "photography"
+  
+      }
+      // throw "no photo"
+    }
+    catch (err) {
+      if (err == "Photography") {
+        console.log("photography thrown")
+        this.isPhotography=true;
+      }
+  }
+
+  }
+}

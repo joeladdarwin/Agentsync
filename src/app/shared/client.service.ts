@@ -1,3 +1,4 @@
+
 import { Injectable } from '@angular/core';
 import { AuthService } from './auth.service';
 import { Router } from '@angular/router';
@@ -78,7 +79,9 @@ export class ClientService {
   public bsfloorplanclr: BehaviorSubject<any> = new BehaviorSubject<any>(this.floorplanclr);
   public bsfloorplansclrfre: BehaviorSubject<any> = new BehaviorSubject<any>(this.floorplansclrfre);
   public bsdsflyer50: BehaviorSubject<any> = new BehaviorSubject<any>(this.dsflyer50);
-  public bsdsflyer100: BehaviorSubject<any> = new BehaviorSubject<any>(this.dsflyer100);
+
+
+public bsdsflyer100: BehaviorSubject<any> = new BehaviorSubject<any>(this.dsflyer100);
   public bspcommunityshots: BehaviorSubject<any> = new BehaviorSubject<any>(this.pcommunityshots);
   public bsptwlightshots: BehaviorSubject<any> = new BehaviorSubject<any>(this.ptwlightshots);
   public bsprushfee: BehaviorSubject<any> = new BehaviorSubject<any>(this.prushfee);
@@ -169,7 +172,7 @@ export class ClientService {
   updateaddress(address):void
   {
 
-    this.setstreet(address.street);
+this.setstreet(address.street);
     this.setcity(address.city);
     this.setzip(address.zipCode);
     if(address.unit!=="")
@@ -216,6 +219,8 @@ export class ClientService {
   setsquarefeet(unit): void {
     console.log("sqft is"+unit);
     this.squarefeet = unit;
+    this.bssquarefeet.next(this.squarefeet);
+    console.log(this.squarefeets);
     this.setsinglepagewebsite(85); 
     this.setbrouchure4p25(125);
     this.setbrouchure4p50(155);
@@ -417,7 +422,10 @@ export class ClientService {
     this.bsdsflyer100.next(this.dsflyer100);
   }
   setordersarray(order: any): void {
-    this.bsorderarray.next(this.bsorderarray.getValue().concat([order]));
+    console.log(order);
+    this.orderarray = order;
+    console.log(this.orderarray);
+    this.bsorderarray.next(this.bsorderarray.getValue().concat(this.orderarray));
 
     this.checkpaddons(order)
   }
@@ -464,39 +472,29 @@ export class ClientService {
 
     }
 
-  }
+
+}
   checkvaddons(order: any): any {
     console.log("order is" );
     console.log(order);
  
-        try {
-          for (var i = 0; i < order.length; i++) {
-            console.log("i loop"+order[i].length)
-            for(var j=0;j<order[i].length ;j++){
+    try {
+      for (var i = 0; i < order.length; i++) {
+        if (order[i][0] == "Video Tour") throw "video"
+      }
+      throw "no video"
+    }
+    catch (errs) {
+      if (errs == "video") {
+        console.log("video thrown")
+        this.router.navigate(['/addonsv'])
+      }
+      if (errs == "no video") {
 
-            
-                for(var k=0; k<order[i][j].length;k++)
-                    {
-                  console.log("j loop" + order[i][j][0]);
-                  if (order[i][j][0] == "Video Tour") throw "video"
-                    }
-            
-            }
-          
-          }
-          throw "no video"
-        }
-        catch (errs) {
-          if (errs == "video") {
-            console.log("video thrown")
-            this.router.navigate(['/addonsv'])
-          }
-          if (errs == "no video") {
+        console.log("no videos")
+        this.router.navigate(['/access'])
 
-            console.log("no videos")
-            this.router.navigate(['/access'])
-
-          }
+      }
 
         }
 
@@ -509,7 +507,7 @@ export class ClientService {
    this.bspaddonarray.next(this.bspaddonarray.getValue().concat([paddonsarray]));
   console.log(this.orderarray)
  
-   this.checkvaddons(order)
+   this.checkvaddons(this.orderarray)
   }
   setvaddonsarray(vaddonsarray: any): void {
     this.bsvaddonarray.next(this.bsvaddonarray.getValue().concat([vaddonsarray]));
@@ -641,8 +639,7 @@ uploadprofileimage(event)
   const fileRef = this.afStorage.ref(filePath);
   const task = this.afStorage.upload(filePath, file);
 
-
-  this.uploadPercent = task.percentageChanges();
+this.uploadPercent = task.percentageChanges();
   //  download URL 
   task.snapshotChanges().pipe(
     finalize(() => this.downloadURL = fileRef.getDownloadURL())

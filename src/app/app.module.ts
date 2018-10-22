@@ -4,8 +4,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
 import { platformBrowserDynamic } from "@angular/platform-browser-dynamic";
 import { NgModule } from '@angular/core';
-import { NgForm } from '@angular/forms';
-import{AngularFireDatabaseModule} from'angularfire2/database';
+import {AngularFireDatabaseModule} from'angularfire2/database';
+import { AsyncPipe } from '../../node_modules/@angular/common';
+
 import {  MatAutocompleteModule,
   MatBadgeModule,
   MatBottomSheetModule,
@@ -107,10 +108,10 @@ import { DeliveriesComponent } from './client/deliveries/deliveries.component';
 import { DeliveryComponent } from './client/delivery/delivery.component';
 import { Agentregister1Component } from './agent/agentregister1/agentregister1.component';
 import { AddonvComponent } from './client/addonv/addonv.component';
+import { PriceComponent } from './client/price/price.component';
 
 
 import { AddonsvComponent } from './client/addonsv/addonsv.component';
-import { PriceComponent } from './client/price/price.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -161,14 +162,13 @@ import { PriceComponent } from './client/price/price.component';
     AddonvComponent,
     CompleteorderComponent,
     DeliveryComponent,
-     
+    PriceComponent,  
     
-    AddonsvComponent, PriceComponent,
+    AddonsvComponent,
       
   ],
   imports: [
     BrowserModule,
-
     BrowserAnimationsModule,
     CommonModule,
     AppRoutingModule,
@@ -210,13 +210,14 @@ import { PriceComponent } from './client/price/price.component';
     MatTooltipModule,
     MatTreeModule,
     HttpClientModule,  
+  
     FormsModule,
     ReactiveFormsModule, 
     AngularFireAuthModule, AngularFirestoreModule,AngularFireStorageModule, 
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
   ],
-  providers: [AuthGuardService, AuthService, ClientService, AdminService, AgentService],
+  providers: [AuthGuardService, AuthService, ClientService, AdminService, AgentService,],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

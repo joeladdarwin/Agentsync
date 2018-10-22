@@ -35,15 +35,18 @@ body {  font-family: 'Lato'; }
 }
 .btns:hover
 {
-     background-color:#F1875B;
+    background-color:#F1875B;
     color:#fff;
+
 }
 .sp
 {
- color:#f1875b;
+    color:#f1875b;
 }
-
+.numinput{
+    border: 2px solid #000 !important;
+}
 .btn4{
-background-color: #D5D5D5 !important;
-color: #000 !important;
+    background-color: #D5D5D5 !important;
+    color:#000 !important;
 }

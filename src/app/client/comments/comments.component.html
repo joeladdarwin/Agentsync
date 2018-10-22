@@ -1,34 +1,35 @@
 <app-navbar></app-navbar>
 <form #commentForm="ngForm" (ngSubmit)="updateComments(commentForm)">
-<div class="row mb-5">
-  <div class="bg-dark offset-lg-2 col-lg-8 col-md-12 col-xs-12 col-sm-12">
-    <div class="col-md-12">
-          <h3 class="text-center text-white">New Order > First Unit</h3>
-          <h4 class="text-center">Products </h4>
-    </div>
-    <div class="row">
-      <div class="col-md-4 col-4 text-left">
-          <button type="button" class="btn3 text-white">BACK</button>
+  <div class="row">
+    <div class="bgdark offset-lg-2 col-lg-8 col-md-12 col-xs-12 col-sm-12">
+      <div class="col-md-12">
+        <h3 class="text-center text-white">New Order > First Unit</h3>
+        <h4 class="text-center">Products </h4>
       </div>
-      <div class="col-md-4 col-4 text-center">
-          <h5>Subtotal:</h5>
+      <div class="row">
+        <div class="col-md-4 col-4 text-left">
+          <button type="button" class="btn3 text-white" [routerLink]="['/visitingtime']" routerLinkActive="router-link-active" >BACK</button>
         </div>
-      <div class="col-md-4 col-4 text-right">
-          <button type="submit" class="btn3 text-white" >NEXT</button>
+        <div class="col-md-4 col-4 text-center">
+          <h5>Subtotal:<span class="sp">{{total}}</span></h5>
+        </div>
+        <div class="col-md-4 col-4 text-right">
+          <button type="submit" class="btn3 text-white">NEXT</button>
+        </div>
       </div>
- </div>
+    </div>
   </div>
-</div>
-<div class="row text-center">
-  <div class="offset-md-3 col-md-6 col-xs-12">
-    <h3>Please add any additional notes on this order</h3>
+  <div class="row text-center">
+    <div class="offset-md-3 col-md-6 col-xs-12">
+      <h3>Please add any additional notes on this order</h3>
+    </div>
   </div>
-</div>
-<div class="row text-center">
-  <div class="offset-md-3 col-md-6 col-xs-12">
-     <textarea class="form-control form-rounded" rows="13"  name="comment" #comment="ngModel" ngModel  placeholder="Please Enter Your Comments" required></textarea> 
-    
-  </div>
-</div>
-</form>
+  <div class="row text-center">
+    <div class="offset-md-3 col-md-6 col-xs-12">
+      <textarea class="form-control form-rounded" rows="13" name="comment" #comment="ngModel" ngModel placeholder="Please Enter Your Comments"
+        required></textarea>
 
+    </div>
+  </div>
+</form>
+<app-footer></app-footer>
