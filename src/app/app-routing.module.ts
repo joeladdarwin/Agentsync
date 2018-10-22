@@ -1,3 +1,4 @@
+
 import { NgModule, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes, CanActivate, Router  } from '@angular/router';
@@ -77,7 +78,8 @@ const routes: Routes = [
  
   { path: 'addonsv', component: AddonsvComponent },
 
-  { path: 'access', component: AccessComponent },
+
+{ path: 'access', component: AccessComponent },
   { path: 'units', component: UnitsComponent },
   { path: 'products', component: ProductsComponent },
   { path: 'meet', component: MeetComponent },
@@ -98,7 +100,11 @@ const routes: Routes = [
   { path: 'editprofile', component: EditprofileComponent },
   { path: 'adlogin', component: AdminloginComponent },
   { path: 'addashboard', component: AdmindashboardComponent},
+<<<<<<< HEAD
   { path: 'agorder', component: AgentdashboardComponent},
+=======
+  { path: 'adorders', component: AdminorderComponent},
+>>>>>>> 9093e2c02c289cb6fb1106e854811bc74dbd7d36
   { path: 'agdashboard', component: AgentdashboardComponent },
   { path: 'aglogin', component: AgentloginComponent },
   { path: 'agregister', component: AgentregisterComponent },
@@ -106,7 +112,11 @@ const routes: Routes = [
   { path:'adheader', component: AdminheaderComponent},
   { path:'adsidenav', component: AdminsidenavComponent},
   { path:'aduser', component: AdminuserComponent},
+<<<<<<< HEAD
   { path:'adorders', component: AdminorderComponent},
+=======
+  { path:'agorders', component: AgentorderComponent},
+>>>>>>> 9093e2c02c289cb6fb1106e854811bc74dbd7d36
   { path:'adorderhistory', component: AdminorderhistoryComponent},
   { path:'adpayment', component: AdminpaymentComponent},
   { path:'adtable', component: AdmintableComponent},

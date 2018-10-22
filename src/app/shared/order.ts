@@ -1,17 +1,19 @@
 export interface Order {
     orderid:string;
-    property:string;
+    uid:string;
+    propertytype:string;
     squarefeet:string;
-    address:Address[];
-    products:Products[];
-    addons:Addons[];
-    access:string;
+    address?:Address[];
+    orders?:Products[];
+    addons?:Addons[];
+    meetingtype?:string;
     accesscode?:string;
-    visitingdate:Date;
-    visitingtime:Date;
+    visitingdate?:Date;
+    visitingtime?:Date;
     comments?:string;
-    ordereddate:Date;
-    status:string
+    ordereddate?:Date;
+    status?:string;
+    orderprice?:any;
 }
 export interface Address{
     street:string;
