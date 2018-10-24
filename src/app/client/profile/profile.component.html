@@ -5,21 +5,28 @@
 
 <div class="row text-center">
   <div class="col-md-12">
-    <img src='/assets/image/icons/profile.png' class="img-thumbnail">
-    <p>{{auth.displayName | titlecase }} </p>
+    <div class="row">
+      <div class="offset-2 col-8">
+        <img src='/assets/image/icons/profile.png' class="img-thumbnail img-fluid">
+          <p>{{auth.displayName | titlecase }} </p>
+          <hr>
+          <p>{{auth.email}}</p>
+          <hr>
+          
+          <p> {{(profile | async)?.phonenumber}}</p>
+          <hr>
+          <p> {{(profile | async)?.brokerage}}</p>
+          
+          
+          
+          <p>Payment Info: <span>Not set up yet</span></p>
+      </div>
+    </div>
+   
+   
   </div>
   <div class="col-md-12">
-    <p>{{auth.email}}</p>
-    <hr>
-    <p>{{auth.profile.displayName}} fgfggh</p>
-    <hr>
-    <p> {{auth.displayName}}</p>
-    <hr>
-    <p> {{auth.brokerage}}</p>
-
-
-
-    <p>Payment Info: <span>Not set up yet</span></p>
+   
     <hr>
     <button type="button" class="btn btn1" routerLink="/editprofile">Edit Profile</button>
   </div>
