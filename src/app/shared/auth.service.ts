@@ -98,7 +98,7 @@ export class AuthService {
     }
 
     registerclient(userd){
-      return this.afAuth.auth.createUserWithEmailAndPassword(userd.email, userd.password)
+      return this.afAuth.auth.createUserWithEmailAndPassword(userd.email, "12345@")
       .then(
         (user)=>{
           this.authState = user 
