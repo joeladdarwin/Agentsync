@@ -7,6 +7,8 @@ import { BehaviorSubject} from 'rxjs';
   propertytype:string;
   street:string;
   unit:any;
+  orderby:any;
+  comments:any;
   accesscode:any;
   city:string;
   zip:string;
@@ -41,7 +43,9 @@ export class AdmintableComponent{
   }
   ngAfterViewInit() 
   {
-    this.afs.collection<Order>('orders').valueChanges().subscribe(data => {
+  
+    this.afs.collection<Order>('orders', ref => ref.where
+    ('status','==', 'today')).valueChanges().subscribe(data => {
       this.dataSource = new MatTableDataSource(data); 
       this.dataSource.sort = this.sort;
       this.dataSource.paginator = this.paginator;

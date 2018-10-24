@@ -14,7 +14,7 @@ export interface Order {
 export class AdmincompleteComponent {
   displayedColumns = ['no','building','address','date/time','ordervalue','edit/delete'];
   dataSource: MatTableDataSource<Order>; 
-
+property:any;
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
@@ -27,7 +27,8 @@ export class AdmincompleteComponent {
   }
   ngAfterViewInit() 
   {
-    this.afs.collection<Order>('orders').valueChanges().subscribe(data => {
+    this.afs.collection<Order>('orders', ref => ref.where
+    ('status','==', 'completed')).valueChanges().subscribe(data => {
       this.dataSource = new MatTableDataSource(data); 
       this.dataSource.sort = this.sort;
       this.dataSource.paginator = this.paginator;
@@ -39,6 +40,22 @@ export class AdmincompleteComponent {
     filterValue = filterValue.toLowerCase();
     this.dataSource.filter = filterValue;
     
+  }
+  query(a){
+    console.log(a);
+   var docRef$= this.afs.collection<Order>('orders').doc(a);
+
+   this.property = docRef$.ref.get().then(function (doc) {
+    if (doc.exists) {
+      console.log("Document data:", doc.data());
+      return doc.data()
+    } else {
+      // doc.data() will be undefined in this case
+      console.log("No such document!");
+    }
+  }).catch(function (error) {
+    console.log("Error getting document:", error);
+  });
   }
 }
  
