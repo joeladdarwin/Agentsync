@@ -13,6 +13,7 @@ export interface User {
     photoURL?:string;
     roles:Roles;
     url:string;
+    admin?:boolean;
 }
 
  

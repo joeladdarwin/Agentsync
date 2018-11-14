@@ -308,6 +308,7 @@ export class AuthService {
  }
 
  //
+
   getuserdata():any {
     
     const uid = this.afAuth.auth.currentUser.uid;

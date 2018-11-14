@@ -7,7 +7,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { BehaviorSubject, Observable} from 'rxjs';
 import { switchMap, finalize } from 'rxjs/operators';
 import { AngularFirestore, AngularFirestoreCollection,  } from 'angularfire2/firestore';
-
+import { Order} from './order';
 
 
 @Injectable({
@@ -781,4 +781,21 @@ getdoc(){
     this.router.navigate(['/completeorder'])
   }
   // end of revieworder
+
+  //start invoice 
+  getorder(){
+    const uid=this.auth.currentUserId;
+    console.log(+ uid);
+    var citiesRef = this.afss.collection<Order>(`users/${uid}/orders`, ref => ref.where
+    ('status','==', 'new'));
+    var property = citiesRef.ref.get()
+      .then(snapshot => {
+        snapshot.forEach(doc => {
+          console.log(doc.id, '=>', doc.data());
+        });
+      })
+      .catch(err => {
+        console.log('Error getting documents', err);
+      });
+  }
 }

@@ -13,9 +13,9 @@
           <img src='https://firebasestorage.googleapis.com/v0/b/agent-sync-sonderworks.appspot.com/o/userprofile%2Fuser.jpg?alt=media&token=d3b47a22-a861-4c7a-9104-bef874ea39bf'
             class="img-thumbnail img-fluid">
       
-          <p>{{auth.displayName | titlecase }} </p>
+          <p>{{(profile | async)?.displayName | titlecase }} </p>
           <hr>
-          <p>{{auth.email}}</p>
+          <p>{{(profile | async)?.email}}</p>
           <hr>
           <p> {{(profile | async)?.phonenumber}}</p>
           <hr>
