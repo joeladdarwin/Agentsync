@@ -9,8 +9,10 @@ import { ClientService } from '../../shared/client.service';
   providers:[ ClientService]
 })
 export class LoginComponent implements OnInit {
+  email;
+  phone;
   error: { name: string, message: string } = { name: '', message: '' };
-  constructor(private cli:ClientService) { }
+  constructor(public cli:ClientService) { }
   login(email,password)
   {
     this.cli.clientlogin(email, password).catch(_error => {

@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./myaccount.component.css']
 })
 export class MyaccountComponent implements OnInit {
+query;
 
   constructor() { }
 

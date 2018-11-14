@@ -8,7 +8,7 @@ import { BehaviorSubject} from 'rxjs';
   displayName:any;
   email:any;
   phonenumber:any;
- 
+  applyFilter;
   }
 
 @Component({

@@ -16,6 +16,10 @@ import { AngularFirestore, AngularFirestoreCollection,  } from 'angularfire2/fir
 
 export class ClientService {
   displayName: string;
+  email;
+  phone;
+  brokerage;
+  
   constructor(private auth:AuthService, private router:Router,private afAuth:AngularFireAuth,private afss:AngularFirestore,private afStorage: AngularFireStorage,private afs:AngularFireStorage) { }
   private propertytype : string = "Property";
   private squarefeet : string = "Not updated";
@@ -136,6 +140,14 @@ public bsdsflyer100: BehaviorSubject<any> = new BehaviorSubject<any>(this.dsflye
 
       throw error
     })   
+  }
+  adminlogin(email, pass) {
+    // this.uid$ = this.afAuth.auth.currentUser.uid;
+    // console.log(this.getuserdata(this.uid$)+"isis")
+    return this.auth.adminlogin(email, pass).catch(error => {
+
+      throw error
+    })
   }
   signout(){
     this.auth.signOut()
@@ -515,6 +527,7 @@ this.setstreet(address.street);
     console.log(this.vaddonspricearray);
     this.bsvaddonspricearray.next(this.bsvaddonspricearray.getValue().concat(this.vaddonspricearray))
   }
+  
   setporderspricearray(order: any): void {
     console.log(order);
 

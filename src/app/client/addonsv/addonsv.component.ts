@@ -9,6 +9,7 @@ export class AddonsvComponent implements OnInit {
   vcommunityshots;
   vtwlightshots;
   vrushfee;
+  checkbackvideo;
 
   orders: Array<any>;
   ordersprice: Array<any>;

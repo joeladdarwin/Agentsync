@@ -22,6 +22,7 @@ import { RENDER_PARENT } from '@angular/core/src/render3/interfaces/container';
   ordersprice:number
     visitingdate:Date;
     orderprice:number;
+    scheduleorder:any;
 
   }
 @Component({
