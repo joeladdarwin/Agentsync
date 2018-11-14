@@ -6,6 +6,8 @@ import { platformBrowserDynamic } from "@angular/platform-browser-dynamic";
 import { NgModule } from '@angular/core';
 import{AngularFireDatabaseModule} from'angularfire2/database';
 import { AsyncPipe } from '../../node_modules/@angular/common';
+import { AdminGuard } from '../app/shared/admin.guard';
+
 
 import {  MatAutocompleteModule,
   MatBadgeModule,
@@ -112,6 +114,8 @@ import { PriceComponent } from './client/price/price.component';
 
 import { AddonsvComponent } from './client/addonsv/addonsv.component';
 import { AdmintableComponent } from './admin/admintable/admintable.component';
+import { MainComponent } from './client/main/main.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
 @NgModule({
   declarations: [
     AppComponent,
@@ -164,6 +168,7 @@ import { AdmintableComponent } from './admin/admintable/admintable.component';
     PriceComponent,  
     AdmintableComponent,
     AddonsvComponent,
+    MainComponent,
       
   ],
   imports: [
@@ -215,8 +220,9 @@ import { AdmintableComponent } from './admin/admintable/admintable.component';
     AngularFireAuthModule, AngularFirestoreModule,AngularFireStorageModule, 
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
+    ServiceWorkerModule.register('ngsw-worker.js'),
   ],
-  providers: [AuthGuardService, AuthService, ClientService, AdminService, AgentService,],
+  providers: [AuthGuardService, AuthService, ClientService, AdminService, AgentService, AdminGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -6,7 +6,7 @@ import { tap, map, take } from 'rxjs/operators';
 
 @Injectable()
 export class AdminGuard implements CanActivate {
-  constructor(private auth:AuthService){
+  constructor(private auth:AuthService, private router:Router){
 
   }
   canActivate(
@@ -14,12 +14,13 @@ export class AdminGuard implements CanActivate {
     state: RouterStateSnapshot): Observable<boolean>  {
     return this.auth.users$.pipe(
         take(1),
-        map(user => user && user.roles.admin ? true : false ),
-        tap(isAdmin => {
-          if (!isAdmin)
-          {
-            console.log("You are not admin")
-          }
+      map(user => user && user.admin),
+      tap(admin => {
+        if (!admin) {
+          console.error('Access denied - Admins only');
+          // re-route to wherever you want 
+          this.router.navigate(['/login']);
+        }
         })
     );
   }

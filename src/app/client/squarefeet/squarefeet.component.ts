@@ -13,7 +13,7 @@ export class SquarefeetComponent implements OnInit {
   street:string;
   city:string;
   zip:string;
-  
+  orderprice:any;
   appartmentunitno:string;
   message:string;
   is0750sel:boolean;

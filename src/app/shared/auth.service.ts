@@ -148,7 +148,6 @@ export class AuthService {
       orders:order.orders,
       ordersprice: order.orderspricearray,
       comments:order.comments,
-   
       squarefeet: order.squarefeet,
       orderprice:order.orderprice,
       meetingtype:order.meetingtype,
@@ -215,7 +214,21 @@ export class AuthService {
       return userRef$.set(agentdata, { merge: true })
   }
   
+  adminlogin(email: string, pass: string) {
+    return this.afAuth.auth.signInWithEmailAndPassword(email, pass).then(
+      (user) => {
 
+        this.authState = user
+        // this.getinfo()
+
+        this.router.navigate(['/addashboard'])
+
+      }
+    ).catch(error => {
+
+      throw error
+    })
+  }
     //
   login(email: string, pass: string) {
     return this.afAuth.auth.signInWithEmailAndPassword(email, pass).then(
@@ -255,6 +268,10 @@ export class AuthService {
         
       }
     })
+  }
+  forgetemail(email)
+  {
+    return this.afAuth.auth.sendPasswordResetEmail(email)
   }
   getinfox() {
     return this.afAuth.auth.onAuthStateChanged(function (user) {

@@ -16,7 +16,7 @@ export class EditprofileComponent implements OnInit {
   name:any;
   email:any;
 
-  constructor (private afStorage: AngularFireStorage, private cli: ClientService, private auth:AuthService) {}
+  constructor (private afStorage: AngularFireStorage, private cli: ClientService, public auth:AuthService) {}
    
     upload(event) {
     

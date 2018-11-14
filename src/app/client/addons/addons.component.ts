@@ -30,6 +30,8 @@ total;
     console.log(this.ordersprice);
     console.log(this.paddonarray);  console.log(this.paddonsarray);  console.log(this.paddonsprice);
     this.cli.setpaddonsarray(this.paddonarray, this.orderarray)
+    this.cli.setpordersarray(this.paddonsarray);
+    this.cli.setporderspricearray(this.paddonprice);
     this.cli.settotalprice(this.total)
     this.cli.setorderprice(this.total)
   }
@@ -39,7 +41,6 @@ total;
     if (classes.includes('btn1')) {
       classList.add('btns');
       classList.remove('btn1');
-
       if (this.pcommunityshots !== "customprice") {
 
         this.paddonprice = this.paddonprice + this.pcommunityshots;
@@ -57,11 +58,8 @@ total;
 
       if (this.pcommunityshots !== "customprice") {
         this.total = this.total - this.paddonprice;
-        this.paddonprice = this.paddonprice - this.pcommunityshots;
-     
+        this.paddonprice = this.paddonprice - this.pcommunityshots;     
       }
-
-
       for (var i = 0; i < this.paddonarray.length; i++) {
         if (this.paddonarray[i][0] == a) {
           this.paddonarray.splice(i, 1);

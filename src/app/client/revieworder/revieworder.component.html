@@ -41,14 +41,14 @@
                   </li>
                 
                   <li *ngIf="ispaddonarray"><a [routerLink]="['/addons']" routerLinkActive="router-link-active" skipLocationChange><span><b>Photography Addons</b></span>
-                      <ul *ngFor="let hero of paddonsarray;let i=index;">
+                      <ul *ngFor="let hero of paddonsuarray;let i=index;">
                         <li class="ml-4 pl-2">{{hero}}</li>
                       
                       </ul>
                     </a>
                   </li>
                   <li *ngIf="isvaddonarray"><a [routerLink]="['/addonsv']" routerLinkActive="router-link-active" skipLocationChange><span><b>Video Addons</b></span>
-                      <ul *ngFor="let hero of vaddonsarray;let i=index;">
+                      <ul *ngFor="let hero of vaddonsuarray;let i=index;">
                         <li class="ml-4 pl-2">{{hero}}</li>
                       
                       </ul>

@@ -4,7 +4,7 @@
                         <img src="/assets/image/icons/logo1.jpg" class="rounded-circle img-fluid my-2">
                         <img src="/assets/image/icons/agentsynclogo.png" class="img-fluid mt-2" alt="Agent-sync">
                 </div>
-        
+         
         <form class="offset-lg-2 col-lg-8 col-md-12 col-xs-12 col-sm-12" #loginform="ngForm" (ngSubmit)="login(email.value, password.value)">
                 <div class="form-group row">
                         <div class="col-12">
@@ -51,7 +51,7 @@
 
                 </div>
 
-
+                        <small><a [routerLink]="['/adlogin']"  class="text-black" routerLinkActive="router-link-active">Admin Login</a> </small>
         </form>
 </div>
 </div>

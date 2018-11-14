@@ -16,16 +16,15 @@ export class ProfileComponent implements OnInit, AfterViewInit {
   brokerage: any;
   phonenumber: number
   pro:any;
+  title;
 
-  constructor(private cli: ClientService, private auth: AuthService) { }
+  constructor(private cli: ClientService, public auth: AuthService) { }
   ngAfterViewInit(){
     this.name = this.auth.displayName;
     this.email = this.auth.email;
-   this.profile = this.auth.data$;
+    this.profile = this.auth.users$;
     
-    console.log(this.profile);
-    console.log("is the profile")
-
+ 
 
   }
   ngOnInit() {

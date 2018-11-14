@@ -12,7 +12,7 @@ export class DashboardComponent implements OnInit, AfterViewInit  {
 name:any;
 message:any;
 avisosTest :Observable<any>;
-  constructor(private cli:ClientService,  private auth:AuthService) {
+  constructor(private cli:ClientService,  public auth:AuthService) {
     // this.name=this.cli.getUsername();
   
    }

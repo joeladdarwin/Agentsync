@@ -6,7 +6,7 @@
         <h3 class="text-center mt-5">Forgot your login info?</h3>
         <p class="text-center">An email will be sent to the registered address.</p>
     </div>
-    <form class="col-12 mt-5 text-center">
+    <form class="col-12 mt-5 text-center" (ngSubmit)="forget(forget.value)" #forget="ngForm">
         <div class="row mt-5">
             <div class="offset-md-3 col-md-6 col-xs-12">
                 <input type="email" name="recoveremail" #recoveremail placeholder="Email Address" required class="form-control p-4 mb-5 input-lg numinput text-center">

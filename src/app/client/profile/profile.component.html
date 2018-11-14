@@ -7,27 +7,25 @@
   <div class="col-md-12">
     <div class="row">
       <div class="offset-2 col-8">
-        <img src='/assets/image/icons/profile.png' class="img-thumbnail img-fluid">
+       
+       
+      
+          <img src='https://firebasestorage.googleapis.com/v0/b/agent-sync-sonderworks.appspot.com/o/userprofile%2Fuser.jpg?alt=media&token=d3b47a22-a861-4c7a-9104-bef874ea39bf'
+            class="img-thumbnail img-fluid">
+      
           <p>{{auth.displayName | titlecase }} </p>
           <hr>
           <p>{{auth.email}}</p>
           <hr>
-          
           <p> {{(profile | async)?.phonenumber}}</p>
           <hr>
           <p> {{(profile | async)?.brokerage}}</p>
-          
-          
-          
+          <hr>
           <p>Payment Info: <span>Not set up yet</span></p>
+          <hr>
+          <button type="button" class="btn btn1" routerLink="/editprofile">Edit Profile</button>
       </div>
     </div>
-   
-   
   </div>
-  <div class="col-md-12">
-   
-    <hr>
-    <button type="button" class="btn btn1" routerLink="/editprofile">Edit Profile</button>
-  </div>
+ 
 </div>

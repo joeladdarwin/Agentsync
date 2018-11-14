@@ -18,6 +18,7 @@ import { BehaviorSubject} from 'rxjs';
   ordersprice:number
     visitingdate:Date;
     orderprice:number;
+    scheduleorder:any;
 
   }
 @Component({
