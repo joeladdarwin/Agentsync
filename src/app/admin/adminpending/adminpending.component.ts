@@ -3,6 +3,7 @@ import { MatTableDataSource, MatSort, MatDialog, MatPaginator, MAT_SORT_HEADER_I
 import { AngularFirestore,QuerySnapshot } from 'angularfire2/firestore';
 import { Observable,combineLatest, Subject, ReplaySubject, from, of, range } from 'rxjs';
 import { AngularFireStorage } from 'angularfire2/storage';
+import { DatePipe } from '@angular/common';
 import { map, filter, switchMap, take, tap } from 'rxjs/operators';
 export interface Order {
   orderid:number;
@@ -25,7 +26,8 @@ ordersprice:number
 @Component({
   selector: 'app-adminpending',
   templateUrl: './adminpending.component.html',
-  styleUrls: ['./adminpending.component.css']
+  styleUrls: ['./adminpending.component.css'],
+  providers: [DatePipe]
 })
 export class AdminpendingComponent {
   displayedColumns = ['no','building','address','date/time','ordervalue','status','edit/delete'];
@@ -37,8 +39,7 @@ export class AdminpendingComponent {
   uploads: any[];
   allPercentage: Observable<any>;
   files: Observable<any>;
-
-  constructor(private afs: AngularFirestore, public dialog: MatDialog,public storage: AngularFireStorage) {
+  constructor(private datePipe: DatePipe,private afs: AngularFirestore, public dialog: MatDialog,public storage: AngularFireStorage) {
     
   }
   ngOnInit(){
@@ -47,13 +48,13 @@ export class AdminpendingComponent {
   }
   ngAfterViewInit() 
   {
-    this.afs.collection<Order>('orders', ref => ref.where
-    ('status','==', 'pending')).valueChanges().subscribe(data => {
+     this.afs.collection<Order>('orders', ref => ref.where
+    ('status','==','pending' )).valueChanges().subscribe(data => {
       this.dataSource = new MatTableDataSource(data); 
       this.dataSource.sort = this.sort;
       this.dataSource.paginator = this.paginator;
     })
-
+ 
   }
   applyFilter(filterValue: string) {
     filterValue = filterValue.trim(); 
@@ -78,8 +79,6 @@ export class AdminpendingComponent {
   });
   }
   multipleimageupload(productname,event,orderid) {
-    //const orders=a;
-    //const product=b;
     const date=new Date();
     const fulldate=date.getFullYear()+'/'+(date.getMonth()+1)
     this.uploads = [];
@@ -128,8 +127,20 @@ export class AdminpendingComponent {
       );
 
   }
+update(a){
+   this.afs.collection('orders').doc(a).update({
+    status: 'completed'
+  }).then(() => {
+    alert('updated');
+  })
 
 
+}
+delete(b) {
+  this.afs.collection('orders').doc(b).delete().then(() => {
+    alert('deleted');
+  })
+}
 }
 
 

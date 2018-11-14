@@ -742,15 +742,13 @@ this.uploadPercent = task.percentageChanges();
     .subscribe()
   }
 
-geturl()
-{
-  console.log("siindhushakshi"+ this.uid)
-  this.profilepicRef = this.afStorage.ref('users/' + 'profilepic/' + this.uid);
-
-  this.downloadURL = this.profilepicRef.getDownloadURL();
-  
-  return this.downloadURL
-}
+  geturl()
+  {
+    var uid=this.auth.currentUserId;
+   
+    this.profilepicRef = this.afss.collection('users').doc(uid).valueChanges();
+    return this.profilepicRef
+  }
 //
 //  
 getdoc(){

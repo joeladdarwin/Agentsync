@@ -22,7 +22,7 @@
       <!-- Address Column -->
       <ng-container matColumnDef="address">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Address </th>
-        <td mat-cell *matCellDef="let orders">{{orders.address.street}},{{orders.address.city}},{{orders.address.zip}}  </td>
+        <td mat-cell *matCellDef="let orders" >{{orders.address.street}},{{orders.address.city}},{{orders.address.zip}}  </td>
       </ng-container>
   
       <!-- Date/Time Column -->
@@ -208,12 +208,12 @@
           
               
                                 </div>
-                                <div class="form-row mt-2">
-                                  <div class="col">
-                                      <button class="btn btn-primary" type="submit">Confirm</button>
-                                      <button class="btn btn-danger mx-3">Delete</button>
-                                </div>
-                                </div>
+                                <div class="form-row mt-2" #elem [attr.id]="(property|async)?.orderid">
+                                    <div class="col"  >
+                                        <button class="btn btn-primary" type="submit"  (click)="update(elem.id)" >Completed</button>
+                                        <button class="btn btn-danger mx-3" (click)="updated(elem.id)">Pending</button>
+                                  </div>
+                                  </div>
                           
                                 </form>
                                 </div>

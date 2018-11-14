@@ -1,5 +1,6 @@
 import { Component, AfterViewInit, ViewChild } from '@angular/core';import { MatTableDataSource, MatSort, MatDialog, MatPaginator, MAT_SORT_HEADER_INTL_PROVIDER } from '@angular/material';
 import { AngularFirestore } from 'angularfire2/firestore';
+import { AuthService } from '../../shared/auth.service';
 export interface Order {
   orderid:number;
 propertytype:string;
@@ -30,7 +31,7 @@ export class AdminnewComponent {
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   property:any;
-  constructor(private afs: AngularFirestore, public dialog: MatDialog) {
+  constructor(private afs: AngularFirestore, public dialog: MatDialog, private auth:AuthService) {
     
   }
   ngOnInit(){
@@ -39,6 +40,7 @@ export class AdminnewComponent {
   }
   ngAfterViewInit() 
   {
+
     this.afs.collection<Order>('orders', ref => ref.where
     ('status','==', 'new')).valueChanges().subscribe(data => {
       this.dataSource = new MatTableDataSource(data); 
@@ -69,7 +71,20 @@ export class AdminnewComponent {
     console.log("Error getting document:", error);
   });
   }
-  
+  update(a){
+    this.afs.collection('orders').doc(a).update({
+     status: 'scheduled'
+   }).then(() => {
+     alert('updated');
+   })
+ 
+ 
+ }
+ delete(b) {
+  this.afs.collection('orders').doc(b).delete().then(() => {
+    alert('deleted');
+  })
+}
 }
 
 

@@ -21,6 +21,7 @@ export class ProfileComponent implements OnInit {
     this.name = this.auth.displayName;
     this.email = this.auth.email;
     this.profile = this.auth.profile;
+    
    
 
   }

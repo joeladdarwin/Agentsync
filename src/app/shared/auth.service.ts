@@ -21,6 +21,7 @@ export class AuthService {
   error: any = null;
   uid$;
   user;
+  property:any;
   phonenumber1:number;
   
   data: Observable<any[]>;
@@ -122,6 +123,7 @@ export class AuthService {
             brokerage: user.brokerage,
             email: user.email,
             phonenumber: user.phone,
+            url:user.url,
             roles: {
                 user: true
             }
@@ -292,19 +294,17 @@ export class AuthService {
     const uid = this.afAuth.auth.currentUser.uid;
    
     console.log("uidss is" + uid);
-    const userRef$ = this.afs.collection('users').doc(uid);
-    // this.afs.doc<User>(`users/${uid}`);
-    userRef$.ref.get().then(function (doc) {
-      if (doc.exists) {
-        console.log("Document data:", doc.data());
-        return doc.data()
-      } else {
-        // doc.data() will be undefined in this case
-        console.log("No such document!");
-      }
-    }).catch(function (error) {
-      console.log("Error getting document:", error);
-    });
+    var citiesRef = this.afs.collection<Order>(`users/${uid}/orders`, ref => ref.where
+    ('status','==', 'new'));
+    this.property = citiesRef.ref.get()
+      .then(snapshot => {
+        snapshot.forEach(doc => {
+          console.log(doc.id, '=>', doc.data());
+        });
+      })
+      .catch(err => {
+        console.log('Error getting documents', err);
+      });
   }
  
   signOut(): void {
@@ -316,12 +316,14 @@ export class AuthService {
 clientqueryorderlen(){
 
   const uid = this.currentUserId;
+  console.log(uid);
   var length;
   this.data=this.afs.collection(`users/${uid}/orders/`, ref => ref.where('status', '==', 'new')).valueChanges();
   console.log(this.data);
   return this.data;
  
 }
+
 //
 
 
