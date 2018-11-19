@@ -4,7 +4,9 @@ import { AngularFirestore,QuerySnapshot } from 'angularfire2/firestore';
 import { Observable,combineLatest, Subject, ReplaySubject, from, of, range } from 'rxjs';
 import { AngularFireStorage } from 'angularfire2/storage';
 import { DatePipe } from '@angular/common';
-import { map, filter, switchMap, take, tap } from 'rxjs/operators';
+
+import { map, filter, switchMap, take, tap, finalize } from 'rxjs/operators';
+import { UrlResolver } from '@angular/compiler';
 export interface Order {
   orderid:number;
 propertytype:string;
@@ -35,8 +37,12 @@ export class AdminpendingComponent {
 
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatPaginator) paginator: MatPaginator;
+  downloadurl: Observable<string>;
+  uploadPercent:Observable<number>;
   property:any;
+  photographyurl:any;
   uploads: any[];
+
   allPercentage: Observable<any>;
   files: Observable<any>;
   constructor(private datePipe: DatePipe,private afs: AngularFirestore, public dialog: MatDialog,public storage: AngularFireStorage) {
@@ -78,42 +84,96 @@ export class AdminpendingComponent {
     console.log("Error getting document:", error);
   });
   }
+  singleimageupload(productname,event,orderid){
+    const date=new Date();
+ var urlarray=[];
+    const fulldate=date.getFullYear()+'/'+(date.getMonth()+1);
+    //const file = event.target.files[0];
+    const filelist = event.target.files;
+    for (const file of filelist) {
+    const filePath = orderid+'/'+productname+'/'+fulldate+'/'+file.name;
+   
+    const task = this.storage.upload(filePath, file).then(()=>{
+      const fileRef = this.storage.ref(filePath);
+      const getDownloadURLl=fileRef.getDownloadURL().subscribe(url=>
+      {
+        const URL=url;
+       
+        urlarray.push(url);
+     
+          console.log(urlarray);
+          
+          this.afs.collection('orders').doc(orderid).update({
+          
+        
+          Photography:urlarray,
+        
+      })
+        
+        
+      })
+      
+
+    }
+  
+  )
+}
+
+  
+  }
   multipleimageupload(productname,event,orderid) {
     const date=new Date();
     const fulldate=date.getFullYear()+'/'+(date.getMonth()+1)
     this.uploads = [];
     const filelist = event.target.files;
     const allPercentage: Observable<number>[] = [];
+    var urlarray=[];
 
     for (const file of filelist) {
-
+      
       const path = orderid+'/'+productname+'/'+fulldate+'/'+file.name;
       const ref = this.storage.ref(path);
       const task = this.storage.upload(path, file);
       const _percentage$ = task.percentageChanges();
       allPercentage.push(_percentage$);
-
+    
+      
       // create composed object with different information. ADAPT THIS ACCORDING YOUR NEED
       const uploadTrack = {
         fileName: file.name,
         percentage: _percentage$
       }
-
+     
       // push each upload into the array
       this.uploads.push(uploadTrack);
+console.log(ref.getDownloadURL())
+      task.snapshotChanges().pipe(
+        finalize(() =>{ 
+        this.downloadurl = ref.getDownloadURL()
+        console.log(ref.getDownloadURL())
+        }
+       )
+     )
+    .subscribe()
+    console.log(ref.getDownloadURL())
+    
+urlarray.push(this.downloadurl);
+    // console.log(urlarray);
 
+      
       // for every upload do whatever you want in firestore with the uploaded file
-      const _t = task.then((f) => {
-        return f.ref.getDownloadURL().then((url) => {
-          return this.afs.collection('files').add({
-            name: f.metadata.name,
-            url: url
-          });
-        })
-      })
+      //const _t = task.then((f) => {
+        // return f.ref.getDownloadURL().then((url) => {
+          
+        //   return this.afs.collection(`file/${orderid}`).add({
+        //     name: f.metadata.name,
+        //     url: url
+        //   });
+        
+      
 
     }
-
+  
     this.allPercentage = combineLatest(allPercentage)
       .pipe(
       map((percentages) => {
@@ -141,6 +201,7 @@ delete(b) {
     alert('deleted');
   })
 }
+
 }
 
 

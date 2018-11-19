@@ -724,6 +724,7 @@ setvisitingdate(visitingdate): void {
   }
 
 // end of visiting date
+
 // Comment
   getcomment(): string {
     return this.comment
@@ -782,20 +783,5 @@ getdoc(){
   }
   // end of revieworder
 
-  //start invoice 
-  getorder(){
-    const uid=this.auth.currentUserId;
-    console.log(+ uid);
-    var citiesRef = this.afss.collection<Order>(`users/${uid}/orders`, ref => ref.where
-    ('status','==', 'new'));
-    var property = citiesRef.ref.get()
-      .then(snapshot => {
-        snapshot.forEach(doc => {
-          console.log(doc.id, '=>', doc.data());
-        });
-      })
-      .catch(err => {
-        console.log('Error getting documents', err);
-      });
-  }
+  
 }
