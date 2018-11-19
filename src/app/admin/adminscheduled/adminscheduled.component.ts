@@ -68,6 +68,24 @@ export class AdminscheduledComponent {
     console.log("Error getting document:", error);
   });
   }
+  update(a){
+    this.afs.collection('orders').doc(a).update({
+     status: 'completed'
+   }).then(() => {
+     alert('updated');
+   })
+ 
+ 
+ }
+ updated(a){
+  this.afs.collection('orders').doc(a).update({
+   status: 'pending'
+ }).then(() => {
+  alert('updated');
+ })
+
+
+}
 }
 
 

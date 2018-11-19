@@ -7,7 +7,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { BehaviorSubject, Observable} from 'rxjs';
 import { switchMap, finalize } from 'rxjs/operators';
 import { AngularFirestore, AngularFirestoreCollection,  } from 'angularfire2/firestore';
-
+import { Order} from './order';
 
 
 @Injectable({
@@ -724,6 +724,7 @@ setvisitingdate(visitingdate): void {
   }
 
 // end of visiting date
+
 // Comment
   getcomment(): string {
     return this.comment
@@ -755,15 +756,13 @@ this.uploadPercent = task.percentageChanges();
     .subscribe()
   }
 
-geturl()
-{
-  console.log("siindhushakshi"+ this.uid)
-  this.profilepicRef = this.afStorage.ref('users/' + 'profilepic/' + this.uid);
-
-  this.downloadURL = this.profilepicRef.getDownloadURL();
-  
-  return this.downloadURL
-}
+  geturl()
+  {
+    var uid=this.auth.currentUserId;
+   
+    this.profilepicRef = this.afss.collection('users').doc(uid).valueChanges();
+    return this.profilepicRef
+  }
 //
 //  
 getdoc(){
@@ -783,4 +782,6 @@ getdoc(){
     this.router.navigate(['/completeorder'], { skipLocationChange: true })
   }
   // end of revieworder
+
+  
 }

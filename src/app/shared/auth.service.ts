@@ -21,6 +21,7 @@ export class AuthService {
   error: any = null;
   uid$;
   user;
+  property:any;
   phonenumber1:number;
   usersdocument:any;
   data: Observable<any[]>;
@@ -124,6 +125,7 @@ export class AuthService {
             brokerage: user.brokerage,
             email: user.email,
             phonenumber: user.phone,
+            url:user.url,
             roles: {
                 user: true
             }
@@ -306,6 +308,7 @@ export class AuthService {
  }
 
  //
+
   getuserdata():any {
     
     const uid = this.afAuth.auth.currentUser.uid;
@@ -350,12 +353,14 @@ export class AuthService {
 clientqueryorderlen(){
 
   const uid = this.currentUserId;
+  console.log(uid);
   var length;
   this.data=this.afs.collection(`users/${uid}/orders/`, ref => ref.where('status', '==', 'new')).valueChanges();
   console.log(this.data);
   return this.data;
  
 }
+
 //
 
 

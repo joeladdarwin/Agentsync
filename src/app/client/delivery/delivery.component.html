@@ -39,7 +39,7 @@
                          <img src="assets/image/icons/folder.png"class="icon">
                         </div>
                         <div class="flex-fill">
-                          
+                          <img [src]="profileUrl | async" />
                         </div>
                         <div class=" flex-fill">
                          
@@ -48,7 +48,7 @@
                       <div class="row">
                           <div class="offset-lg-2 col-lg-8 col-md-12 col-xs-12 col-sm-12">
                             <div class="col-md-12">
-                                <button type="submit" class="btn btn1 btn-block p-3 mt-5">DOWNLOAD</button>
+                                <button type="submit" class="btn btn1 btn-block p-3 mt-5" (click)="download()">DOWNLOAD</button>
                                 </div>
                                 </div>
                                 </div>

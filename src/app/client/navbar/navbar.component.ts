@@ -16,7 +16,7 @@ export class NavbarComponent implements OnInit, AfterViewInit {
 
   }
   ngAfterViewInit(){
-    this.avisosTest=this.auth.clientqueryorderlen();
+   this.avisosTest=this.auth.clientqueryorderlen();
    
     
    }

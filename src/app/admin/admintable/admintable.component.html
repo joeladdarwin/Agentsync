@@ -7,7 +7,7 @@
     </mat-form-field>
   </div>
 
-  <table mat-table [dataSource]="dataSource" matSort>
+  <table mat-table [dataSource]="dataSource" matSort >
 
     <!-- No Column -->
     <ng-container matColumnDef="no">
@@ -30,7 +30,7 @@
     <!-- Date/Time Column -->
     <ng-container matColumnDef="date/time">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Date/Time </th>
-      <td mat-cell *matCellDef="let orders">{{orders.visitingdate.toDate()| date :'short'}}  </td>
+      <td mat-cell *matCellDef="let orders"  >{{orders.visitingdate.toDate()| date :'short'}}  </td>
     </ng-container>
     <!-- OrderValue-->
     

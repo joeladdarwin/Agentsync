@@ -1,16 +1,14 @@
 <app-navbar></app-navbar>
 <div class="row text-center">
-  <div class="col-md-6 col-6 mx-auto">
-  
-    <img [src]="url |async" alt="no" class="img-thumbnail">
-   <!-- <input type="file" (change)="upload($event)" accept=".png,.jpg"/> -->
- 
+  <div class="col-md-6 col-6 mx-auto" >
+ <img [src]="(profile | async)?.url" class="img-fluid" />
+       
 <div class="image-upload">
     <label for="file-input">
        <i class="fa fa-edit custom-edit"></i>
     </label>
   
-    <input id="file-input" type="file" (change)="upload($event)"  name="file-input" accept=".png,.jpg">
+    <input id="file-input" type="file" single=true (change)="upload($event)"  name="file-input" accept=".png,.jpg">
     
   
 </div>
@@ -26,23 +24,27 @@
                 <div class="form-group row">
                   <label for="example-search-input" class="col-5 col-form-label">Email</label>
                   <div class="col-7">
-                          <label for="example-text-input" >{{auth.email}} </label>
+                          <label for="example-text-input" >{{(profile | async)?.email}} </label>
                   </div>
-                </div><hr>
+                </div>
+                <hr>
                 <div class="form-group row">
                   <label for="example-email-input" class="col-5 col-form-label">Brokerage</label>
                   <div class="col-7">
-                          <label for="example-text-input" >Your Real Estate Company</label>
-                 
+                          <label for="example-text-input" >{{(profile | async)?.brokerage}}</label>
+                 </div>
+                 </div>
                 <hr>
                 
-                  <label for="example-url-input" >My phone number:</label>
-                  
-                          <label for="example-text-input" >(-) --- - -- </label>
-                  
+                <div class="form-group row">
+                    <label for="example-search-input" class="col-5 col-form-label">Phone number</label>
+                    <div class="col-7">
+                            <label for="example-text-input" >{{(profile | async)?.phonenumber}} </label>
+                    </div>
+                  </div>
                 <hr>
                
-                      <label    >Payment Info: <span>Not set up yet</span></label>
+                      <label>Payment Info: <span>Not set up yet</span></label>
                       
                              <button type="button" class="btn btn1">Set Up</button>
                      
