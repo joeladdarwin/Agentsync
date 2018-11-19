@@ -3,46 +3,74 @@
                 <div class="offset-lg-2 col-lg-8 col-xs-12 col-sm-12 text-center mx-auto pt-5">
                         <img src="/assets/image/icons/logo1.jpg" class="rounded-circle img-fluid my-2">
                         <img src="/assets/image/icons/agentsynclogo.png" class="img-fluid mt-2" alt="Agent-sync">
-                </div>
+                </div> 
          
         <form class="offset-lg-2 col-lg-8 col-md-12 col-xs-12 col-sm-12" #loginform="ngForm" (ngSubmit)="login(email.value, password.value)">
                 <div class="form-group row">
                         <div class="col-12">
                                 <div class="row">
                                         <p class="error text-center">{{ error.message }}</p>
-                                        <input type="email" required class="form-control-lg col-12 text-center"
-                                                placeholder="Email" name="email" required pattern="[^@]*@[^@]*"
-                                                [(ngModel)]="cli.email" #email="ngModel" autocomplete="email">
-                                        <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-warning offset-md-3 col-md-6 col-xs-12 my-2">
-
-                                                <div *ngIf="email.errors.required">
-                                                        Email required.
+                                        <div class="offset-1 col-10">
+                                                <input type="email" required class="form-control-lg col-12 text-center" placeholder="Email" name="email" required
+                                                        pattern="[^@]*@[^@]*" [(ngModel)]="cli.email" #email="ngModel" autocomplete="email" autofocus>
+                                        </div>
+                                        <div class="col-1">
+                                                <div *ngIf="email.invalid && (email.dirty || email.touched)" class="mt-2">
+                                                
+                                                        <div *ngIf="email.errors.required">
+                                                        <img src="../../../assets/image/icons/wrong.png" class="img img-responsive" style="width:2rem">
+                                                        
+                                                        </div>
+                                                        <div *ngIf="email.errors?.pattern">
+                                                        <img src="../../../assets/image/icons/wrong.png" class="img img-responsive" style="width:2rem">
+                                                        </div>
                                                 </div>
-                                                <div *ngIf="email.errors?.pattern">
-                                                        Please enter proper email
+                                                <div *ngIf="email.valid && (email.dirty || email.touched)" class="mt-2">
+                                                        <img src="../../../assets/image/icons/tick.png" class="img img-responsive" style="width:2rem">
+                                                </div>        
+
+                                        </div>
+                                        <div class="offset-1 col-10">
+                                                <input type="password" required class="form-control-lg col-12 text-center" placeholder="Password" name="password"
+                                                         [(ngModel)]="cli.phone" #password="ngModel" autocomplete="current-password">
+                                        </div>
+                                        <div class="col-1">
+                                                <div *ngIf="password.invalid && password.dirty " class="mt-2">
+                                                
+                                                        <div *ngIf="password.errors.required">
+                                                                <img src="../../../assets/image/icons/wrong.png" class="img img-responsive" style="width:2rem">
+                                                
+                                                        </div>
+                                                </div>
+                                                <div *ngIf="password.touched" class="mt-2">
+                                                
+                                               
+                                                                <img src="../../../assets/image/icons/tick.png" class="img img-responsive" style="width:2rem">
+                                                
+                                                     
                                                 </div>
                                         </div>
-                                        <input type="password" required class="form-control-lg col-12 text-center"
-                                                placeholder="Password" name="password" required [(ngModel)]="cli.phone"
-                                                #password="ngModel" autocomplete="current-password">
+                                       
+                                       
+                                       
                                 </div>
                         </div>
                 </div>
                 <div class="form-group row">
-                        <div class="col-12 my-2">
+                        <div class="offset-1 col-10 my-2">
 
                                 <button type="submit" class="btn btn4 btn-block mx-auto py-2" 
                                         >SIGN IN</button>
 
                         </div>
 
-                        <div class="col-6 text-center">
+                        <div class="offset-1 col-5 text-center">
                                 <button type="button" class="btn btn5 btn-block py-2" routerLink="/register">REGISTER
                                         ME</button>
 
 
                         </div>
-                        <div class="col-6 text-center">
+                        <div class="col-5 text-center">
 
 
                                 <button type="button" class="btn btn5 btn-block py-2" routerLink="/forget">FORGOT INFO</button>
