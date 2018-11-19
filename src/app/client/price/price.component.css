@@ -53,9 +53,9 @@
        
     #headerback{
       background-image: url('/assets/image/background/mobile/mobilebacklogin.png');
-      background-repeat: no-repeat;
+      background-repeat: repeat-y;
       background-size: cover; 
-      min-height: 100vh;   
+    
     }
      
      @media screen and (max-width: 750px) {

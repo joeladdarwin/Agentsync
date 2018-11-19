@@ -59,11 +59,12 @@ import { FooterComponent } from './client/footer/footer.component';
 import { MainComponent } from './client/main/main.component';
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
+  
   { path: 'forget', component: ForgetComponent },
   { path: 'thanks', component: ThanksComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'forget', component: ForgetComponent },
-  { path: "", redirectTo: 'login', pathMatch: 'full' },
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'main', component: DashboardComponent },
   { path: 'test', component: MainComponent },
   { path: 'footer', component: FooterComponent },
@@ -122,7 +123,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [
-   RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes, { useHash: true } )
   ],
   exports: [RouterModule],
   declarations: []

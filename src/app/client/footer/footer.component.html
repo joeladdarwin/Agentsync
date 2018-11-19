@@ -9,8 +9,8 @@
 </div>
 
 
-<div [@slideInOut]="priceStatus" [ngStyle]="{'display':priceStatus ==='out'?'none':'block'}"class="row" id="headerback">
-    <div class="row " style="margin-bottom:45px" >
+<div [@slideInOut]="priceStatus" style="position:absolute" [ngStyle]="{'display':priceStatus ==='out'?'none':'block'}"class="row" id="headerback">
+    <div  style="margin-bottom:45px" >
         <div class="col-sm-12 col-offset-2 text-center">
           <div  (swipe)="onSwipe($event)"   >
              
@@ -22,7 +22,7 @@
       </div>
   
   <div class="col-md-12 text-center" id="view">
-  <span class="rounded-circle mb-4 bg-white"></span>
+  <span class="rounded-circle mb-4 bg-white"><img src="/assets/image/icons/icon-72x72.png" class="p-2"></span>
 </div>
 <div class="menu mb-2 bg-white border border-grey">
   <h3 class="text-center p-3  ">PRICE MENU</h3>

@@ -43,7 +43,7 @@ export class AddonsvComponent implements OnInit {
       if (this.vcommunityshots !== "customprice") {
 
         this.vaddonprice = this.vaddonprice + this.vcommunityshots;
-        this.total = this.total + this.vaddonprice;
+        this.total = this.total + 50;
       }
 
       this.vaddonarray.push([a, this.vcommunityshots])
@@ -56,7 +56,7 @@ export class AddonsvComponent implements OnInit {
       classList.remove('btns');
 
       if (this.vcommunityshots !== "customprice") {
-        this.total = this.total - this.vaddonprice;
+        this.total = this.total - 50;
         this.vaddonprice = this.vaddonprice - this.vcommunityshots;
        
       }
@@ -84,7 +84,7 @@ export class AddonsvComponent implements OnInit {
       if (this.vtwlightshots !== "customprice") {
 
         this.vaddonprice = this.vaddonprice + this.vtwlightshots;
-        this.total = this.total + this.vaddonprice;
+        this.total = this.total + 50;
       }
 
       this.vaddonarray.push([a, this.vtwlightshots])
@@ -97,7 +97,7 @@ export class AddonsvComponent implements OnInit {
       classList.remove('btns');
 
       if (this.vtwlightshots !== "customprice") {
-        this.total = this.total - this.vaddonprice;
+        this.total = this.total - 50;
         this.vaddonprice = this.vaddonprice - this.vtwlightshots;
         
       }
@@ -125,7 +125,7 @@ export class AddonsvComponent implements OnInit {
       if (this.vrushfee !== "customprice") {
 
         this.vaddonprice = this.vaddonprice + this.vrushfee;
-        this.total = this.total + this.vaddonprice;
+        this.total = this.total + 75;
       }
 
       this.vaddonarray.push([a, this.vrushfee])
@@ -138,7 +138,7 @@ export class AddonsvComponent implements OnInit {
       classList.remove('btns');
 
       if (this.vrushfee !== "customprice") {
-        this.total = this.total - this.vaddonprice;
+        this.total = this.total - 75;
         this.vaddonprice = this.vaddonprice - this.vrushfee;
      
       }

@@ -44,7 +44,7 @@ total;
       if (this.pcommunityshots !== "customprice") {
 
         this.paddonprice = this.paddonprice + this.pcommunityshots;
-        this.total = this.total + this.paddonprice;
+        this.total = this.total + 50;
       }
       
       this.paddonarray.push([a, this.pcommunityshots])
@@ -57,7 +57,7 @@ total;
       classList.remove('btns');
 
       if (this.pcommunityshots !== "customprice") {
-        this.total = this.total - this.paddonprice;
+        this.total = this.total - 50;
         this.paddonprice = this.paddonprice - this.pcommunityshots;     
       }
       for (var i = 0; i < this.paddonarray.length; i++) {
@@ -82,7 +82,7 @@ total;
       if (this.ptwlightshots !== "customprice") {
 
         this.paddonprice = this.paddonprice + this.ptwlightshots;
-        this.total = this.total + this.paddonprice;
+        this.total = this.total + 50;
       }
       
       this.paddonarray.push([a, this.ptwlightshots])
@@ -95,7 +95,7 @@ total;
       classList.remove('btns');
 
       if (this.ptwlightshots !== "customprice") {
-        this.total = this.total - this.paddonprice;
+        this.total = this.total - 50;
         this.paddonprice = this.paddonprice - this.ptwlightshots;
       
       }
@@ -123,7 +123,7 @@ total;
       if (this.prushfee !== "customprice") {
 
         this.paddonprice = this.paddonprice + this.prushfee;
-        this.total = this.total + this.paddonprice;
+        this.total = this.total + 75;
       }
       
       this.paddonarray.push([a, this.prushfee])
@@ -136,7 +136,7 @@ total;
       classList.remove('btns');
 
       if (this.prushfee !== "customprice") {
-        this.total = this.total - this.paddonprice;
+        this.total = this.total - 75;
         this.paddonprice = this.paddonprice - this.prushfee;
        
       }

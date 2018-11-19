@@ -60,6 +60,7 @@ h4{
     color:#fff;
 }
 .nav-link{
-    font-size: .75rem;
-    font-weight: bolder;
+    font-size: .95rem;
+    font-weight: 400;
+    padding:.25rem !important
 }
