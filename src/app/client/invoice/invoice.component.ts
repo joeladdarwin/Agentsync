@@ -3,6 +3,7 @@ import { ClientService } from '../../shared/client.service';
 import { AuthService } from '../../shared/auth.service';
 import { Component, AfterViewInit, ViewChild } from '@angular/core';
 import { AngularFirestore,QuerySnapshot,AngularFirestoreCollection } from 'angularfire2/firestore';
+import { AngularFireAuth } from 'angularfire2/auth';
 import { Order} from '../../shared/order';
 import { Observable,combineLatest, Subject, ReplaySubject, from, of, range } from 'rxjs';
 import { map, filter, switchMap, take, tap } from 'rxjs/operators';
@@ -35,18 +36,18 @@ ordersprice:number
 export class InvoiceComponent  {
   property:any;
   orders: Observable<Order[]>;
-  
-  constructor(private cli: ClientService, private auth:AuthService,private afs: AngularFirestore) { }
+  userid:any;
+  constructor(private cli: ClientService,private afauth: AngularFireAuth, private auth:AuthService,private afs: AngularFirestore) { }
  
   ngOnInit() {
-    
+    this.userid = this.afauth.auth.currentUser.uid; 
+    console.log("darwin"+this.userid);
      }
    ngAfterViewInit(){
    
-    var id=this.auth.currentUserId;
-   console.log(id);
+    console.log("darwin"+this.userid);
     this.orders= this.afs.collection<Order>('orders', ref => ref.where
-    ('uid','==', id)).valueChanges();
+    ('uid','==', this.userid)).valueChanges();
     
     
    }

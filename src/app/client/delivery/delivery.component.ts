@@ -4,6 +4,7 @@ import { Component, AfterViewInit, ViewChild } from '@angular/core';
 import { AngularFireStorage } from 'angularfire2/storage';
 import { map, filter, switchMap, take, tap, finalize } from 'rxjs/operators';
 import { Observable} from 'rxjs';
+import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFirestore,QuerySnapshot,AngularFirestoreCollection } from 'angularfire2/firestore';
 export interface Order {
   orderid:number;
@@ -32,18 +33,40 @@ ordersprice:number
 export class DeliveryComponent  {
   task: any;
   ref:any;
+  property:any;
   orders:any;
-  constructor(private cli: ClientService, private auth:AuthService,private afs: AngularFirestore) { }
+  userid:any;
+  constructor(private cli: ClientService, private auth:AuthService,private afs: AngularFirestore,private afauth: AngularFireAuth) { }
 
   ngOnInit() {
+    this.userid = this.afauth.auth.currentUser.uid; 
+    console.log("darwin"+this.userid);
   }
   ngAfterViewInit(){
    
-    var id=this.auth.currentUserId;
-   console.log(id);
+    
+    console.log("darwin"+this.userid);
     this.orders= this.afs.collection<Order>('orders', ref => ref.where
-    ('uid','==', id)).valueChanges();
+    ('uid','==', this.userid)).valueChanges();
     
     
-   }
+  }
+  query(a){
+    console.log(a);
+   
+
+   var docRef$= this.afs.collection<Order>('orders').doc(a);
+
+   this.property = docRef$.ref.get().then(function (doc) {
+    if (doc.exists) {
+      console.log("Document data:", doc.data());
+      return doc.data()
+    } else {
+      // doc.data() will be undefined in this case
+      console.log("No such document!");
+    }
+  }).catch(function (error) {
+    console.log("Error getting document:", error);
+  });
+  }
 }

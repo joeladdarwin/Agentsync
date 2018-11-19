@@ -17,7 +17,7 @@ export class ProfileComponent implements OnInit, AfterViewInit {
   phonenumber: number
   pro:any;
   title;
-
+user;
   constructor(private cli: ClientService, public auth: AuthService) { }
   ngAfterViewInit(){
     this.name = this.auth.displayName;
@@ -29,8 +29,8 @@ export class ProfileComponent implements OnInit, AfterViewInit {
   }
   ngOnInit() {
 
-   
-
+    this.auth.users$.subscribe(user=>this.user =user)
+ console.log(this.user.uid);
     
   }
 
