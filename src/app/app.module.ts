@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { platformBrowserDynamic } from "@angular/platform-browser-dynamic";
 import { NgModule } from '@angular/core';
 import{AngularFireDatabaseModule} from'angularfire2/database';
+
 import { AsyncPipe } from '../../node_modules/@angular/common';
 import { AdminGuard } from '../app/shared/admin.guard';
 
