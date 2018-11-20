@@ -30,8 +30,10 @@ export class ProfileComponent implements OnInit, AfterViewInit {
     console.log(this.user + "is the uid")
   }
   ngOnInit() {
-   
-    this.auth.users$.subscribe(user => this.user = user)
+
+    this.auth.users$.subscribe(user=>this.user =user)
+ console.log(this.user.uid);
+    
   }
 
 }
