@@ -2,6 +2,8 @@ import { Component, AfterViewInit, ViewChild } from '@angular/core';
 import { MatTableDataSource, MatSort, MatDialog, MatPaginator, MAT_SORT_HEADER_INTL_PROVIDER } from '@angular/material';
 import { AngularFirestore } from 'angularfire2/firestore';
 import { BehaviorSubject} from 'rxjs';
+import { AuthService } from '../../shared/auth.service';
+import { AngularFireAuth } from 'angularfire2/auth';
 import { switchMap, endWith } from 'rxjs/operators';
 import { DataSource } from '@angular/cdk/table';
 import { Reference } from '@angular/compiler/src/render3/r3_ast';
@@ -35,12 +37,12 @@ export class AdmintableComponent{
   dataSource: MatTableDataSource<Order>; 
   visitingdate: BehaviorSubject<Date>;
   property:any;
-  
+  userid:any;
 
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
-  constructor(private afs: AngularFirestore, public dialog: MatDialog) {
+  constructor(private afs: AngularFirestore, public dialog: MatDialog,private afauth: AngularFireAuth,private auth:AuthService) {
     
     
   }
@@ -52,10 +54,10 @@ export class AdmintableComponent{
 
 }
   ngAfterViewInit(){
-   
+    this.userid = this.afauth.auth.currentUser.uid;
     var start=new Date(Date.now());
     var end=new Date(Date.now()+1*12*60*60*1000);
-    this.afs.collection<Order>('orders', ref => ref
+    this.afs.collection<Order>(`users/${this.userid}/orders`, ref => ref
     .where('visitingdate', '>', start)
     .where('visitingdate', '<', end)
 ).valueChanges().subscribe(data => {

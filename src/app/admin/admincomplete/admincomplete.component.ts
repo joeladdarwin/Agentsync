@@ -1,5 +1,7 @@
 import { Component, AfterViewInit, ViewChild } from '@angular/core';import { MatTableDataSource, MatSort, MatDialog, MatPaginator, MAT_SORT_HEADER_INTL_PROVIDER } from '@angular/material';
 import { AngularFirestore } from 'angularfire2/firestore';
+import { AngularFireAuth } from 'angularfire2/auth';
+import { AuthService } from '../../shared/auth.service';
 export interface Order {
   Productname:string;
   deliverydate:Date;
@@ -14,11 +16,12 @@ export interface Order {
 export class AdmincompleteComponent {
   displayedColumns = ['no','building','address','date/time','ordervalue','edit/delete'];
   dataSource: MatTableDataSource<Order>; 
+  userid:any;
 property:any;
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
-  constructor(private afs: AngularFirestore, public dialog: MatDialog) {
+  constructor(private afs: AngularFirestore, public dialog: MatDialog,private afauth: AngularFireAuth,private auth:AuthService) {
     
   }
   ngOnInit(){
@@ -27,7 +30,8 @@ property:any;
   }
   ngAfterViewInit() 
   {
-    this.afs.collection<Order>('orders', ref => ref.where
+    this.userid = this.afauth.auth.currentUser.uid;
+     this.afs.collection<Order>(`users/${this.userid}/orders`, ref => ref.where
     ('status','==', 'completed')).valueChanges().subscribe(data => {
       this.dataSource = new MatTableDataSource(data); 
       this.dataSource.sort = this.sort;
