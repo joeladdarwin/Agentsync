@@ -1,13 +1,12 @@
-<app-navbar></app-navbar>
 <div class="row mb-4">
-  <div class="bgdark offset-lg-2 col-lg-8 col-md-12 col-xs-12 col-sm-12">
+  <div class="bgdark col-12">
     <div class="col-md-12">
           <h3 class="text-center text-white">New Order > First Unit</h3>
           <h4 class="text-center sp">Property Size </h4>
     </div>
         <div class="row">
             <div class="col-md-4 col-4 text-left">
-                <button type="button" class="btn btn-link text-white" [routerLink]="['/comments']" routerLinkActive="router-link-active" skipLocationChange>BACK</button>
+                <button type="button" class="btn btn-link text-white" [routerLink]="['/main/comments']" routerLinkActive="router-link-active" skipLocationChange>BACK</button>
             </div>
             <div class="col-md-4 col-4 text-center">
                 <h5>Subtotal:<span class="sp">${{orderprice}}</span></h5>
@@ -19,7 +18,7 @@
 </div>
 </div>
         <div class="row text-center mb-3">
-          <div class="offset-md-3 col-md-6 col-xs-12 my-2">
+          <div class="offset-md-2 col-md-8 col-xs-12 my-2">
             <h3>All set? Please review your order below</h3>
           </div>
         </div>
@@ -31,33 +30,33 @@
             
                <ul>
                     
-                   <li><a [routerLink]="['/placeorder']" routerLinkActive="router-link-active" skipLocationChange>{{propertytype}}</a></li>
-                   <li><a [routerLink]="['/squarefeet']" routerLinkActive="router-link-active" skipLocationChange>{{squarefeet}}</a></li>
-                   <li><a [routerLink]="['/address']" routerLinkActive="router-link-active" skipLocationChange>{{street}}, {{city}}, {{zip}}, <span *ngIf="appartmentunitno !='no unit'">{{appartmentunitno}}</span></a></li>  
-                   <li><a [routerLink]="['/products']" routerLinkActive="router-link-active" skipLocationChange><b>Products</b><br><ul *ngFor="let hero of ordersuarray;let i=index;">
+                   <li><a [routerLink]="['/main/placeorder']" routerLinkActive="router-link-active" skipLocationChange>{{propertytype}}</a></li>
+                   <li><a [routerLink]="['/main/squarefeet']" routerLinkActive="router-link-active" skipLocationChange>{{squarefeet}}</a></li>
+                   <li><a [routerLink]="['/main/address']" routerLinkActive="router-link-active" skipLocationChange>{{street}}, {{city}}, {{zip}}, <span *ngIf="appartmentunitno !='no unit'">{{appartmentunitno}}</span></a></li>  
+                   <li><a [routerLink]="['/main/products']" routerLinkActive="router-link-active" skipLocationChange><b>Products</b><br><ul *ngFor="let hero of ordersuarray;let i=index;">
                     <li class="ml-4 pl-2">{{hero}}</li>
                   
                   </ul></a>
                   </li>
                 
-                  <li *ngIf="ispaddonarray"><a [routerLink]="['/addons']" routerLinkActive="router-link-active" skipLocationChange><b>Photography Addons</b>
+                  <li *ngIf="ispaddonarray"><a [routerLink]="['/main/addons']" routerLinkActive="router-link-active" skipLocationChange><b>Photography Addons</b>
                       <ul *ngFor="let hero of paddonsuarray;let i=index;">
                         <li class="ml-4 pl-2">{{hero}}</li>
                       
                       </ul>
                     </a>
                   </li>
-                  <li *ngIf="isvaddonarray"><a [routerLink]="['/addonsv']" routerLinkActive="router-link-active" skipLocationChange><b>Video Addons</b>
+                  <li *ngIf="isvaddonarray"><a [routerLink]="['/main/addonsv']" routerLinkActive="router-link-active" skipLocationChange><b>Video Addons</b>
                       <ul *ngFor="let hero of vaddonsuarray;let i=index;">
                         <li class="ml-4 pl-2">{{hero}}</li>
                       
                       </ul>
                     </a>
                   </li>
-                   <li><a [routerLink]="['/access']" routerLinkActive="router-link-active" skipLocationChange>{{accessproperty}}</a></li>
-                   <li *ngIf="accesspropertycode!='No Code'"><a [routerLink]="['/access']" routerLinkActive="router-link-active" skipLocationChange>{{accesspropertycode}}</a></li>
-                   <li><a [routerLink]="['/visitingdate']" routerLinkActive="router-link-active" skipLocationChange>{{visitingdatenow | date: 'medium' }}</a></li>
-                   <li *ngIf="comment != ''"><a [routerLink]="['/comment']" routerLinkActive="router-link-active" skipLocationChange>{{comment}}</a></li>
+                   <li><a [routerLink]="['/main/access']" routerLinkActive="router-link-active" skipLocationChange>{{accessproperty}}</a></li>
+                   <li *ngIf="accesspropertycode!='No Code'"><a [routerLink]="['/main/access']" routerLinkActive="router-link-active" skipLocationChange>{{accesspropertycode}}</a></li>
+                   <li><a [routerLink]="['/main/visitingdate']" routerLinkActive="router-link-active" skipLocationChange>{{visitingdatenow | date: 'medium' }}</a></li>
+                   <li *ngIf="comment != ''"><a [routerLink]="['/main/comment']" routerLinkActive="router-link-active" skipLocationChange>{{comment}}</a></li>
                </ul>
                 <button class="btn btn2 btn-block mx-auto mb-5 py-3" (click)="submitorder()" >ADD TO CART</button>
           </div>

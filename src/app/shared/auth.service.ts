@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router'; 
 import * as firebase from 'firebase/app';
-import { AngularFireAuth } from 'angularfire2/auth';
+import { AngularFireAuth, } from 'angularfire2/auth';
+import { FirebaseAuth } from 'angularfire2';
+import { auth} from 'firebase/app'
 import { AngularFirestore, AngularFirestoreDocument } from 'angularfire2/firestore'
 import { Observable, of } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
@@ -17,7 +19,7 @@ import { first, map, mergeMap, flatMap, take } from 'rxjs/operators';
 @Injectable()
 export class AuthService {
   users$ : Observable<User>;
-  authState: any = null;
+  authState = null;
   error: any = null;
   uid$;
   user;
@@ -138,12 +140,13 @@ export class AuthService {
   clientcreateorder(orderid,order) {
     console.log("pass")
     var uid = this.currentUserId;
+    var orderby= this.displayName;
     const userorderRef$: AngularFirestoreDocument<any> = this.afs.doc<Order>(`users/${uid}/orders/${orderid}`);
     const orderRef$: AngularFirestoreDocument<any> = this.afs.doc<Order>(`orders/${orderid}`);
     const orderdata: Order =
     {
       orderid: orderid,
-      orderby: this.displayName,
+      orderby: orderby,
       uid : uid,
       propertytype: order.propertytype,
       address:order.address,
@@ -239,7 +242,7 @@ export class AuthService {
         this.authState = user
         // this.getinfo()
         
-        this.router.navigate(['/main'])
+        this.router.navigate(['/main/home'])
        
       }
     ).catch(error => {

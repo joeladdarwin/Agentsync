@@ -95,7 +95,7 @@ doc.autoTable(res.columns, res.data,{
 //agent address
     doc.text(b, 50 ,155);
     doc.text(c,d,e,50,165);
-    doc.text("Joelad1567@hotmail.com", 50,175);
+    doc.text("admin@agent-sync.com", 50,175);
     doc.text("Phone Number : +91 800-757-4567", 50,185);
     //order details
     doc.text("Order No  :",440,160);

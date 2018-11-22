@@ -1,4 +1,4 @@
-<app-navbar></app-navbar>
+
 <div class="row">
   <div class="bg-dark offset-lg-2 col-lg-8 col-md-12 col-xs-12 col-sm-12">
     <div class="col-md-12">
@@ -15,14 +15,15 @@
 </div>
 </div>
 <div class="col-md-8 mx-auto">
-       
-        <div class="row mt-5">
-               <div class="col-md-4 col-4 tr" *ngFor="let order of orders | async">
-                       <a (click)="query(order.orderid,order.orderby,order.address.street,order.address.city,order.address.zip )"><i class="fa fa-file-pdf-o" style="font-size:48px;color:red"></i> 
-                       <p class="text-center my-3"  >{{ order.orderid}}</p></a>
-                         </div>
-                 
+        <div class="mt-5 d-flex flex-wrap justify-content-center">
+          <div class="p-2 mx-2 text-center mx-auto" *ngFor="let order of orders | async">
+                <a (click)="query(order.orderid,order.orderby,order.address.street,order.address.city,order.address.zip )"><i class="fa fa-file-pdf-o"
+                    style="font-size:48px;color:#000000"></i><br>
+                    {{ order.orderid}}</a>
+
+          </div>
         </div>
+    
        
    </div>
    <table id="content" style="display: none;" >
@@ -38,11 +39,11 @@
         <td>{{(property |async)?.orders}}</td>
         <td>{{(property |async)?.ordersprice}}</td>
       </tr>
-      <tr>
+      <tr *ngIf="(property |async)?.Photographyaddons">
         <td>{{(property |async)?.Photographyaddons}}</td>
         <td>{{(property |async)?.Photographyaddonsprice}}</td>
       </tr>
-      <tr>
+      <tr *ngIf="(property |async)?.Videoaddons" >
         <td>{{(property |async)?.Videoaddons}}</td>
         <td>{{(property |async)?.VideoaddonsPrice}}</td>
       </tr>

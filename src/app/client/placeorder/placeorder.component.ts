@@ -17,11 +17,11 @@ export class PlaceorderComponent implements OnInit {
    
     if(build ==="Appartment")
     {
-      this.router.navigate(["/units"], { skipLocationChange: true })
+      this.router.navigate(["main/order/units"], { skipLocationChange: true })
       this.client.setpropertytype(build)
     }
     else{
-      this.router.navigate(['/address'], { skipLocationChange: true })
+      this.router.navigate(['main/order/address'], { skipLocationChange: true })
       this.client.setpropertytype(build)
     }
   }
