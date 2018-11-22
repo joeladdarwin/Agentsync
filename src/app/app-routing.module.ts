@@ -57,43 +57,40 @@ import { AddonvComponent } from './client/addonv/addonv.component';
 import { PriceComponent } from './client/price/price.component';
 import { FooterComponent } from './client/footer/footer.component';
 import { MainComponent } from './client/main/main.component';
+import { ContainerComponent } from './client/container/container.component';
+import { OrderComponent } from './client/order/order.component';
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
-  
+  { path: 'main', component: ContainerComponent,
+    children: [{ path: ' ', redirectTo: 'home' },
+      { path: 'home', component: DashboardComponent  },
+               { path: 'order', component: OrderComponent,
+                 children: [{ path: ' ', redirectTo: 'placeorder' },
+                   { path: 'placeorder', component: PlaceorderComponent },
+                   { path: 'address', component: AddressComponent },
+                   { path: 'units', component: UnitsComponent },
+                   { path: 'addonsp', component: AddonsComponent },
+                   { path: 'addons', component: AddonsComponent },
+                   { path: 'addonsv', component: AddonsvComponent },
+                   { path: 'access', component: AccessComponent },
+                   { path: 'products', component: ProductsComponent },
+                   { path: 'meet', component: MeetComponent },
+                   { path: 'visitingdate', component: VisitingdateComponent },
+                   { path: 'visitingtime', component: VisitingtimeComponent },
+                   { path: 'squarefeet', component: SquarefeetComponent },
+                   { path: 'comments', component: CommentsComponent },
+                   { path: 'revieworder', component: RevieworderComponent },
+                   { path: 'updateorder', component: UpdateorderComponent },
+                   { path: 'completeorder', component: CompleteorderComponent },] },  
+              
+               { path: 'delivery', component: DeliveryComponent }, 
+               { path: 'myorder', component: MyorderComponent }, ] },
   { path: 'forget', component: ForgetComponent },
   { path: 'thanks', component: ThanksComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'forget', component: ForgetComponent },
   { path: '', redirectTo: '/login', pathMatch: 'full' },
-  { path: 'main', component: DashboardComponent },
-  { path: 'test', component: MainComponent },
-  { path: 'footer', component: FooterComponent },
-  { path: 'navbar', component: NavbarComponent },
-  { path: 'forget', component: ForgetComponent },
+  { path: 'hh', component: MainComponent },
   { path: 'price', component: PriceComponent },
-  { path: 'placeorder', component: PlaceorderComponent },
-  { path: 'address', component: AddressComponent },
-  { path: 'addonsp', component: AddonsComponent },
-
-  { path: 'addons', component: AddonsComponent },
-
- 
-  { path: 'addonsv', component: AddonsvComponent },
-
-
-{ path: 'access', component: AccessComponent },
-  { path: 'units', component: UnitsComponent },
-  { path: 'products', component: ProductsComponent },
-  { path: 'meet', component: MeetComponent },
-  { path: 'visitingdate', component: VisitingdateComponent },
-  { path: 'visitingtime', component: VisitingtimeComponent },
-  { path: 'squarefeet', component: SquarefeetComponent },
-  { path: 'comments', component: CommentsComponent },
-  { path: 'revieworder', component: RevieworderComponent },
-  { path: 'updateorder', component: UpdateorderComponent },
-  { path: 'completeorder', component: CompleteorderComponent },
-  { path: 'delivery', component: DeliveryComponent },
-  { path: 'myorder', component: MyorderComponent },
   { path: 'myaccount', component: MyaccountComponent },
   { path: 'deliveries', component: DeliveriesComponent },
   { path: 'invoice', component: InvoiceComponent },

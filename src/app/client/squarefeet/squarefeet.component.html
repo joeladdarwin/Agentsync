@@ -1,7 +1,7 @@
-<app-navbar></app-navbar>
+
 <div class="row">
-  <div class="bgdark offset-lg-2 col-lg-8 col-md-12 col-xs-12 col-sm-12">
-      <div class="col-md-12">
+  <div class="bgdark col-12">
+      <div class="col-12">
           <h3 class="text-center text-white">New Order > First Unit</h3>
           <h4 class="text-center">Property Size</h4>
         </div>
@@ -26,7 +26,7 @@
           </div>
 </div>
 <div class="row">
-        <div class="col-xs-12 my-2 py-md-2 offset-md-3 col-md-6 lg-offset-3 col-lg-6"> 
+        <div class="offset-2 col-8"> 
           
             <button type="button" class="btn btn1 btn-md py-sm-4 py-md-3 btn-block" (click)="updatesqft($event, '0-750')" [ngClass]="{btn4:is0750sel}">0-750 SF</button>
             <button type="button" class="btn btn1 btn-md py-sm-4 py-md-3 btn-block" (click)="updatesqft($event, '751-1500')" [ngClass]="{btn4:is751sel}">751-1500 SF</button>
@@ -42,6 +42,6 @@
       
 </div>
      
-            <app-footer></app-footer>
+        
      
     

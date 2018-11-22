@@ -33,9 +33,12 @@ this.isAppartment = false;
    
   }
 }
-
+  
   get af() { return this.addressformgroup.controls; }
-    
+    pl()
+    {
+      this.cli.gotoplaceorder();
+    }
   Onaddresssubmit()
   {
     console.log(this.addressformgroup.value);
