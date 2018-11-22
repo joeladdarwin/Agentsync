@@ -82,7 +82,7 @@ const routes: Routes = [
                    { path: 'revieworder', component: RevieworderComponent },
                    { path: 'updateorder', component: UpdateorderComponent },
                    { path: 'completeorder', component: CompleteorderComponent },] },  
-              
+                   { path: 'myaccount', component: MyaccountComponent },
                { path: 'delivery', component: DeliveryComponent }, 
                { path: 'myorder', component: MyorderComponent }, ] },
   { path: 'forget', component: ForgetComponent },
@@ -91,7 +91,7 @@ const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'hh', component: MainComponent },
   { path: 'price', component: PriceComponent },
-  { path: 'myaccount', component: MyaccountComponent },
+ 
   { path: 'deliveries', component: DeliveriesComponent },
   { path: 'invoice', component: InvoiceComponent },
   { path: 'profile', component: ProfileComponent },
