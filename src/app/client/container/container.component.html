@@ -3,7 +3,8 @@
       <mat-sidenav-container class="example-container">
         <mat-sidenav #sidenav [mode]="over" class="bgdark">
           <div class="col-12 ">
-            <img src="/assets/profile.png">
+          <img src="../../../assets/image/icons/exit.png" class="img-fluid" >
+            <img src="../../../assets/image/icons/profile.png" class="img-thumbnail img-fluid">
             <h3 class="text-white">Linda Green</h3><br>
             <nav>
               <ul class="navbar-nav mx-auto my-2 nav-fill w-100">
@@ -18,13 +19,13 @@
                   <a class="nav-link text-white" [routerLink]="['./myorder']" routerLinkActive="active">My Orders</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link text-white" [routerLink]="['/myaccount']" routerLinkActive="active">My Account</a>
+                  <a class="nav-link text-white" [routerLink]="['./myaccount']" routerLinkActive="active">My Account</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link text-white" [routerLink]="['/delivery']" routerLinkActive="active">Deliveries</a>
+                  <a class="nav-link text-white" [routerLink]="['./delivery']" routerLinkActive="active">Deliveries</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link text-white" [routerLink]="['/profile']" routerLinkActive="active">Profile </a>
+                  <a class="nav-link text-white" [routerLink]="['./profile']" routerLinkActive="active">Profile </a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link text-white">Logout</a>
