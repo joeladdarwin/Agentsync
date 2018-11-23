@@ -18,13 +18,13 @@
                   <a class="nav-link text-white" [routerLink]="['./myorder']" routerLinkActive="active">My Orders</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link text-white" [routerLink]="['/myaccount']" routerLinkActive="active">My Account</a>
+                  <a class="nav-link text-white" [routerLink]="['./myaccount']" routerLinkActive="active">My Account</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link text-white" [routerLink]="['/delivery']" routerLinkActive="active">Deliveries</a>
+                  <a class="nav-link text-white" [routerLink]="['./delivery']" routerLinkActive="active">Deliveries</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link text-white" [routerLink]="['/profile']" routerLinkActive="active">Profile </a>
+                  <a class="nav-link text-white" [routerLink]="['./profile']" routerLinkActive="active">Profile </a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link text-white">Logout</a>
@@ -34,8 +34,8 @@
             </nav>
           </div>
         </mat-sidenav>
-        <mat-sidenav-content>
-            <div class="example-sidenav-content">
+        <mat-sidenav-content class="col-12 bg-white">
+            <div class="example-sidenav-content  ">
               <div class="row">
                 <div class="col-12 bgdark">
                   <button type="button" style="background-color:#636363; width: 3vw;" mat-button (click)="sidenav.toggle()">
@@ -45,9 +45,14 @@
               </div>
             </div>
               <router-outlet></router-outlet>
+          <div class="col-12">
               <app-footer></app-footer>
+          </div>
+      
+
         </mat-sidenav-content>
       </mat-sidenav-container>
+      
       <!-- <mat-drawer-container class="row example-container" autosize>
         <mat-drawer #drawer class="example-sidenav  bgdark" mode="side">
          
@@ -56,10 +61,9 @@
         </mat-drawer>
       
       
-          <!-- <app-access></app-access> -->
+          <app-access></app-access> -->
         <!-- </div>
       
-      </mat-drawer-container> --> -->
-      
+      </mat-drawer-container> -->
   </div>
 </div>
