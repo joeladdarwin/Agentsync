@@ -1,3 +1,7 @@
 mat-sidenav {
   width: 200px;
 }
+li:hover{
+  background-color: #F07C49;
+
+}

@@ -12,13 +12,13 @@
     
   
 </div>
-<p>LINDA GREEN</p><hr>    
+<p>{{(profile | async)?.displayName | titlecase }}</p><hr>    
     </div>
     <div class="col-md-12"> 
           <div class="form-group row">
                   <label for="example-text-input" class="col-5 col-form-label">Name</label>
                   <div class="col-7">
-                          <label for="example-text-input" >{{auth.displayName}}</label>
+                          <label for="example-text-input" >{{(profile | async)?.displayName | titlecase }}</label>
                   </div>
                 </div><hr>
                 <div class="form-group row">

@@ -3,7 +3,11 @@
       <mat-sidenav-container class="example-container">
         <mat-sidenav #sidenav [mode]="over" class="bgdark">
           <div class="col-12 ">
-            <img src="/assets/profile.png">
+            <button type="button" style="background-color:#636363; width: 3vw;" mat-button (click)="sidenav.toggle()">
+              <img src="../../../assets/image/icons/exit.png" class="img-fluid">
+            </button>
+        
+            <img src="../../../assets/image/icons/profile.png" class="img-thumbnail img-fluid">
             <h3 class="text-white">Linda Green</h3><br>
             <nav>
               <ul class="navbar-nav mx-auto my-2 nav-fill w-100">
@@ -20,10 +24,10 @@
                 <li class="nav-item">
                   <a class="nav-link text-white" [routerLink]="['./myaccount']" routerLinkActive="active">My Account</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item"> 
                   <a class="nav-link text-white" [routerLink]="['./delivery']" routerLinkActive="active">Deliveries</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item"> 
                   <a class="nav-link text-white" [routerLink]="['./profile']" routerLinkActive="active">Profile </a>
                 </li>
                 <li class="nav-item">

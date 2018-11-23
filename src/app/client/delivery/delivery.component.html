@@ -44,7 +44,15 @@
                                             
                                             
                                           </div>
-                                          
+                                           <div class="mt-5 d-flex flex-wrap justify-content-center">
+                                            <div class="p-2 mx-2 text-center mx-auto" *ngFor="let propv of (property|async)?.Videotour; let i = index ">
+                                             <a [href]="propv" download> <video width="250" height="250" controls>
+                                              <source [src]="propv" > 
+                                            </video></a>
+                                            </div> 
+                                            
+                                            
+                                          </div>
                                         
                                       
                                       

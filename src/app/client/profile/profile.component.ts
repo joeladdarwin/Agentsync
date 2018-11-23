@@ -29,6 +29,10 @@ export class ProfileComponent implements OnInit, AfterViewInit {
     console.log("darwin"+this.userid);
     console.log(this.user + "is the uid")
   }
+  gotoeditprofile()
+  {
+    this.cli.goeditprofile()
+  }
   ngOnInit() {
 
     this.auth.users$.subscribe(user=>this.user =user)
