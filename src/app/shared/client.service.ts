@@ -202,6 +202,10 @@ return this.auth.clientqueryorderlen()
   {
     this.router.navigate(['/main/order/placeorder'], { skipLocationChange: true });
   }
+  goeditprofile()
+  {
+    this.router.navigate(['/main/myaccount/editprofile'], { skipLocationChange: true });
+  }
   // End of Appartment unit
   //Address
   

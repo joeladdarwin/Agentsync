@@ -55,10 +55,13 @@ import { AgentorderComponent } from './agent/agentorder/agentorder.component';
 import { Agentregister1Component } from './agent/agentregister1/agentregister1.component';
 import { AddonvComponent } from './client/addonv/addonv.component';
 import { PriceComponent } from './client/price/price.component';
-import { FooterComponent } from './client/footer/footer.component';
 import { MainComponent } from './client/main/main.component';
 import { ContainerComponent } from './client/container/container.component';
 import { OrderComponent } from './client/order/order.component';
+import { MakepaymentComponent } from './client/makepayment/makepayment.component';
+import { PaymentinfoComponent } from './client/paymentinfo/paymentinfo.component';
+import { MyaccountcontainerComponent } from './client/myaccountcontainer/myaccountcontainer.component';
+
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'main', component: ContainerComponent,
@@ -82,20 +85,26 @@ const routes: Routes = [
                    { path: 'revieworder', component: RevieworderComponent },
                    { path: 'updateorder', component: UpdateorderComponent },
                    { path: 'completeorder', component: CompleteorderComponent },] },  
-                   { path: 'myaccount', component: MyaccountComponent },
+               { path: 'myaccount', component:MyaccountcontainerComponent , children:[
+                 { path: 'main', component: MyaccountComponent },
+                 { path: ' ', redirectTo: 'main'},
+                 { path: 'pay', component: MakepaymentComponent  },
+                 { path: 'paymentinfo', component: PaymentinfoComponent  },
+                 { path: 'invoice', component: InvoiceComponent },
+                
+                 { path: 'editprofile', component: EditprofileComponent },
+               ] }, 
                { path: 'delivery', component: DeliveryComponent }, 
-               { path: 'myorder', component: MyorderComponent }, ] },
+               { path: 'myorder', component: MyorderComponent },
+                { path: 'profile', component: ProfileComponent }, ] },
   { path: 'forget', component: ForgetComponent },
   { path: 'thanks', component: ThanksComponent },
   { path: 'register', component: RegisterComponent },
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'hh', component: MainComponent },
   { path: 'price', component: PriceComponent },
- 
   { path: 'deliveries', component: DeliveriesComponent },
-  { path: 'invoice', component: InvoiceComponent },
-  { path: 'profile', component: ProfileComponent },
-  { path: 'editprofile', component: EditprofileComponent },
+  
   { path: 'adlogin', component: AdminloginComponent },
   { path: 'addashboard', component: AdmindashboardComponent, canActivate: [AdminGuard]},
   { path: 'adorders', component: AdminorderComponent, canActivate: [AdminGuard]},
@@ -114,7 +123,7 @@ const routes: Routes = [
   { path: 'adnew', component: AdminnewComponent, canActivate: [AdminGuard]},
   { path: 'adpending', component: AdminpendingComponent, canActivate: [AdminGuard]},
   { path: 'adcomplete', component: AdmincompleteComponent, canActivate: [AdminGuard]},
-  { path: 'addonsv', component: AddonvComponent },
+ 
 ];
 
 

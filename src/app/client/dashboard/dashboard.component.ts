@@ -19,7 +19,7 @@ avisosTest :Observable<any>;
    }
 
   myaccount(){
-    this.router.navigate(['/main/myaccount'], { skipLocationChange: true } )
+    this.router.navigate(['/main/myaccount/main'], { skipLocationChange: true } )
   }
 
   delivery(){
