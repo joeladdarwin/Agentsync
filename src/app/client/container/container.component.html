@@ -4,8 +4,11 @@
         <mat-sidenav #sidenav [mode]="over" class="bgdark">
           <div class="col-12 ">
           <img src="../../../assets/image/icons/exit.png" class="img-fluid" >
+          <div class="col-md-10 mx-auto">
             <img src="../../../assets/image/icons/profile.png" class="img-thumbnail img-fluid">
-            <h3 class="text-white">Linda Green</h3><br>
+            <h3 class="text-white">{{(profile | async)?.displayName | titlecase }}</h3><br>
+          </div>
+            
             <nav>
               <ul class="navbar-nav mx-auto my-2 nav-fill w-100">
                 <li class="nav-item">
@@ -19,16 +22,17 @@
                   <a class="nav-link text-white" [routerLink]="['./myorder']" routerLinkActive="active">My Orders</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link text-white" [routerLink]="['/myaccount/main']" routerLinkActive="active">My Account</a>
+                  <a class="nav-link text-white" [routerLink]="['./myaccount/']" routerLinkActive="active">My Account</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link text-white" [routerLink]="['./delivery']" routerLinkActive="active">Deliveries</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link text-white" [routerLink]="['./profile']" routerLinkActive="active">Profile </a>
+                  <a class="nav-link text-white" [routerLink]="['./profile/']" routerLinkActive="active">Profile </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link text-white">Logout</a>
+                
+                  <a class="nav-link text-white" [routerLink]="['/']" routerLinkActive="active">Logout</a>
                 </li>
             
               </ul>
@@ -53,14 +57,13 @@
         <mat-drawer #drawer class="example-sidenav  bgdark" mode="side">
          
          
-
         </mat-drawer>
       
       
           <!-- <app-access></app-access> -->
         <!-- </div>
       
-      </mat-drawer-container> --> -->
+      </mat-drawer-container> -->
       
   </div>
 </div>
