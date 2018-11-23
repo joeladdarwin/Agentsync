@@ -3,19 +3,17 @@
       <mat-sidenav-container class="example-container">
         <mat-sidenav #sidenav [mode]="over" class="bgdark">
           <div class="col-12 ">
-<<<<<<< HEAD
           <img src="../../../assets/image/icons/exit.png" class="img-fluid" >
-          <div class="col-md-10 mx-auto">
-=======
-            <button type="button" style="background-color:#636363; width: 3vw;" mat-button (click)="sidenav.toggle()">
-              <img src="../../../assets/image/icons/exit.png" class="img-fluid">
-            </button>
-        
->>>>>>> dc7b49eb8b8acd5396f6dabb6b2ece8c93347922
-            <img src="../../../assets/image/icons/profile.png" class="img-thumbnail img-fluid">
-            <h3 class="text-white">{{(profile | async)?.displayName | titlecase }}</h3><br>
-          </div>
-            
+          <div class="col-10 mx-auto" *ngIf="(profile | async)?.url === empty ; else templateName"><img src='https://firebasestorage.googleapis.com/v0/b/agent-sync-sonderworks.appspot.com/o/userprofile%2Fuser.jpg?alt=media&token=d3b47a22-a861-4c7a-9104-bef874ea39bf'
+            class="img-thumbnail img-fluid"></div>
+            <ng-template  #templateName>
+              <div class="col-10 mx-auto">
+              <img [src]="(profile | async)?.url" class="img-thumbnail img-fluid">
+            </div>
+            </ng-template>
+          
+            <h5 class="text-white mx-2 my-2">{{(profile | async)?.displayName | titlecase }}</h5>
+          
             <nav>
               <ul class="navbar-nav mx-auto my-2 nav-fill w-100">
                 <li class="nav-item">
@@ -29,22 +27,13 @@
                   <a class="nav-link text-white" [routerLink]="['./myorder']" routerLinkActive="active">My Orders</a>
                 </li>
                 <li class="nav-item">
-<<<<<<< HEAD
-                  <a class="nav-link text-white" [routerLink]="['./myaccount/']" routerLinkActive="active">My Account</a>
-=======
                   <a class="nav-link text-white" [routerLink]="['./myaccount']" routerLinkActive="active">My Account</a>
->>>>>>> dc7b49eb8b8acd5396f6dabb6b2ece8c93347922
                 </li>
                 <li class="nav-item"> 
                   <a class="nav-link text-white" [routerLink]="['./delivery']" routerLinkActive="active">Deliveries</a>
                 </li>
-<<<<<<< HEAD
-                <li class="nav-item">
-                  <a class="nav-link text-white" [routerLink]="['./profile/']" routerLinkActive="active">Profile </a>
-=======
                 <li class="nav-item"> 
                   <a class="nav-link text-white" [routerLink]="['./profile']" routerLinkActive="active">Profile </a>
->>>>>>> dc7b49eb8b8acd5396f6dabb6b2ece8c93347922
                 </li>
                 <li class="nav-item">
                 
@@ -55,8 +44,8 @@
             </nav>
           </div>
         </mat-sidenav>
-        <mat-sidenav-content class="col-12 bg-white">
-            <div class="example-sidenav-content  ">
+        <mat-sidenav-content>
+            <div class="example-sidenav-content">
               <div class="row">
                 <div class="col-12 bgdark">
                   <button type="button" style="background-color:#636363; width: 3vw;" mat-button (click)="sidenav.toggle()">
@@ -66,14 +55,9 @@
               </div>
             </div>
               <router-outlet></router-outlet>
-          <div class="col-12">
               <app-footer></app-footer>
-          </div>
-      
-
         </mat-sidenav-content>
       </mat-sidenav-container>
-      
       <!-- <mat-drawer-container class="row example-container" autosize>
         <mat-drawer #drawer class="example-sidenav  bgdark" mode="side">
          
@@ -81,13 +65,10 @@
         </mat-drawer>
       
       
-          <app-access></app-access> -->
+          <!-- <app-access></app-access> -->
         <!-- </div>
       
       </mat-drawer-container> -->
-<<<<<<< HEAD
       
-=======
->>>>>>> dc7b49eb8b8acd5396f6dabb6b2ece8c93347922
   </div>
 </div>
