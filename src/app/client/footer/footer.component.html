@@ -1,5 +1,5 @@
 <div class="row " style="margin-bottom:45px; " >
-  <div class="col-sm-12 col-offset-2 text-center mt-5">
+  <div class=" offset-lg-2 col-lg-8 col-md-12 col-xs-12 col-sm-12 text-center mt-5">
     <div  (swipe)="onSwipe($event)"   >
        
         <i class="fa fa-angle-up mx-auto"></i>
@@ -9,9 +9,9 @@
 </div>
 
 
-<div [@slideInOut]="priceStatus" style="position:absolute" [ngStyle]="{'display':priceStatus ==='out'?'none':'block'}"class="row" id="headerback">
+<div [@slideInOut]="priceStatus" style="position:absolute" [ngStyle]="{'display':priceStatus ==='out'?'none':'block'}"class="col-sm-12" id="headerback">
     <div  style="margin-bottom:45px" >
-        <div class="col-sm-12 col-offset-2 text-center">
+        <div class="col-sm-12 offset-lg-2 col-lg-8 col-md-12 col-xs-12 col-sm-12 text-center">
           <div  (swipe)="onSwipe($event)"   >
              
               <i class="fa fa-angle-down mx-auto"></i>
@@ -21,16 +21,16 @@
         </div>
       </div>
   
-  <div class="col-md-12 text-center" id="view">
-  <span class="rounded-circle mb-4 bg-white"><img src="/assets/image/icons/icon-72x72.png" class="p-2"></span>
-</div>
-<div class="menu mb-2 bg-white border border-grey">
-  <h3 class="text-center p-3  ">PRICE MENU</h3>
-</div>
-<div class="col-12">
+      <div class="  col-sm-12 text-center" id="view">
+        <span class="rounded-circle mb-4 bg-white"><img src="../../../assets/icons/icon-72x72.png" class="p-2"></span>
+      </div>
+      <div class="w-lg-50 mb-2 bg-white border border-grey">
+        <h3 class="text-center p-3 my-1 ">PRICE MENU</h3>
+      </div>
+<div class=" col-12 ">
 <!-- Nav pills  Horizontal-->
 <!-- for desktop -->
-    <div class="d-none d-md-block d-lg-block d-xl-block">
+    <div class="d-md-block d-none col-sm-12">
         <ul class="nav nav-pills nav-fill" role="tablist" id="horizontaltab">
             <li class="nav-item" >
               <a class="nav-link active " data-toggle="pill" href="#PHOTOGRAPHY">PHOTOGRAPHY</a>
