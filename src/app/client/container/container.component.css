@@ -13,14 +13,14 @@ li:hover{
 }
 .orderquery{
   position:absolute;
-  top:219px;
-  margin-left:15px;
+  top:384px;
+  margin-left:24px;
 }
 @media only screen and (max-width: 600px) {
   .orderquery{
     position:absolute;
-    top:216px;
-  margin-left:-54px;
+    top:400px;
+  margin-left:-41px;
   }
  
 }

@@ -3,19 +3,19 @@
     <div  (swipe)="onSwipe($event)"   >
        
         <i class="fa fa-angle-up mx-auto"></i>
-        <h1 class="swipe">Slide to View Price</h1>
+        <h1 class="swipe"> View Price</h1>
     </div>
   </div>
 </div>
 
 
-<div [@slideInOut]="priceStatus" style="position:absolute" [ngStyle]="{'display':priceStatus ==='out'?'none':'block'}"class="col-sm-12" id="headerback">
+<div [@slideInOut]="priceStatus" style="position:absolute;padding-left: 0;padding-right: 0;" [ngStyle]="{'display':priceStatus ==='out'?'none':'block'}"class="col-sm-12 d-md-none d-lg-none d-xl-none d-sm-block" id="headerback">
     <div  style="margin-bottom:45px" >
         <div class="col-sm-12 offset-lg-2 col-lg-8 col-md-12 col-xs-12 col-sm-12 text-center">
           <div  (swipe)="onSwipe($event)"   >
              
               <i class="fa fa-angle-down mx-auto"></i>
-              <h1 class="swipe">Slide down to Hide Price</h1>
+              <h1 class="swipe"> Hide Price</h1>
              
           </div>
         </div>

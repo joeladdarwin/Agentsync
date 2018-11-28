@@ -10,15 +10,15 @@
           <img [src]="(profile | async)?.url" class="img-thumbnail img-fluid">
       </ng-template>
        
-          <p>{{(profile | async)?.displayName | titlecase }} </p>
+          <p class="my-4 font-weight-bold">{{(profile | async)?.displayName | titlecase }} </p>
           <hr>
-          <p>{{(profile | async)?.email}}</p>
+          <p class="my-4 font-weight-bold">{{(profile | async)?.email}}</p>
           <hr>
-          <p> {{(profile | async)?.phonenumber}}</p>
+          <p class="my-4 font-weight-bold"> {{(profile | async)?.phonenumber}}</p>
           <hr>
-          <p> {{(profile | async)?.brokerage}}</p>
+          <p class="my-4 font-weight-bold"> {{(profile | async)?.brokerage}}</p>
           <hr>
-          <p>Payment Info: <span>Not set up yet</span></p>
+          <p class="my-4 font-weight-bold">Payment Info: <span>Not set up yet</span></p>
           <hr>
           <button type="button" class="btn btn1" (click)="gotoeditprofile()">Edit Profile</button>
       </div>

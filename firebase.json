@@ -13,11 +13,17 @@
     "source": "functions"
   },
   "hosting": {
-    "public": "dist/agent-sync",
+    "public": "dist/agentsync",
     "ignore": [
       "firebase.json",
       "**/.*",
       "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
     ]
   },
   "storage": {

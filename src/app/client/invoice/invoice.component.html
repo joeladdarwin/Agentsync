@@ -19,7 +19,7 @@
           <div class="p-2 mx-2 text-center mx-auto" *ngFor="let order of orders | async">
                 <a (click)="query(order.orderid,order.orderby,order.address.street,order.address.city,order.address.zip )"><i class="fa fa-file-pdf-o"
                     style="font-size:48px;color:#000000"></i><br>
-                    {{ order.orderid}}</a>
+                    {{ order.visitingdate.toDate() |date:'MMM d'}}</a>
 
           </div>
         </div>
