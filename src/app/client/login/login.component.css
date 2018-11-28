@@ -34,6 +34,7 @@ input{
 
    
     @media screen and(max-width:750){
+        
         .btn4
   {
     color: white;
@@ -44,7 +45,23 @@ input{
         color: white;
         background-color:#A1A1A1;
         border-radius:25px;
-       
+        font-size: .9rem;
     }    
+    
+    }
+    @media screen and(max-width:420px){
+        .btn5{
+           
+        font-size:.90rem;
+    
+        }
+    
+    }
+     @media screen and(max-width:320px){
+        .btn5{
+           
+        font-size:.80rem;
+    
+        }
     
     }

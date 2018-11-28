@@ -5,41 +5,41 @@
        
 <div class="image-upload">
     <label for="file-input">
-       <i class="fa fa-edit custom-edit"></i>
+       <i class="fa fa-edit custom-edit mx-auto"></i>
     </label>
   
     <input id="file-input" type="file" single=true (change)="upload($event)"  name="file-input" accept=".png,.jpg">
     
   
 </div>
-<p>{{(profile | async)?.displayName | titlecase }}</p><hr>    
+
     </div>
     <div class="col-md-12"> 
           <div class="form-group row">
-                  <label for="example-text-input" class="col-5 col-form-label">Name</label>
-                  <div class="col-7">
-                          <label for="example-text-input" >{{(profile | async)?.displayName | titlecase }}</label>
+                  <label for="example-text-input" class="col-4 col-form-label">Name</label>
+                  <div class="col-8">
+                          <p class="font-weight-bold">{{(profile | async)?.displayName | titlecase }}</p>
                   </div>
                 </div><hr>
                 <div class="form-group row">
-                  <label for="example-search-input" class="col-5 col-form-label">Email</label>
-                  <div class="col-7">
-                          <label for="example-text-input" >{{(profile | async)?.email}} </label>
+                  <label for="example-search-input" class="col-4 col-form-label">Email</label>
+                  <div class="col-8">
+                          <p class="font-weight-bold" >{{(profile | async)?.email}} </p>
                   </div>
                 </div>
                 <hr>
                 <div class="form-group row">
-                  <label for="example-email-input" class="col-5 col-form-label">Brokerage</label>
-                  <div class="col-7">
-                          <label for="example-text-input" >{{(profile | async)?.brokerage}}</label>
+                  <label for="example-email-input" class="col-4 col-form-label">Brokerage</label>
+                  <div class="col-8">
+                          <p class="font-weight-bold">{{(profile | async)?.brokerage}}</p>
                  </div>
                  </div>
                 <hr>
                 
                 <div class="form-group row">
-                    <label for="example-search-input" class="col-5 col-form-label">Phone number</label>
-                    <div class="col-7">
-                            <label for="example-text-input" >{{(profile | async)?.phonenumber}} </label>
+                    <label for="example-search-input" class="col-4 col-form-label">Phone number</label>
+                    <div class="col-8">
+                            <p class="font-weight-bold" >{{(profile | async)?.phonenumber}} </p>
                     </div>
                   </div>
                 <hr>

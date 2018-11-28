@@ -33,7 +33,7 @@ input.ng-invalid.ng-dirty
     border: 2px solid #434343;
 }
 @media screen and (max-width: 780px) {
-    bgrd{
+    .bgrd{
         background-image: url('/assets/image/background/mobile/mobileback.png');
     }
     

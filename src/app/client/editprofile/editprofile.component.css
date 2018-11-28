@@ -56,6 +56,14 @@ img{
     .image-upload > input {
         display: none;
     }
+    .image-upload{
+        position: absolute;
+        
+        margin-left: 20vw;
+        margin-top: -2vw;
+        color: #fff;
+    
+    }
     .custom-edit{
         cursor: pointer;
     }
@@ -99,7 +107,12 @@ img{
             margin-left: -11rem;
             }
         
-       
+            .image-upload{
+                position: absolute;
+                margin-left: 64vw;
+                margin-top: -7vw;
+                color: #fff;
+            }
         
         }
     @media screen and (max-width: 380px) {

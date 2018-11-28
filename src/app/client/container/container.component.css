@@ -1,7 +1,26 @@
 mat-sidenav {
   width: 200px;
+  
 }
+.example{
+  padding-left:0 !important;
+  padding-right: 0!important;
+}
+
 li:hover{
   background-color: #F07C49;
 
+}
+.orderquery{
+  position:absolute;
+  top:384px;
+  margin-left:24px;
+}
+@media only screen and (max-width: 600px) {
+  .orderquery{
+    position:absolute;
+    top:400px;
+  margin-left:-41px;
+  }
+ 
 }
