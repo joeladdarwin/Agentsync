@@ -56,15 +56,17 @@ import { Agentregister1Component } from './agent/agentregister1/agentregister1.c
 import { AddonvComponent } from './client/addonv/addonv.component';
 import { PriceComponent } from './client/price/price.component';
 import { FooterComponent } from './client/footer/footer.component';
+import { MainComponent } from './client/main/main.component';
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
+  
   { path: 'forget', component: ForgetComponent },
   { path: 'thanks', component: ThanksComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'forget', component: ForgetComponent },
-  { path: "", redirectTo: 'login', pathMatch: 'full' },
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'main', component: DashboardComponent },
-    
+  { path: 'test', component: MainComponent },
   { path: 'footer', component: FooterComponent },
   { path: 'navbar', component: NavbarComponent },
   { path: 'forget', component: ForgetComponent },
@@ -98,30 +100,30 @@ const routes: Routes = [
   { path: 'profile', component: ProfileComponent },
   { path: 'editprofile', component: EditprofileComponent },
   { path: 'adlogin', component: AdminloginComponent },
-  { path: 'addashboard', component: AdmindashboardComponent},
-  { path: 'adorders', component: AdminorderComponent},
-  { path: 'agdashboard', component: AgentdashboardComponent },
+  { path: 'addashboard', component: AdmindashboardComponent, canActivate: [AdminGuard]},
+  { path: 'adorders', component: AdminorderComponent, canActivate: [AdminGuard]},
+  { path: 'agdashboard', component: AgentdashboardComponent, },
   { path: 'aglogin', component: AgentloginComponent },
   { path: 'agregister', component: AgentregisterComponent },
   { path: 'agregister1', component: Agentregister1Component },
   { path:'adheader', component: AdminheaderComponent},
-  { path:'adsidenav', component: AdminsidenavComponent},
-  { path:'aduser', component: AdminuserComponent},
+  { path: 'adsidenav', component: AdminsidenavComponent, canActivate: [AdminGuard]},
+  { path: 'aduser', component: AdminuserComponent, canActivate: [AdminGuard]},
   { path:'agorders', component: AgentorderComponent},
   { path:'adorderhistory', component: AdminorderhistoryComponent},
   { path:'adpayment', component: AdminpaymentComponent},
-  { path:'adtable', component: AdmintableComponent},
-  { path:'adscheduled', component: AdminscheduledComponent},
-  { path:'adnew', component: AdminnewComponent},
-  { path:'adpending', component: AdminpendingComponent},
-  { path:'adcomplete', component: AdmincompleteComponent},
+  { path: 'adtable', component: AdmintableComponent, canActivate: [AdminGuard]},
+  { path: 'adscheduled', component: AdminscheduledComponent, canActivate: [AdminGuard]},
+  { path: 'adnew', component: AdminnewComponent, canActivate: [AdminGuard]},
+  { path: 'adpending', component: AdminpendingComponent, canActivate: [AdminGuard]},
+  { path: 'adcomplete', component: AdmincompleteComponent, canActivate: [AdminGuard]},
   { path: 'addonsv', component: AddonvComponent },
 ];
 
 
 @NgModule({
   imports: [
-   RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes, { useHash: true } )
   ],
   exports: [RouterModule],
   declarations: []

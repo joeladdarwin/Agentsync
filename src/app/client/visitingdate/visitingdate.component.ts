@@ -10,6 +10,7 @@ export class VisitingdateComponent implements OnInit {
   visitingdatefg:NgForm;
   visitingdatenow:Date;
   total;
+  formatDate;
   orderprice;
   minDate = new Date(Date.now() + (5 * 24 * 60 * 60 * 1000));
   maxDate = new Date(Date.now() + (120 * 24 * 60 * 60 * 1000));

@@ -11,6 +11,7 @@ export class MyorderComponent implements OnInit {
   today: Date;
   orders;
   datacom;
+  message;
 
  
 

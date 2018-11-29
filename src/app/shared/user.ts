@@ -12,6 +12,8 @@ export interface User {
     account?:string;        
     photoURL?:string;
     roles:Roles;
+    url:string;
+    admin?:boolean;
 }
 
  

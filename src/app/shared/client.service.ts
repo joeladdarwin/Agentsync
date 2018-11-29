@@ -7,7 +7,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { BehaviorSubject, Observable} from 'rxjs';
 import { switchMap, finalize } from 'rxjs/operators';
 import { AngularFirestore, AngularFirestoreCollection,  } from 'angularfire2/firestore';
-
+import { Order} from './order';
 
 
 @Injectable({
@@ -16,6 +16,10 @@ import { AngularFirestore, AngularFirestoreCollection,  } from 'angularfire2/fir
 
 export class ClientService {
   displayName: string;
+  email;
+  phone;
+  brokerage;
+  
   constructor(private auth:AuthService, private router:Router,private afAuth:AngularFireAuth,private afss:AngularFirestore,private afStorage: AngularFireStorage,private afs:AngularFireStorage) { }
   private propertytype : string = "Property";
   private squarefeet : string = "Not updated";
@@ -137,6 +141,14 @@ public bsdsflyer100: BehaviorSubject<any> = new BehaviorSubject<any>(this.dsflye
       throw error
     })   
   }
+  adminlogin(email, pass) {
+    // this.uid$ = this.afAuth.auth.currentUser.uid;
+    // console.log(this.getuserdata(this.uid$)+"isis")
+    return this.auth.adminlogin(email, pass).catch(error => {
+
+      throw error
+    })
+  }
   signout(){
     this.auth.signOut()
     this.router.navigate(['/login'])
@@ -184,11 +196,11 @@ return this.auth.clientqueryorderlen()
     console.log(unit);
     this.appartmentunit = unit;
     this.bsappartmentunit.next(this.appartmentunit)
-    this.router.navigate(['/address']);
+    this.router.navigate(['/address'], { skipLocationChange: true });
   }
   gotoplaceorder()
   {
-    this.router.navigate(['/placeorder']);
+    this.router.navigate(['/placeorder'], { skipLocationChange: true });
   }
   // End of Appartment unit
   //Address
@@ -205,7 +217,7 @@ this.setstreet(address.street);
       this.setappartmentunitno(address.unit);
     }
     
-    this.router.navigate(['/squarefeet'])
+    this.router.navigate(['/squarefeet'], { skipLocationChange: true })
   }
   getstreet():string{
     return this.street
@@ -348,7 +360,7 @@ this.setstreet(address.street);
      
     }
     this.bssquarefeet.next(this.squarefeet);
-    this.router.navigate(['/products']);
+    this.router.navigate(['/products'], { skipLocationChange: true });
   }
 
   // End of Squarefeet
@@ -375,11 +387,11 @@ this.setstreet(address.street);
   }
   gotoproducts()
   {
-    this.router.navigate(['/products']);
+    this.router.navigate(['/products'], { skipLocationChange: true });
   }
   gotosquarefeet()
   {
-    this.router.navigate(['/squarefeet']);
+    this.router.navigate(['/squarefeet'], { skipLocationChange: true });
   }
   getphotography() { return this.photography }
   gettour360() { return this.tour360 }
@@ -515,6 +527,7 @@ this.setstreet(address.street);
     console.log(this.vaddonspricearray);
     this.bsvaddonspricearray.next(this.bsvaddonspricearray.getValue().concat(this.vaddonspricearray))
   }
+  
   setporderspricearray(order: any): void {
     console.log(order);
 
@@ -539,7 +552,7 @@ this.setstreet(address.street);
     catch (err) {
       if (err == "photography") {
         console.log("photography thrown")
-        this.router.navigate(['/addonsp'])
+        this.router.navigate(['/addonsp'], { skipLocationChange: true })
       }
       if (err == "no photo") {
         console.log(err)
@@ -552,12 +565,12 @@ this.setstreet(address.street);
         catch (errs) {
           if (errs == "video") {
             console.log("video thrown")
-            this.router.navigate(['/addonsv'])
+            this.router.navigate(['/addonsv'], { skipLocationChange: true })
           }
           if (errs == "no video") {
 
             console.log("no videos")
-            this.router.navigate(['/access'])
+            this.router.navigate(['/access'], { skipLocationChange: true })
 
           }
 
@@ -582,12 +595,12 @@ this.setstreet(address.street);
     catch (errs) {
       if (errs == "video") {
         console.log("video thrown")
-        this.router.navigate(['/addonsv'])
+        this.router.navigate(['/addonsv'], { skipLocationChange: true })
       }
       if (errs == "no video") {
 
         console.log("no videos")
-        this.router.navigate(['/access'])
+        this.router.navigate(['/access'], { skipLocationChange: true })
 
       }
 
@@ -606,7 +619,7 @@ this.setstreet(address.street);
   }
   setvaddonsarray(vaddonsarray: any): void {
     this.bsvaddonarray.next(this.bsvaddonarray.getValue().concat([vaddonsarray]));
-  this.router.navigate(['/access'])
+    this.router.navigate(['/access'], { skipLocationChange: true })
 
   }
   // End of products
@@ -688,7 +701,7 @@ get addonvideo(): string {
   }
   gotovisitingdate()
   {
-    this.router.navigate(['/visitingdate']);
+    this.router.navigate(['/visitingdate'], { skipLocationChange: true });
     console.log("visiting date");
   }
 
@@ -697,12 +710,12 @@ get addonvideo(): string {
 updatevisitingdate(visitingdate)
 {
   this.setvisitingdate(visitingdate)
-  this.router.navigate(['/visitingtime'])
+  this.router.navigate(['/visitingtime'], { skipLocationChange: true })
 }
 updatevisitingtime(visitingtime)
 {
   this.setvisitingdate(visitingtime)
-  this.router.navigate(['/comments'])
+  this.router.navigate(['/comments'], { skipLocationChange: true })
 }
 setvisitingdate(visitingdate): void {
     this.visitingdate = visitingdate;
@@ -711,6 +724,7 @@ setvisitingdate(visitingdate): void {
   }
 
 // end of visiting date
+
 // Comment
   getcomment(): string {
     return this.comment
@@ -720,7 +734,7 @@ setvisitingdate(visitingdate): void {
     this.comment = comment;
     console.log(this.comment);
     this.bscomment.next(this.comment)
-    this.router.navigate(['/revieworder'])
+    this.router.navigate(['/revieworder'], { skipLocationChange: true })
    
 
   }
@@ -742,15 +756,13 @@ this.uploadPercent = task.percentageChanges();
     .subscribe()
   }
 
-geturl()
-{
-  console.log("siindhushakshi"+ this.uid)
-  this.profilepicRef = this.afStorage.ref('users/' + 'profilepic/' + this.uid);
-
-  this.downloadURL = this.profilepicRef.getDownloadURL();
-  
-  return this.downloadURL
-}
+  geturl()
+  {
+    var uid=this.auth.currentUserId;
+   
+    this.profilepicRef = this.afss.collection('users').doc(uid).valueChanges();
+    return this.profilepicRef
+  }
 //
 //  
 getdoc(){
@@ -767,7 +779,9 @@ getdoc(){
     var c = (d.getDate()).toString() + (d.getMonth() + 1).toString() + (d.getFullYear()).toString().substr(-2) + (d.getHours()).toString() + (d.getMinutes()).toString();  
     this.auth.clientcreateorder(c,order)
     console.log("worke")
-    this.router.navigate(['/completeorder'])
+    this.router.navigate(['/completeorder'], { skipLocationChange: true })
   }
   // end of revieworder
+
+  
 }

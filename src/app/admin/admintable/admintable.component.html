@@ -1,5 +1,5 @@
 
-<h3 class="text-center">TABLE</h3>
+<h3 class="text-center">Today</h3>
 <div class="example-container mat-elevation-z8">
   <div class="example-header">
     <mat-form-field>
@@ -7,7 +7,7 @@
     </mat-form-field>
   </div>
 
-  <table mat-table [dataSource]="dataSource" matSort>
+  <table mat-table [dataSource]="dataSource" matSort >
 
     <!-- No Column -->
     <ng-container matColumnDef="no">
@@ -30,7 +30,7 @@
     <!-- Date/Time Column -->
     <ng-container matColumnDef="date/time">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Date/Time </th>
-      <td mat-cell *matCellDef="let orders">{{orders.visitingdate.toDate()| date :'short'}}  </td>
+      <td mat-cell *matCellDef="let orders"  >{{orders.visitingdate.toDate()| date :'short'}}  </td>
     </ng-container>
     <!-- OrderValue-->
     
@@ -74,117 +74,174 @@
               </div>
               <div class="col-4">
                   <p class="text-center">
-                      <strong>Ordered by:</strong>
+                      <strong>Ordered by:</strong>{{(property |async)?.orderby}} 
                   </p>
               
               </div>
               <div class="col-4">
                    <p class="text-right">
-                      <strong>Phone:</strong>
+                      <strong>Phone:</strong>123354346
                   </p>
               </div>
           </div>
           <form class="p-2" (ngSubmit)="scheduleorder(orderform.value)" #orderform="ngForm">
             <div class="form-inline">
-                    <div class="form-group space">
-                            <label for="Building">Building</label>
-                            <div class="input-group">
-                                <input type="text" class="space form-control" [ngModel]='(property |async)?.propertytype' name="building">
-                            </div>
-                    <div class="form-group space">
-                        <label for="SquareFeet">SquareFeet</label>
-                        <input type="text" class="space form-control" [ngModel]='(property |async)?.squarefeet' name="squarefeet">
-                    </div>
-                  </div>
-                    <div class="form-group space">
-                        <label for="Total">Total</label>
-                        <input type="text" class="space form-control" [ngModel]='(property |async)?.orderprice' name="orderprice">
-                    </div>
-            </div>
-            <div class="form-row mt-2">
-                <div class="col">
-                    <label>Street</label>
-                    <input type="text" class="form-control" [ngModel]='(property |async)?.address.street' name="street">
-                </div>
-
-                <div class="col">
-                    <div class="row">
-                        <div class="col-6">
-                            <label>City</label>
-                            <input type="text" class="form-control" [ngModel]='(property |async)?.address.city' name="city"> 
-                        </div>
-                        <div class="col-6">
-                            <label>Zip</label>
-                            <input type="text" class="form-control" [ngModel]='(property |async)?.address.zip' name="zip">
+                    <div class="col-4">
+                            <p>
+                                <strong>Building:</strong> {{(property |async)?.propertytype}}
+                               
+                                  
+                            </p>
                         </div>
                         <div class="col-4">
-                            
-                            <div *ngIf="(property | async)?.unit===undefined; else unitshow">
-
+                                <p>
+                                    <strong>SquareFeet:</strong> {{(property |async)?.squarefeet}}
+                                   
+                                      
+                                </p>
                             </div>
-                            <ng-template #unitshow>
-                                <label>Unit</label>
-                                <input type="text" class="form-control" [ngModel]='(property |async)?.unit' name="unit">
-
-</ng-template>
                             
-                        </div>
-                    </div>
-
-
-</div>
+                            <div class="col-4">
+                                    <p>
+                                        <strong>Total:</strong> {{(property |async)?.orderprice}}
+                                       
+                                          
+                                    </p>
+                                </div>
+            
+                    
             </div>
-              <div class="form-row mt-2">
-                <div class="col-4">
-                        <label for="orders">Orders:</label>
-                      <ul *ngFor="let prop of (property|async)?.orders; let i = index " class="">
-                        <li><input type="text" class="form-control" [ngModel]='prop' name="prop-{{i}}">
-                        </li>
-                    </ul>
+            <div class="form-row mt-2">
+                
+                    <div class="col-3">
+                            <p>
+                                <strong>Street:</strong> {{(property |async)?.address.street}}
+                               
+                                  
+                            </p>
+                        </div>
+                        <div class="col-3">
+                                <p>
+                                    <strong>City:</strong> {{(property |async)?.address.city}}
+                                   
+                                      
+                                </p>
+                            </div>
+                            <div class="col-3">
+                                    <p>
+                                        <strong>Zip:</strong> {{(property |async)?.address.zip}}
+                                       
+                                          
+                                    </p>
+                                </div>
+                                <div class="col-3">
+                                        <p>
+                                            <strong>Unit:</strong> {{(property |async)?.address.unit}}
+                                           
+                                              
+                                        </p>
+                                    </div>
+
+            
+                
                     </div>
-                    <div class="col-2 float-right">
-                    <label for="ordersprice">Price:</label>
-                    <ul *ngFor="let propy of (property|async)?.ordersprice; let i = index " class="">
-                         <li><input type="text" class="form-control" [ngModel]='propy' name="propy-{{i}}"></li>
-                     
-                    </ul>
-                     
+
+              <div class="form-row mt-2">
+                    <div class="col-4">
+                            <strong>Orders:</strong>
+                                    <ul>
+                                       <li>{{(property |async)?.orders[0]}}</li>  
+                                       <li>{{(property |async)?.orders[1]}}</li>  
+                                       <li>{{(property |async)?.orders[2]}}</li>  
+                                    </ul>
+    
+                        </div>
+                        <div class="col-2 float-right">
+                                <strong>OrderPrice:</strong>
+                                        <ul>
+                                           <li>{{(property |async)?.ordersprice[0]}}</li>  
+                                           <li>{{(property |async)?.ordersprice[1]}}</li>  
+                                           <li>{{(property |async)?.ordersprice[2]}}</li>  
+                                        </ul>
+        
+                            </div>
+                       
+                <div class="col-4">
+                        <strong>PhotographyAddons:</strong>
+                        <ul>
+                           <li>{{(property |async)?.Photographyaddons[0]}}</li>  
+                           <li>{{(property |async)?.Photographyaddons[1]}}</li> 
+                        </ul>
+                        <strong>VideoAddons:</strong>
+                        <ul>
+                           <li>{{(property |async)?.Videoaddons[0]}}</li>  
+                           <li>{{(property |async)?.Videoaddons[1]}}</li> 
+                        </ul>
+                
                 </div>
-                <div class="col-6">
-                        <label for="addons">Addons:</label>
-                        <textarea class="form-control" rows="4" id="comment" name="text"></textarea>
-                     
-                </div>
+
+                <div class="col-2 float-right">
+                        <strong>Price:</strong>
+                        <ul>
+                           <li>{{(property |async)?.Photographyaddonsprice[0]}}</li>  
+                           <li>{{(property |async)?.Photographyaddonsprice[1]}}</li> 
+                        </ul>
+                        <strong>Price:</strong>
+                        <ul>
+                           <li>{{(property |async)?.VideoaddonsPrice[0]}}</li>  
+                           <li>{{(property |async)?.VideoaddonsPrice[1]}}</li> 
+                        </ul>
+                
+
+            </div>
              </div>   
 
                   
               <div class="form-row mt-2">
-                  <div class="col">
-                      <label>Visiting Date </label>
-                      <div *ngIf ="(property | async)?.visitingdate!==undefined;">
-                          <input type="text" class="form-control" [ngModel]='(property |async)?.visitingdate.toDate()|date' name="visitingdate" >
+                  <div class="col-6">
+                        <p>
+                                <strong>Visiting Date:</strong> {{(property |async)?.visitingdate.toDate()|date}}
+                               
+                                  
+                            </p>
+
+                      
+                      
+                  </div>
+                  <div class="col-6">
+                        <p>
+                                <strong>Visiting Time:</strong> {{(property |async)?.visitingdate.toDate()| date:"shortTime"}}
+                               
+                                  
+                            </p>
+                      
+                  </div>
+                </div>
+                <div class="form-row mt-2">
+                  <div class="col-6">
+                        <p>
+                                <strong>Meeting Type:</strong> {{(property |async)?.meetingtype}}
+                               
+                                  
+                            </p>
+                      
                       </div>
-                      
-                      
-                  </div>
-                  <div class="col">
-                      <label>Visiting Time</label>
-                      <input type="text" class="form-control" [ngModel]='(property |async)?.visitingdate.toDate()| date:"shortTime" ' name="visitingtime">
-                     
-                  </div>
-                  <div class="col">
-                      <label>Meeting Type</label>
-                      <input type="text" class="form-control" [ngModel]='(property |async)?.meetingtype' name="meetingtype">
-                  </div>
-                  <div class="col">
-                      <label>Code</label>
-                      <input type="text" class="form-control" [ngModel]='(property |async)?.accesscode' name="accesscode" >
-                  </div>
+                  <div class="col-6">
+                        <p>
+                                <strong>Code:</strong> {{(property |async)?.accesscode}}
+                               
+                                  
+                            </p>
+                       </div>
               </div>
               <div class="form-row mt-2">
-                  <div class="col-4">
-                      <label>Comments</label>
-                      <input type="text" class="form-control" >
+                  <div class="col-8">
+                        <p>
+                                <strong>Comments:</strong> {{(property |async)?.comments}}
+                               
+                                  
+                            </p>
+                      
                   </div>
 
 

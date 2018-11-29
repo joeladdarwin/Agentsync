@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ClientService } from '../../shared/client.service';
-import { Route, Router } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-placeorder',
@@ -17,11 +17,11 @@ export class PlaceorderComponent implements OnInit {
    
     if(build ==="Appartment")
     {
-      this.router.navigate(["/units"])
+      this.router.navigate(["/units"], { skipLocationChange: true })
       this.client.setpropertytype(build)
     }
     else{
-      this.router.navigate(['/address'])
+      this.router.navigate(['/address'], { skipLocationChange: true })
       this.client.setpropertytype(build)
     }
   }

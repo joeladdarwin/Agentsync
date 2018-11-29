@@ -23,11 +23,20 @@ export class AccessComponent implements OnInit {
   {
     this.cli.gotoproducts()
   }
-  accessupdated(accessForm)
+  checkaccess()
   {
-
+    if (this.meettype == 'Meet agent on site' || this.meettype == 'Others') {
+      this.cli.gotovisitingdate();
+    }
+    else {
+      this.message = "Please update your meeting type";
+    }
+  }
+  accesssubmit(accessForm)
+  {
     var accesscode = accessForm.controls['code'].value;
-    console.log(accesscode);
+    
+     console.log(accesscode);
     if (this.meettype == 'Meet agent on site' || this.meettype =='Others')
     {
       this.cli.gotovisitingdate();

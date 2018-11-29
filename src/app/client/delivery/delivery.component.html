@@ -14,43 +14,41 @@
         </div>
         </div>
         </div>
-        <div class="row mt-5  ">
-            <div class="offset-lg-2 col-lg-8 col-md-12 col-xs-12 col-sm-12">
-              <div class="col-md-12">
-        <div class="d-flex">
-            <div class=" flex-fill ">
-              <input type="checkbox" class="checksize">
-            </div>
-            <div class=" flex-fill ">
-              <input type="checkbox" class="checksize">
-            </div>
-            <div class=" flex-fill ">
-              <input type="checkbox" class="checksize">
-            </div>
-          </div>
-          </div>
-          </div>
-          </div>
           <div class="row">
               <div class="offset-lg-2 col-lg-8 col-md-12 col-xs-12 col-sm-12">
                 <div class="col-md-12">
-                    <div class="d-flex">
-                        <div class="flex-fill">
-                         <img src="assets/image/icons/folder.png"class="icon">
+                    <div class="mt-5 d-flex flex-wrap justify-content-center">
+                        <div class="p-2 mx-2 text-center mx-auto" *ngFor="let order of orders | async">
+                          <a (click)="query(order.orderid )" data-toggle="modal" data-target="#myModal"><i class="fa fa-folder" style="font-size:48px"></i> 
+                          <p class="text-center my-3"  >{{ order.orderid}}</p></a>
                         </div>
-                        <div class="flex-fill">
-                          
-                        </div>
-                        <div class=" flex-fill">
-                         
-                        </div>
+                        
+                        
                       </div>
                       <div class="row">
                           <div class="offset-lg-2 col-lg-8 col-md-12 col-xs-12 col-sm-12">
                             <div class="col-md-12">
-                                <button type="submit" class="btn btn1 btn-block p-3 mt-5">DOWNLOAD</button>
+                                <button type="submit" class="btn btn1 btn-block p-3 mt-5" (click)="download()">DOWNLOAD</button>
                                 </div>
                                 </div>
                                 </div>
 
-         
+                                <div id="myModal" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                                  <div class="modal-dialog modal-lg" role="document">
+                                    <div class="modal-content">
+                                        <div class="row p-2">
+                                          <div class="mt-5 d-flex flex-wrap justify-content-center">
+                                            <div class="p-2 mx-2 text-center mx-auto" *ngFor="let propy of (property|async)?.Photography; let i = index ">
+                                             <a [href]="propy" download> <img [src]="propy" class="imagesize"></a>
+                                            </div>
+                                            
+                                            
+                                          </div>
+                                          
+                                        
+                                      
+                                      
+                                    </div>
+                                    
+                                  </div>
+                                </div>

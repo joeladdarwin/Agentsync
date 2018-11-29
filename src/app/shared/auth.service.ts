@@ -1,14 +1,16 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router'; 
 import * as firebase from 'firebase/app';
-import { AngularFireAuth } from 'angularfire2/auth';
+import { AngularFireAuth, } from 'angularfire2/auth';
+import { FirebaseAuth } from 'angularfire2';
+import { auth} from 'firebase/app'
 import { AngularFirestore, AngularFirestoreDocument } from 'angularfire2/firestore'
 import { Observable, of } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 import { User } from './user';
 import { Order} from './order';
 import { Agent } from './agent';
-import { first, map } from 'rxjs/operators';
+import { first, map, mergeMap, flatMap, take } from 'rxjs/operators';
 
  
 
@@ -17,13 +19,15 @@ import { first, map } from 'rxjs/operators';
 @Injectable()
 export class AuthService {
   users$ : Observable<User>;
-  authState: any = null;
+  authState = null;
   error: any = null;
   uid$;
   user;
+  property:any;
   phonenumber1:number;
-  
+  usersdocument:any;
   data: Observable<any[]>;
+  data$:any;
   constructor(private afAuth : AngularFireAuth, private afs : AngularFirestore, private router : Router
   ) {
     console.log("retgert"+this.uid$);
@@ -65,9 +69,10 @@ export class AuthService {
   }
   
   //
-
+  
 
   get profile():any{
+
     return(this.authState);
   }
   //
@@ -83,9 +88,9 @@ export class AuthService {
     }
 
     get email():string{
-      return (this.authState !== null) ? this.authState['emailVerified'] : ""
+      return (this.authState !== null) ? this.authState['email'] : ""
     }
-
+    
    
     get isUserEmailLoggedIn(): boolean {
         if (this.authState !== null)  {
@@ -122,6 +127,7 @@ export class AuthService {
             brokerage: user.brokerage,
             email: user.email,
             phonenumber: user.phone,
+            url:user.url,
             roles: {
                 user: true
             }
@@ -146,7 +152,6 @@ export class AuthService {
       orders:order.orders,
       ordersprice: order.orderspricearray,
       comments:order.comments,
-   
       squarefeet: order.squarefeet,
       orderprice:order.orderprice,
       meetingtype:order.meetingtype,
@@ -170,7 +175,7 @@ export class AuthService {
 
     //AGENT
     agentclient(agentd){
-      console.log("sindhuuu");
+     
       return this.afAuth.auth.createUserWithEmailAndPassword(agentd.email, agentd.password)
       .then(
         (agent)=>{
@@ -213,7 +218,21 @@ export class AuthService {
       return userRef$.set(agentdata, { merge: true })
   }
   
+  adminlogin(email: string, pass: string) {
+    return this.afAuth.auth.signInWithEmailAndPassword(email, pass).then(
+      (user) => {
 
+        this.authState = user
+        // this.getinfo()
+
+        this.router.navigate(['/addashboard'])
+
+      }
+    ).catch(error => {
+
+      throw error
+    })
+  }
     //
   login(email: string, pass: string) {
     return this.afAuth.auth.signInWithEmailAndPassword(email, pass).then(
@@ -254,6 +273,10 @@ export class AuthService {
       }
     })
   }
+  forgetemail(email)
+  {
+    return this.afAuth.auth.sendPasswordResetEmail(email)
+  }
   getinfox() {
     return this.afAuth.auth.onAuthStateChanged(function (user) {
      
@@ -276,27 +299,30 @@ export class AuthService {
  getuser()
  {
    const uid = this.afAuth.auth.currentUser.uid;
-   if (uid != null || uid != undefined) {
+ if (uid != null || uid != undefined) {
      console.log("uidsssdsdsd is" + uid);
      const userRef$ = this.afs.collection('users').doc(uid);
      userRef$.ref.get().then(function (doc) {
-       if (doc.exists) {
-         console.log("Document data:", doc.data());
+     
          return doc.data()
-                      }
+                      
    })}
  }
 
  //
-  getuserdata() {
+
+  getuserdata():any {
+    
     const uid = this.afAuth.auth.currentUser.uid;
    
     console.log("uidss is" + uid);
     const userRef$ = this.afs.collection('users').doc(uid);
     // this.afs.doc<User>(`users/${uid}`);
-    userRef$.ref.get().then(function (doc) {
+   var a = userRef$.ref.get().then(function (doc) {
       if (doc.exists) {
         console.log("Document data:", doc.data());
+        const phonenumber = doc.data().phonenumber;
+        console.log("a is"+phonenumber);
         return doc.data()
       } else {
         // doc.data() will be undefined in this case
@@ -305,6 +331,19 @@ export class AuthService {
     }).catch(function (error) {
       console.log("Error getting document:", error);
     });
+    a.then(data=>{this.data$=data})
+    console.log("from user document")
+    console.log(this.data$)
+  }
+
+
+  get profiledata() {
+   
+    const givenemail = this.email;
+
+    const data = this.afs.collection(`users`, ref => ref.where('email', '==', givenemail)).valueChanges().pipe(take(1)).subscribe(res=>{return res})
+    console.log(data)
+    return this.data
   }
  
   signOut(): void {
@@ -316,12 +355,14 @@ export class AuthService {
 clientqueryorderlen(){
 
   const uid = this.currentUserId;
+  console.log(uid);
   var length;
   this.data=this.afs.collection(`users/${uid}/orders/`, ref => ref.where('status', '==', 'new')).valueChanges();
   console.log(this.data);
   return this.data;
  
 }
+
 //
 
 
