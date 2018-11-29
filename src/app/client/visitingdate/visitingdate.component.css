@@ -19,3 +19,8 @@ h5{
     background-color: #D5D5D5;
     color:#000;
 }
+@media screen and(max-width:420px){
+    .align{
+        margin-left:14vw;
+    }
+}

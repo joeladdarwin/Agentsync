@@ -1,10 +1,11 @@
 import { Component, AfterViewInit, ViewChild } from '@angular/core';
-import { MatTableDataSource, MatSort, MatDialog, MatPaginator, MAT_SORT_HEADER_INTL_PROVIDER } from '@angular/material';
+import { MatTableDataSource, MatSort, MatDialog, MatPaginator, MAT_SORT_HEADER_INTL_PROVIDER, MAT_SORT_HEADER_INTL_PROVIDER_FACTORY } from '@angular/material';
 import { AngularFirestore,QuerySnapshot } from 'angularfire2/firestore';
+import { AuthService } from '../../shared/auth.service';
 import { Observable,combineLatest, Subject, ReplaySubject, from, of, range } from 'rxjs';
 import { AngularFireStorage } from 'angularfire2/storage';
 import { DatePipe } from '@angular/common';
-
+import { AngularFireAuth } from 'angularfire2/auth';
 import { map, filter, switchMap, take, tap, finalize } from 'rxjs/operators';
 import { UrlResolver } from '@angular/compiler';
 export interface Order {
@@ -42,10 +43,11 @@ export class AdminpendingComponent {
   property:any;
   photographyurl:any;
   uploads: any[];
-
+  userid:any;
+  profile:any;
   allPercentage: Observable<any>;
   files: Observable<any>;
-  constructor(private datePipe: DatePipe,private afs: AngularFirestore, public dialog: MatDialog,public storage: AngularFireStorage) {
+  constructor(private afauth: AngularFireAuth,private afs: AngularFirestore, public dialog: MatDialog,public storage: AngularFireStorage) {
     
   }
   ngOnInit(){
@@ -54,7 +56,8 @@ export class AdminpendingComponent {
   }
   ngAfterViewInit() 
   {
-     this.afs.collection<Order>('orders', ref => ref.where
+    this.userid = this.afauth.auth.currentUser.uid;
+     this.afs.collection<Order>(`users/${this.userid}/orders`, ref => ref.where
     ('status','==','pending' )).valueChanges().subscribe(data => {
       this.dataSource = new MatTableDataSource(data); 
       this.dataSource.sort = this.sort;
@@ -102,14 +105,50 @@ export class AdminpendingComponent {
         urlarray.push(url);
      
           console.log(urlarray);
-          
-          this.afs.collection('orders').doc(orderid).update({
-          
-        
-          Photography:urlarray,
-        
+          console.log(productname)
+          if(productname=='Photography')
+          {
+            this.afs.collection('orders').doc(orderid).update({
+            Photography:urlarray
       })
+      this.userid = this.afauth.auth.currentUser.uid;
+      this.afs.collection(`users/${this.userid}/orders`).doc(orderid).update({
+          
+        Photography:urlarray
         
+      
+    })
+  
+
+    }
+    else if(productname=='Video Tour')
+    {
+      this.afs.collection('orders').doc(orderid).update({
+      Videotour:urlarray
+})
+this.userid = this.afauth.auth.currentUser.uid;
+this.afs.collection(`users/${this.userid}/orders`).doc(orderid).update({
+    
+  Videotour:urlarray
+  
+
+})
+
+    }
+    else{
+      this.afs.collection('orders').doc(orderid).update({
+        Tour360:urlarray
+  })
+  this.userid = this.afauth.auth.currentUser.uid;
+  this.afs.collection(`users/${this.userid}/orders`).doc(orderid).update({
+      
+   Tour360:urlarray
+    
+  
+  })
+      
+    }
+          
         
       })
       
@@ -193,11 +232,18 @@ update(a){
   }).then(() => {
     alert('updated');
   })
-
+  this.afs.collection(`users/${this.userid}/orders`).doc(a).update({
+    status: 'completed'
+  }).then(() => {
+    alert('updated');
+  })
 
 }
 delete(b) {
   this.afs.collection('orders').doc(b).delete().then(() => {
+    alert('deleted');
+  })
+  this.afs.collection(`users/${this.userid}/orders`).doc(b).delete().then(() => {
     alert('deleted');
   })
 }

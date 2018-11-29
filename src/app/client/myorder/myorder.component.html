@@ -1,6 +1,6 @@
-<app-navbar></app-navbar>
+
 <div class="row">
-  <div class="bgdark offset-lg-2 col-lg-8 col-md-12 col-xs-12 col-sm-12">
+  <div class="bgdark col-12">
     <div class="col-md-12 text-center text-white p-2">
           <h3>New Order</h3>
           <h4>Today is {{today | date: 'longDate'}}</h4>
@@ -14,7 +14,7 @@
     </div>
 </div>        
 <div class="row">
-    <div class="offset-lg-2 col-lg-8 col-md-12 col-xs-12 col-sm-12">
+    <div class="col-12">
        <div class="col-md-3 col-9 mx-auto mt-4">
           <ul class="nav nav-pills nav-justified" role="tablist">
               <li class="nav-item">
@@ -30,19 +30,18 @@
               <div class="row  mt-3">
                   <div class="offset-lg-2 col-lg-8 col-md-12 col-xs-12 col-sm-12">
                     <ul class="list-group" *ngFor="let datas of datacom |async;let i= index;">
-                      <li class="my-2 px-5 border border-dark list-group-item">
+                      <li class="my-2 pr-5 border border-dark list-group-item">
                         <div class="row my-2">
-                          <div class="col-3 p-2">
-                            <h3 class="py-1">{{datas.visitingdate.toDate() |date:'M/d'}}</h3>
+                          <div class="col-3 p-2 pt-3">
+                            <h2 class="py-1">{{datas.visitingdate.toDate() |date:'M/d'}}</h2>
                           </div>
-                          <div class="col-6">
-                            <p class="over">{{datas.address.street}}</p>
-                            <p>1 unit | {{datas.visitingdate.toDate() |date:'shortTime'}}</p>
+                          <div class="col-9">
+                            <p class="over">{{datas.address.street}}
+                              <br>{{datas.address.city}}<br>
+                            1 unit | {{datas.visitingdate.toDate() |date:'shortTime'}}</p>
                     
                           </div>
-                          <div class="col-3">
-                    
-                          </div>
+                         
                         </div>
                       </li>
                     </ul>

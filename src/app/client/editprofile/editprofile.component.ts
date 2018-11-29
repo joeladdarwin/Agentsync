@@ -25,6 +25,7 @@ export class EditprofileComponent implements OnInit {
   phone: any;
   profile: any;
   brokerage: any;
+  userid:any;
   phonenumber: number;
   url:any;
   uploads: any[];
@@ -33,8 +34,8 @@ export class EditprofileComponent implements OnInit {
   constructor (private afAuth : AngularFireAuth,private afStorage: AngularFireStorage, private cli: ClientService, private auth:AuthService,private afs: AngularFirestore,public storage: AngularFireStorage) {}
    
     upload(event) {
-      var uid = this.auth.currentUserId;
-      console.log(uid);
+      this.userid = this.afAuth.auth.currentUser.uid;
+      console.log(this.userid);
       this.uploads = [];
     const filelist = event.target.files;
     const allPercentage: Observable<number>[] = [];
@@ -59,7 +60,7 @@ export class EditprofileComponent implements OnInit {
       // for every upload do whatever you want in firestore with the uploaded file
       const _t = task.then((f) => {
         return f.ref.getDownloadURL().then((url) => {
-          return this.afs.doc(`users/${uid}`).update({
+          return this.afs.doc(`users/${this.userid}`).update({
             name: f.metadata.name,
             url: url
           });

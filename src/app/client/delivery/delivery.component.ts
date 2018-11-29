@@ -40,14 +40,15 @@ export class DeliveryComponent  {
 
   ngOnInit() {
     this.userid = this.afauth.auth.currentUser.uid; 
-    console.log("darwin"+this.userid);
+    console.log("userid"+this.userid);
   }
   ngAfterViewInit(){
    
     
-    console.log("darwin"+this.userid);
-    this.orders= this.afs.collection<Order>('orders', ref => ref.where
-    ('uid','==', this.userid)).valueChanges();
+   
+    this.orders= this.afs.collection<Order>(`users/${this.userid}/orders`, ref => ref.where
+    ('status','==', 'completed')).valueChanges();
+
     
     
   }

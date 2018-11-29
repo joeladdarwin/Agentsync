@@ -1,7 +1,7 @@
-<app-navbar></app-navbar>
+
 <form #commentForm="ngForm" (ngSubmit)="updateComments(commentForm)">
   <div class="row">
-    <div class="bgdark offset-lg-2 col-lg-8 col-md-12 col-xs-12 col-sm-12">
+    <div class="bgdark col-12">
       <div class="col-md-12">
         <h3 class="text-center text-white">New Order > First Unit</h3>
         <h4 class="text-center">Notes </h4>
@@ -20,16 +20,16 @@
     </div>
   </div>
   <div class="row">
-    <div class="offset-md-3 col-md-6 col-xs-12">
+    <div class="offset-md-2 col-md-8 col-xs-12">
       <h3 class="text-center mt-3">Please add any additional notes on this order</h3>
     </div>
   </div>
   <div class="row text-center">
-    <div class="offset-md-3 col-md-6 col-xs-12">
+    <div class="offset-md-2 col-md-8 col-xs-12 align">
       <textarea class="form-control form-rounded" rows="13" name="comment" #comment="ngModel" ngModel placeholder="Please Enter Your Comments"
         required></textarea>
 
     </div>
   </div>
 </form>
-<app-footer></app-footer>
+

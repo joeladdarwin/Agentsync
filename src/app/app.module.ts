@@ -117,6 +117,11 @@ import { AddonsvComponent } from './client/addonsv/addonsv.component';
 import { AdmintableComponent } from './admin/admintable/admintable.component';
 import { MainComponent } from './client/main/main.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
+import { ContainerComponent } from './client/container/container.component';
+import { OrderComponent } from './client/order/order.component';
+import { MakepaymentComponent } from './client/makepayment/makepayment.component';
+import { PaymentinfoComponent } from './client/paymentinfo/paymentinfo.component';
+import { MyaccountcontainerComponent } from './client/myaccountcontainer/myaccountcontainer.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -170,6 +175,11 @@ import { ServiceWorkerModule } from '@angular/service-worker';
     AdmintableComponent,
     AddonsvComponent,
     MainComponent,
+    ContainerComponent,
+    OrderComponent,
+    MakepaymentComponent,
+    PaymentinfoComponent,
+    MyaccountcontainerComponent,
       
   ],
   imports: [

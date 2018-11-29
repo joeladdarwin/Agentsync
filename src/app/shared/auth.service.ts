@@ -140,12 +140,13 @@ export class AuthService {
   clientcreateorder(orderid,order) {
     console.log("pass")
     var uid = this.currentUserId;
+    var orderby= this.displayName;
     const userorderRef$: AngularFirestoreDocument<any> = this.afs.doc<Order>(`users/${uid}/orders/${orderid}`);
     const orderRef$: AngularFirestoreDocument<any> = this.afs.doc<Order>(`orders/${orderid}`);
     const orderdata: Order =
     {
       orderid: orderid,
-      orderby: this.displayName,
+      orderby: orderby,
       uid : uid,
       propertytype: order.propertytype,
       address:order.address,
@@ -241,7 +242,7 @@ export class AuthService {
         this.authState = user
         // this.getinfo()
         
-        this.router.navigate(['/main'])
+        this.router.navigate(['/main/home'])
        
       }
     ).catch(error => {

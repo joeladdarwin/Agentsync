@@ -1,5 +1,7 @@
 import { Component, AfterViewInit, ViewChild } from '@angular/core';import { MatTableDataSource, MatSort, MatDialog, MatPaginator, MAT_SORT_HEADER_INTL_PROVIDER } from '@angular/material';
 import { AngularFirestore } from 'angularfire2/firestore';
+import { AngularFireAuth } from 'angularfire2/auth';
+
 import { AuthService } from '../../shared/auth.service';
 export interface Order {
   orderid:number;
@@ -27,11 +29,11 @@ ordersprice:number
 export class AdminnewComponent {
   displayedColumns = ['no','building','address','date/time','ordervalue','status','edit/delete'];
   dataSource: MatTableDataSource<Order>; 
-
+ userid:any;
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   property:any;
-  constructor(private afs: AngularFirestore, public dialog: MatDialog, private auth:AuthService) {
+  constructor(private afauth: AngularFireAuth,private afs: AngularFirestore, public dialog: MatDialog, private auth:AuthService) {
     
   }
   ngOnInit(){
@@ -40,8 +42,8 @@ export class AdminnewComponent {
   }
   ngAfterViewInit() 
   {
-
-    this.afs.collection<Order>('orders', ref => ref.where
+    this.userid = this.afauth.auth.currentUser.uid;
+    this.afs.collection<Order>(`users/${this.userid}/orders`, ref => ref.where
     ('status','==', 'new')).valueChanges().subscribe(data => {
       this.dataSource = new MatTableDataSource(data); 
       this.dataSource.sort = this.sort;
@@ -77,11 +79,19 @@ export class AdminnewComponent {
    }).then(() => {
      alert('updated');
    })
+   this.afs.collection(`users/${this.userid}/orders`).doc(a).update({
+    status: 'scheduled'
+  }).then(() => {
+    alert('updated');
+  })
  
  
  }
  delete(b) {
   this.afs.collection('orders').doc(b).delete().then(() => {
+    alert('deleted');
+  })
+  this.afs.collection(`users/${this.userid}/orders`).doc(b).delete().then(() => {
     alert('deleted');
   })
 }

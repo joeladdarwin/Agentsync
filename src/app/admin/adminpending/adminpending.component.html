@@ -137,7 +137,7 @@
                         </ul>
                         </div>
                         <div class="col-6 float-right mr-auto">
-                        <label for="ordersprice">Price</label><p class="float-right">Progress:{{allPercentage | async}}%</p>
+                        <label for="ordersprice">Price</label>
                         <ul *ngFor="let propy of (property|async)?.orders; let i = index " #elem [attr.id]="(property|async)?.orderid" class="form-inline mb-2">
                              <li><input type="file" class="btn btn-default" multiple=true (change)=" singleimageupload(propy,$event,elem.id)" name="propy-{{i}}"></li>
                             
