@@ -275,7 +275,10 @@ export class AuthService {
   }
   forgetemail(email)
   {
-    return this.afAuth.auth.sendPasswordResetEmail(email)
+    return this.afAuth.auth.sendPasswordResetEmail(email).then(() => this.router.navigate(['/thanks'])).catch(error => {
+
+      throw error
+    })
   }
   getinfox() {
     return this.afAuth.auth.onAuthStateChanged(function (user) {
