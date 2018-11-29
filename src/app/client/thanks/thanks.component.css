@@ -1,12 +1,13 @@
 .btn1
-  {
-    color: white;
-    background-color:#F07C49;
-        border-radius:30vw;
-    }
+{
+  color: #fff;
+  background-color:#F07C49;
+  border-radius:30vw !important;
+  font-size: 1.25rem;
+  }
 .btn1:hover{
-  color: #000;
-}
+color: #000;
+}  
 .background{
     background-image: url('/assets/image/background/desktop/desktop1.jpg');
     background-repeat: no-repeat;

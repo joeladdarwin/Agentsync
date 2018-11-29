@@ -1,12 +1,21 @@
-
-<div class="row">
-  <div class="bg-dark col-12">
+<div class="row mb-4">
+  <div class="bgdark col-12">
     <div class="col-md-12">
           <h3 class="text-center text-white">New Order > First Unit</h3>
-          <h4 class="text-center">Order Complete </h4>
+          <h4 class="text-center sp">Order Complete</h4>
     </div>
-       
-  </div>
+        <div class="row">
+            <div class="col-md-4 col-4 text-left">
+                <button type="button" class="btn btn-link text-white" [routerLink]="['/main/comments']" routerLinkActive="router-link-active" skipLocationChange>BACK</button>
+            </div>
+            <div class="col-md-4 col-4 text-center">
+                <h5>Subtotal:<span class="sp">${{orderprice}}</span></h5>
+              </div>
+            <div class="col-md-4 col-4 text-right">
+             <br>
+            </div>
+       </div>
+</div>
 </div>
         <div class="row text-center mb-3">
           <div class="offset-md-3 col-md-6 col-xs-12 my-2">
@@ -22,9 +31,9 @@
           </div>
         </div>
         <div class="row">
-          <div class="offset-md-3 col-md-6 col-xs-12 mt-5">
-            <button type="button" class="btn btn2 btn-md btn-block py-3" [routerLink]="['/main']" routerLinkActive="router-link-active" skipLocationChange>BACK HOME</button>
-             <button type="button" class="btn btn3 btn-md btn-block py-3" [routerLink]="['/main/order/placeorder']" routerLinkActive="router-link-active" skipLocationChange>PLACE NEW ORDER</button>
+          <div class="offset-md-3 col-md-6 col-xs-12 mt-5 my-3">
+            <button type="button" class="btn btn2 btn-md btn-block" [routerLink]="['/main']" routerLinkActive="router-link-active" skipLocationChange>BACK HOME</button>
+             <button type="button" class="btn btn3 btn-md btn-block" [routerLink]="['/main/order/placeorder']" routerLinkActive="router-link-active" skipLocationChange>PLACE NEW ORDER</button>
               </div>
             </div>
             
