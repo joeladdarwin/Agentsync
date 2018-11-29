@@ -99,9 +99,8 @@ export class AuthService {
             return false
         }
     }
-
     registerclient(userd){
-      return this.afAuth.auth.createUserWithEmailAndPassword(userd.email, "12345@")
+      return this.afAuth.auth.createUserWithEmailAndPassword(userd.email, userd.phone)
       .then(
         (user)=>{
           this.authState = user 
@@ -127,7 +126,7 @@ export class AuthService {
             brokerage: user.brokerage,
             email: user.email,
             phonenumber: user.phone,
-            url:user.url,
+            // url:user.url,
             roles: {
                 user: true
             }

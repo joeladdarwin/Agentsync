@@ -1,7 +1,11 @@
 <app-navbar></app-navbar>
 <div class="row text-center">
   <div class="col-md-6 col-6 mx-auto" >
- <img [src]="(profile | async)?.url" class="img-fluid" />
+    <div class="mb-4" *ngIf="(profile | async)?.url === empty ; else templateName"><img src='https://firebasestorage.googleapis.com/v0/b/agent-sync-sonderworks.appspot.com/o/userprofile%2Fuser.jpg?alt=media&token=d3b47a22-a861-4c7a-9104-bef874ea39bf'
+      class="img-thumbnail img-fluid"></div>
+      <ng-template #templateName>
+        <img [src]="(profile | async)?.url" class=" img-fluid">
+    </ng-template>
        
 <div class="image-upload">
     <label for="file-input">
