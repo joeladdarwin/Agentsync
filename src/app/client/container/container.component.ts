@@ -33,5 +33,9 @@ export class ContainerComponent {
    
     this.avisosTest =this.auth.clientqueryorderlen();
    }
+   signout()
+   {
+     this.auth.signOut();
+   }
 
 }
