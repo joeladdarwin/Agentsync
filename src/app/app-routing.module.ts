@@ -66,7 +66,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'main', component: ContainerComponent,
     children: [{ path: ' ', redirectTo: 'home' },
-      { path: 'home', component: DashboardComponent  },
+      { path: 'home', component: DashboardComponent , data: { state: 'home'} },
                { path: 'order', component: OrderComponent,
                  children: [{ path: ' ', redirectTo: 'placeorder' },
                    { path: 'placeorder', component: PlaceorderComponent },

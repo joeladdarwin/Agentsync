@@ -7,10 +7,12 @@ import { AuthService } from '../../shared/auth.service';
   providers:[AuthService]
 })
 export class ForgetComponent implements OnInit {
-
+value:string;
   constructor(public auth:AuthService) { }
   forget(value)
   {
+   
+    this.auth.forgetemail(value);
     
   }
   ngOnInit() {

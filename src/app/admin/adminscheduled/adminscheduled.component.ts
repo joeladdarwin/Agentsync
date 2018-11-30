@@ -87,16 +87,12 @@ export class AdminscheduledComponent {
  
  }
  updated(a){
-  this.afs.collection('orders').doc(a).update({
-   status: 'pending'
- }).then(() => {
-  alert('updated');
- })
- this.afs.collection(`users/${this.userid}/orders`).doc(a).update({
-  status: 'pending'
-}).then(() => {
- alert('updated');
-})
+  this.afs.collection('orders').doc(a).delete().then(() => {
+    alert('deleted');
+  })
+  this.afs.collection(`users/${this.userid}/orders`).doc(a).delete().then(() => {
+    alert('deleted');
+  })
 
 
 }
