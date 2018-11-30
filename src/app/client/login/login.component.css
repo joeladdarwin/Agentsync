@@ -45,14 +45,16 @@ input{
         color: white;
         background-color:#A1A1A1;
         border-radius:25px;
-        font-size: .9rem;
+        font-size: 2rem;
+       
     }    
     
     }
     @media screen and(max-width:420px){
         .btn5{
            
-        font-size:.90rem;
+        font-size:2rem;
+       
     
         }
     
@@ -60,7 +62,8 @@ input{
      @media screen and(max-width:320px){
         .btn5{
            
-        font-size:.80rem;
+        font-size:2rem;
+       
     
         }
     
