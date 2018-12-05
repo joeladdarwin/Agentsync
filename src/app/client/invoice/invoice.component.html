@@ -47,7 +47,10 @@
         <td>{{(property |async)?.Videoaddons}}</td>
         <td>{{(property |async)?.VideoaddonsPrice}}</td>
       </tr>
-      
+      <tr  >
+        <td>Total</td>
+        <td>{{(property |async)?.ordersprice[i]+(property |async)?.Photographyaddonsprice+(property |async)?.VideoaddonsPrice}}</td>
+      </tr>
     </tbody>
   </table>
   

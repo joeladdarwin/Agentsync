@@ -3,7 +3,7 @@
       <mat-sidenav-container class="example-container" >
         <mat-sidenav #sidenav [mode]="over" class="bgdark" >
           <div class="col-12 ">
-          <img src="../../../assets/image/icons/exit.png" class="img-fluid my-3" >
+          <img src="../../../assets/image/icons/exit.png" (click)="this.sidenav.close();" class="img-fluid my-3" >
           <div class="col-10 mx-auto" *ngIf="(profile | async)?.url === empty ; else templateName"><img src='https://firebasestorage.googleapis.com/v0/b/agent-sync-sonderworks.appspot.com/o/userprofile%2Fuser.jpg?alt=media&token=d3b47a22-a861-4c7a-9104-bef874ea39bf'
             class="img-thumbnail img-fluid"></div>
             <ng-template  #templateName>
@@ -68,7 +68,9 @@
                 </div>
               </div>
             </div>
-              <router-outlet></router-outlet>
+            
+              <router-outlet ></router-outlet>
+           
               <app-footer></app-footer>
         </mat-sidenav-content>
       </mat-sidenav-container>

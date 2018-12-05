@@ -2,12 +2,15 @@ img{
     width: 10rem;
     margin-top: 5rem;
 }
+.cd{
+    margin-top: .45rem;
+}
 .btn1
 	{
 		color: white;
 		background-color:#F07C49;
         border-radius:20px;
-        width:10rem;
+        width:8rem;
         
 		
     }
@@ -141,6 +144,12 @@ img{
         }
       
         
+        .image-upload{
+            position: absolute;
+            margin-left: 39vw;
+            margin-top: -7vw;
+            color: #fff;
+        }
        
         
         }
@@ -165,6 +174,12 @@ img{
         }
       
         
+        .image-upload{
+            position: absolute;
+            margin-left: 39vw;
+            margin-top: -7vw;
+            color: #fff;
+        }
        
         
         }
@@ -194,6 +209,12 @@ img{
         }
       
         
+        .image-upload{
+            position: absolute;
+            margin-left: 39vw;
+            margin-top: -7vw;
+            color: #fff;
+        }
        
         
         }

@@ -16,6 +16,7 @@ li:hover{
   top:384px;
   margin-left:24px;
 }
+
 @media only screen and (max-width: 600px) {
   .orderquery{
     position:absolute;

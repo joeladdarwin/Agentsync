@@ -365,6 +365,16 @@ clientqueryorderlen(){
   return this.data;
  
 }
+deliverylen(){
+
+  const uid = this.currentUserId;
+  console.log(uid);
+  var length;
+  this.data=this.afs.collection(`users/${uid}/orders/`, ref => ref.where('status', '==', 'completed')).valueChanges();
+  console.log(this.data);
+  return this.data;
+ 
+}
 
 //
 
