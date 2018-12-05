@@ -8,8 +8,9 @@ import { AngularFirestore,QuerySnapshot } from 'angularfire2/firestore';
 @Component({
   selector: 'app-container',
   templateUrl: './container.component.html',
-  styleUrls: ['./container.component.css'],
+  styleUrls: ['./container.component.css'], 
   providers:[ClientService, AuthService]
+  
 })
 export class ContainerComponent {
   showFiller = false;

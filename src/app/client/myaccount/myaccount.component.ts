@@ -3,7 +3,8 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-myaccount',
   templateUrl: './myaccount.component.html',
-  styleUrls: ['./myaccount.component.css']
+  styleUrls: ['./myaccount.component.css'],
+ 
 })
 export class MyaccountComponent implements OnInit {
 query;
