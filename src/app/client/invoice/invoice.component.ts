@@ -21,7 +21,8 @@ zip:string;
 orders:any;
 property:any;
 squarefeet:string;
-ordersprice:number
+ordersprice:number;
+
   visitingdate:Date;
   orderprice:number;
   scheduleorder:any;
@@ -37,11 +38,13 @@ export class InvoiceComponent  {
   property:any;
   orders: Observable<Order[]>;
   userid:any;
+  
   constructor(private cli: ClientService,private afauth: AngularFireAuth, private auth:AuthService,private afs: AngularFirestore) { }
  
   ngOnInit() {
     this.userid = this.afauth.auth.currentUser.uid; 
     console.log("darwin"+this.userid);
+    
      }
    ngAfterViewInit(){
    
