@@ -1,5 +1,6 @@
 import { Component, OnInit,AfterViewInit } from '@angular/core';
 import { ClientService } from '../../shared/client.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-updateorder',
   templateUrl: './updateorder.component.html',
@@ -36,11 +37,13 @@ export class UpdateorderComponent implements OnInit {
   ispaddonarray:boolean;
   isvaddonarray:boolean;
   orderdata:any;
-  constructor(private cli:ClientService) { }
+  constructor(private cli:ClientService,private router:Router) { }
 
   ngAfterViewInit()
   {
- this.orderdata = {
+  }
+  submit(){
+    this.orderdata = {
       propertytype: this.propertytype,
       squarefeet: this.squarefeet,
       address:{
@@ -65,7 +68,7 @@ export class UpdateorderComponent implements OnInit {
    
     }
     console.log(this.orderdata);
-   
+    this.cli.update(this.orderdata)
   }
   ngOnInit() {
     this.cli.bsstreet.subscribe(street => { this.street = street;});
