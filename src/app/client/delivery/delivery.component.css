@@ -18,4 +18,20 @@
 .imagesize{
     width:20vw;
 }
-
+.modal-content{
+    background-image: url('/assets/image/background/desktop/background.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100vh;
+}
+@media screen and (max-width: 420px) and (min-width: 320px){
+    .imagesize{
+        width:50vw;
+    }
+    .modal-content{
+        background-image: url('/assets/image/background/mobile/mobileback.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+        min-height: 100vh;
+    }
+}

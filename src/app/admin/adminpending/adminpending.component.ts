@@ -45,6 +45,7 @@ export class AdminpendingComponent {
   uploads: any[];
   userid:any;
   profile:any;
+  progressBarValue;
   allPercentage: Observable<any>;
   files: Observable<any>;
   constructor(private afauth: AngularFireAuth,private afs: AngularFirestore, public dialog: MatDialog,public storage: AngularFireStorage) {
@@ -90,14 +91,17 @@ export class AdminpendingComponent {
   singleimageupload(productname,event,orderid){
     const date=new Date();
  var urlarray=[];
+ 
     const fulldate=date.getFullYear()+'/'+(date.getMonth()+1);
     //const file = event.target.files[0];
     const filelist = event.target.files;
     for (const file of filelist) {
     const filePath = orderid+'/'+productname+'/'+fulldate+'/'+file.name;
-   
+    this.uploadPercent = this.storage.upload(filePath, file).percentageChanges();
     const task = this.storage.upload(filePath, file).then(()=>{
       const fileRef = this.storage.ref(filePath);
+     
+    
       const getDownloadURLl=fileRef.getDownloadURL().subscribe(url=>
       {
         const URL=url;
@@ -156,81 +160,20 @@ this.afs.collection(`users/${this.userid}/orders`).doc(orderid).update({
     }
   
   )
+  const uploadTask=this.storage.upload(filePath, file);
+  uploadTask.percentageChanges().subscribe((value) => {
+    this.progressBarValue = value.toFixed(2);
+  })
+ 
 }
 
-  
   }
-  multipleimageupload(productname,event,orderid) {
-    const date=new Date();
-    const fulldate=date.getFullYear()+'/'+(date.getMonth()+1)
-    this.uploads = [];
-    const filelist = event.target.files;
-    const allPercentage: Observable<number>[] = [];
-    var urlarray=[];
-
-    for (const file of filelist) {
-      
-      const path = orderid+'/'+productname+'/'+fulldate+'/'+file.name;
-      const ref = this.storage.ref(path);
-      const task = this.storage.upload(path, file);
-      const _percentage$ = task.percentageChanges();
-      allPercentage.push(_percentage$);
-    
-      
-      // create composed object with different information. ADAPT THIS ACCORDING YOUR NEED
-      const uploadTrack = {
-        fileName: file.name,
-        percentage: _percentage$
-      }
-     
-      // push each upload into the array
-      this.uploads.push(uploadTrack);
-console.log(ref.getDownloadURL())
-      task.snapshotChanges().pipe(
-        finalize(() =>{ 
-        this.downloadurl = ref.getDownloadURL()
-        console.log(ref.getDownloadURL())
-        }
-       )
-     )
-    .subscribe()
-    console.log(ref.getDownloadURL())
-    
-urlarray.push(this.downloadurl);
-    // console.log(urlarray);
-
-      
-      // for every upload do whatever you want in firestore with the uploaded file
-      //const _t = task.then((f) => {
-        // return f.ref.getDownloadURL().then((url) => {
-          
-        //   return this.afs.collection(`file/${orderid}`).add({
-        //     name: f.metadata.name,
-        //     url: url
-        //   });
-        
-      
-
-    }
-  
-    this.allPercentage = combineLatest(allPercentage)
-      .pipe(
-      map((percentages) => {
-        let result = 0;
-        for (const percentage of percentages) {
-          result = result + percentage;
-        }
-        return result / percentages.length;
-      }),
-      tap(console.log)
-      );
-
-  }
+ 
 update(a){
    this.afs.collection('orders').doc(a).update({
     status: 'completed'
   }).then(() => {
-    alert('updated');
+   
   })
   this.afs.collection(`users/${this.userid}/orders`).doc(a).update({
     status: 'completed'
@@ -241,7 +184,7 @@ update(a){
 }
 delete(b) {
   this.afs.collection('orders').doc(b).delete().then(() => {
-    alert('deleted');
+    
   })
   this.afs.collection(`users/${this.userid}/orders`).doc(b).delete().then(() => {
     alert('deleted');

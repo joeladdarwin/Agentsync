@@ -25,17 +25,15 @@
                         
                         
                       </div>
-                      <!-- <div class="row">
-                          <div class="offset-lg-2 col-lg-8 col-md-12 col-xs-12 col-sm-12">
-                            <div class="col-md-12">
-                                <button type="submit" class="btn btn1 btn-block p-3 mt-5" (click)="download()">DOWNLOAD</button>
-                                </div>
-                                </div>
-                                </div> -->
+                      
 
-                                <div id="pendingModel" class="modal " tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" >
-                                  <div class="modal-dialog modal-lg" role="document">
+                                <div id="pendingModel" class="modal  " tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" >
+                                  <div class="modal-dialog " role="document">
                                     <div class="modal-content">
+                                        <div class="mx-3 py-2">
+                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                         
+                                    </div>
                                         <div class="row p-2">
                                           <div class="mt-5 d-flex flex-wrap justify-content-center">
                                             <div class="p-2 mx-2 text-center mx-auto" *ngFor="let propy of (property|async)?.Photography; let i = index ">

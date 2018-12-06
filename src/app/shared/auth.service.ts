@@ -99,9 +99,8 @@ export class AuthService {
             return false
         }
     }
-
     registerclient(userd){
-      return this.afAuth.auth.createUserWithEmailAndPassword(userd.email, "12345@")
+      return this.afAuth.auth.createUserWithEmailAndPassword(userd.email, userd.phone)
       .then(
         (user)=>{
           this.authState = user 
@@ -127,7 +126,7 @@ export class AuthService {
             brokerage: user.brokerage,
             email: user.email,
             phonenumber: user.phone,
-            url:user.url,
+            // url:user.url,
             roles: {
                 user: true
             }
@@ -276,7 +275,10 @@ export class AuthService {
   }
   forgetemail(email)
   {
-    return this.afAuth.auth.sendPasswordResetEmail(email)
+    return this.afAuth.auth.sendPasswordResetEmail(email).then(() => this.router.navigate(['/thanks'])).catch(error => {
+
+      throw error
+    })
   }
   getinfox() {
     return this.afAuth.auth.onAuthStateChanged(function (user) {
@@ -359,6 +361,16 @@ clientqueryorderlen(){
   console.log(uid);
   var length;
   this.data=this.afs.collection(`users/${uid}/orders/`, ref => ref.where('status', '==', 'new')).valueChanges();
+  console.log(this.data);
+  return this.data;
+ 
+}
+deliverylen(){
+
+  const uid = this.currentUserId;
+  console.log(uid);
+  var length;
+  this.data=this.afs.collection(`users/${uid}/orders/`, ref => ref.where('status', '==', 'completed')).valueChanges();
   console.log(this.data);
   return this.data;
  

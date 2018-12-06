@@ -14,7 +14,7 @@
                                                 <input type="email" required class="form-control-lg col-12 text-center" placeholder="Email" name="email" required
                                                         pattern="[^@]*@[^@]*" [(ngModel)]="cli.email" #email="ngModel" autocomplete="email" autofocus>
                                         </div>
-                                        <div class="col-1">
+                                        <div class="col-1 size">
                                                 <div *ngIf="email.invalid && (email.dirty || email.touched)" class="mt-2">
                                                 
                                                         <div *ngIf="email.errors.required">
@@ -34,7 +34,7 @@
                                                 <input type="password" required class="form-control-lg col-12 text-center" placeholder="Password" name="password"
                                                          [(ngModel)]="cli.phone" #password="ngModel" autocomplete="current-password">
                                         </div>
-                                        <div class="col-1">
+                                        <div class="col-1 size1">
                                                 <div *ngIf="password.invalid && password.dirty " class="mt-2">
                                                 
                                                         <div *ngIf="password.errors.required">

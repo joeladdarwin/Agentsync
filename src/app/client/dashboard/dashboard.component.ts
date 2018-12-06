@@ -13,6 +13,7 @@ export class DashboardComponent implements OnInit, AfterViewInit  {
 name:any;
 message:any;
 avisosTest :Observable<any>;
+deliverytest :Observable<any>;
   constructor(private cli:ClientService,  public auth:AuthService, public router: Router) {
     // this.name=this.cli.getUsername();
   
@@ -39,6 +40,7 @@ avisosTest :Observable<any>;
    ngAfterViewInit(){
    
     this.avisosTest =this.auth.clientqueryorderlen();
+    this.deliverytest=this.auth.deliverylen();
    }
   ngOnInit() {
     // this.name = this.auth
