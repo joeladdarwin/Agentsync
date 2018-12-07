@@ -1,5 +1,6 @@
 import { Component, OnInit,AfterViewInit } from '@angular/core';
 import { ClientService } from '../../shared/client.service';
+import { AuthService } from '../../shared/auth.service';
 import { Router } from '@angular/router';
 @Component({
   selector: 'app-updateorder',
@@ -9,6 +10,7 @@ import { Router } from '@angular/router';
 export class UpdateorderComponent implements OnInit {
   propertytype;
   squarefeet;
+  invoicelist;
   appartmentunit;
   street;
   city;
@@ -37,10 +39,11 @@ export class UpdateorderComponent implements OnInit {
   ispaddonarray:boolean;
   isvaddonarray:boolean;
   orderdata:any;
-  constructor(private cli:ClientService,private router:Router) { }
+  constructor(private cli:ClientService,private router:Router,private auth:AuthService) { }
 
   ngAfterViewInit()
   {
+    this.invoicelist=this.auth.deliverylen()
   }
   submit(){
     this.orderdata = {

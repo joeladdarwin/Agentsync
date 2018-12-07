@@ -5,7 +5,19 @@ h2{
 .text{
     color: #f1875b;
 }
-
+.delivery{
+    margin-top: -4vw;
+}
+@media screen and (max-width: 420px) and (min-width: 320px){
+    .delivery{
+        margin-top: -15vw;
+        margin-right: -1vw;
+    }
+    .align{
+        margin-left: 8vw;
+        margin-right:8vw;
+    }
+}
 
 .btn3{
     background-color: #77C16C;

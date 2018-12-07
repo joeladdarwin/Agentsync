@@ -3,3 +3,12 @@ h4{
    
 }
 
+.delivery{
+    margin-top: -4vw;
+}
+@media screen and (max-width: 420px) and (min-width: 320px){
+    .delivery{
+        margin-top: -15vw;
+        margin-right: -1vw;
+    }
+}
