@@ -61,8 +61,11 @@ p{
 padding-top: 5.3vw;
 margin-left: 4vw;
   }
-  h3 , p{
+  h3 {
       margin-top: 20vw;
       margin-left: 4vw;
+  }
+  .top{
+    margin-top: -97vw;
   }
 }
