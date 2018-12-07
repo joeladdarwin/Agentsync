@@ -46,3 +46,23 @@ p{
   min-height: 160vh;
 }
 }
+
+.size{
+  position: absolute;
+  width: 5.5vw;
+  padding-top: 1.3vw;
+  margin-left: 9vw;
+}
+
+@media screen and (max-width: 420px) and (min-width: 320px){
+  .size{
+      position: absolute;
+      width: 10.5vw;
+padding-top: 5.3vw;
+margin-left: 4vw;
+  }
+  h3 , p{
+      margin-top: 20vw;
+      margin-left: 4vw;
+  }
+}
