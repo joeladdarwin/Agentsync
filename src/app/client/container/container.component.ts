@@ -3,13 +3,15 @@ import { ClientService } from '../../shared/client.service';
 import { AuthService } from '../../shared/auth.service';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router'
+
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFirestore,QuerySnapshot } from 'angularfire2/firestore';
 @Component({
   selector: 'app-container',
   templateUrl: './container.component.html',
   styleUrls: ['./container.component.css'],
-  providers:[ClientService, AuthService]
+  providers:[ClientService, AuthService],
+  
 })
 export class ContainerComponent {
   showFiller = false;
@@ -37,5 +39,8 @@ export class ContainerComponent {
    {
      this.auth.signOut();
    }
+   public getRouterOutletState(outlet) {
+    return outlet.isActivated ? outlet.activatedRoute : '';
+  }
 
 }

@@ -13,7 +13,17 @@
     background-color: transparent;
     border: none;
 }
-.align{
-    padding-left: 10vw;
-    padding-right: 10vw;
+
+.delivery{
+    margin-top: -4vw;
+}
+@media screen and (max-width: 420px) and (min-width: 320px){
+    .delivery{
+        margin-top: -15vw;
+        margin-right: -1vw;
+    }
+    .align{
+        padding-left: 14vw;
+        padding-right: 14vw;
+    }
 }

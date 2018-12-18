@@ -3,6 +3,7 @@
     <div class="row">
       <div class="col-md-12">
         <h3 class="text-center text-white">New Order > First Unit</h3>
+        <img src="/assets/image/icons/delivery1.png" class="img-fluid float-right delivery" >
         <h4 class="text-center sp">Pick a Date </h4>
       </div>
     </div>
@@ -13,7 +14,7 @@
     <div class="bgdark col-12">
       <div class="row">
         <div class="col-md-4 col-4 text-left">
-          <button type="button" class="btn btn-link text-white" [routerLink]="['/access']" routerLinkActive="router-link-active"
+          <button type="button" class="btn btn-link text-white" [routerLink]="['/main/order/access']" routerLinkActive="router-link-active"
             skipLocationChange>BACK</button>
         </div>
         <div class="col-md-4 col-4 text-center">
@@ -30,7 +31,7 @@
         <h3 class="text-center my-5">Please choose an available date for this order </h3>
       </div>
 
-      <div  class="offset-lg-4   col-8 py-5 align ">
+      <div  class="offset-lg-4  offset-2 col-8 py-5 align ">
         <div class=" mx-auto  my-2 px-5">
         <mat-form-field class="example-full-width">
           <input name="visitingdate" matInput ngModel #visitingdate="ngModel" [matDatepickerFilter]="myFilter"  [min]="minDate" [max]="maxDate" [matDatepicker]="picker" placeholder="Choose a date" >

@@ -77,7 +77,7 @@ export class AdminnewComponent {
     this.afs.collection('orders').doc(a).update({
      status: 'scheduled'
    }).then(() => {
-     alert('updated');
+     
    })
    this.afs.collection(`users/${this.userid}/orders`).doc(a).update({
     status: 'scheduled'
@@ -89,7 +89,7 @@ export class AdminnewComponent {
  }
  delete(b) {
   this.afs.collection('orders').doc(b).delete().then(() => {
-    alert('deleted');
+   
   })
   this.afs.collection(`users/${this.userid}/orders`).doc(b).delete().then(() => {
     alert('deleted');

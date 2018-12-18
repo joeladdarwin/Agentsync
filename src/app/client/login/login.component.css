@@ -46,25 +46,34 @@ input{
         background-color:#A1A1A1;
         border-radius:25px;
         font-size: 2rem;
-       
     }    
     
     }
-    @media screen and(max-width:420px){
+    @media screen and (max-width: 420px) and (min-width: 320px){
         .btn5{
            
         font-size:2rem;
        
     
         }
+        .size{
+            position: absolute;
+    margin-left: 19rem;
+        }
+    .size1{
+        position: absolute;
+    margin-left: 19rem;
+    margin-top: 3rem;
+    }
     
     }
-     @media screen and(max-width:320px){
+     /* @media screen and(ma-width:320px){
         .btn5{
            
-        font-size:2rem;
-       
+        font-size:.90rem;
     
         }
+        
     
-    }
+    } */
+   

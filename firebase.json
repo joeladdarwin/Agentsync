@@ -13,7 +13,7 @@
     "source": "functions"
   },
   "hosting": {
-    "public": "dist/agentsync",
+    "public": "dist/agent-sync",
     "ignore": [
       "firebase.json",
       "**/.*",

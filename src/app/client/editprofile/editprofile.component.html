@@ -19,38 +19,44 @@
 
     </div>
     <div class="col-md-12"> 
-          <div class="form-group row">
-                  <label for="example-text-input" class="col-4 col-form-label">Name</label>
+      
+          <div class="form-inline my-3">
+                  <label for="example-text-input" class="col-4 ">Name</label>
                   <div class="col-8">
-                          <p class="font-weight-bold">{{(profile | async)?.displayName | titlecase }}</p>
+                          <p class="font-weight-bold cd">{{(profile | async)?.displayName | titlecase }}</p>
                   </div>
                 </div><hr>
-                <div class="form-group row">
-                  <label for="example-search-input" class="col-4 col-form-label">Email</label>
+                <div class="form-inline row">
+                  <label for="example-search-input" class="col-4 ">Email</label>
                   <div class="col-8">
-                          <p class="font-weight-bold" >{{(profile | async)?.email}} </p>
+                          <p class="font-weight-bold cd" >{{(profile | async)?.email}} </p>
                   </div>
                 </div>
                 <hr>
-                <div class="form-group row">
-                  <label for="example-email-input" class="col-4 col-form-label">Brokerage</label>
+                <div class="form-inline row">
+                  <label for="example-email-input" class="col-4 ">Brokerage</label>
                   <div class="col-8">
-                          <p class="font-weight-bold">{{(profile | async)?.brokerage}}</p>
+                          <p class="font-weight-bold cd">{{(profile | async)?.brokerage}}</p>
                  </div>
                  </div>
                 <hr>
                 
-                <div class="form-group row">
-                    <label for="example-search-input" class="col-4 col-form-label">Phone number</label>
+                <div class="form-inline row">
+                    <label for="example-search-input" class="col-4 ">Phone number</label>
                     <div class="col-8">
-                            <p class="font-weight-bold" >{{(profile | async)?.phonenumber}} </p>
+                            <p class="font-weight-bold cd" >{{(profile | async)?.phonenumber}} </p>
                     </div>
                   </div>
                 <hr>
-               
-                      <label>Payment Info: <span>Not set up yet</span></label>
+                <div class="form-group row">
+                  <label for="example-search-input" class="col-7 col-form-label">Payment Info:<span>Not set up yet</span> </label>
+                  <div class="col-5">
+                    <button type="button" class="btn btn1">Set Up</button>
+                  </div>
+                </div>
                       
-                             <button type="button" class="btn btn1">Set Up</button>
+                      
+                             
                      
                   
                 </div>
