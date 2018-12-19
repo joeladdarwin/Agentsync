@@ -3,21 +3,14 @@
   border: 2px solid #434343;
  }
  .icon{
-   color:#000;
- }
- .btn1
-  {
-    color: #fff;
-    background-color:#F07C49;
-    border-radius:30vw !important;
     font-size: 1.25rem;
-    }
+ }
 .btn1:hover{
   color: #000;
 }  
 h3
 { 
-  color: #434343;
+  color: #bd8e8e;
   font-size: 2rem;
  
 }

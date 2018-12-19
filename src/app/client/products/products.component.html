@@ -11,7 +11,7 @@
         <button type="button" class="btn btn-link text-white" [routerLink]="['/main/order/squarefeet']" routerLinkActive="router-link-active" skipLocationChange>BACK</button>
       </div>
       <div class="col-md-4 col-4 text-center">
-        <h5>Subtotal:<span class="sp">${{orderprice}}</span></h5>
+        <h5 class="total">Subtotal:<span class="sp">${{orderprice}}</span></h5>
       </div>
       <div class="col-md-4 col-4 text-right">
         <button type="button" class="btn btn-link text-white" (click)="updateorder()">NEXT</button>
@@ -26,7 +26,7 @@
   </div>
 </div>
 <div class="row ">
-  <div class="offset-2 col-8">
+  <div class="offset-1 col-10 mx-auto ">
     <button type="button" class="btn btn1 btn-md py-sm-4 py-md-3 btn-block" (click)="pushpgy($event, 'Photography')">Photography</button>
     <button type="button" class="btn btn1 btn-md py-sm-4 py-md-3 btn-block " (click)="pusht360($event, 'Tour 360')">360 Tour</button>
     <button type="button" class="btn btn1 btn-md py-sm-4 py-md-3 btn-block " (click)="pushvt($event, 'Video Tour')"> Video Tour</button>
@@ -47,4 +47,3 @@
 
 
 
-<app-footer></app-footer>

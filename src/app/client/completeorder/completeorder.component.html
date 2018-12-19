@@ -11,7 +11,7 @@
                   <button type="button" class="btn btn-link text-white" [routerLink]="['/main/order/updateorder']" routerLinkActive="router-link-active" skipLocationChange>BACK</button>
               </div>
               <div class="col-md-4 col-4 text-center">
-                  <h5>Subtotal:<span class="sp">${{order.orderprice}}</span></h5>
+                  <h5 class="total">Subtotal:<span class="sp">${{order.orderprice}}</span></h5>
                 </div>
               <div class="col-md-4 col-4 text-right">
                <br>
@@ -33,12 +33,12 @@
           </div>
         </div>
         <div class="row">
-          <div class="offset-md-3 col-md-6 col-xs-12 mt-5 my-3">
-            <div class="align">
+          <div class="offset-md-3 col-md-6 offset-1 col-10 mt-5 my-3">
+            
                 <button type="button" class="btn btn2 btn-md btn-block" [routerLink]="['/main/home']" routerLinkActive="router-link-active" skipLocationChange>BACK HOME</button>
                 <button type="button" class="btn btn3 btn-md btn-block" [routerLink]="['/main/order/placeorder']" routerLinkActive="router-link-active" skipLocationChange>PLACE NEW ORDER</button>
        
-            </div>
+           
                       </div>
             </div>
             

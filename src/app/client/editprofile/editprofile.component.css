@@ -63,8 +63,8 @@ img{
         position: absolute;
         
         margin-left: 20vw;
-        margin-top: -2vw;
-        color: #fff;
+        margin-top: -4vw;
+        color: #000;
     
     }
     .custom-edit{
@@ -110,12 +110,7 @@ img{
             margin-left: -11rem;
             }
         
-            .image-upload{
-                position: absolute;
-                margin-left: 64vw;
-                margin-top: -7vw;
-                color: #fff;
-            }
+           
         
         }
     @media screen and (max-width: 380px) {
@@ -147,8 +142,8 @@ img{
         .image-upload{
             position: absolute;
             margin-left: 39vw;
-            margin-top: -7vw;
-            color: #fff;
+            margin-top: -15vw;
+            color: #000;
         }
        
         
@@ -176,9 +171,9 @@ img{
         
         .image-upload{
             position: absolute;
-            margin-left: 39vw;
-            margin-top: -7vw;
-            color: #fff;
+            margin-left: 38vw;
+            margin-top: -15vw;
+            color: #000;
         }
        
         
@@ -211,9 +206,9 @@ img{
         
         .image-upload{
             position: absolute;
-            margin-left: 39vw;
-            margin-top: -7vw;
-            color: #fff;
+            margin-left: 38vw;
+            margin-top: -15vw;
+            color: #000;
         }
        
         

@@ -23,8 +23,8 @@ export class ContainerComponent {
 
   ngOnInit() {
     this.profile = this.auth.users$;
-    this.userid = this.afauth.auth.currentUser.uid;
-   this.photo=this.afs.collection<any>('users').doc(this.userid).valueChanges();
+  //   this.userid = this.afauth.auth.currentUser.uid;
+  //  this.photo=this.afs.collection<any>('users').doc(this.userid).valueChanges();
     
 
   }

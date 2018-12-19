@@ -10,7 +10,7 @@
                 <button type="button" class="btn btn-link text-white" [routerLink]="['/main/order/comments']" routerLinkActive="router-link-active" skipLocationChange>BACK</button>
             </div>
             <div class="col-md-4 col-4 text-center">
-                <h5>Subtotal:<span class="sp">${{orderprice}}</span></h5>
+                <h5 class="total">Subtotal:<span class="sp">${{orderprice}}</span></h5>
               </div>
             <div class="col-md-4 col-4 text-right">
              <br>
@@ -59,6 +59,6 @@
                    <li><a [routerLink]="['/main/order/visitingdate']" routerLinkActive="router-link-active" skipLocationChange>{{visitingdatenow | date: 'medium' }}</a></li>
                    <li *ngIf="comment != ''"><a [routerLink]="['/main/order/comment']" routerLinkActive="router-link-active" skipLocationChange>{{comment}}</a></li>
                </ul>
-                <button class="btn btn2 btn-block mx-auto mb-5 py-3" (click)="submitorder()" >ADD TO CART</button>
+                <button class="btn btn2 btn-block mx-auto mb-5 col-11 offset-1 py-3" (click)="submitorder()" >ADD TO CART</button>
           </div>
         </div>

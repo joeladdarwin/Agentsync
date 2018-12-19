@@ -11,7 +11,7 @@
         <button type="button" class="btn btn-link text-white" [routerLink]="['/main/order/products']" routerLinkActive="router-link-active">BACK</button>
       </div>
       <div class="col-md-4 col-4 text-center">
-        <h5>Subtotal:<span class="sp">{{total}}</span></h5>
+        <h5 class="total">Subtotal:<span class="sp">{{total}}</span></h5>
       </div>
       <div class="col-md-4 col-4 text-right">
           <button type="button" (click)="vaddonsupdated()" class="btn btn-link text-white">NEXT</button>
@@ -26,7 +26,7 @@
   </div>
 </div>
 <div class="row">
-  <div class="offset-2 col-8 my-2">
+  <div class="offset-1 mx-auto col-10 my-2">
     <button class="btn btn1 btn-md py-sm-4 py-md-3 btn-block" (click)="pushvcs($event, 'Community Shots')">Community Shots(+$50)</button>
     <button class="btn btn1 btn-md py-sm-4 py-md-3 btn-block" (click)="pushvts($event, 'Twlight Shots')">Twlight
       Shots(+$50)</button>
