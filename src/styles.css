@@ -59,17 +59,23 @@ h4{
     background-color: #f1875b;
     color:#fff;
 }
+<<<<<<< HEAD
+
+=======
+>>>>>>> 496e67f43af93b07a7eeabea828aefda3eff415a
 .btn3{
     border-radius: 25px !important;
     background-color:#77c16c;
     color:#fff;
 }
 .nav-link{
-    font-size: .95rem;
-    font-weight: 400;
-    padding:.25rem !important
+    font-size: .75rem;
+    font-weight: bolder;
 }
-.modal-backdrop {
-   
-    display: none !important;
+@media(min-width: 360px) and (max-width: 500px){
+    .btn1{
+        width:80vw !important;
+        margin-left: 20px !important;
+    }
 }
+    
