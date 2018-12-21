@@ -2,12 +2,15 @@ img{
     width: 10rem;
     margin-top: 5rem;
 }
+.cd{
+    margin-top: .45rem;
+}
 .btn1
 	{
 		color: white;
 		background-color:#F07C49;
         border-radius:20px;
-        width:10rem;
+        width:8rem;
         
 		
     }
@@ -56,6 +59,14 @@ img{
     .image-upload > input {
         display: none;
     }
+    .image-upload{
+        position: absolute;
+        
+        margin-left: 20vw;
+        margin-top: -4vw;
+        color: #000;
+    
+    }
     .custom-edit{
         cursor: pointer;
     }
@@ -99,7 +110,7 @@ img{
             margin-left: -11rem;
             }
         
-       
+           
         
         }
     @media screen and (max-width: 380px) {
@@ -128,6 +139,12 @@ img{
         }
       
         
+        .image-upload{
+            position: absolute;
+            margin-left: 39vw;
+            margin-top: -15vw;
+            color: #000;
+        }
        
         
         }
@@ -152,6 +169,12 @@ img{
         }
       
         
+        .image-upload{
+            position: absolute;
+            margin-left: 38vw;
+            margin-top: -15vw;
+            color: #000;
+        }
        
         
         }
@@ -181,6 +204,12 @@ img{
         }
       
         
+        .image-upload{
+            position: absolute;
+            margin-left: 38vw;
+            margin-top: -15vw;
+            color: #000;
+        }
        
         
         }

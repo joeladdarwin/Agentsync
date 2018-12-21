@@ -783,8 +783,16 @@ getdoc(){
     var c = (d.getDate()).toString() + (d.getMonth() + 1).toString() + (d.getFullYear()).toString().substr(-2) + (d.getHours()).toString() + (d.getMinutes()).toString();  
     this.auth.clientcreateorder(c,order)
     console.log("worke")
-    this.router.navigate(['/main/order/completeorder'], { skipLocationChange: true })
+    this.router.navigate(['/main/order/updateorder'], { skipLocationChange: true })
   }
+  update(order:any){
+    var d= new Date();
+    var c = (d.getDate()).toString() + (d.getMonth() + 1).toString() + (d.getFullYear()).toString().substr(-2) + (d.getHours()).toString() + (d.getMinutes()).toString();  
+    // this.auth.clientcreateorder(c,order)
+    // console.log("worke")
+    this.router.navigate(['/main/order/completeorder', order], { skipLocationChange: true })
+  }
+
   // end of revieworder
 
   

@@ -1,7 +1,11 @@
 <app-navbar></app-navbar>
 <div class="row text-center">
   <div class="col-md-6 col-6 mx-auto" >
- <img [src]="(profile | async)?.url" class="img-fluid" />
+    <div class="mb-4" *ngIf="(profile | async)?.url === empty ; else templateName"><img src='https://firebasestorage.googleapis.com/v0/b/agent-sync-sonderworks.appspot.com/o/userprofile%2Fuser.jpg?alt=media&token=d3b47a22-a861-4c7a-9104-bef874ea39bf'
+      class="img-thumbnail img-fluid"></div>
+      <ng-template #templateName>
+        <img [src]="(profile | async)?.url" class=" img-fluid">
+    </ng-template>
        
 <div class="image-upload">
     <label for="file-input">
@@ -12,41 +16,47 @@
     
   
 </div>
-<p>{{(profile | async)?.displayName | titlecase }}</p><hr>    
+
     </div>
     <div class="col-md-12"> 
-          <div class="form-group row">
-                  <label for="example-text-input" class="col-5 col-form-label">Name</label>
-                  <div class="col-7">
-                          <label for="example-text-input" >{{(profile | async)?.displayName | titlecase }}</label>
+      
+          <div class="form-inline my-3">
+                  <label for="example-text-input" class="col-4 ">Name</label>
+                  <div class="col-8">
+                          <p class="font-weight-bold cd">{{(profile | async)?.displayName | titlecase }}</p>
                   </div>
                 </div><hr>
-                <div class="form-group row">
-                  <label for="example-search-input" class="col-5 col-form-label">Email</label>
-                  <div class="col-7">
-                          <label for="example-text-input" >{{(profile | async)?.email}} </label>
+                <div class="form-inline row">
+                  <label for="example-search-input" class="col-4 ">Email</label>
+                  <div class="col-8">
+                          <p class="font-weight-bold cd" >{{(profile | async)?.email}} </p>
                   </div>
                 </div>
                 <hr>
-                <div class="form-group row">
-                  <label for="example-email-input" class="col-5 col-form-label">Brokerage</label>
-                  <div class="col-7">
-                          <label for="example-text-input" >{{(profile | async)?.brokerage}}</label>
+                <div class="form-inline row">
+                  <label for="example-email-input" class="col-4 ">Brokerage</label>
+                  <div class="col-8">
+                          <p class="font-weight-bold cd">{{(profile | async)?.brokerage}}</p>
                  </div>
                  </div>
                 <hr>
                 
-                <div class="form-group row">
-                    <label for="example-search-input" class="col-5 col-form-label">Phone number</label>
-                    <div class="col-7">
-                            <label for="example-text-input" >{{(profile | async)?.phonenumber}} </label>
+                <div class="form-inline row">
+                    <label for="example-search-input" class="col-4 ">Phone number</label>
+                    <div class="col-8">
+                            <p class="font-weight-bold cd" >{{(profile | async)?.phonenumber}} </p>
                     </div>
                   </div>
                 <hr>
-               
-                      <label>Payment Info: <span>Not set up yet</span></label>
+                <div class="form-group row">
+                  <label for="example-search-input" class="col-7 col-form-label">Payment Info:<span>Not set up yet</span> </label>
+                  <div class="col-5">
+                    <button type="button" class="btn btn1">Set Up</button>
+                  </div>
+                </div>
                       
-                             <button type="button" class="btn btn1">Set Up</button>
+                      
+                             
                      
                   
                 </div>

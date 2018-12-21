@@ -4,9 +4,9 @@
     <div class="col-md-12">
           <h3 class="text-center text-white">My Invoices</h3>
     </div>
-        <div class="row my-5">
+        <div class="row my-2">
             <div class="col-md-6 col-6 text-left">
-                <button type="button" class="btn3 text-white">BACK</button>
+                <button type="btn btn-link text-white" class="btn3 text-white" [routerLink]="['/main/myaccount/main']" routerLinkActive="router-link-active" skipLocationChange>BACK</button>
             </div>
             <div class="col-md-6 col-6 text-right">
                 <button type="button" class="btn3 text-white text-right">SELECT</button>
@@ -19,7 +19,7 @@
           <div class="p-2 mx-2 text-center mx-auto" *ngFor="let order of orders | async">
                 <a (click)="query(order.orderid,order.orderby,order.address.street,order.address.city,order.address.zip )"><i class="fa fa-file-pdf-o"
                     style="font-size:48px;color:#000000"></i><br>
-                    {{ order.orderid}}</a>
+                    {{ order.visitingdate.toDate() |date:'MMM d'}}</a>
 
           </div>
         </div>
@@ -47,7 +47,10 @@
         <td>{{(property |async)?.Videoaddons}}</td>
         <td>{{(property |async)?.VideoaddonsPrice}}</td>
       </tr>
-      
+      <tr  >
+        <td>Total</td>
+        <td>${{(property |async)?.orderprice}}</td>
+      </tr>
     </tbody>
   </table>
   

@@ -1,18 +1,19 @@
 <div class="row background">
-    <div class="col-12 mt-1">
-        <a routerLink="/login"><i class="m-3 fas fa-arrow-left"></i></a>
-    </div>
+        
     <div class="col-12">
-        <h3 class="text-center mt-5">Forgot your login info?</h3>
+        <a class="float-left size" [routerLink]="['/login']" routerLinkActive="router-link-active" skipLocationChange>
+            <img src="/assets/image/icons/arrow.png" class="img-fluid float-left">
+        </a>
+        <h3 class="text-center mt-lg-5">Forgot your login info?</h3>
         <p class="text-center">An email will be sent to the registered address.</p>
     </div>
-    <form class="col-12 mt-5 text-center" (ngSubmit)="forget(forget.value)" #forget="ngForm">
-        <div class="row mt-5">
+    <form class="col-12 mt-lg-5 top text-center" >
+        <div class="row mt-lg-5">
             <div class="offset-md-3 col-md-6 col-xs-12">
-                <input type="email" name="recoveremail" #recoveremail placeholder="Email Address" required class="form-control p-4 mb-5 input-lg numinput text-center">
+                <input type="text" name="recoveremail" #recoveremail placeholder="Email Address"  class="form-control p-4 mb-5 input-lg numinput text-center">
             </div>
             <div class="offset-md-3 col-md-6 col-xs-12 mt-5">
-                <button type="submit" class="btn btn1 btn-block p-3 mt-5">RECOVER LOGIN</button>
+                <button type="submit" class="btn btn1 btn-block p-3 mt-5" (click)="forget(recoveremail.value)">RECOVER LOGIN</button>
             </div>
         </div>
     </form>

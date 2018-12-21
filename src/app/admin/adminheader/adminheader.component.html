@@ -25,8 +25,7 @@
       <div class="modal-footer">
               <div class="actionsBtns">
             <form action="/logout" method="post">
-                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-                <input type="submit" class="btn btn6  mx-2 navdes"  data-dismiss="modal" value="Yes" />
+                <input type="submit" class="btn btn6  mx-2 navdes"  [routerLink]="['/']" routerLinkActive="active" data-dismiss="modal" value="Yes" />
                   <button class="btn btn5 "  data-dismiss="modal">Cancel</button>
 
 

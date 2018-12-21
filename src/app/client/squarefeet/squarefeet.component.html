@@ -3,14 +3,15 @@
   <div class="bgdark col-12">
       <div class="col-12">
           <h3 class="text-center text-white">New Order > First Unit</h3>
+          <img src="/assets/image/icons/delivery1.png" class="img-fluid float-right delivery" >
           <h4 class="text-center">Property Size</h4>
         </div>
          <div class="row">
             <div class="col-md-4 col-4 text-left">
-          <button type="button" class="btn btn-link text-white" [routerLink]="['/address']" routerLinkActive="router-link-active" skipLocationChange>BACK</button>
+          <button type="button" class="btn btn-link text-white" [routerLink]="['/main/order/address']" routerLinkActive="router-link-active" skipLocationChange>BACK</button>
             </div>
             <div class="col-md-4 col-4 text-center">
-                <h5>Subtotal:<span class="sp">${{orderprice}}</span></h5>
+                <h5 class="total">Subtotal:<span class="sp">${{orderprice}}</span></h5>
               </div>
               <div class="col-md-4 col-4 text-right">
           <button type="button" class="btn btn-link  text-white float-right" (click)="checksqft()">NEXT</button>
@@ -20,13 +21,13 @@
   </div> 
 
 <div class="row "> 
-          <div class="offset-md-3 col-md-6 offset-sm-3 col-sm-6 col-xs-12">
+          <div class="offset-md-3 col-md-6 offset-sm-3 col-sm-6 col-xs-12 align">
             <h3 class="text-center mt-2">How many square feet?{{sqft}}</h3>
             <p class="text-danger">{{message}}</p>
           </div>
 </div>
 <div class="row">
-        <div class="offset-2 col-8"> 
+        <div class="offset-1 col-10 mx-auto mt-4"> 
           
             <button type="button" class="btn btn1 btn-md py-sm-4 py-md-3 btn-block" (click)="updatesqft($event, '0-750')" [ngClass]="{btn4:is0750sel}">0-750 SF</button>
             <button type="button" class="btn btn1 btn-md py-sm-4 py-md-3 btn-block" (click)="updatesqft($event, '751-1500')" [ngClass]="{btn4:is751sel}">751-1500 SF</button>

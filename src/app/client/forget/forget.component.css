@@ -2,19 +2,15 @@
     
   border: 2px solid #434343;
  }
- .btn1
-  {
-    color: #fff;
-    background-color:#F07C49;
-    border-radius:30vw !important;
+ .icon{
     font-size: 1.25rem;
-    }
+ }
 .btn1:hover{
   color: #000;
 }  
 h3
 { 
-  color: #434343;
+  color: #bd8e8e;
   font-size: 2rem;
  
 }
@@ -42,4 +38,27 @@ p{
   background-size: cover;
   min-height: 160vh;
 }
+}
+
+.size{
+  position: absolute;
+  width: 5.5vw;
+  padding-top: 1.3vw;
+  margin-left: 9vw;
+}
+
+@media screen and (max-width: 420px) and (min-width: 320px){
+  .size{
+      position: absolute;
+      width: 10.5vw;
+padding-top: 5.3vw;
+margin-left: 4vw;
+  }
+  h3 {
+      margin-top: 20vw;
+      margin-left: 4vw;
+  }
+  .top{
+    margin-top: -97vw;
+  }
 }

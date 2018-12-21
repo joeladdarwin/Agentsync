@@ -3,6 +3,7 @@
   <div class="bgdark col-12">
             
           <h3 class="text-center text-white">New Order > First Unit</h3>
+          <img src="/assets/image/icons/delivery1.png" class="img-fluid float-right delivery" >
           <h4 class="text-center sp">Property Access </h4>
 
    </div> 
@@ -16,7 +17,7 @@
                     <button type="button" (click)="checkbackaccess()" class="btn btn-link text-white">BACK</button>
                 </div>
                 <div class="col-4 text-center">
-                    <h5>Subtotal:<span class="sp">${{total}}</span></h5>
+                    <h5 class="total">Subtotal:<span class="sp">${{total}}</span></h5>
                 </div>
                 <div class="col-4 text-right">
                     <ng-template>
@@ -30,18 +31,18 @@
                 
         </div>
 
-        <div class="col-12">
                 <div class="col-12">
                         <h3 class="text-center my-3">How will you access the property?</h3>
                         <p class="text-center text-danger">{{message}}</p>
-                        <div class="offset-2 col-8">
+                        </div>
+                        <div class="offset-1 col-10 mx-auto">
                             <button type="button" class="btn btn1 btn-md py-sm-4 py-md-3 btn-block " (click)="meet('Meet agent on site')">Meet
                                 agent on site</button>
                             <button type="button" class="btn btn1 btn-md py-sm-4 py-md-3 btn-block " (click)="codeshow = !codeshow;meet('Lockbox')">Lockbox</button>
                             <button type="button" class="btn btn1 btn-md py-sm-4 py-md-3 btn-block " (click)="codeshow = !codeshow;meet('Access code')">Access
                                 Code</button>
                             <button type="button" class="btn btn1 btn-md py-sm-4 py-md-3 btn-block mb-2 " (click)="meet('Others')">Other</button>
-                            <input type="text" required class="form-control-lg col-12 text-center" placeholder="Code?" name="code" id="code"
+                            <input type="text" required class=" form-control my-3 col-12 text-center" placeholder="Code?" name="code" id="code"
                                 required #code autofocus>
                             <div *ngIf="code.invalid && (code.dirty || code.touched)" class="alert alert-warning offset-md-3 col-md-6 col-xs-12 my-2">
                             
@@ -52,8 +53,8 @@
                             </div>
                             
                         </div>
-                </div>
                
-        </div>
+               
+        
           
     </form>

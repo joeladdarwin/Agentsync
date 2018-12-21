@@ -13,14 +13,38 @@ li:hover{
 }
 .orderquery{
   position:absolute;
-  top:219px;
-  margin-left:15px;
+  top:422px;
+  margin-left:24px;
 }
-@media only screen and (max-width: 600px) {
+
+@media only screen and (max-width: 420px) and (min-width: 300px) {
   .orderquery{
     position:absolute;
-    top:216px;
-  margin-left:-54px;
+    top:422px;
+  margin-left:-41px;
+  }
+ 
+}
+@media screen and (max-width: 580px) and (min-width: 450px){
+ .orderquery{
+  position:absolute;
+  top:422px;
+  margin-left:-43px;
+}
+}
+@media screen and (max-width: 780px) and (min-width: 600px){
+   .orderquery{
+  position:absolute;
+  top:422px;
+  margin-left:-43px;
+}
+}
+
+
+@media only screen and (max-width: 740px) and (min-width: 300px) {
+  .size{
+    
+  margin-left:-5vw;
   }
  
 }

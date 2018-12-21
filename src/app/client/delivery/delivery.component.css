@@ -19,3 +19,15 @@
     width:20vw;
 }
 
+@media screen and (max-width: 420px) and (min-width: 320px){
+    .imagesize{
+        width:43vw;
+    }
+   
+}
+@media screen and (max-width: 780px) and (min-width: 440px){
+    .imagesize{
+        width:42vw;
+    }
+   
+}
