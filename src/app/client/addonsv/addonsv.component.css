@@ -22,9 +22,27 @@ h5{
     color:#fff;
 }
 .delivery{
-    margin-top: -4vw;
+    margin-top: -5.5vw;
 }
-@media screen and (max-width: 420px) and (min-width: 400px){
+@media screen and (max-width: 580px) and (min-width: 450px){
+    .delivery{
+	    margin-top: -11vw;
+    margin-right: -1vw;
+}
+h3{
+	font-size:1.4rem;
+}
+h4{
+	font-size:1.4rem;
+}
+}
+@media screen and (max-width: 780px) and (min-width: 600px){
+    .delivery{
+        margin-top: -9vw;
+    }
+}
+
+@media screen and (max-width: 445px) and (min-width: 375px){
     .delivery{
 	    margin-top: -14vw;
     margin-right: -1vw;
@@ -34,12 +52,6 @@ h3{
 }
 h4{
 	font-size:1.4rem;
-}
-.total{
-    margin-top:2vw;
-}
-h5{
-    font-size: 1.1rem
 }
 }
 @media screen and (max-width: 325px) and (min-width: 300px){
@@ -52,12 +64,6 @@ h3{
 }
 h4{
 	font-size:1.05rem;
-}
-.total{
-    margin-top:2vw;
-}
-h5{
-    font-size: 1.1rem
 }
 }
 
@@ -72,11 +78,5 @@ h5{
     }
     h4{
         font-size:1.2rem;
-    }
-    .total{
-        margin-top:2vw;
-    }
-    h5{
-        font-size: 1.1rem
     }
 }
