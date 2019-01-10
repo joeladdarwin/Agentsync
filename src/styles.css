@@ -34,6 +34,8 @@ h4{
 .btn1:hover{
     background-color: #D5D5D5;
     color:#000;
+    border-radius: 0px !important;
+
 }
 .btns
 {
@@ -52,7 +54,9 @@ h4{
  color:#f1875b;
 }
 .numinput{
-    border: 1px solid #000 !important;
+    border: 2px solid #434343 !important;
+    border-radius: 0 !important;
+  
 }
 .btn2{
     border-radius: 25px !important;
@@ -73,4 +77,3 @@ h4{
    
     display: none !important;
 }
-
