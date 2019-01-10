@@ -21,6 +21,7 @@ export class ProfileComponent implements OnInit, AfterViewInit {
   user;
   photo:any;
   userid:any;
+  empty;
   constructor(private cli: ClientService, public auth: AuthService, public afauth:AngularFireAuth,private afs: AngularFirestore) { }
   ngAfterViewInit(){
     this.name = this.auth.displayName;

@@ -9,7 +9,7 @@ import { DataSource } from '@angular/cdk/table';
 import { Reference } from '@angular/compiler/src/render3/r3_ast';
 import { RENDER_PARENT } from '@angular/core/src/render3/interfaces/container';
   export interface Order {
-    orderid:number;
+  orderid:number;
   propertytype:string;
   street:string;
   unit:any;
@@ -22,9 +22,9 @@ import { RENDER_PARENT } from '@angular/core/src/render3/interfaces/container';
   property:any;
   squarefeet:string;
   ordersprice:number
-    visitingdate:Date;
-    orderprice:number;
-    scheduleorder:any;
+  visitingdate:Date;
+  orderprice:number;
+  scheduleorder:any;
 
   }
 @Component({
@@ -68,7 +68,9 @@ export class AdmintableComponent{
    
   }
 
- 
+  scheduleorder(a){
+    console.log(a)
+}
   
   applyFilter(filterValue: string) {
     filterValue = filterValue.trim(); 

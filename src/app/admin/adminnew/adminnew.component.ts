@@ -4,7 +4,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
 
 import { AuthService } from '../../shared/auth.service';
 export interface Order {
-  orderid:number;
+orderid:number;
 propertytype:string;
 street:string;
 unit:any;
@@ -17,8 +17,8 @@ orders:any;
 property:any;
 squarefeet:string;
 ordersprice:number
-  visitingdate:Date;
-  orderprice:number;
+visitingdate:Date;
+orderprice:number;
 
 }
 @Component({
@@ -57,6 +57,9 @@ export class AdminnewComponent {
     this.dataSource.filter = filterValue;
     
   }
+  scheduleorder(a){
+    console.log(a)
+}
   query(a){
     console.log(a);
    var docRef$= this.afs.collection<Order>('orders').doc(a);

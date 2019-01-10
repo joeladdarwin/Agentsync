@@ -6,7 +6,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6{
     font-size: inherit;
 }
 
-body {  font-family: 'Lato'; }
+body {  font-family: 'Lato';}
 .btn-selected{
     color:#000;
     background-color: #D5D5D5 !important;
@@ -59,6 +59,11 @@ h4{
     background-color: #f1875b;
     color:#fff;
 }
+.btn3{
+    border-radius: 25px !important;
+    background-color:#77c16c;
+    color:#fff;
+}
 .nav-link{
     font-size: .95rem;
     font-weight: 400;
@@ -68,3 +73,4 @@ h4{
    
     display: none !important;
 }
+

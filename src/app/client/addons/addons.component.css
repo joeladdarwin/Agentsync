@@ -1,9 +1,9 @@
 .delivery{
-    margin-top: -4vw;
+    margin-top: -5.5vw;
 }
 @media screen and (max-width: 580px) and (min-width: 450px){
     .delivery{
-	    margin-top: -14vw;
+	    margin-top: -11vw;
     margin-right: -1vw;
 }
 h3{

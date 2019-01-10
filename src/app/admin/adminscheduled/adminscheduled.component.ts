@@ -56,6 +56,9 @@ export class AdminscheduledComponent {
     this.dataSource.filter = filterValue;
     
   }
+  scheduleorder(a){
+    console.log(a)
+}
   query(a){
     console.log(a);
    var docRef$= this.afs.collection<Order>('orders').doc(a);

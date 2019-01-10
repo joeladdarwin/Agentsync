@@ -31,6 +31,7 @@ export class EditprofileComponent implements OnInit {
   uploads: any[];
   allPercentage: Observable<any>;
   files: Observable<any>;
+  empty;
   constructor (private afAuth : AngularFireAuth,private afStorage: AngularFireStorage, private cli: ClientService, private auth:AuthService,private afs: AngularFirestore,public storage: AngularFireStorage) {}
    
     upload(event) {

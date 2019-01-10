@@ -40,8 +40,8 @@ export class AuthService {
           const uida = this.afAuth.auth.currentUser.uid;
           if (uida != null || uida != undefined)
           {
-             console.log(uida +"is htns");
-           this.getuserdata(  )
+            console.log(uida +"is htns");
+            this.getuserdata(  )
           }
          
          
@@ -106,7 +106,7 @@ export class AuthService {
           this.authState = user 
           this.getinfo(userd)
           this.updateuserdata(userd, this.afAuth.auth.currentUser.uid ).then(()=>{console.log("updated")
-            this.afAuth.auth.sendPasswordResetEmail(this.afAuth.auth.currentUser.email).then(() => this.router.navigate(['/thanks'])).catch((e) => {
+          this.afAuth.auth.sendPasswordResetEmail(this.afAuth.auth.currentUser.email).then(() => this.router.navigate(['/thanks'])).catch((e) => {
               console.log(e.message);
               return e
             })}).catch((e)=>console.log("not updated"))

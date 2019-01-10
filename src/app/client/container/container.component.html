@@ -17,14 +17,14 @@
             <nav>
               <ul class="navbar-nav mx-auto my-5 nav-fill w-100">
                 <li class="nav-item my-3">
-                  <a class="nav-link text-white" [routerLink]="['./home']" routerLinkActive="active">Main</a>
+                  <a class="nav-link text-white" [routerLink]="['./home']" routerLinkActive="active" (click)="this.sidenav.close();">Main</a>
                 </li>
             
                 <li class="nav-item my-3">
-                  <a class="nav-link text-white" [routerLink]="['./order/placeorder']" routerLinkActive="active">Place Order</a>
+                  <a class="nav-link text-white" [routerLink]="['./order/placeorder']" routerLinkActive="active" (click)="this.sidenav.close();">Place Order</a>
                 </li>
                 <li class="nav-item my-3">
-                  <a class="nav-link text-white" [routerLink]="['./myorder']" routerLinkActive="active">My Orders</a>
+                  <a class="nav-link text-white" [routerLink]="['./myorder']" routerLinkActive="active" (click)="this.sidenav.close();">My Orders</a>
                   <div class="text-right orderquery offset-lg-2 col-lg-8 col-md-12 col-xs-12 col-sm-12">
                     <div *ngIf="avisosTest | async as aviso">
                         <ul style="display:none">
@@ -41,17 +41,17 @@
                 </div>
                 </li>
                 <li class="nav-item my-3">
-                  <a class="nav-link text-white" [routerLink]="['/main/myaccount/main']" routerLinkActive="active">My Account</a>
+                  <a class="nav-link text-white" [routerLink]="['/main/myaccount/main']" routerLinkActive="active" (click)="this.sidenav.close();">My Account</a>
                 </li>
                 <li class="nav-item my-3"> 
-                  <a class="nav-link text-white" [routerLink]="['./delivery']" routerLinkActive="active">Deliveries</a>
+                  <a class="nav-link text-white" [routerLink]="['./delivery']" routerLinkActive="active" (click)="this.sidenav.close();">Deliveries</a>
                 </li>
                 <li class="nav-item my-3"> 
-                  <a class="nav-link text-white" [routerLink]="['./profile']" routerLinkActive="active">Profile </a>
+                  <a class="nav-link text-white" [routerLink]="['./profile']" routerLinkActive="active" (click)="this.sidenav.close();">Profile </a>
                 </li>
                 <li class="nav-item my-3">
                 
-                  <a class="nav-link text-white" (click)="signout()" routerLinkActive="active">Logout</a>
+                  <a class="nav-link text-white" (click)="signout()" routerLinkActive="active"(click)="this.sidenav.close();">Logout</a>
                 </li>
             
               </ul>
@@ -68,11 +68,20 @@
                 </div>
               </div>
             </div>
-            
-              <router-outlet ></router-outlet>
-           
-              <app-footer></app-footer>
-        </mat-sidenav-content>
+            <ng-content ></ng-content>
+        
+            <!-- <router-outlet></router-outlet>
+
+   <!-- -->
+
+   <!-- <div [@slideInOut]="triggerAnimation(outlet)" id="mainContainer">
+    <router-outlet #outlet="outlet" ></router-outlet>
+  </div>
+  
+
+             
+              <app-footer></app-footer> -->
+        </mat-sidenav-content> 
       </mat-sidenav-container>
       <!-- <mat-drawer-container class="row example-container" autosize>
         <mat-drawer #drawer class="example-sidenav  bgdark" mode="side">

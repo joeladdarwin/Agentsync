@@ -16,6 +16,7 @@ import { Order} from './order';
 
 export class ClientService {
   displayName: string;
+  name;
   email;
   phone;
   brokerage;

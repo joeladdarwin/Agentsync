@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 })
 export class RegisterComponent implements OnInit {
   error: { name: string, message: string } = { name: '', message: '' };
-  constructor(private cli: ClientService, private router:Router) { }
+  constructor(public cli: ClientService, private router:Router) { }
   register(registerForm:User)
   {
     this.cli.register(registerForm).catch(_error=>{

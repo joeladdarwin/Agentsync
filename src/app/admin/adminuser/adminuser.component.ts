@@ -41,5 +41,11 @@ export class AdminuserComponent  {
     })
 
   }
+  applyFilter(filterValue: string) {
+    filterValue = filterValue.trim(); 
+    filterValue = filterValue.toLowerCase();
+    this.dataSource.filter = filterValue;
+    
+  }
 
 }

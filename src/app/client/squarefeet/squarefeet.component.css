@@ -8,17 +8,14 @@ h4{
     background-color: #D5D5D5;
     color:#000;
 }
-.align{
-    padding-left: 10vw;
-    padding-right:10vw;
-}
+
 
 .delivery{
-    margin-top: -4vw;
+    margin-top: -5.5vw;
 }
 @media screen and (max-width: 580px) and (min-width: 450px){
     .delivery{
-	    margin-top: -14vw;
+	    margin-top: -11vw;
     margin-right: -1vw;
 }
 h3{

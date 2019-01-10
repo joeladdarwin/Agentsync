@@ -49,8 +49,6 @@ import {  MatAutocompleteModule,
 import { CdkTableModule } from '@angular/cdk/table';
 import { CdkTreeModule } from '@angular/cdk/tree';
 import { HttpClientModule } from '@angular/common/http';
-
-
 import { environment } from "../environments/environment";
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from "angularfire2/auth";

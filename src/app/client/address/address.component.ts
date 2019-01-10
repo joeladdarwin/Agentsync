@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Host } from '@angular/core';
 import {
  
   
@@ -9,11 +9,13 @@ import {
 } from "@angular/forms";
 import { ClientService } from '../../shared/client.service';
 
+
 @Component({
   selector: 'app-address',
   templateUrl: './address.component.html',
   styleUrls: ['./address.component.css'],
   
+
 })
 export class AddressComponent implements OnInit {
   propertyss:string;

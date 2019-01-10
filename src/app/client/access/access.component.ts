@@ -15,6 +15,7 @@ export class AccessComponent implements OnInit {
   total;
   code:string;
   orderprice;
+  ngForm;
   codeshow:boolean;
   constructor(private cli:ClientService) {
     

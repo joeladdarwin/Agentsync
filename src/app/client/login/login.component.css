@@ -5,7 +5,7 @@
     min-height: 100vh;
    }
 .rounded-circle {
-    border-radius: 50% !important;
+     border-radius: 50% !important; 
     height: 30vh;
 }
 .error
@@ -13,17 +13,23 @@
     color:red;
 }
 input{
-    background-color: #fff;
+    background-color: #FFFFFF;
+    border:2px solid #434343; 
     line-height: 6vh;
     opacity: 0.8;
+    
+
 
 }
 .btn4{
     background-color:#F1875B;
     color:#fff;
     font-size: 1rem;
-    border-radius: 25px;
+    /* border-radius: 25px; */
 }
+.sharp {
+    border-radius:0;
+  } 
 .btn5{
     color: white;
     background-color:#A1A1A1;
@@ -39,7 +45,7 @@ input{
   {
     color: white;
     background-color:#F07C49;
-        border-radius:25px;
+        /* border-radius:25px; */
     }
     .btn5{
         color: white;

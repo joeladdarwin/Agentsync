@@ -7,6 +7,7 @@ export interface Order {
   deliverydate:Date;
   orderdate:Date;
   productversion:string;
+
 }
 @Component({
   selector: 'app-admincomplete',
@@ -45,6 +46,11 @@ property:any;
     this.dataSource.filter = filterValue;
     
   }
+  scheduleorder(a){
+        console.log(a)
+  }
+
+  
   query(a){
     console.log(a);
    var docRef$= this.afs.collection<Order>('orders').doc(a);
